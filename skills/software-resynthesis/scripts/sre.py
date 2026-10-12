@@ -1,66 +1,14 @@
 #!/usr/bin/env python3
 """SRE workspace and evidence helpers. Python 3.10+, standard library only."""
 import argparse
-import hashlib
 import json
-import math
 import os
 from pathlib import Path
 import sys
-
-
-def require(condition, message):
-    if not condition:
-        raise ValueError(message)
-
-
-def unique_object(pairs):
-    result = {}
-    for key, value in pairs:
-        require(key not in result, f"Duplicate JSON key: {key}")
-        result[key] = value
-    return result
-
-
-def finite(value):
-    if isinstance(value, float):
-        require(math.isfinite(value), "Non-finite JSON number")
-    elif isinstance(value, dict):
-        for item in value.values():
-            finite(item)
-    elif isinstance(value, list):
-        for item in value:
-            finite(item)
-
-
-def read(path):
-    data = json.loads(Path(path).read_text(encoding="utf-8"), object_pairs_hook=unique_object)
-    finite(data)
-    return data
-
-
-def write_new(path, data):
-    with Path(path).open("x", encoding="utf-8") as stream:
-        json.dump(data, stream, ensure_ascii=False, indent=2, allow_nan=False)
-        stream.write("\n")
-
-
-def digest(path):
-    h = hashlib.sha256()
-    with Path(path).open("rb") as stream:
-        for chunk in iter(lambda: stream.read(1024 * 1024), b""):
-            h.update(chunk)
-    return h.hexdigest()
-
-
-def text(value):
-    return isinstance(value, str) and bool(value.strip())
-
-
-def object_v1(data):
-    require(isinstance(data, dict), "Expected JSON object")
-    require(type(data.get("schema_version")) is int and data["schema_version"] == 1,
-            "Unsupported schema_version; expected integer 1")
+from sre_common import require, read, write_new, digest, text, object_v1, difference
+import sre_research
+import sre_domains
+from sre_adapter import run_adapter
 
 
 def trace(path):
@@ -79,29 +27,6 @@ def trace(path):
         for key in ("action", "result", "state"):
             require(isinstance(step.get(key), dict) and step[key], f"Empty or invalid {key} in step {i}")
     return data
-
-
-def difference(left, right, path="$"):
-    """Strict JSON types: false != 0 and 1 != 1.0. Object key order is irrelevant."""
-    if type(left) is not type(right):
-        return {"path": path, "reason": "type", "expected": left, "actual": right}
-    if isinstance(left, dict):
-        if left.keys() != right.keys():
-            return {"path": path, "reason": "keys", "expected": sorted(left), "actual": sorted(right)}
-        for key in sorted(left):
-            found = difference(left[key], right[key], path + "[" + json.dumps(key) + "]")
-            if found:
-                return found
-    elif isinstance(left, list):
-        if len(left) != len(right):
-            return {"path": path, "reason": "length", "expected": len(left), "actual": len(right)}
-        for i, (a, b) in enumerate(zip(left, right)):
-            found = difference(a, b, f"{path}[{i}]")
-            if found:
-                return found
-    elif left != right:
-        return {"path": path, "reason": "value", "expected": left, "actual": right}
-    return None
 
 
 def compare(left, right, report_path):
@@ -155,7 +80,7 @@ def check(workspace):
     require(isinstance(decisions, list), "Invalid decisions")
     accepted = {}
     for vid, validation in validations.items():
-        require(text(validation.get("kind")) and validation["kind"] in {"differential", "target", "synthetic"}, f"Invalid kind: {vid}")
+        require(text(validation.get("kind")) and validation["kind"] in {"differential", "target", "domain", "synthetic"}, f"Invalid kind: {vid}")
         require(text(validation.get("status")) and validation["status"] in {"passed", "failed", "pending"}, f"Invalid status: {vid}")
         links = validation.get("features")
         require(isinstance(links, list) and links and all(text(x) and x in features for x in links),
@@ -179,6 +104,12 @@ def check(workspace):
                         actual["successor"]["provenance"]["kind"] == "successor-runtime",
                         "Synthetic/wrong provenance cannot establish fidelity")
                 require(actual["scenario"] == vid, "Scenario does not match validation ID")
+            elif validation["kind"] == "domain":
+                recorded = read(path)
+                object_v1(recorded)
+                manifest = inside(root, path.parent, recorded.get("manifest"))
+                require(manifest == inside(root, root, validation.get("policy")), "Domain report does not match pinned policy")
+                sre_domains.verify_report(path)
             elif validation["kind"] == "target":
                 result = read(path)
                 object_v1(result)
@@ -208,15 +139,23 @@ def check(workspace):
                 problems.append(f"{fid}: missing passed acceptance {vid}")
             else:
                 kinds.add(v["kind"])
-        if "target" not in kinds:
+        if not kinds.intersection({"target", "domain"}):
             problems.append(f"{fid}: missing target evidence")
         if mode == "preserve" and "differential" not in kinds:
             problems.append(f"{fid}: missing source-runtime differential evidence")
         if mode != "preserve" and not any(isinstance(d, dict) and d.get("feature") == fid and
                                           text(d.get("rationale")) and text(d.get("acceptance")) for d in decisions):
             problems.append(f"{fid}: missing designed-change decision")
-    return {"schema_version": 1, "recorded_acceptance": not problems, "problems": problems,
-            "limitation": "Checks recorded obligations; does not attest authenticity or exhaustive equivalence."}
+    behavior_ready = not problems
+    try:
+        research = sre_research.audit(root)
+        problems.extend(research["problems"])
+    except (ValueError, OSError) as exc:
+        research = {"research_ready": False, "claim": "unestablished"}
+        problems.append(f"Research audit: {exc}")
+    return {"schema_version": 1, "recorded_acceptance": not problems, "behavior_ready": behavior_ready,
+            "research_ready": research["research_ready"], "claim": research["claim"], "problems": problems,
+            "limitation": "Acceptance within sealed discovery scope only; not proof of undiscovered-feature absence or authentic captures."}
 
 
 def initialize(path, source, target):
@@ -230,7 +169,10 @@ def initialize(path, source, target):
         "source": source, "target": target, "stage": "discovery", "features": [],
         "validations": [], "decisions": [], "unknowns": [],
         "next_action": "Preserve the user's full request; discover and pin the source and target."})
-    (root / ".gitignore").write_text("evidence/\nruns/\ncheckpoints/\nproject.json\n", encoding="utf-8")
+    write_new(root / "research.json", {"schema_version": 1,
+        "scope": {"claim": "milestone", "description": source, "source_build": "unresolved",
+                  "target": target, "features": []}, "surveys": [], "questions": []})
+    (root / ".gitignore").write_text("evidence/\nruns/\ncheckpoints/\nproject.json\nresearch*.json\n", encoding="utf-8")
     return {"workspace": str(root.resolve()), "stage": "discovery"}
 
 
@@ -249,6 +191,21 @@ def main(argv=None):
     cmp.add_argument("--out", required=True)
     gate = sub.add_parser("check", help="Check recorded acceptance obligations")
     gate.add_argument("workspace")
+    seal = sub.add_parser("seal", help="Freeze reviewed discovery scope; refuses overwrite")
+    seal.add_argument("workspace")
+    seal.add_argument("--out", default="research-baseline.json")
+    audit = sub.add_parser("audit", help="Audit discovery coverage and experimental evidence")
+    audit.add_argument("workspace")
+    plan = sub.add_parser("plan", help="Rank discriminating experiments without executing them")
+    plan.add_argument("workspace")
+    adapter = sub.add_parser("run-adapter", help="Execute a reviewed adapter command in a new run directory")
+    adapter.add_argument("manifest")
+    adapter.add_argument("request")
+    adapter.add_argument("--out", required=True)
+    adapter.add_argument("--timeout", type=float, default=30)
+    domain = sub.add_parser("domain-check", help="Evaluate images, semantic roundtrips, interactions, or performance")
+    domain.add_argument("manifest")
+    domain.add_argument("--out", required=True)
     args = parser.parse_args(argv)
     try:
         code = 0
@@ -258,6 +215,24 @@ def main(argv=None):
             result = {"file": str(Path(args.file).resolve()), "sha256": digest(args.file)}
         elif args.command == "compare":
             result = compare(args.source, args.successor, args.out)
+            write_new(args.out, result)
+            code = 0 if result["passed"] else 1
+        elif args.command == "seal":
+            result = sre_research.seal(args.workspace, args.out)
+        elif args.command == "audit":
+            result = sre_research.audit(args.workspace)
+            code = 0 if result["research_ready"] else 1
+        elif args.command == "plan":
+            root, project, research = sre_research.inputs(args.workspace)
+            sre_research.inventory(root, project, research)
+            result = sre_research.experiments(root, project, research)
+        elif args.command == "run-adapter":
+            result = run_adapter(args.manifest, args.request, args.out, args.timeout)
+            code = 0 if result["passed"] else 1
+        elif args.command == "domain-check":
+            require(Path(args.out).resolve().parent == Path(args.manifest).resolve().parent,
+                    "Domain report must share manifest directory")
+            result = sre_domains.evaluate(args.manifest)
             write_new(args.out, result)
             code = 0 if result["passed"] else 1
         else:

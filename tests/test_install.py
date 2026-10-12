@@ -2,6 +2,8 @@ import importlib.util
 from pathlib import Path
 import tempfile
 import unittest
+import subprocess
+import sys
 
 spec = importlib.util.spec_from_file_location("sre_install", Path(__file__).resolve().parents[1] / "scripts/install.py")
 installer = importlib.util.module_from_spec(spec)
@@ -15,6 +17,9 @@ class InstallationTests(unittest.TestCase):
             self.assertTrue((target / "SKILL.md").is_file())
             self.assertTrue((target / "references/validation.md").is_file())
             self.assertTrue((target / "scripts/sre.py").is_file())
+            subprocess.run([sys.executable, str(target / "scripts/sre.py"), "init", str(Path(root) / "project"),
+                            "--source", "fixture", "--target", "fixture"], check=True, capture_output=True)
+            self.assertTrue((Path(root) / "project/research.json").is_file())
             (target / "user-note").write_text("preserve")
             with self.assertRaises(FileExistsError):
                 installer.install(root)

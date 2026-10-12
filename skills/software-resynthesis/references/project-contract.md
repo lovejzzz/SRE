@@ -3,6 +3,7 @@
 `sre.py init` creates a new private workspace; it refuses an existing destination. Keep this outside any public repository. It creates:
 
 - `project.json`: schema version, original request, source/target, stage, features, acceptance obligations, decisions, unknowns, and next action.
+- `research.json` and versioned baseline files: see [research-protocol.md](research-protocol.md).
 - `evidence/`: raw observations and source references, kept separate from deliverables.
 - `runs/`: normalized traces, comparison reports, logs, environment fingerprints.
 - `implementation/`: the successor, with its own build and dependency records.
@@ -18,13 +19,13 @@ Use `decisions` for intended differences with rationale and acceptance criteria;
 
 ## Evidence records
 
-`validations` entries have unique `id`, `kind` (`differential`, `target`, or `synthetic`), `status` (`passed`, `failed`, or `pending`), `features` (IDs), and `artifact` (relative workspace path).
+`validations` entries have unique `id`, `kind` (`differential`, `target`, `domain`, or `synthetic`), `status` (`passed`, `failed`, or `pending`), `features` (IDs), and `artifact` (relative workspace path).
 
 For a differential entry, its artifact must be a report produced by `sre.py compare`. The check command recomputes trace hashes and the comparison and rejects stale, failed, or synthetic evidence. Source traces require a pinned source build and actual runtime provenance. A report's contents remain agent-supplied evidence, not a trusted attestation.
 
 For a target entry, its JSON artifact has `schema_version: 1`, `passed: true`, and nonempty `environment`, `command`, and `assertions` (list of checked acceptance statements). Record measured results and device IDs/builds as extra fields when relevant. This supports native/mobile/web tests without assuming one runner. The gate checks the declared result; it does not rerun an arbitrary command from a JSON file.
 
-Every verified feature needs a passed target validation. Every preserved feature additionally needs passed source-runtime differential evidence. Synthetic tests help development but cannot satisfy source fidelity. Adapted/extended features require documented design decisions (a `decisions` entry with `feature`, `rationale`, and `acceptance`). A nonempty feature list and no blocking unknowns are required for recorded acceptance.
+Every verified feature needs a passed target or domain validation. Domain records also require a relative `policy` path; see [domain-validation.md](domain-validation.md). Every preserved feature additionally needs passed source-runtime differential evidence. Synthetic tests help development but cannot satisfy source fidelity. Adapted/extended features require documented design decisions (a `decisions` entry with `feature`, `rationale`, and `acceptance`). A nonempty feature list, no blocking unknowns, and a successful sealed research audit are required for recorded acceptance.
 
 ## Resume note
 

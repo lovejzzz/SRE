@@ -5,10 +5,13 @@ import importlib.util
 import io
 import json
 from pathlib import Path
+import sys
 import tempfile
 import unittest
+from research_fixture import prepare
 
 SCRIPT = Path(__file__).resolve().parents[1] / "skills/software-resynthesis/scripts/sre.py"
+sys.path.insert(0, str(SCRIPT.parent))
 spec = importlib.util.spec_from_file_location("sre_helper", SCRIPT)
 sre = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(sre)
@@ -42,6 +45,7 @@ class EvidenceTests(unittest.TestCase):
              "artifact": "runs/comparison.json"},
             {"id": "ui", "kind": "target", "status": "passed", "features": ["inventory"],
              "artifact": "runs/target.json"}]
+        prepare(self.root, self.project, sre.sre_research)
 
     def save(self, path, data):
         path.write_text(json.dumps(data), encoding="utf-8")
@@ -143,7 +147,36 @@ class EvidenceTests(unittest.TestCase):
         self.assertFalse(self.gate()["recorded_acceptance"])
         self.project["decisions"] = [{"feature": "inventory", "rationale": "Add couch co-op",
                                       "acceptance": "Two independent focus owners"}]
+        prepare(self.root, self.project, sre.sre_research, "enhancement-baseline.json")
         self.assertTrue(self.gate()["recorded_acceptance"])
+
+    def test_behavior_pass_does_not_hide_missing_discovery(self):
+        (self.root / "research-baseline.json").unlink()
+        result = self.gate()
+        self.assertTrue(result["behavior_ready"])
+        self.assertFalse(result["recorded_acceptance"])
+
+    def test_domain_policy_is_pinned_by_research_baseline(self):
+        policy = self.root / "runs/policy.json"
+        raster = {"schema_version": 1, "width": 1, "height": 1, "channels": 1,
+                  "color_space": "linear-gray", "alpha_mode": "none", "samples": [0.5]}
+        self.save(self.root / "runs/reference.json", raster)
+        self.save(self.root / "runs/candidate.json", raster)
+        data = {"schema_version": 1, "kind": "image", "rationale": "Exact identity operation",
+                "reference": "reference.json", "candidate": "candidate.json", "limits": {"max_abs": 0, "rmse": 0}}
+        self.save(policy, data)
+        self.save(self.root / "runs/domain.json", sre.sre_domains.evaluate(policy))
+        feature = self.project["features"][0]
+        feature.update(mode="extend", acceptance=["image"])
+        self.project["validations"] = [{"id": "image", "kind": "domain", "status": "passed",
+            "features": ["inventory"], "artifact": "runs/domain.json", "policy": "runs/policy.json"}]
+        self.project["decisions"] = [{"feature": "inventory", "rationale": "Test extension", "acceptance": "Exact pixels"}]
+        prepare(self.root, self.project, sre.sre_research, "domain-baseline.json")
+        self.assertTrue(self.gate()["recorded_acceptance"])
+        data["limits"] = {"max_abs": 1, "rmse": 1}
+        self.save(policy, data)
+        self.save(self.root / "runs/domain.json", sre.sre_domains.evaluate(policy))
+        self.assertFalse(self.gate()["recorded_acceptance"])
 
     def test_target_failure_not_accepted(self):
         result = sre.read(self.root / "runs/target.json")
