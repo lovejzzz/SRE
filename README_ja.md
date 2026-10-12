@@ -1,4 +1,4 @@
-[English]([REA](https://github.com/morluto/rea)DME.md) · [简体中文](README_zh.md) · [日本語](README_ja.md) · [Español](README_es.md) · [Français](README_fr.md) · [Deutsch](README_de.md) · [Português (Brasil)](README_pt-BR.md)
+[English](README.md) · [简体中文](README_zh.md) · [日本語](README_ja.md) · [Español](README_es.md) · [Français](README_fr.md) · [Deutsch](README_de.md) · [Português (Brasil)](README_pt-BR.md)
 
 # SRE — Software Resynthesis Engine
 
@@ -12,7 +12,7 @@ SRE は、既存ソフトウェアを調査し、必要な動作を保ち、新�
 
 ## インストール
 
-ローカル skill 対応のホストと **Python 3.10+** が必要です。Python の外部依存はありません。REA は任意で、自動インストールされません。
+ローカル skill 対応のホストと **Python 3.10+** が必要です。Python の外部依存はありません。[REA](https://github.com/morluto/rea) は任意で、自動インストールされません。
 
 ```bash
 git clone https://github.com/lovejzzz/SRE.git

@@ -1,4 +1,4 @@
-[English]([REA](https://github.com/morluto/rea)DME.md) · [简体中文](README_zh.md) · [日本語](README_ja.md) · [Español](README_es.md) · [Français](README_fr.md) · [Deutsch](README_de.md) · [Português (Brasil)](README_pt-BR.md)
+[English](README.md) · [简体中文](README_zh.md) · [日本語](README_ja.md) · [Español](README_es.md) · [Français](README_fr.md) · [Deutsch](README_de.md) · [Português (Brasil)](README_pt-BR.md)
 
 # SRE — Software Resynthesis Engine
 
@@ -12,7 +12,7 @@ SRE es una skill para agentes que investigan software existente y construyen un 
 
 ## Instalación
 
-Necesitas un anfitrión compatible con skills locales y **Python 3.10+**, sin dependencias Python externas. REA es opcional y no se instala automáticamente.
+Necesitas un anfitrión compatible con skills locales y **Python 3.10+**, sin dependencias Python externas. [REA](https://github.com/morluto/rea) es opcional y no se instala automáticamente.
 
 ```bash
 git clone https://github.com/lovejzzz/SRE.git

@@ -1,4 +1,4 @@
-[English]([REA](https://github.com/morluto/rea)DME.md) · [简体中文](README_zh.md) · [日本語](README_ja.md) · [Español](README_es.md) · [Français](README_fr.md) · [Deutsch](README_de.md) · [Português (Brasil)](README_pt-BR.md)
+[English](README.md) · [简体中文](README_zh.md) · [日本語](README_ja.md) · [Español](README_es.md) · [Français](README_fr.md) · [Deutsch](README_de.md) · [Português (Brasil)](README_pt-BR.md)
 
 # SRE — Software Resynthesis Engine
 
@@ -12,7 +12,7 @@ SRE 是供 agent 使用的 skill：研究已有软件，保留所需行为，适
 
 ## 快速开始
 
-需要支持本地 skill 的宿主，辅助工具需要 **Python 3.10+**，无第三方 Python 依赖。REA 可选；安装器不会安装 REA 或反编译引擎。
+需要支持本地 skill 的宿主，辅助工具需要 **Python 3.10+**，无第三方 Python 依赖。[REA](https://github.com/morluto/rea) 可选；安装器不会安装 REA 或反编译引擎。
 
 ```bash
 git clone https://github.com/lovejzzz/SRE.git
