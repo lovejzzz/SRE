@@ -1,0 +1,4 @@
+interface:
+  display_name: "Software Resynthesis Engine"
+  short_description: "Research, rebuild, port, and improve existing software"
+  default_prompt: "Use $software-resynthesis to research this software and build a validated successor for my target platform, preserving the behaviors I need and implementing my requested improvements."
