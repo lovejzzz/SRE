@@ -33,7 +33,7 @@ def run(workspace):
     source_values = [posixpath.normpath(p) for p in paths]
     def successor(mutant=False):
         command = [node, str(HERE / "runner.mjs")] + (["--mutant"] if mutant else [])
-        response = subprocess.run(command, input=json.dumps(paths), text=True, capture_output=True,
+        response = subprocess.run(command, input=json.dumps(paths), text=True, encoding="utf-8", capture_output=True,
                                   timeout=30, check=True)
         values = json.loads(response.stdout)
         if not isinstance(values, list) or len(values) != len(paths) or not all(isinstance(v, str) for v in values):
@@ -59,7 +59,7 @@ def run(workspace):
     mutant_report_path = workspace / "runs/mutant-comparison.json"
     mutant_report = sre.compare(source_path, mutant_path, mutant_report_path)
     sre.write_new(mutant_report_path, mutant_report)
-    node_version = subprocess.run([node, "--version"], text=True, capture_output=True, check=True, timeout=10).stdout.strip()
+    node_version = subprocess.run([node, "--version"], text=True, encoding="utf-8", capture_output=True, check=True, timeout=10).stdout.strip()
     target_pass = values == source_values and not mutant_report["passed"]
     sre.write_new(workspace / "runs/target.json", {
         "schema_version": 1, "passed": target_pass, "environment": f"{platform.system()} / Node {node_version}",
@@ -82,6 +82,7 @@ def run(workspace):
     project_path.write_text(json.dumps(project, indent=2) + "\n", encoding="utf-8")
     result = sre.check(workspace)
     print(json.dumps({"cases": len(paths), "differential_passed": report["passed"],
+                      "first_difference": report["first_difference"],
                       "mutant_detected": not mutant_report["passed"], "acceptance": result}, indent=2))
     return 0 if result["recorded_acceptance"] and not mutant_report["passed"] else 1
 
