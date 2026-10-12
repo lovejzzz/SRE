@@ -44,7 +44,7 @@ class EvidenceTests(unittest.TestCase):
             {"id": "move", "kind": "differential", "status": "passed", "features": ["inventory"],
              "artifact": "runs/comparison.json"},
             {"id": "ui", "kind": "target", "status": "passed", "features": ["inventory"],
-             "artifact": "runs/target.json"}]
+             "artifact": "runs/target.json", "sha256": sre.digest(self.root / "runs/target.json")}]
         prepare(self.root, self.project, sre.sre_research)
 
     def save(self, path, data):
@@ -56,6 +56,50 @@ class EvidenceTests(unittest.TestCase):
 
     def test_complete_recorded_obligations(self):
         self.assertTrue(self.gate()["recorded_acceptance"])
+
+    def test_target_metadata_mutation_rejected(self):
+        path = self.root / "runs/target.json"
+        data = sre.read(path)
+        data["environment"] = "unmeasured device"
+        self.save(path, data)
+        self.assertFalse(self.gate()["recorded_acceptance"])
+
+    def test_missing_target_hash_rejected(self):
+        self.project["validations"][1].pop("sha256")
+        self.assertFalse(self.gate()["recorded_acceptance"])
+
+    def test_explicit_scenario_can_differ_from_validation_id(self):
+        self.project["validations"][0].update(id="move-validation", scenario="move")
+        self.project["features"][0]["acceptance"][0] = "move-validation"
+        prepare(self.root, self.project, sre.sre_research, "scenario-baseline.json")
+        self.assertTrue(self.gate()["recorded_acceptance"])
+
+    def test_synthetic_artifact_must_be_valid_trace(self):
+        self.project["validations"].append({"id": "fixture", "kind": "synthetic",
+            "status": "passed", "features": ["inventory"], "artifact": "runs/fixture.json"})
+        self.save(self.root / "runs/fixture.json", {})
+        self.assertFalse(self.gate()["recorded_acceptance"])
+        data = copy.deepcopy(self.original)
+        data["scenario"] = "fixture"
+        data["provenance"]["kind"] = "synthetic"
+        self.save(self.root / "runs/fixture.json", data)
+        self.assertTrue(self.gate()["recorded_acceptance"])
+
+    def test_deep_json_has_actionable_error(self):
+        for depth in (130, 5000):
+            self.a.write_text("[" * depth + "0" + "]" * depth)
+            with self.assertRaisesRegex(ValueError, "maximum depth 128"):
+                sre.read(self.a)
+
+    def test_plan_cli_works_before_source_build_is_known(self):
+        self.project["features"] = []
+        self.save(self.root / "project.json", self.project)
+        self.save(self.root / "research.json", {"schema_version": 1,
+            "scope": {"source_build": "unresolved"}, "surveys": [], "questions": []})
+        with contextlib.redirect_stdout(io.StringIO()) as output:
+            code = sre.main(["plan", str(self.root)])
+        self.assertEqual(code, 0)
+        self.assertEqual(json.loads(output.getvalue())["next_experiments"], [])
 
     def test_mutant_loses_item(self):
         self.successor["steps"][0]["state"]["items"] = []
@@ -182,7 +226,10 @@ class EvidenceTests(unittest.TestCase):
         result = sre.read(self.root / "runs/target.json")
         result["passed"] = False
         self.save(self.root / "runs/target.json", result)
-        self.assertFalse(self.gate()["recorded_acceptance"])
+        self.project["validations"][1]["sha256"] = sre.digest(self.root / "runs/target.json")
+        outcome = self.gate()
+        self.assertFalse(outcome["recorded_acceptance"])
+        self.assertTrue(any("Target test did not pass" in p for p in outcome["problems"]))
 
     def test_evidence_must_link_required_feature(self):
         self.project["validations"][0]["features"] = ["nonexistent"]

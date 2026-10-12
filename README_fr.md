@@ -1,4 +1,4 @@
-[English](README.md) · [简体中文](README_zh.md) · [日本語](README_ja.md) · [Español](README_es.md) · [Français](README_fr.md) · [Deutsch](README_de.md) · [Português (Brasil)](README_pt-BR.md)
+[English]([REA](https://github.com/morluto/rea)DME.md) · [简体中文](README_zh.md) · [日本語](README_ja.md) · [Español](README_es.md) · [Français](README_fr.md) · [Deutsch](README_de.md) · [Português (Brasil)](README_pt-BR.md)
 
 # SRE — Software Resynthesis Engine
 
@@ -54,3 +54,5 @@ Les évaluations indépendantes d’agents n’ont pas été réalisées. Gardez
 [Recherche](skills/software-resynthesis/references/research-protocol.md) · [Adaptateurs](skills/software-resynthesis/references/adapters.md) · [Validation par domaine](skills/software-resynthesis/references/domain-validation.md) · [Évaluation](evals/behavioral.md)
 
 Les rapports de défauts reproductibles et anonymisés, avec versions, entrées, résultats attendus/réels et preuves, ainsi que les améliorations de traduction, sont bienvenus. Les protocoles techniques détaillés sont actuellement en anglais.
+
+Mise à jour de l’intégrité : les validations de la cible et les observations de recherche exigent SHA-256. Voir la [migration et les limites](skills/software-resynthesis/references/validation.md#recorded-evidence-integrity) et le [journal des modifications](CHANGELOG.md).

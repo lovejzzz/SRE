@@ -38,3 +38,5 @@ python3 <skill>/scripts/sre.py run-adapter manifest.json request.json --out runs
 The destination must not exist. It contains request/manifest, hashes, process record, stdout/stderr, terminal `run.json` and a successful `trace.json` only when validation passes. Timeout terminates the owned POSIX process group or Windows process tree. No automatic retry. Adapters must not detach background workers. After host interruption, inspect ownership/start time and state; a stale PID is not sufficient identity for cleanup.
 
 Responses over 16 MiB are not parsed. Logs stream to disk; this does not cap disk usage or process resources. Use a separately authorized sandbox for hostile samples. GUI control and long-lived services need application-specific adapters. The POSIX example demonstrates actual Python/JavaScript runners; Photoshop and PZ adapters are not included.
+
+Preflight errors (including missing build files) return input error 2 before creating a run directory. Diagnostics are retained once execution setup creates the run directory. Relative build paths resolve against the manifest directory, not the shell working directory.

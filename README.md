@@ -1,4 +1,4 @@
-[English](README.md) · [简体中文](README_zh.md) · [日本語](README_ja.md) · [Español](README_es.md) · [Français](README_fr.md) · [Deutsch](README_de.md) · [Português (Brasil)](README_pt-BR.md)
+[English]([REA](https://github.com/morluto/rea)DME.md) · [简体中文](README_zh.md) · [日本語](README_ja.md) · [Español](README_es.md) · [Français](README_fr.md) · [Deutsch](README_de.md) · [Português (Brasil)](README_pt-BR.md)
 
 # SRE — Software Resynthesis Engine
 
@@ -85,3 +85,5 @@ Evidence hashes detect stale records, not fabricated experiments. Independent ag
 - [Behavioral evaluation protocol](evals/behavioral.md)
 
 Contribute reproducible, sanitized failures with versions, inputs, expected/actual behavior and evidence. Preserve regression tests. Translation improvements are welcome; keep capability and limitation statements aligned across languages. Detailed technical protocols currently use English.
+
+Evidence integrity update: target validations and research observations require SHA-256 digests. See [migration and integrity limits](skills/software-resynthesis/references/validation.md#recorded-evidence-integrity) and [change history](CHANGELOG.md).

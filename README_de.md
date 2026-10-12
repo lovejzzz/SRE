@@ -1,4 +1,4 @@
-[English](README.md) · [简体中文](README_zh.md) · [日本語](README_ja.md) · [Español](README_es.md) · [Français](README_fr.md) · [Deutsch](README_de.md) · [Português (Brasil)](README_pt-BR.md)
+[English]([REA](https://github.com/morluto/rea)DME.md) · [简体中文](README_zh.md) · [日本語](README_ja.md) · [Español](README_es.md) · [Français](README_fr.md) · [Deutsch](README_de.md) · [Português (Brasil)](README_pt-BR.md)
 
 # SRE — Software Resynthesis Engine
 
@@ -54,3 +54,5 @@ Unabhängige Agentenbewertungen wurden noch nicht durchgeführt. Private Beispie
 [Forschungsprotokoll](skills/software-resynthesis/references/research-protocol.md) · [Adapter](skills/software-resynthesis/references/adapters.md) · [Fachspezifische Prüfung](skills/software-resynthesis/references/domain-validation.md) · [Bewertung](evals/behavioral.md)
 
 Reproduzierbare, bereinigte Fehlerberichte mit Versionen, Eingaben, Soll-/Ist-Verhalten und Belegen sowie Übersetzungsverbesserungen sind willkommen. Detaillierte technische Protokolle liegen derzeit auf Englisch vor.
+
+Integritätsupdate: Zielvalidierungen und Forschungsbeobachtungen benötigen SHA-256. Siehe [Migration und Grenzen](skills/software-resynthesis/references/validation.md#recorded-evidence-integrity) und [Änderungsprotokoll](CHANGELOG.md).

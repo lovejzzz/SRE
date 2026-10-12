@@ -39,6 +39,9 @@ def run_adapter(manifest_path, request_path, output_dir, timeout=30):
     require(isinstance(actions, list) and actions and all(isinstance(a, dict) and a for a in actions), "Invalid actions")
     files = manifest.get("build_files")
     require(isinstance(files, list) and files and all(text(p) for p in files), "Explicit build_files required")
+    for name in files:
+        require((manifest_path.parent / name).resolve().is_file(),
+                f"Missing build file: {name} (resolved relative to {manifest_path.parent})")
     pinned = {p: digest((manifest_path.parent / p).resolve()) for p in files}
     output = Path(output_dir).resolve()
     output.mkdir(parents=True, exist_ok=False)

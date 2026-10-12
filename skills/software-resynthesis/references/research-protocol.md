@@ -38,7 +38,7 @@ Each question has `id`, `feature`, `question`, boolean `blocking`, integer `impa
 
 `plan` ranks unobserved experiments by expected eliminated hypotheses under a uniform prior, weighted by impact and divided by cost. Blocking questions come first. This is a heuristic, not measured confidence. Identical predictions cannot discriminate and are omitted. Designing good hypotheses and experiments remains the agent's responsibility.
 
-After real execution, add `observation: {"artifact":"runs/source/trace.json","pointer":"/steps/0/result/value"}`. The artifact needs v1 schema and `provenance.kind: source-runtime` with the pinned build. The JSON pointer selects the observable. One surviving hypothesis resolves the question; no survivors reports contradiction. Blocking unresolved questions prevent acceptance. Synthetic observations cannot resolve source behavior. Keep raw captures: provenance labels are declarations, not authentication.
+After real execution, add `observation: {"artifact":"runs/source/trace.json","pointer":"/steps/0/result/value","sha256":"<capture SHA-256>"}`. Use `sre.py fingerprint <capture>` after reviewing the capture; `audit` verifies the complete file hash, including unselected fields. Missing/stale hashes fail closed. Hashes do not authenticate the source or protect against rewriting both capture and metadata. The artifact needs v1 schema and `provenance.kind: source-runtime` with the pinned build. The JSON pointer selects the observable. One surviving hypothesis resolves the question; no survivors reports contradiction. Blocking unresolved questions prevent acceptance. Synthetic observations cannot resolve source behavior. Keep raw captures: provenance labels are declarations, not authentication.
 
 ## Seal and evolve
 
@@ -54,3 +54,5 @@ Seal after discovery reconciliation and experiment design, before acceptance out
 New evidence may legitimately expand the plan. Record why, preserve the old baseline, then `seal --out research-baseline-2.json` and set `project.json.research_baseline` to that file. This is reviewable versioning, not tamper-proof storage. Never rebaseline simply to hide a regression or removed requirement.
 
 Migration from v0.1: add actual surveys/questions, pin the build and seal. Do not invent evidence to make legacy results green. `check` exposes `behavior_ready` and `research_ready`; it returns nonzero unless both pass. Full-scope acceptance still cannot prove absence of unknown, undiscovered features.
+
+`plan` is available before the build and inventory are finalized. It validates supplied questions and ranks their experiments; a newly initialized workspace returns an empty queue until questions are added. It does not certify discovery readiness. `seal` and `audit` retain the complete inventory requirements.

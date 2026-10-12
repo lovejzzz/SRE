@@ -1,4 +1,4 @@
-[English](README.md) · [简体中文](README_zh.md) · [日本語](README_ja.md) · [Español](README_es.md) · [Français](README_fr.md) · [Deutsch](README_de.md) · [Português (Brasil)](README_pt-BR.md)
+[English]([REA](https://github.com/morluto/rea)DME.md) · [简体中文](README_zh.md) · [日本語](README_ja.md) · [Español](README_es.md) · [Français](README_fr.md) · [Deutsch](README_de.md) · [Português (Brasil)](README_pt-BR.md)
 
 # SRE — Software Resynthesis Engine
 
@@ -54,3 +54,5 @@ Python の `posixpath.normpath` と独立した JavaScript 実装を実際に実
 [調査プロトコル](skills/software-resynthesis/references/research-protocol.md) · [アダプター](skills/software-resynthesis/references/adapters.md) · [領域別検証](skills/software-resynthesis/references/domain-validation.md) · [評価](evals/behavioral.md)
 
 再現可能で機密情報を除去した不具合報告と翻訳改善を歓迎します。バージョン、入力、期待値・実測値、証拠を添えてください。詳細な技術文書は現在英語です。
+
+証拠の整合性更新：対象環境の検証と調査観測には SHA-256 が必要です。[移行方法と検証の限界](skills/software-resynthesis/references/validation.md#recorded-evidence-integrity)と[変更履歴](CHANGELOG.md)を参照してください。

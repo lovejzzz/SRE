@@ -131,9 +131,10 @@ def seal(workspace, out):
 def pointer(value, selector):
     require(isinstance(selector, str) and (selector == "" or selector.startswith("/")), "Invalid JSON pointer")
     for token in selector.split("/")[1:]:
+        require(all(part and part[0] in "01" for part in token.split("~")[1:]), "Invalid JSON pointer escape")
         token = token.replace("~1", "/").replace("~0", "~")
         if isinstance(value, list):
-            require(token.isdigit() and int(token) < len(value), "Invalid array pointer")
+            require(token.isascii() and token.isdigit() and (token == "0" or not token.startswith("0")) and int(token) < len(value), "Invalid array pointer")
             value = value[int(token)]
         else:
             require(isinstance(value, dict) and token in value, "Missing observation pointer")
@@ -163,7 +164,9 @@ def experiments(root, project, research):
             observation = experiment.get("observation")
             if observation is not None:
                 require(isinstance(observation, dict), "Invalid observation")
-                captured = read(artifact(root, observation.get("artifact")))
+                captured_path = artifact(root, observation.get("artifact"))
+                require(observation.get("sha256") == digest(captured_path), "Missing or stale observation sha256; fingerprint the reviewed capture")
+                captured = read(captured_path)
                 object_v1(captured)
                 provenance = captured.get("provenance")
                 require(isinstance(provenance, dict) and provenance.get("kind") == "source-runtime" and

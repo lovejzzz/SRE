@@ -103,7 +103,7 @@ def check(workspace):
                 require(actual["source"]["provenance"]["kind"] == "source-runtime" and
                         actual["successor"]["provenance"]["kind"] == "successor-runtime",
                         "Synthetic/wrong provenance cannot establish fidelity")
-                require(actual["scenario"] == vid, "Scenario does not match validation ID")
+                require(actual["scenario"] == validation.get("scenario", vid), "Scenario does not match validation scenario (defaults to ID)")
             elif validation["kind"] == "domain":
                 recorded = read(path)
                 object_v1(recorded)
@@ -111,6 +111,7 @@ def check(workspace):
                 require(manifest == inside(root, root, validation.get("policy")), "Domain report does not match pinned policy")
                 sre_domains.verify_report(path)
             elif validation["kind"] == "target":
+                require(validation.get("sha256") == digest(path), "Missing or stale target sha256; fingerprint the reviewed result")
                 result = read(path)
                 object_v1(result)
                 require(result.get("passed") is True, "Target test did not pass")
@@ -118,6 +119,10 @@ def check(workspace):
                     require(text(result.get(key)), f"Missing target {key}")
                 require(isinstance(result.get("assertions"), list) and result["assertions"] and
                         all(text(x) for x in result["assertions"]), "Missing target assertions")
+            elif validation["kind"] == "synthetic":
+                captured = trace(path)
+                require(captured["provenance"]["kind"] == "synthetic", "Synthetic validation requires synthetic provenance")
+                require(captured["scenario"] == validation.get("scenario", vid), "Synthetic scenario mismatch")
             accepted[vid] = validation
         except (ValueError, OSError) as exc:
             problems.append(f"{vid}: {exc}")
@@ -224,7 +229,6 @@ def main(argv=None):
             code = 0 if result["research_ready"] else 1
         elif args.command == "plan":
             root, project, research = sre_research.inputs(args.workspace)
-            sre_research.inventory(root, project, research)
             result = sre_research.experiments(root, project, research)
         elif args.command == "run-adapter":
             result = run_adapter(args.manifest, args.request, args.out, args.timeout)

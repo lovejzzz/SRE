@@ -17,19 +17,23 @@ def unique_object(pairs):
     return result
 
 
-def finite(value):
+def finite(value, depth=0):
+    require(depth <= 128, "JSON nesting exceeds maximum depth 128")
     if isinstance(value, float):
         require(math.isfinite(value), "Non-finite JSON number")
     elif isinstance(value, dict):
         for item in value.values():
-            finite(item)
+            finite(item, depth + 1)
     elif isinstance(value, list):
         for item in value:
-            finite(item)
+            finite(item, depth + 1)
 
 
 def read(path):
-    data = json.loads(Path(path).read_text(encoding="utf-8"), object_pairs_hook=unique_object)
+    try:
+        data = json.loads(Path(path).read_text(encoding="utf-8"), object_pairs_hook=unique_object)
+    except RecursionError as exc:
+        raise ValueError("JSON nesting exceeds maximum depth 128") from exc
     finite(data)
     return data
 

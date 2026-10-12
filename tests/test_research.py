@@ -38,7 +38,7 @@ class ResearchTests(unittest.TestCase):
         file = self.root / "evidence/observation.json"
         file.write_text(json.dumps({"schema_version": 1, "provenance": {"kind": kind, "build": "fixture-only"},
                                     "value": value}), encoding="utf-8")
-        self.data["questions"][0]["experiments"][1]["observation"] = {"artifact": "evidence/observation.json", "pointer": "/value"}
+        self.data["questions"][0]["experiments"][1]["observation"] = {"artifact": "evidence/observation.json", "pointer": "/value", "sha256": research.digest(file)}
         self.save()
 
     def test_complete_declared_surfaces(self):
@@ -105,6 +105,30 @@ class ResearchTests(unittest.TestCase):
         result = research.audit(self.root)
         self.assertTrue(result["research_ready"])
         self.assertEqual(["b"], result["questions"][0]["surviving_hypotheses"])
+
+    def test_missing_observation_hash_rejected(self):
+        self.question()
+        self.observe(2)
+        del self.data["questions"][0]["experiments"][1]["observation"]["sha256"]
+        self.save()
+        with self.assertRaisesRegex(ValueError, "observation sha256"):
+            research.audit(self.root)
+
+    def test_observation_metadata_mutation_is_stale(self):
+        self.question()
+        self.observe(2)
+        path = self.root / "evidence/observation.json"
+        data = json.loads(path.read_text())
+        data["unselected_metadata"] = "edited"
+        path.write_text(json.dumps(data))
+        with self.assertRaisesRegex(ValueError, "stale observation sha256"):
+            research.audit(self.root)
+
+    def test_json_pointer_escapes_and_array_indices(self):
+        self.assertEqual(research.pointer({"a/b": {"~x": [3]}}, "/a~1b/~0x/0"), 3)
+        for selector in ("/~2", "/~", "/01", "/-1"):
+            with self.assertRaises(ValueError):
+                research.pointer([1, 2], selector)
 
     def test_contradiction_blocks(self):
         self.question()

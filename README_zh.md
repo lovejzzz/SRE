@@ -1,4 +1,4 @@
-[English](README.md) · [简体中文](README_zh.md) · [日本語](README_ja.md) · [Español](README_es.md) · [Français](README_fr.md) · [Deutsch](README_de.md) · [Português (Brasil)](README_pt-BR.md)
+[English]([REA](https://github.com/morluto/rea)DME.md) · [简体中文](README_zh.md) · [日本語](README_ja.md) · [Español](README_es.md) · [Français](README_fr.md) · [Deutsch](README_de.md) · [Português (Brasil)](README_pt-BR.md)
 
 # SRE — Software Resynthesis Engine
 
@@ -72,3 +72,5 @@ python3 examples/posix-path/run.py --workspace work/posix-run-1
 [Skill 入口](skills/software-resynthesis/SKILL.md) · [研究协议](skills/software-resynthesis/references/research-protocol.md) · [适配器协议](skills/software-resynthesis/references/adapters.md) · [领域验证](skills/software-resynthesis/references/domain-validation.md) · [PZ 路线](skills/software-resynthesis/references/pz-inventory.md) · [评测协议](evals/behavioral.md)
 
 欢迎提交可复现、脱敏的失败案例：版本、输入、预期/实际行为和证据，并保留回归测试。欢迎改进翻译；各语言的能力和限制声明应保持一致。详细技术协议目前使用英文。
+
+证据完整性更新：目标验证和研究观察必须记录 SHA-256。参见[迁移方法与校验边界](skills/software-resynthesis/references/validation.md#recorded-evidence-integrity)及[变更记录](CHANGELOG.md)。

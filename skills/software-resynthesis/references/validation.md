@@ -23,3 +23,13 @@ Exit 0 means equal valid traces, 1 means semantic mismatch, 2 means malformed in
 - Re-run affected checks after a fix. For preserve features, run differential and destination checks; for designed changes, use explicit target acceptance plus regressions.
 
 `sre.py check` checks recorded obligations and detects stale differential artifacts; it cannot establish that observations are authentic, that every feature was discovered, or that manually recorded target assertions were actually executed. Keep these limits visible in the delivery report. Do not call a prototype an automatic, universal software reconstruction engine.
+
+## Recorded evidence integrity
+
+For differential and synthetic validations, `scenario` optionally names the trace scenario; it defaults to the validation `id`. Synthetic artifacts must be valid traces with synthetic provenance. They can supplement testing but never replace source-runtime differential or target/domain evidence.
+
+A passed target validation needs `sha256` alongside `artifact` in `project.json`. After executing and reviewing the test, run `sre.py fingerprint <workspace>/runs/target.json` and copy the returned digest. The target file still requires v1 schema, `passed: true`, nonempty `command` and `environment`, and a nonempty string array `assertions`. `check` verifies its complete file hash without executing the recorded command.
+
+Older records without a digest fail closed. Review the original capture and execution logs before adding its digest; rerun the test if those are unavailable. Do not silently refresh hashes after unexpected changes. A digest detects file drift relative to its record, not authenticity: anyone able to rewrite both evidence and metadata can fabricate them. Retain reviewed snapshots in access-controlled storage when stronger integrity is needed.
+
+All JSON inputs have a maximum nesting depth of 128 (root depth zero). Split excessively nested captures or normalize them into a reviewed bounded representation.

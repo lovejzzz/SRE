@@ -104,8 +104,10 @@ def run(workspace):
     project['validations'][0]['status'] = 'passed' if report['passed'] else 'failed'
     project['validations'][1]['status'] = 'passed' if passed else 'failed'
     project.update(stage='validation', next_action='Review limited scope; not a PZ or full-application benchmark.')
+    project['validations'][1]['sha256'] = sre.digest(workspace / 'runs/target.json')
     project_path.write_text(json.dumps(project, indent=2), encoding='utf-8')
-    research['questions'][0]['experiments'][0]['observation'] = {'artifact': 'runs/source/trace.json', 'pointer': '/steps/4/result/value'}
+    probe_index = paths.index(research['questions'][0]['experiments'][0]['input']['normalize'])
+    research['questions'][0]['experiments'][0]['observation'] = {'artifact': 'runs/source/trace.json', 'pointer': f'/steps/{probe_index}/result/value', 'sha256': sre.digest(workspace / 'runs/source/trace.json')}
     research_path.write_text(json.dumps(research, indent=2), encoding='utf-8')
     result = sre.check(workspace)
     print(json.dumps({'cases': len(paths), 'differential_passed': report['passed'],

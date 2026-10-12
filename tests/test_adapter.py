@@ -50,6 +50,12 @@ class AdapterTests(unittest.TestCase):
         with self.assertRaises(FileExistsError):
             self.run_case()
 
+    def test_missing_build_file_is_preflight_error(self):
+        (self.root / "adapter.py").unlink()
+        with self.assertRaisesRegex(ValueError, "Missing build file: adapter.py"):
+            self.run_case()
+        self.assertFalse((self.root / "run").exists())
+
     def test_timeout_retains_diagnostics(self):
         result = self.run_case("timeout")
         self.assertEqual("timeout", result["status"])

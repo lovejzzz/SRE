@@ -1,4 +1,4 @@
-[English](README.md) · [简体中文](README_zh.md) · [日本語](README_ja.md) · [Español](README_es.md) · [Français](README_fr.md) · [Deutsch](README_de.md) · [Português (Brasil)](README_pt-BR.md)
+[English]([REA](https://github.com/morluto/rea)DME.md) · [简体中文](README_zh.md) · [日本語](README_ja.md) · [Español](README_es.md) · [Français](README_fr.md) · [Deutsch](README_de.md) · [Português (Brasil)](README_pt-BR.md)
 
 # SRE — Software Resynthesis Engine
 
@@ -54,3 +54,5 @@ No se han realizado evaluaciones independientes de agentes. Mantén muestras pri
 [Investigación](skills/software-resynthesis/references/research-protocol.md) · [Adaptadores](skills/software-resynthesis/references/adapters.md) · [Validación por dominio](skills/software-resynthesis/references/domain-validation.md) · [Evaluación](evals/behavioral.md)
 
 Se agradecen fallos reproducibles y anonimizados, con versiones, entradas, resultados esperados/reales y evidencias, así como mejoras de traducción. Los protocolos técnicos detallados están actualmente en inglés.
+
+Actualización de integridad: las validaciones del destino y las observaciones de investigación requieren SHA-256. Consulta la [migración y sus límites](skills/software-resynthesis/references/validation.md#recorded-evidence-integrity) y el [historial de cambios](CHANGELOG.md).
