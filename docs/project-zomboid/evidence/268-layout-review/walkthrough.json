@@ -1,0 +1,212 @@
+{
+  "kind": "tian-house-workshop-walkthrough",
+  "version": 1,
+  "startedAt": "2026-10-14T00:59:02.968Z",
+  "houseName": "Momento Brewers · Photo study",
+  "sceneId": "2b1353d7-e74f-48a1-b6f1-1e3634bb6bfe",
+  "sceneRevision": 230,
+  "conditions": {
+    "temporaryCharacter": true,
+    "zombieSpawning": false,
+    "survivalAcceptance": false
+  },
+  "simulatedSeconds": 107.1003000000076,
+  "visited": [
+    {
+      "position": [
+        7999,
+        11409,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 0
+    },
+    {
+      "position": [
+        8000,
+        11409,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 26.524999999999615
+    },
+    {
+      "position": [
+        8001,
+        11409,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 27.149099999999645
+    },
+    {
+      "position": [
+        8002,
+        11409,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 27.774999999999608
+    },
+    {
+      "position": [
+        8002,
+        11408,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 28.550099999999645
+    },
+    {
+      "position": [
+        8002,
+        11407,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 29.175099999999645
+    },
+    {
+      "position": [
+        8003,
+        11407,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 43.908400000000626
+    },
+    {
+      "position": [
+        8004,
+        11407,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 44.533400000000654
+    },
+    {
+      "position": [
+        8004,
+        11406,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 45.03340000000071
+    },
+    {
+      "position": [
+        8004,
+        11406,
+        0
+      ],
+      "surfaceZ": 0.08333333333333333,
+      "seconds": 62.65000000000229
+    },
+    {
+      "position": [
+        8004,
+        11405,
+        0
+      ],
+      "surfaceZ": 0.08333333333333333,
+      "seconds": 62.866700000002325
+    },
+    {
+      "position": [
+        8004,
+        11405,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 63.08350000000232
+    },
+    {
+      "position": [
+        8004,
+        11404,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 63.49100000000234
+    },
+    {
+      "position": [
+        8004,
+        11405,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 83.31690000000458
+    },
+    {
+      "position": [
+        8004,
+        11405,
+        0
+      ],
+      "surfaceZ": 0.08333333333333333,
+      "seconds": 83.72500000000461
+    },
+    {
+      "position": [
+        8004,
+        11406,
+        0
+      ],
+      "surfaceZ": 0.08333333333333333,
+      "seconds": 83.94190000000468
+    },
+    {
+      "position": [
+        8004,
+        11406,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 84.1585000000047
+    },
+    {
+      "position": [
+        8004,
+        11406,
+        0
+      ],
+      "surfaceZ": 0.08333333333333333,
+      "seconds": 106.50020000000755
+    }
+  ],
+  "events": [
+    {
+      "seconds": 26.199299999999614,
+      "message": "Open door"
+    },
+    {
+      "seconds": 62.366900000002275,
+      "message": "Open door"
+    },
+    {
+      "seconds": 106.09190000000757,
+      "message": "Close door"
+    }
+  ],
+  "changes": {
+    "8000,11409,0:fixtures_doors_01_48": {
+      "open": true,
+      "locked": false,
+      "lockedByKey": false
+    },
+    "8004,11406,0:scene-opening:momento-service-door": {
+      "open": false,
+      "locked": false,
+      "lockedByKey": false
+    }
+  },
+  "player": {
+    "x": 8004.41991421652,
+    "y": 11406.18699556143,
+    "z": 0,
+    "surfaceZ": 0.08333333333333333,
+    "hp": 100
+  },
+  "inventoryCount": 13
+}

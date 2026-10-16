@@ -1,0 +1,52 @@
+[
+  {
+    "tile": "fixtures_doors_01_0",
+    "axis": "W",
+    "region": {
+      "x": 931,
+      "y": 622,
+      "w": 50,
+      "h": 179,
+      "ox": 8,
+      "oy": 44,
+      "ow": 128,
+      "oh": 256,
+      "page": "Tiles2x-62.png",
+      "scale": 2
+    },
+    "pageSHA256": "3cb434690321bec3e43b336e970e948f6efea8a995b2c2e7d398dc8341fba98b",
+    "alphaThreshold": 128,
+    "wallPlaneBounds": [
+      0.109375,
+      0.20833333333333334,
+      0.875,
+      1.0078125
+    ],
+    "evidence": "source-silhouette; physical aperture requires review"
+  },
+  {
+    "tile": "fixtures_doors_01_1",
+    "axis": "N",
+    "region": {
+      "x": 796,
+      "y": 820,
+      "w": 50,
+      "h": 179,
+      "ox": 68,
+      "oy": 44,
+      "ow": 128,
+      "oh": 256,
+      "page": "Tiles2x-62.png",
+      "scale": 2
+    },
+    "pageSHA256": "3cb434690321bec3e43b336e970e948f6efea8a995b2c2e7d398dc8341fba98b",
+    "alphaThreshold": 128,
+    "wallPlaneBounds": [
+      0.0625,
+      0.21614583333333334,
+      0.828125,
+      1.015625
+    ],
+    "evidence": "source-silhouette; physical aperture requires review"
+  }
+]

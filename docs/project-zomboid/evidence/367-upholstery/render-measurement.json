@@ -1,0 +1,22 @@
+{
+  "cpuSubmission": {
+    "samples": 120,
+    "p50Ms": 2.1,
+    "p95Ms": 2.6
+  },
+  "browserFrameCadence": {
+    "samples": 120,
+    "p50Ms": 8.3,
+    "p95Ms": 9
+  },
+  "lastFrame": {
+    "drawCalls": 1017,
+    "triangles": 363692
+  },
+  "allocatedResourceCounts": {
+    "geometries": 173,
+    "textures": 31
+  },
+  "gpuTime": "not measured",
+  "memoryBytes": "not measured"
+}

@@ -1,0 +1,17 @@
+✔ lamp delivery retains open shade and source dimensions (6.447708ms)
+✔ mounted light follows host surface, raised ground, floor and object movement without scene mutation (13.608542ms)
+✔ fixture lighting has real shadow-casting sources, level filtering, persistent switch and cleanup (1.018917ms)
+✔ asymmetric emitter samples rotate with furniture in all directions without inheriting translation (36.200625ms)
+✔ late generation and publication failures preserve the previous complete manifest (31.637583ms)
+✔ runtime rejects corrupted bytes and invalid manifest paths before accepting geometry (0.883083ms)
+✔ wall-strip uses actual wall face and thickness in both axes (4.42125ms)
+✔ wall-sconce uses actual wall face and thickness in both axes (1.535042ms)
+✔ wall light rejects degenerate diffuser geometry (0.343875ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 9
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 118.737792

@@ -1,0 +1,226 @@
+{
+  "kind": "tian-house-workshop-walkthrough",
+  "version": 1,
+  "startedAt": "2026-10-14T01:59:57.597Z",
+  "houseName": "Momento Brewers · Photo study",
+  "sceneId": "2b1353d7-e74f-48a1-b6f1-1e3634bb6bfe",
+  "sceneRevision": 251,
+  "conditions": {
+    "temporaryCharacter": true,
+    "zombieSpawning": false,
+    "survivalAcceptance": false
+  },
+  "simulatedSeconds": 66.60940000000099,
+  "visited": [
+    {
+      "position": [
+        7999,
+        11409,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 0
+    },
+    {
+      "position": [
+        8000,
+        11409,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 8.259099999999899
+    },
+    {
+      "position": [
+        8001,
+        11409,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 8.8840999999999
+    },
+    {
+      "position": [
+        8002,
+        11409,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 9.508599999999909
+    },
+    {
+      "position": [
+        8002,
+        11408,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 10.292399999999848
+    },
+    {
+      "position": [
+        8002,
+        11407,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 10.915799999999876
+    },
+    {
+      "position": [
+        8003,
+        11407,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 11.517399999999862
+    },
+    {
+      "position": [
+        8004,
+        11407,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 12.140799999999887
+    },
+    {
+      "position": [
+        8005,
+        11407,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 12.765899999999869
+    },
+    {
+      "position": [
+        8006,
+        11407,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 13.3907999999999
+    },
+    {
+      "position": [
+        8007,
+        11407,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 14.017399999999883
+    },
+    {
+      "position": [
+        8007,
+        11408,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 26.634200000000558
+    },
+    {
+      "position": [
+        8007,
+        11409,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 27.2592000000006
+    },
+    {
+      "position": [
+        8007,
+        11408,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 47.64260000000103
+    },
+    {
+      "position": [
+        8008,
+        11408,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 48.06760000000101
+    },
+    {
+      "position": [
+        8008,
+        11407,
+        0
+      ],
+      "surfaceZ": 0.08333333333333333,
+      "seconds": 49.392600000000925
+    },
+    {
+      "position": [
+        8009,
+        11407,
+        0
+      ],
+      "surfaceZ": 0.08333333333333333,
+      "seconds": 49.90090000000083
+    },
+    {
+      "position": [
+        8009,
+        11407,
+        0
+      ],
+      "surfaceZ": 0.0625,
+      "seconds": 50.117700000000866
+    },
+    {
+      "position": [
+        8010,
+        11407,
+        0
+      ],
+      "surfaceZ": 0.0625,
+      "seconds": 50.5260000000009
+    },
+    {
+      "position": [
+        8011,
+        11407,
+        0
+      ],
+      "surfaceZ": 0.0625,
+      "seconds": 51.15100000000088
+    }
+  ],
+  "events": [
+    {
+      "seconds": 7.925799999999851,
+      "message": "Open door"
+    },
+    {
+      "seconds": 49.76610000000091,
+      "message": "Open door"
+    }
+  ],
+  "changes": {
+    "8000,11409,0:fixtures_doors_01_48": {
+      "open": true,
+      "locked": false,
+      "lockedByKey": false
+    },
+    "8009,11407,0:scene-opening:61c325b7-3b80-4a4f-8131-035acc04a0d3": {
+      "open": true,
+      "locked": false,
+      "lockedByKey": false
+    }
+  },
+  "player": {
+    "x": 8011.245611134138,
+    "y": 11407.443531134186,
+    "z": 0,
+    "surfaceZ": 0.0625,
+    "hp": 100
+  },
+  "inventoryCount": 13
+}

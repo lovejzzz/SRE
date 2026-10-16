@@ -1,0 +1,10 @@
+✔ original masonry has matching N/W surrounds and orientation groups retain distinct materials without exposing generated surrounds (2.601583ms)
+✔ changing masonry preserves doors, tall windows and original opening identities through undo and export (14.025916ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 2
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 62.077375

@@ -1,0 +1,17 @@
+✔ real simulation advances without changing original save and uses calibrated coordinates (3.165625ms)
+✔ door changes come from game rules, including locked failure (1.3785ms)
+✔ visitor storage uses timed game transfers and preserves the same physical instance (3.62425ms)
+✔ physical movement cancels a timed action even after nearby queries sync coordinates (0.303959ms)
+✔ nearby facilities use real sleep actions and reject stale reach or unsupported actions (1.127125ms)
+✔ physical running consumes normal endurance without moving a second time (0.226291ms)
+✔ physical speeds respect exhaustion, sneaking, world scale, death and pause (0.189875ms)
+✔ moving out of accelerated rest restores real-time survival advancement (0.159875ms)
+✔ resident mode owns the existing character and restores serialized physical position and doors (0.393541ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 9
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 86.961042

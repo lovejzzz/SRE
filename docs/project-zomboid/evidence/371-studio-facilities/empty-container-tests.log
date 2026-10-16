@@ -1,0 +1,18 @@
+✔ authored empty furniture does not spawn loot and preserves stored items on reopen (1.37775ms)
+✔ real simulation advances without changing original save and uses calibrated coordinates (3.8375ms)
+✔ door changes come from game rules, including locked failure (1.500208ms)
+✔ visitor storage uses timed game transfers and preserves the same physical instance (3.628625ms)
+✔ physical movement cancels a timed action even after nearby queries sync coordinates (0.285166ms)
+✔ nearby facilities use real sleep actions and reject stale reach or unsupported actions (1.388916ms)
+✔ physical running consumes normal endurance without moving a second time (0.24075ms)
+✔ physical speeds respect exhaustion, sneaking, world scale, death and pause (0.19425ms)
+✔ moving out of accelerated rest restores real-time survival advancement (0.371208ms)
+✔ resident mode owns the existing character and restores serialized physical position and doors (0.548959ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 10
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 91.616417

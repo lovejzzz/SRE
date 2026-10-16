@@ -1,0 +1,64 @@
+{
+  "kind": "tian-house-workshop-walkthrough",
+  "version": 1,
+  "startedAt": "2026-10-14T00:11:24.694Z",
+  "houseName": "Momento Brewers · Photo study",
+  "sceneId": "2b1353d7-e74f-48a1-b6f1-1e3634bb6bfe",
+  "sceneRevision": 213,
+  "conditions": {
+    "temporaryCharacter": true,
+    "zombieSpawning": false,
+    "survivalAcceptance": false
+  },
+  "simulatedSeconds": 145.07090000002094,
+  "visited": [
+    {
+      "position": [
+        7999,
+        11409,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 0
+    },
+    {
+      "position": [
+        8000,
+        11409,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 24.675100000000082
+    },
+    {
+      "position": [
+        8001,
+        11409,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 38.708500000000974
+    }
+  ],
+  "events": [
+    {
+      "seconds": 24.350200000000083,
+      "message": "Open door"
+    }
+  ],
+  "changes": {
+    "8000,11409,0:fixtures_doors_01_48": {
+      "open": true,
+      "locked": false,
+      "lockedByKey": false
+    }
+  },
+  "player": {
+    "x": 8001.14166603748,
+    "y": 11409.527266037483,
+    "z": 0,
+    "surfaceZ": 0,
+    "hp": 100
+  },
+  "inventoryCount": 13
+}

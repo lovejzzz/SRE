@@ -1,0 +1,128 @@
+[
+  {
+    "referenceId": "fbdb62cc-fcb0-4d22-b109-0d96108b476e",
+    "name": "Momento \u00b7 Exterior corner",
+    "annotations": []
+  },
+  {
+    "referenceId": "415fa382-9b6a-4187-9072-6d79f5eece2d",
+    "name": "Momento \u00b7 Coffee bar",
+    "annotations": [
+      {
+        "id": "momento-counter-front",
+        "rect": [
+          0.23,
+          0.5,
+          0.76,
+          0.96
+        ],
+        "label": "Service counter",
+        "notes": "Shared subject: service-counter. Dark vertical timber cladding, rounded front corner and returning side. Same counter as Counter reverse; not a second assembly. Dimensions are not measured.",
+        "evidence": "observed",
+        "entityId": null
+      },
+      {
+        "id": "momento-grinder-front",
+        "rect": [
+          0.4,
+          0.35,
+          0.49,
+          0.59
+        ],
+        "label": "Coffee grinder",
+        "notes": "Shared subject: coffee-grinder. Hopper, cylindrical body and tapered stand. Same machine as Counter reverse.",
+        "evidence": "observed",
+        "entityId": null
+      },
+      {
+        "id": "momento-espresso",
+        "rect": [
+          0.6,
+          0.43,
+          0.72,
+          0.55
+        ],
+        "label": "Espresso machine",
+        "notes": "Visible behind the grinder along the counter return. Stacked cups above. Exact spacing and operating clearance are inferred.",
+        "evidence": "observed",
+        "entityId": null
+      },
+      {
+        "id": "momento-front-pendant",
+        "rect": [
+          0.39,
+          0,
+          0.47,
+          0.2
+        ],
+        "label": "Front pendant",
+        "notes": "Dark conical pendant with warm interior above the front counter. Ceiling-supported; must not become a floor obstacle.",
+        "evidence": "observed",
+        "entityId": null
+      }
+    ]
+  },
+  {
+    "referenceId": "1ddada70-86f1-4ed4-a910-3c4ce600e6b1",
+    "name": "Momento \u00b7 Adjoining wall",
+    "annotations": []
+  },
+  {
+    "referenceId": "737f1e20-d279-4d30-aedf-b80ffd4cd55f",
+    "name": "Momento \u00b7 Counter reverse",
+    "annotations": [
+      {
+        "id": "momento-counter-reverse",
+        "rect": [
+          0.46,
+          0.58,
+          1,
+          1
+        ],
+        "label": "Service counter",
+        "notes": "Shared subject: service-counter. Reverse side of the rounded counter; menu and cups sit on its surface. Lower/right extent is cropped.",
+        "evidence": "observed",
+        "entityId": null
+      },
+      {
+        "id": "momento-grinder-reverse",
+        "rect": [
+          0.75,
+          0.4,
+          0.91,
+          0.62
+        ],
+        "label": "Coffee grinder",
+        "notes": "Shared subject: coffee-grinder. Opposite side of the same grinder. Keep one supported scene object.",
+        "evidence": "observed",
+        "entityId": null
+      },
+      {
+        "id": "momento-paired-windows",
+        "rect": [
+          0.3,
+          0.38,
+          0.8,
+          0.65
+        ],
+        "label": "Paired windows and sill",
+        "notes": "Two adjacent tall dark-framed windows separated by a white brick pier. A continuous sill runs below both. Do not merge into one uninterrupted glass sheet.",
+        "evidence": "observed",
+        "entityId": null
+      },
+      {
+        "id": "momento-display-shelves",
+        "rect": [
+          0.16,
+          0.42,
+          0.3,
+          0.65
+        ],
+        "label": "Product display shelves",
+        "notes": "Open wall-mounted shelves left of the paired windows. Packages and display objects visible; precise package identities unknown.",
+        "evidence": "observed",
+        "entityId": null
+      }
+    ]
+  }
+]

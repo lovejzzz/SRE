@@ -1,0 +1,13 @@
+✔ public diagonal door placement and replacement preserve host and opening identity through undo, removal and reload (131.896542ms)
+✔ all diagonal orientations block closed doors, pass the open centre in both directions, and retain physical jamb collision (81.703583ms)
+✔ opaque and glazed diagonal doors have distinct movement and vision, and game interaction/save restore uses the stable opening key (25.987417ms)
+✔ wall-face placement chooses a compatible source direction automatically and previews the real diagonal host (19.761541ms)
+✔ walkthrough checks derived wall, frame and leaf textures before replacing game state (22.901166ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 378.675834

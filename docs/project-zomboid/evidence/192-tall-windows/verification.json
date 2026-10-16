@@ -1,0 +1,67 @@
+{
+  "milestone": 192,
+  "tests": {
+    "passed": 516,
+    "failed": 0,
+    "log": "tests.log",
+    "initialFailureRetained": "initial-tests-failure.log"
+  },
+  "browser": "http://127.0.0.1:8883/",
+  "editorRevision": 368,
+  "exports": {
+    "78": {
+      "path": "/Users/tianxing/Downloads/momento-brewers-photo-study (78).json",
+      "sha256": "48f0ca7bf81296d2553d4a37456ef6889ea0ad27f0a2752dc0fb7637ad55310b"
+    },
+    "79": {
+      "path": "/Users/tianxing/Downloads/momento-brewers-photo-study (79).json",
+      "sha256": "48f0ca7bf81296d2553d4a37456ef6889ea0ad27f0a2752dc0fb7637ad55310b"
+    },
+    "80": {
+      "path": "/Users/tianxing/Downloads/momento-brewers-photo-study (80).json",
+      "sha256": "8c798f4a452a112fb17e94913d0ac5d09f64687067f94c5c82fa8fbf38c2bf4d"
+    }
+  },
+  "reloadExact": true,
+  "trueImportEqualExceptRevision": true,
+  "catalog": {
+    "entries": 1,
+    "directions": [
+      "N",
+      "W"
+    ]
+  },
+  "temporaryWestWindow": "placed through auto-oriented UI then undone",
+  "walkthrough": {
+    "entry": [
+      8009,
+      11404,
+      0
+    ],
+    "windowInside": [
+      8004,
+      11410,
+      0
+    ],
+    "windowOutside": [
+      8004,
+      11411,
+      0
+    ],
+    "returnedInside": true,
+    "openWindow": true,
+    "walkingBlockedBySill": true,
+    "paused": "11:14 Day 1",
+    "interference": "Old injured character died. Exported save (15), started new journey via UI. New character injured by exterior zombie; no hidden edits."
+  },
+  "namedVersion": "version:momento-tall-checkpoint-192",
+  "consoleErrors": [],
+  "deployed": false,
+  "fidelity": "incomplete",
+  "limitations": [
+    "Legacy tile walls not automatically migrated to profiled openings",
+    "Browser evidence covers N/W; diagonal profile runtime has automated tests",
+    "Window spacing and surrounding material still provisional",
+    "Not a three-day residence test"
+  ]
+}

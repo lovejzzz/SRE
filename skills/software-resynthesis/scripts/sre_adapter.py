@@ -28,7 +28,7 @@ def run_adapter(manifest_path, request_path, output_dir, timeout=30):
     manifest, request = read(manifest_path), read(request_path)
     object_v1(manifest)
     object_v1(request)
-    require(manifest.get("kind") in ("source-runtime", "successor-runtime", "synthetic"), "Invalid adapter kind")
+    require(manifest.get("kind") in ("source-runtime", "successor-runtime", "source-component", "successor-component", "synthetic"), "Invalid adapter kind")
     for key in ("id", "build"):
         require(text(manifest.get(key)), f"Adapter missing {key}")
     argv = manifest.get("argv")

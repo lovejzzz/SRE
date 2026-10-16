@@ -1,0 +1,134 @@
+{
+  "requestId": "momento-service-depth-279",
+  "baseRevision": 476,
+  "operations": [
+    {
+      "type": "walls.move",
+      "ids": [
+        "momento-adjoining-partition:0",
+        "momento-adjoining-partition:1",
+        "momento-adjoining-partition:2",
+        "momento-adjoining-partition:3",
+        "momento-adjoining-partition:4",
+        "momento-plan-wc-west:3"
+      ],
+      "dx": 0,
+      "dy": 1
+    },
+    {
+      "type": "objects.move",
+      "ids": [
+        "febc7537-84da-428f-b54a-7eabc96429c9",
+        "de2b0f7a-7524-44a3-b640-9ad3fd52c9d9",
+        "e5d61418-6749-48a7-b8de-465270e1b148",
+        "25041542-dade-4481-b392-c1934734346c",
+        "5dd33628-4d9d-43da-85de-55b1f2ec7fcd",
+        "033279b4-0057-4417-8b20-fa07a91254b1",
+        "beece827-5094-4ac4-883d-a40eceea7d9a",
+        "9c5af27c-9027-430c-ab61-68610ff6acc1",
+        "07fb7556-54e7-4c8e-806a-80f542cf7590"
+      ],
+      "dx": 0,
+      "dy": 1
+    },
+    {
+      "type": "erase",
+      "x": 8004,
+      "y": 11406,
+      "z": 0
+    },
+    {
+      "type": "erase",
+      "x": 8005,
+      "y": 11406,
+      "z": 0
+    },
+    {
+      "type": "erase",
+      "x": 8006,
+      "y": 11406,
+      "z": 0
+    },
+    {
+      "type": "erase",
+      "x": 8007,
+      "y": 11406,
+      "z": 0
+    },
+    {
+      "type": "erase",
+      "x": 8008,
+      "y": 11406,
+      "z": 0
+    },
+    {
+      "type": "walls.draw",
+      "pathId": "momento-service-extension-8003",
+      "levelId": "level:0",
+      "points": [
+        [
+          8003,
+          11406
+        ],
+        [
+          8003,
+          11407
+        ]
+      ],
+      "wallN": "tian_masonry_chalk_1",
+      "wallW": "tian_masonry_chalk_0"
+    },
+    {
+      "type": "walls.draw",
+      "pathId": "momento-service-extension-8005",
+      "levelId": "level:0",
+      "points": [
+        [
+          8005,
+          11406
+        ],
+        [
+          8005,
+          11407
+        ]
+      ],
+      "wallN": "tian_masonry_chalk_1",
+      "wallW": "tian_masonry_chalk_0"
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_material_stone_border_N_0",
+      "x": 8004,
+      "y": 11407,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_material_stone_border_N_0",
+      "x": 8005,
+      "y": 11407,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_material_stone_border_N_0",
+      "x": 8006,
+      "y": 11407,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_material_stone_border_N_0",
+      "x": 8007,
+      "y": 11407,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_material_stone_border_N_0",
+      "x": 8008,
+      "y": 11407,
+      "z": 0
+    }
+  ]
+}

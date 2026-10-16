@@ -87,3 +87,5 @@ Evidence hashes detect stale records, not fabricated experiments. Independent ag
 Contribute reproducible, sanitized failures with versions, inputs, expected/actual behavior and evidence. Preserve regression tests. Translation improvements are welcome; keep capability and limitation statements aligned across languages. Detailed technical protocols currently use English.
 
 Evidence integrity update: target validations and research observations require SHA-256 digests. See [migration and integrity limits](skills/software-resynthesis/references/validation.md#recorded-evidence-integrity) and [change history](CHANGELOG.md).
+
+Process records: `sre.py record` / `report` retain actions, failures, fixes and evidence fingerprints. See [work journals](skills/software-resynthesis/references/work-journal.md) and the ongoing [Project Zomboid case](docs/project-zomboid/PROCESS.md) (incomplete; not a fidelity certificate).

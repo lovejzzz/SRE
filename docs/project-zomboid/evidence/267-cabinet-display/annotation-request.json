@@ -1,0 +1,40 @@
+{
+  "requestId": "momento-display-binding-267",
+  "baseRevision": 455,
+  "operations": [
+    {
+      "type": "reference.annotate",
+      "id": "737f1e20-d279-4d30-aedf-b80ffd4cd55f",
+      "annotation": {
+        "id": "momento-circular-display",
+        "rect": [
+          0.07,
+          0.48,
+          0.2,
+          0.55
+        ],
+        "label": "Two pale circular tabletop objects",
+        "entityId": "f9886fdd-f84f-4ff8-8c26-1f3fceffe411",
+        "evidence": "approximate",
+        "notes": "Visible paired circular pale faces on dark stands on the cabinet. Original reusable four-direction decoration; function, manufacturer and dimensions are not established. No audio/electronic interaction is claimed."
+      }
+    },
+    {
+      "type": "reference.annotate",
+      "id": "737f1e20-d279-4d30-aedf-b80ffd4cd55f",
+      "annotation": {
+        "id": "momento-display-cabinet",
+        "rect": [
+          0.005,
+          0.53,
+          0.225,
+          0.815
+        ],
+        "label": "Narrow dark display cabinet",
+        "entityId": "f157c6ca-5237-4288-b1b9-45d95e841d19",
+        "evidence": "approximate",
+        "notes": "Dark cabinet beside shelves on the exhibition divider. Height and width approximate. Paired circular display objects are now supported on its top and follow cabinet rotation."
+      }
+    }
+  ]
+}

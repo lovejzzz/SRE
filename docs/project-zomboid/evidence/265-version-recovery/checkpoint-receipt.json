@@ -1,0 +1,18 @@
+{
+  "alreadyApplied": false,
+  "currentRevision": 452,
+  "ok": true,
+  "changed": false,
+  "revision": 452,
+  "version": {
+    "id": "version:momento-interior-checkpoint-265",
+    "label": "Momento · Interior and street · fidelity review pending",
+    "savedAt": "2026-10-14T00:41:33.840Z",
+    "digest": "55895391866b3b12e5f54a950b83f8396c404335524432e590dd4567d39d0bd1",
+    "sceneId": "2b1353d7-e74f-48a1-b6f1-1e3634bb6bfe",
+    "houseName": "Momento Brewers · Photo study",
+    "kind": "named",
+    "sourceVersionId": null
+  },
+  "sceneId": "2b1353d7-e74f-48a1-b6f1-1e3634bb6bfe"
+}

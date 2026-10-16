@@ -1,0 +1,28 @@
+{
+  "alreadyApplied": false,
+  "currentRevision": 468,
+  "ok": true,
+  "changed": true,
+  "revision": 468,
+  "version": {
+    "id": "version:momento-batch-checkpoint-272",
+    "label": "Momento · Interior batch and route verified",
+    "savedAt": "2026-10-14T01:35:29.736Z",
+    "digest": "f036c5569f022d8eacc950cbc179bbbca017e9ab4cd7fd50807b075d6a70a0f9",
+    "sceneId": "2b1353d7-e74f-48a1-b6f1-1e3634bb6bfe",
+    "houseName": "Momento Brewers · Photo study",
+    "kind": "named",
+    "sourceVersionId": null
+  },
+  "checkpoint": {
+    "id": "checkpoint:momento-restore-checkpoint-272",
+    "label": "Before restore: Momento · Interior batch and route verified",
+    "savedAt": "2026-10-14T01:36:43.153Z",
+    "digest": "7458c7029743a00b74c2e962af7662514c5eb596cccaf018e620b8566e064edf",
+    "sceneId": "2b1353d7-e74f-48a1-b6f1-1e3634bb6bfe",
+    "houseName": "Momento · Recovery probe",
+    "kind": "checkpoint",
+    "sourceVersionId": "version:momento-batch-checkpoint-272"
+  },
+  "sceneId": "2b1353d7-e74f-48a1-b6f1-1e3634bb6bfe"
+}

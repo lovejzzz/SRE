@@ -1,0 +1,370 @@
+{
+  "kind": "tian-house-workshop-walkthrough",
+  "version": 1,
+  "startedAt": "2026-10-13T23:43:52.551Z",
+  "houseName": "Momento Brewers · Photo study",
+  "sceneId": "2b1353d7-e74f-48a1-b6f1-1e3634bb6bfe",
+  "sceneRevision": 197,
+  "conditions": {
+    "temporaryCharacter": true,
+    "zombieSpawning": false,
+    "survivalAcceptance": false
+  },
+  "simulatedSeconds": 83.12510000000735,
+  "visited": [
+    {
+      "position": [
+        7999,
+        11409,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 0
+    },
+    {
+      "position": [
+        7999,
+        11410,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 12.708399999999818
+    },
+    {
+      "position": [
+        7999,
+        11411,
+        0
+      ],
+      "surfaceZ": 0.0625,
+      "seconds": 13.333399999999786
+    },
+    {
+      "position": [
+        7999,
+        11412,
+        0
+      ],
+      "surfaceZ": 0.0625,
+      "seconds": 13.958399999999756
+    },
+    {
+      "position": [
+        7999,
+        11413,
+        0
+      ],
+      "surfaceZ": 0.0625,
+      "seconds": 14.583399999999724
+    },
+    {
+      "position": [
+        8000,
+        11413,
+        0
+      ],
+      "surfaceZ": 0.0625,
+      "seconds": 23.69929999999976
+    },
+    {
+      "position": [
+        8001,
+        11413,
+        0
+      ],
+      "surfaceZ": 0.0625,
+      "seconds": 24.32509999999974
+    },
+    {
+      "position": [
+        8002,
+        11413,
+        0
+      ],
+      "surfaceZ": 0.0625,
+      "seconds": 24.950099999999733
+    },
+    {
+      "position": [
+        8002,
+        11412,
+        0
+      ],
+      "surfaceZ": 0.125,
+      "seconds": 25.450199999999757
+    },
+    {
+      "position": [
+        8002,
+        11413,
+        0
+      ],
+      "surfaceZ": 0.0625,
+      "seconds": 36.28350000000017
+    },
+    {
+      "position": [
+        8003,
+        11413,
+        0
+      ],
+      "surfaceZ": 0.0625,
+      "seconds": 37.15020000000025
+    },
+    {
+      "position": [
+        8004,
+        11413,
+        0
+      ],
+      "surfaceZ": 0.0625,
+      "seconds": 37.77510000000032
+    },
+    {
+      "position": [
+        8005,
+        11413,
+        0
+      ],
+      "surfaceZ": 0.0625,
+      "seconds": 38.400200000000446
+    },
+    {
+      "position": [
+        8006,
+        11413,
+        0
+      ],
+      "surfaceZ": 0.0625,
+      "seconds": 39.02520000000056
+    },
+    {
+      "position": [
+        8007,
+        11413,
+        0
+      ],
+      "surfaceZ": 0.0625,
+      "seconds": 39.65030000000061
+    },
+    {
+      "position": [
+        8008,
+        11413,
+        0
+      ],
+      "surfaceZ": 0.0625,
+      "seconds": 40.27520000000072
+    },
+    {
+      "position": [
+        8009,
+        11413,
+        0
+      ],
+      "surfaceZ": 0.0625,
+      "seconds": 40.900300000000804
+    },
+    {
+      "position": [
+        8009,
+        11412,
+        0
+      ],
+      "surfaceZ": 0.0625,
+      "seconds": 41.51690000000093
+    },
+    {
+      "position": [
+        8009,
+        11411,
+        0
+      ],
+      "surfaceZ": 0.0625,
+      "seconds": 42.14190000000099
+    },
+    {
+      "position": [
+        8009,
+        11410,
+        0
+      ],
+      "surfaceZ": 0.0625,
+      "seconds": 42.766900000001044
+    },
+    {
+      "position": [
+        8009,
+        11409,
+        0
+      ],
+      "surfaceZ": 0.0625,
+      "seconds": 43.39190000000113
+    },
+    {
+      "position": [
+        8009,
+        11408,
+        0
+      ],
+      "surfaceZ": 0.0625,
+      "seconds": 44.0169000000012
+    },
+    {
+      "position": [
+        8009,
+        11407,
+        0
+      ],
+      "surfaceZ": 0.0625,
+      "seconds": 44.641900000001286
+    },
+    {
+      "position": [
+        8009,
+        11407,
+        0
+      ],
+      "surfaceZ": 0.08333333333333333,
+      "seconds": 54.51690000000266
+    },
+    {
+      "position": [
+        8008,
+        11407,
+        0
+      ],
+      "surfaceZ": 0.08333333333333333,
+      "seconds": 54.73360000000265
+    },
+    {
+      "position": [
+        8008,
+        11407,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 54.950300000002706
+    },
+    {
+      "position": [
+        8007,
+        11407,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 55.35860000000277
+    },
+    {
+      "position": [
+        8008,
+        11407,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 70.02530000000523
+    },
+    {
+      "position": [
+        8008,
+        11407,
+        0
+      ],
+      "surfaceZ": 0.08333333333333333,
+      "seconds": 70.42540000000531
+    },
+    {
+      "position": [
+        8009,
+        11407,
+        0
+      ],
+      "surfaceZ": 0.08333333333333333,
+      "seconds": 70.65040000000535
+    },
+    {
+      "position": [
+        8009,
+        11407,
+        0
+      ],
+      "surfaceZ": 0.0625,
+      "seconds": 70.86700000000536
+    },
+    {
+      "position": [
+        8009,
+        11406,
+        0
+      ],
+      "surfaceZ": 0.0625,
+      "seconds": 71.45770000000549
+    },
+    {
+      "position": [
+        8009,
+        11405,
+        0
+      ],
+      "surfaceZ": 0.0625,
+      "seconds": 72.0837000000056
+    },
+    {
+      "position": [
+        8009,
+        11405,
+        0
+      ],
+      "surfaceZ": 0.08333333333333333,
+      "seconds": 81.91700000000723
+    },
+    {
+      "position": [
+        8008,
+        11405,
+        0
+      ],
+      "surfaceZ": 0.08333333333333333,
+      "seconds": 82.13360000000723
+    },
+    {
+      "position": [
+        8008,
+        11405,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 82.35040000000727
+    }
+  ],
+  "events": [
+    {
+      "seconds": 54.483400000002646,
+      "message": "Open door"
+    },
+    {
+      "seconds": 81.81690000000718,
+      "message": "Open door"
+    }
+  ],
+  "changes": {
+    "8009,11407,0:scene-opening:61c325b7-3b80-4a4f-8131-035acc04a0d3": {
+      "open": true,
+      "locked": false,
+      "lockedByKey": false
+    },
+    "8009,11405,0:scene-opening:momento-plan-stair-exterior-entry": {
+      "open": true,
+      "locked": false,
+      "lockedByKey": false
+    }
+  },
+  "player": {
+    "x": 8008.115020352025,
+    "y": 11405.472133968486,
+    "z": 0,
+    "surfaceZ": 0,
+    "hp": 100
+  },
+  "inventoryCount": 13
+}

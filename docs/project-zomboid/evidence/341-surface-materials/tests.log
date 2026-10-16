@@ -1,0 +1,16 @@
+✔ wood recipe regenerates bounded maps with stable detail and seed variation (13.59725ms)
+✔ material UVs stay attached through rotation and relocation with physical repeat scale (3.777708ms)
+✔ identical material recipes reuse two GPU maps and dispose them once (2.502958ms)
+✔ late generation and publication failures preserve the previous complete manifest (39.761292ms)
+✔ runtime rejects corrupted bytes and invalid manifest paths before accepting geometry (1.719ms)
+✔ source material recipe changes appearance without changing support geometry or roof identity (0.842625ms)
+✔ adjacent top-face triangles retain world UV phase independently of bounding shape (0.076459ms)
+✔ surface recipes are deterministic, distinct and shared through material cache (25.423417ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 109.491167

@@ -1,0 +1,74 @@
+{
+  "walls": true,
+  "openings": true,
+  "verticalLinks": true,
+  "rooms": true,
+  "inventoryPreserved": true,
+  "existingObjectsPreserved": true,
+  "underlyingSquaresRetained": true,
+  "addedObjects": [
+    {
+      "id": "a4905bea-581d-450d-b127-b8e7121f68e9",
+      "assetId": "tile:tian_wall_cooling_unit_N_0",
+      "assetVersion": "source-v1",
+      "levelId": "level:0",
+      "x": 8001,
+      "y": 11403,
+      "parts": [
+        {
+          "dx": 0,
+          "dy": 0,
+          "tile": "tian_wall_cooling_unit_N_0"
+        }
+      ],
+      "wallMounts": [
+        {
+          "part": 0,
+          "wallId": "wall:level:0:N:8001:11403"
+        }
+      ]
+    },
+    {
+      "id": "97a4534d-2940-4fbe-8673-d2a24f298c67",
+      "assetId": "tile:tian_wall_outlet_worktop_W_0",
+      "assetVersion": "source-v1",
+      "levelId": "level:0",
+      "x": 8000,
+      "y": 11407,
+      "parts": [
+        {
+          "dx": 0,
+          "dy": 0,
+          "tile": "tian_wall_outlet_worktop_W_0"
+        }
+      ],
+      "wallMounts": [
+        {
+          "part": 0,
+          "wallId": "wall:level:0:W:8000:11407"
+        }
+      ]
+    },
+    {
+      "id": "983ed8d4-6652-4b0d-9c3e-2173fdf7356c",
+      "assetId": "tile:tian_wall_outlet_low_N_0",
+      "assetVersion": "source-v1",
+      "levelId": "level:0",
+      "x": 8007,
+      "y": 11406,
+      "parts": [
+        {
+          "dx": 0,
+          "dy": 0,
+          "tile": "tian_wall_outlet_low_N_0"
+        }
+      ],
+      "wallMounts": [
+        {
+          "part": 0,
+          "wallId": "momento-adjoining-partition:3"
+        }
+      ]
+    }
+  ]
+}

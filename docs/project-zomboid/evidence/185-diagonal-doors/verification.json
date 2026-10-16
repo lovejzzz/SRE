@@ -1,0 +1,51 @@
+{
+  "editorReloadEqual": true,
+  "importDifferences": [
+    "/sceneDocument/revision"
+  ],
+  "restoredBaselineEqual": true,
+  "roomsAfterRestore": 0,
+  "photosAfterRestore": 4,
+  "consoleErrors": [],
+  "game": {
+    "start": [
+      8000,
+      11404
+    ],
+    "closedInteriorPush": [
+      8004,
+      11408
+    ],
+    "openExterior": [
+      8005,
+      11409
+    ],
+    "closedExteriorPush": [
+      8004,
+      11408
+    ],
+    "returnedInterior": [
+      8003,
+      11407
+    ],
+    "reloadPosition": [
+      8003,
+      11407
+    ],
+    "reloadClock": "17:16 Day 1",
+    "reloadPrompt": "E \u00b7 Open door \u00b7 Door",
+    "coordinateNote": "HUD integer coordinates; precise half-cell side/collision behavior is separately checked in automated World tests."
+  },
+  "exports": {
+    "initial": 56,
+    "editorReopen": 57,
+    "imported": 58,
+    "baselineRestored": 59
+  },
+  "opening": {
+    "id": "8e98b98e-7448-4639-83b1-56c5bb10afb4",
+    "hostWallId": "wall:level:0:D-:8004:11408",
+    "kind": "door",
+    "tile": "fixtures_doors_01_0"
+  }
+}

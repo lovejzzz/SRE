@@ -1,0 +1,8 @@
+[
+  { type: 'seat', vertices: 1584 },
+  { type: 'seat', vertices: 1584 },
+  { type: 'seat', vertices: 1584 },
+  { type: 'overlay', vertices: 3840 }
+]
+{ min: -0.008127913364310901, bad: 6, hits: 2799 }
+normal changes 0.259845049789217

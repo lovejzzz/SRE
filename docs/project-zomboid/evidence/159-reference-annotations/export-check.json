@@ -1,0 +1,24 @@
+{
+  "referenceId": "aff81027-eb6a-4412-8e1c-1e3b8207ea43",
+  "annotations": [
+    {
+      "id": "5834b75f-72d6-4c2c-9fe8-2c28d8551290",
+      "rect": [
+        0.4079607952805188,
+        0.40000946992116293,
+        0.6125071577910058,
+        0.7878974407538057
+      ],
+      "label": "Left wing \u2014 binding test",
+      "notes": "Fixture region linked to the left ground-floor room to test navigation; not a reconstruction accuracy claim.",
+      "evidence": "approximate",
+      "entityId": "6f95df7c-9dc7-4b7b-8006-bc309957d35f"
+    }
+  ],
+  "browserObserved": {
+    "refreshRestored": true,
+    "photoClickSelectedRoom": true,
+    "selectOtherRoomHighlighted": false,
+    "selectBoundRoomHighlighted": true
+  }
+}

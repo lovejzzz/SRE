@@ -1,0 +1,26 @@
+{
+  "environment": "Node synthetic CPU benchmark; 100 repeated local sweeps per size, no rendering; timings not browser budgets",
+  "results": [
+    {
+      "count": 2000,
+      "buildMs": 2.7687910000000073,
+      "candidates": 1,
+      "fullScanMs": 1.23796459,
+      "indexedMs": 0.00518917000000016
+    },
+    {
+      "count": 10000,
+      "buildMs": 14.412916999999993,
+      "candidates": 1,
+      "fullScanMs": 8.95150791,
+      "indexedMs": 0.005990000000001601
+    },
+    {
+      "count": 50000,
+      "buildMs": 133.32258300000012,
+      "candidates": 1,
+      "fullScanMs": 47.94723917,
+      "indexedMs": 0.004392079999997804
+    }
+  ]
+}

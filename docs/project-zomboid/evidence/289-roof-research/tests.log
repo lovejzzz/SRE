@@ -1,0 +1,11 @@
+✔ asymmetric measured profiles retain both eaves and ridge without assuming a fixed pitch (0.531875ms)
+✔ concave courtyard stays uncovered; every raised edge closes and all slope pieces stay planar (2.234125ms)
+✔ roof profile rejects uncovered footprint, crossed outline and invalid heights (0.1775ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 50.796333

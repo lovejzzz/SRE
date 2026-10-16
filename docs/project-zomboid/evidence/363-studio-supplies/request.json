@@ -1,0 +1,358 @@
+{
+  "requestId": "hearth-studio-supplies-363",
+  "baseRevision": 560,
+  "operations": [
+    {
+      "type": "place",
+      "assetId": "item:Base.Bandage",
+      "x": 8003,
+      "y": 11402,
+      "z": 0,
+      "storeInContainer": true
+    },
+    {
+      "type": "place",
+      "assetId": "item:Base.Bandage",
+      "x": 8003,
+      "y": 11402,
+      "z": 0,
+      "storeInContainer": true
+    },
+    {
+      "type": "place",
+      "assetId": "item:Base.Bandage",
+      "x": 8003,
+      "y": 11402,
+      "z": 0,
+      "storeInContainer": true
+    },
+    {
+      "type": "place",
+      "assetId": "item:Base.Bandage",
+      "x": 8003,
+      "y": 11402,
+      "z": 0,
+      "storeInContainer": true
+    },
+    {
+      "type": "place",
+      "assetId": "item:Base.Bandage",
+      "x": 8003,
+      "y": 11402,
+      "z": 0,
+      "storeInContainer": true
+    },
+    {
+      "type": "place",
+      "assetId": "item:Base.Bandage",
+      "x": 8003,
+      "y": 11402,
+      "z": 0,
+      "storeInContainer": true
+    },
+    {
+      "type": "place",
+      "assetId": "item:Base.Bandage",
+      "x": 8003,
+      "y": 11402,
+      "z": 0,
+      "storeInContainer": true
+    },
+    {
+      "type": "place",
+      "assetId": "item:Base.Bandage",
+      "x": 8003,
+      "y": 11402,
+      "z": 0,
+      "storeInContainer": true
+    },
+    {
+      "type": "place",
+      "assetId": "item:Base.Bandage",
+      "x": 8003,
+      "y": 11402,
+      "z": 0,
+      "storeInContainer": true
+    },
+    {
+      "type": "place",
+      "assetId": "item:Base.Bandage",
+      "x": 8003,
+      "y": 11402,
+      "z": 0,
+      "storeInContainer": true
+    },
+    {
+      "type": "place",
+      "assetId": "item:Base.Bandage",
+      "x": 8003,
+      "y": 11402,
+      "z": 0,
+      "storeInContainer": true
+    },
+    {
+      "type": "place",
+      "assetId": "item:Base.Bandage",
+      "x": 8003,
+      "y": 11402,
+      "z": 0,
+      "storeInContainer": true
+    },
+    {
+      "type": "place",
+      "assetId": "item:Base.AlcoholWipes",
+      "x": 8003,
+      "y": 11402,
+      "z": 0,
+      "storeInContainer": true
+    },
+    {
+      "type": "place",
+      "assetId": "item:Base.AlcoholWipes",
+      "x": 8003,
+      "y": 11402,
+      "z": 0,
+      "storeInContainer": true
+    },
+    {
+      "type": "place",
+      "assetId": "item:Base.TinnedBeans",
+      "x": 8003,
+      "y": 11402,
+      "z": 0,
+      "storeInContainer": true
+    },
+    {
+      "type": "place",
+      "assetId": "item:Base.TinnedBeans",
+      "x": 8003,
+      "y": 11402,
+      "z": 0,
+      "storeInContainer": true
+    },
+    {
+      "type": "place",
+      "assetId": "item:Base.TinnedBeans",
+      "x": 8003,
+      "y": 11402,
+      "z": 0,
+      "storeInContainer": true
+    },
+    {
+      "type": "place",
+      "assetId": "item:Base.TinnedBeans",
+      "x": 8003,
+      "y": 11402,
+      "z": 0,
+      "storeInContainer": true
+    },
+    {
+      "type": "place",
+      "assetId": "item:Base.TinnedBeans",
+      "x": 8003,
+      "y": 11402,
+      "z": 0,
+      "storeInContainer": true
+    },
+    {
+      "type": "place",
+      "assetId": "item:Base.TinnedBeans",
+      "x": 8003,
+      "y": 11402,
+      "z": 0,
+      "storeInContainer": true
+    },
+    {
+      "type": "place",
+      "assetId": "item:Base.TinnedBeans",
+      "x": 8003,
+      "y": 11402,
+      "z": 0,
+      "storeInContainer": true
+    },
+    {
+      "type": "place",
+      "assetId": "item:Base.TinnedBeans",
+      "x": 8003,
+      "y": 11402,
+      "z": 0,
+      "storeInContainer": true
+    },
+    {
+      "type": "place",
+      "assetId": "item:Base.Rice",
+      "x": 8003,
+      "y": 11402,
+      "z": 0,
+      "storeInContainer": true
+    },
+    {
+      "type": "place",
+      "assetId": "item:Base.TinOpener",
+      "x": 8003,
+      "y": 11402,
+      "z": 0,
+      "storeInContainer": true
+    },
+    {
+      "type": "place",
+      "assetId": "item:Base.Pot",
+      "x": 8003,
+      "y": 11402,
+      "z": 0,
+      "storeInContainer": true
+    },
+    {
+      "type": "place",
+      "assetId": "item:Base.Fork",
+      "x": 8003,
+      "y": 11402,
+      "z": 0,
+      "storeInContainer": true
+    },
+    {
+      "type": "place",
+      "assetId": "item:Base.Fork",
+      "x": 8003,
+      "y": 11402,
+      "z": 0,
+      "storeInContainer": true
+    },
+    {
+      "type": "place",
+      "assetId": "item:Base.Spoon",
+      "x": 8003,
+      "y": 11402,
+      "z": 0,
+      "storeInContainer": true
+    },
+    {
+      "type": "place",
+      "assetId": "item:Base.Spoon",
+      "x": 8003,
+      "y": 11402,
+      "z": 0,
+      "storeInContainer": true
+    },
+    {
+      "type": "place",
+      "assetId": "item:Base.KitchenKnife",
+      "x": 8003,
+      "y": 11402,
+      "z": 0,
+      "storeInContainer": true
+    },
+    {
+      "type": "place",
+      "assetId": "item:Base.WaterBottle",
+      "x": 8003,
+      "y": 11401,
+      "z": 0,
+      "storeInContainer": true
+    },
+    {
+      "type": "place",
+      "assetId": "item:Base.WaterBottle",
+      "x": 8003,
+      "y": 11401,
+      "z": 0,
+      "storeInContainer": true
+    },
+    {
+      "type": "place",
+      "assetId": "item:Base.WaterBottle",
+      "x": 8003,
+      "y": 11401,
+      "z": 0,
+      "storeInContainer": true
+    },
+    {
+      "type": "place",
+      "assetId": "item:Base.WaterBottle",
+      "x": 8003,
+      "y": 11401,
+      "z": 0,
+      "storeInContainer": true
+    },
+    {
+      "type": "place",
+      "assetId": "item:Base.Apple",
+      "x": 8003,
+      "y": 11401,
+      "z": 0,
+      "storeInContainer": true
+    },
+    {
+      "type": "place",
+      "assetId": "item:Base.Apple",
+      "x": 8003,
+      "y": 11401,
+      "z": 0,
+      "storeInContainer": true
+    },
+    {
+      "type": "place",
+      "assetId": "item:Base.Apple",
+      "x": 8003,
+      "y": 11401,
+      "z": 0,
+      "storeInContainer": true
+    },
+    {
+      "type": "place",
+      "assetId": "item:Base.Apple",
+      "x": 8003,
+      "y": 11401,
+      "z": 0,
+      "storeInContainer": true
+    },
+    {
+      "type": "place",
+      "assetId": "item:Base.Apple",
+      "x": 8003,
+      "y": 11401,
+      "z": 0,
+      "storeInContainer": true
+    },
+    {
+      "type": "place",
+      "assetId": "item:Base.Apple",
+      "x": 8003,
+      "y": 11401,
+      "z": 0,
+      "storeInContainer": true
+    },
+    {
+      "type": "place",
+      "assetId": "item:Base.Cheese",
+      "x": 8003,
+      "y": 11401,
+      "z": 0,
+      "storeInContainer": true
+    },
+    {
+      "type": "place",
+      "assetId": "item:Base.Cheese",
+      "x": 8003,
+      "y": 11401,
+      "z": 0,
+      "storeInContainer": true
+    },
+    {
+      "type": "place",
+      "assetId": "item:Base.Chicken",
+      "x": 8003,
+      "y": 11401,
+      "z": 0,
+      "storeInContainer": true
+    },
+    {
+      "type": "place",
+      "assetId": "item:Base.Chicken",
+      "x": 8003,
+      "y": 11401,
+      "z": 0,
+      "storeInContainer": true
+    }
+  ]
+}

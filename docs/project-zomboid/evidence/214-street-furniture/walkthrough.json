@@ -1,0 +1,361 @@
+{
+  "kind": "tian-house-workshop-walkthrough",
+  "version": 1,
+  "startedAt": "2026-10-13T20:33:12.962Z",
+  "houseName": "Momento Brewers · Photo study",
+  "sceneId": "2b1353d7-e74f-48a1-b6f1-1e3634bb6bfe",
+  "sceneRevision": 166,
+  "conditions": {
+    "temporaryCharacter": true,
+    "zombieSpawning": false,
+    "survivalAcceptance": false
+  },
+  "simulatedSeconds": 62.72360000000392,
+  "visited": [
+    {
+      "position": [
+        7999,
+        11409,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 0
+    },
+    {
+      "position": [
+        7999,
+        11410,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 35.558599999999934
+    },
+    {
+      "position": [
+        7999,
+        11411,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 36.183500000000045
+    },
+    {
+      "position": [
+        7999,
+        11412,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 36.806900000000105
+    },
+    {
+      "position": [
+        7999,
+        11413,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 37.4336000000002
+    },
+    {
+      "position": [
+        8000,
+        11413,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 38.075200000000315
+    },
+    {
+      "position": [
+        8001,
+        11413,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 38.70020000000042
+    },
+    {
+      "position": [
+        8002,
+        11413,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 39.32520000000053
+    },
+    {
+      "position": [
+        8003,
+        11413,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 39.95050000000063
+    },
+    {
+      "position": [
+        8004,
+        11413,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 40.57520000000069
+    },
+    {
+      "position": [
+        8005,
+        11413,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 41.200200000000805
+    },
+    {
+      "position": [
+        8006,
+        11413,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 41.825200000000905
+    },
+    {
+      "position": [
+        8007,
+        11413,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 42.45030000000101
+    },
+    {
+      "position": [
+        8008,
+        11413,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 43.07520000000109
+    },
+    {
+      "position": [
+        8009,
+        11413,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 43.70030000000119
+    },
+    {
+      "position": [
+        8010,
+        11413,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 44.32530000000128
+    },
+    {
+      "position": [
+        8011,
+        11413,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 44.95020000000138
+    },
+    {
+      "position": [
+        8011,
+        11412,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 55.80860000000292
+    },
+    {
+      "position": [
+        8011,
+        11411,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 56.433700000003036
+    },
+    {
+      "position": [
+        8011,
+        11410,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 57.05870000000314
+    },
+    {
+      "position": [
+        8011,
+        11409,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 57.68360000000324
+    },
+    {
+      "position": [
+        8011,
+        11408,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 58.308600000003345
+    },
+    {
+      "position": [
+        8011,
+        11407,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 58.93370000000345
+    },
+    {
+      "position": [
+        8011,
+        11406,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 59.558600000003544
+    },
+    {
+      "position": [
+        8011,
+        11405,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 60.18370000000361
+    },
+    {
+      "position": [
+        8010,
+        11405,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 60.67370000000365
+    },
+    {
+      "position": [
+        8009,
+        11405,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 61.30030000000373
+    },
+    {
+      "position": [
+        8008,
+        11405,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 61.95700000000384
+    },
+    {
+      "position": [
+        8007,
+        11405,
+        0
+      ],
+      "surfaceZ": 0.001800000006596747,
+      "seconds": 62.58370000000391
+    },
+    {
+      "position": [
+        8007,
+        11405,
+        0
+      ],
+      "surfaceZ": 0.005120000006627379,
+      "seconds": 62.59200000000393
+    },
+    {
+      "position": [
+        8007,
+        11405,
+        0
+      ],
+      "surfaceZ": 0.0078000000066822395,
+      "seconds": 62.59870000000391
+    },
+    {
+      "position": [
+        8007,
+        11405,
+        0
+      ],
+      "surfaceZ": 0.011920000006739428,
+      "seconds": 62.609000000003924
+    },
+    {
+      "position": [
+        8007,
+        11405,
+        0
+      ],
+      "surfaceZ": 0.015120000006845657,
+      "seconds": 62.61700000000393
+    },
+    {
+      "position": [
+        8007,
+        11405,
+        0
+      ],
+      "surfaceZ": 0.0184800000067753,
+      "seconds": 62.62540000000392
+    },
+    {
+      "position": [
+        8007,
+        11405,
+        0
+      ],
+      "surfaceZ": 0.02180000000680593,
+      "seconds": 62.63370000000391
+    },
+    {
+      "position": [
+        8007,
+        11405,
+        0
+      ],
+      "surfaceZ": 0.025120000006836563,
+      "seconds": 62.64200000000393
+    }
+  ],
+  "events": [
+    {
+      "seconds": 61.7837000000038,
+      "message": "Open door"
+    }
+  ],
+  "changes": {
+    "8009,11405,0:fixtures_doors_01_48": {
+      "open": true,
+      "locked": false,
+      "lockedByKey": false
+    }
+  },
+  "player": {
+    "x": 8007.899519999973,
+    "y": 11405.500960000049,
+    "z": 0,
+    "surfaceZ": 0.025120000006836563,
+    "hp": 100
+  },
+  "inventoryCount": 13
+}

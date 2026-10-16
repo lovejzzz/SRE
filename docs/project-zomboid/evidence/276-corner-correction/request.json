@@ -1,0 +1,171 @@
+{
+  "requestId": "momento-corner-correction-276",
+  "baseRevision": 472,
+  "operations": [
+    {
+      "type": "walls.draw",
+      "pathId": "momento-corrected-corner",
+      "levelId": "level:0",
+      "points": [
+        [
+          8009,
+          11409
+        ],
+        [
+          8007,
+          11411
+        ]
+      ],
+      "wallN": "tian_masonry_navy_lintel_1",
+      "wallW": "tian_masonry_navy_lintel_0"
+    },
+    {
+      "type": "objects.rehost",
+      "id": "12d4b600-1f59-4f41-9a46-55179eae395c",
+      "assetId": "tile:tian_wall_door_symbol_DM_0",
+      "x": 8007,
+      "y": 11410,
+      "levelId": "level:0"
+    },
+    {
+      "type": "place",
+      "assetId": "tile:blends_natural_01_16",
+      "x": 8006,
+      "y": 11410,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:blends_natural_01_16",
+      "x": 8007,
+      "y": 11409,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:blends_natural_01_16",
+      "x": 8008,
+      "y": 11408,
+      "z": 0
+    },
+    {
+      "type": "room.outline",
+      "roomId": "momento-main",
+      "vertices": [
+        [
+          8000,
+          11403
+        ],
+        [
+          8009,
+          11403
+        ],
+        [
+          8009,
+          11409
+        ],
+        [
+          8007,
+          11411
+        ],
+        [
+          8000,
+          11411
+        ]
+      ]
+    },
+    {
+      "type": "objects.rehost",
+      "id": "935b721e-c8da-45f8-9f91-f28c2b0d5342",
+      "assetId": "tile:tian_street_pipe_straight_DM_0",
+      "x": 8008,
+      "y": 11409,
+      "levelId": "level:0"
+    },
+    {
+      "type": "objects.rehost",
+      "id": "e8781fd5-4632-4ac2-8c7e-ee5eb4fd7053",
+      "assetId": "tile:tian_street_pipe_straight_DM_0",
+      "x": 8007,
+      "y": 11410,
+      "levelId": "level:0"
+    },
+    {
+      "type": "objects.rehost",
+      "id": "d1df3a41-5785-4a4f-9b08-88190a893ec2",
+      "assetId": "tile:tian_street_pipe_straight_W_0",
+      "x": 8009,
+      "y": 11408,
+      "levelId": "level:0"
+    },
+    {
+      "type": "room.outline",
+      "roomId": "momento-upper-shell",
+      "vertices": [
+        [
+          8000,
+          11403
+        ],
+        [
+          8009,
+          11403
+        ],
+        [
+          8009,
+          11409
+        ],
+        [
+          8007,
+          11411
+        ],
+        [
+          8000,
+          11411
+        ]
+      ]
+    },
+    {
+      "type": "objects.rehost",
+      "id": "935b721e-c8da-45f8-9f91-f28c2b0d5342",
+      "assetId": "tile:tian_street_pipe_straight_DM_0",
+      "x": 8008,
+      "y": 11409,
+      "levelId": "momento-provisional-top:level:1"
+    },
+    {
+      "type": "objects.rehost",
+      "id": "e8781fd5-4632-4ac2-8c7e-ee5eb4fd7053",
+      "assetId": "tile:tian_street_pipe_straight_DM_0",
+      "x": 8007,
+      "y": 11410,
+      "levelId": "momento-provisional-top:level:1"
+    },
+    {
+      "type": "objects.rehost",
+      "id": "d1df3a41-5785-4a4f-9b08-88190a893ec2",
+      "assetId": "tile:tian_street_pipe_straight_W_0",
+      "x": 8009,
+      "y": 11408,
+      "levelId": "momento-provisional-top:level:1"
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_pipe_straight_N_0",
+      "x": 8006,
+      "y": 11411,
+      "z": 1
+    },
+    {
+      "type": "wall.finish",
+      "id": "momento-corrected-corner:0",
+      "side": "negative",
+      "tile": "tian_masonry_chalk_0"
+    },
+    {
+      "type": "wall.finish",
+      "id": "momento-corrected-corner:1",
+      "side": "negative",
+      "tile": "tian_masonry_chalk_0"
+    }
+  ]
+}

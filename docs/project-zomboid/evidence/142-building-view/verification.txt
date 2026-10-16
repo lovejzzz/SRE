@@ -1,0 +1,1 @@
+Actual browser: whole building enabled; two floors and room roof rendered; cutaway enabled; pan gesture; Edit rooms restored original camera; reload and preview from Edit rooms hid inspector; canvas click did not edit. Export identical to milestone 141. Browser error log empty. Syntax check passed. No broad test rerun: view-only change.

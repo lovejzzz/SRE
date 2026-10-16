@@ -1,0 +1,215 @@
+{
+  "refreshExactEquality": [
+    26,
+    27
+  ],
+  "cleanupExactEquality": [
+    25,
+    28
+  ],
+  "rooms": [
+    {
+      "id": "ff805ea4-b639-4464-9b1c-9746f2ea7daa",
+      "name": "Room",
+      "levelId": "level:0",
+      "rect": [
+        7998,
+        11403,
+        8004,
+        11408
+      ],
+      "cells": [
+        [
+          7998,
+          11403
+        ],
+        [
+          7998,
+          11404
+        ],
+        [
+          7998,
+          11405
+        ],
+        [
+          7998,
+          11406
+        ],
+        [
+          7998,
+          11407
+        ],
+        [
+          7999,
+          11403
+        ],
+        [
+          7999,
+          11404
+        ],
+        [
+          7999,
+          11405
+        ],
+        [
+          7999,
+          11406
+        ],
+        [
+          7999,
+          11407
+        ],
+        [
+          8000,
+          11403
+        ],
+        [
+          8000,
+          11404
+        ],
+        [
+          8000,
+          11405
+        ],
+        [
+          8000,
+          11406
+        ],
+        [
+          8000,
+          11407
+        ],
+        [
+          8001,
+          11403
+        ],
+        [
+          8001,
+          11404
+        ],
+        [
+          8001,
+          11405
+        ],
+        [
+          8001,
+          11406
+        ],
+        [
+          8001,
+          11407
+        ],
+        [
+          8002,
+          11403
+        ],
+        [
+          8002,
+          11404
+        ],
+        [
+          8003,
+          11403
+        ],
+        [
+          8003,
+          11404
+        ]
+      ],
+      "floorTile": "floors_interior_tilesandwood_01_40",
+      "wallIds": [
+        "enclosure-171:0",
+        "enclosure-171:17",
+        "enclosure-171:18",
+        "enclosure-171:19",
+        "enclosure-171:20",
+        "enclosure-171:14",
+        "enclosure-171:21",
+        "enclosure-171:1",
+        "enclosure-171:15",
+        "enclosure-171:2",
+        "enclosure-171:16",
+        "enclosure-171:3",
+        "enclosure-171:11",
+        "enclosure-171:12",
+        "wall:level:0:N:8001:11408",
+        "enclosure-171:13",
+        "enclosure-171:4",
+        "enclosure-171:9",
+        "enclosure-171:5",
+        "enclosure-171:6",
+        "enclosure-171:10",
+        "enclosure-171:7"
+      ]
+    },
+    {
+      "id": "notch-room-173",
+      "name": "Garden room",
+      "levelId": "level:0",
+      "rect": [
+        8002,
+        11405,
+        8004,
+        11408
+      ],
+      "floorTile": "floors_interior_tilesandwood_01_40",
+      "wallIds": [
+        "enclosure-171:9",
+        "enclosure-171:11",
+        "enclosure-171:12",
+        "wall:level:0:N:8002:11408",
+        "enclosure-171:13",
+        "enclosure-171:10",
+        "wall:level:0:W:8004:11405",
+        "wall:level:0:W:8004:11406",
+        "wall:level:0:N:8003:11408",
+        "wall:level:0:W:8004:11407"
+      ]
+    }
+  ],
+  "openings": [
+    {
+      "id": "shared-window-173",
+      "hostWallId": "enclosure-171:12",
+      "kind": "window",
+      "tile": "fixtures_windows_01_48"
+    },
+    {
+      "id": "shared-door-173",
+      "hostWallId": "enclosure-171:13",
+      "kind": "door",
+      "tile": "fixtures_doors_01_0"
+    }
+  ],
+  "mountedObjects": [
+    {
+      "id": "32b44a02-5430-433e-88fd-b365b7027eaf",
+      "assetId": "tile:tian_curtain_W",
+      "assetVersion": "source-v1",
+      "levelId": "level:0",
+      "x": 8002,
+      "y": 11406,
+      "parts": [
+        {
+          "dx": 0,
+          "dy": 0,
+          "tile": "tian_curtain_W"
+        }
+      ],
+      "wallMounts": [
+        {
+          "part": 0,
+          "wallId": "enclosure-171:12",
+          "openingId": "shared-window-173"
+        }
+      ]
+    }
+  ],
+  "walkthrough": {
+    "closedDoorPosition": "8001,11407",
+    "afterOpeningAndMoving": "8002,11407",
+    "interaction": "E changes Open door to Close door",
+    "reversePassage": "not proven by attempted key input"
+  },
+  "browserErrors": []
+}

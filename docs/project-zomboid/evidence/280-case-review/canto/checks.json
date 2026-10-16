@@ -1,0 +1,40 @@
+{
+  "rooms": 5,
+  "references": 8,
+  "objects": 0,
+  "sceneId": "551b003e-1b31-44f9-a35d-6dbc53b56682",
+  "editorRevision": 492,
+  "constructionComplete": false,
+  "groundBaysMetres": [
+    5,
+    5,
+    5,
+    5
+  ],
+  "sourceBaysMetres": [
+    5.43,
+    5.22,
+    4.65,
+    4.4
+  ],
+  "bayRelativeErrorsPercent": [
+    -7.9,
+    -4.2,
+    7.5,
+    13.6
+  ],
+  "openCourtyards": [
+    [
+      7998,
+      11400,
+      8003,
+      11405
+    ],
+    [
+      8004,
+      11405,
+      8008,
+      11409
+    ]
+  ]
+}

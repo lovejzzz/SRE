@@ -1,0 +1,9 @@
+{
+  "undoExact": true,
+  "runtimeTests": 644,
+  "browserDirections": [
+    "D+",
+    "D-"
+  ],
+  "uiDragNotYetExercised": true
+}

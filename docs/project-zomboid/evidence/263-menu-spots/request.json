@@ -1,0 +1,27 @@
+{
+  "requestId": "momento-menu-spots-263",
+  "baseRevision": 447,
+  "operations": [
+    {
+      "type": "place",
+      "assetId": "tile:tian_cafe_framed_menu_E_0",
+      "x": 8001,
+      "y": 11408,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_cafe_ceiling_spot_W_0",
+      "x": 8001,
+      "y": 11409,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_cafe_ceiling_spot_S_0",
+      "x": 8002,
+      "y": 11410,
+      "z": 0
+    }
+  ]
+}

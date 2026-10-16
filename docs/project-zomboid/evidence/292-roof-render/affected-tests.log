@@ -1,0 +1,17 @@
+✔ all four roof chamfers preserve exact area with continuous square eaves, including translated world coordinates (28.6165ms)
+✔ concave and chamfered eaves match an independent polygon/square intersection oracle (21.158ms)
+✔ public roof edits share partial geometry with rendering, rain, support, visibility and persistent history (17.212666ms)
+✔ cutting a roof follows the room and atomically protects rooftop occupants, while partial cells cannot support whole furniture (10.647375ms)
+✔ polygon roof eaves reject boundary overflow and existing upper structures without changing scene (6.801208ms)
+✔ roof render pieces preserve area, heights, closure lengths and stable cached ownership (2.395083ms)
+✔ public roof volume transactions preserve independent geometry through room split, save, undo and redo (29.933417ms)
+✔ profile edits and removal recompile and roll back atomically; locks protect independent volumes (10.590958ms)
+✔ invalid roof volume identities, bounds, unit and material reject without modifying the scene (2.925375ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 9
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 153.737

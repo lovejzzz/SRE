@@ -1,0 +1,136 @@
+{
+  "kind": "tian-house-workshop-walkthrough",
+  "version": 1,
+  "startedAt": "2026-10-13T19:19:55.864Z",
+  "houseName": "Momento Brewers · Photo study",
+  "sceneId": "2b1353d7-e74f-48a1-b6f1-1e3634bb6bfe",
+  "sceneRevision": 83,
+  "conditions": {
+    "temporaryCharacter": true,
+    "zombieSpawning": false,
+    "survivalAcceptance": false
+  },
+  "simulatedSeconds": 53.84830000000333,
+  "visited": [
+    {
+      "position": [
+        7999,
+        11409,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 0
+    },
+    {
+      "position": [
+        8000,
+        11409,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 11.564700000000121
+    },
+    {
+      "position": [
+        8001,
+        11409,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 12.191400000000156
+    },
+    {
+      "position": [
+        8002,
+        11409,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 12.816400000000192
+    },
+    {
+      "position": [
+        8002,
+        11408,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 13.583100000000222
+    },
+    {
+      "position": [
+        8002,
+        11407,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 14.20810000000025
+    },
+    {
+      "position": [
+        8002,
+        11406,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 14.833100000000279
+    },
+    {
+      "position": [
+        8001,
+        11406,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 26.756500000000187
+    },
+    {
+      "position": [
+        8000,
+        11406,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 27.383100000000177
+    },
+    {
+      "position": [
+        8000,
+        11405,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 27.891500000000153
+    },
+    {
+      "position": [
+        8000,
+        11404,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 28.514800000000147
+    }
+  ],
+  "events": [
+    {
+      "seconds": 11.248600000000101,
+      "message": "Open door"
+    }
+  ],
+  "changes": {
+    "8000,11409,0:fixtures_doors_01_48": {
+      "open": true,
+      "locked": false,
+      "lockedByKey": false
+    }
+  },
+  "player": {
+    "x": 8000.690816484859,
+    "y": 11404.487456484923,
+    "z": 0,
+    "surfaceZ": 0,
+    "hp": 100
+  },
+  "inventoryCount": 13
+}

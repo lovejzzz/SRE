@@ -1,0 +1,25 @@
+{
+  "browserFrameCadence": {
+    "samples": 843,
+    "p50Ms": 16.7,
+    "p95Ms": 26
+  },
+  "lastFrame": {
+    "drawCalls": 2671,
+    "triangles": 783841
+  },
+  "allocatedResourceCounts": {
+    "geometries": 386,
+    "textures": 88
+  },
+  "gpuTime": "not measured",
+  "memoryBytes": "not measured",
+  "cpuFrameWork": {
+    "samples": 843,
+    "p50Ms": 15.3,
+    "p95Ms": 19.6
+  },
+  "conditions": "Live simulation and animation; includes scheduled lighting work if due",
+  "cadenceMaxMs": 43.19999999999709,
+  "framesOver33ms": 15
+}

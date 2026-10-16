@@ -1,0 +1,20 @@
+{
+  "requestId": "momento-context-batch-270",
+  "baseRevision": 461,
+  "operations": [
+    {
+      "type": "reference.update",
+      "id": "415fa382-9b6a-4187-9072-6d79f5eece2d",
+      "patch": {
+        "notes": "Observed: dark curved timber counter, grinder, espresso machine, kettle and cups; white brick walls, grey aggregate floor, pendant lights, hanging plant and exposed ceiling conduits. Pale wall cooling equipment and electrical fittings are represented with reusable decorative assets; no HVAC or wiring simulation. Later architect-plan evidence establishes the separate bar/exhibition areas and service rooms. Exact dimensions, working clearances and equipment specifications remain unmeasured."
+      }
+    },
+    {
+      "type": "reference.update",
+      "id": "1ddada70-86f1-4ed4-a910-3c4ce600e6b1",
+      "patch": {
+        "notes": "Observed: dark doorway on a raised threshold, brown wall panel, full-height curtain, exposed conduit, low electrical fittings, dark floor border and adjacent coffee equipment. This photograph alone does not establish the space behind the door or curtain. The subsequently supplied architect plan establishes a small bathroom and separate stair enclosure; this informs the current layout. Exact partition registration, border width and hidden services are approximate, not surveyed."
+      }
+    }
+  ]
+}

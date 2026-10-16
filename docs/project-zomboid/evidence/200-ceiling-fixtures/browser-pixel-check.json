@@ -1,0 +1,8 @@
+{
+  "source": "original-cafe.png",
+  "runtime": "original-cafe.webp",
+  "rgbaBytes": 3440640,
+  "sameLength": true,
+  "differentBytes": 0,
+  "mechanism": "IAB Chrome Image.decode then canvas.getImageData; detached canvas"
+}

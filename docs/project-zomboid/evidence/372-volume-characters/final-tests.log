@@ -1,0 +1,37 @@
+✔ direct transition keeps outgoing pose and reaches incoming over .3 seconds (1.176417ms)
+✔ reversal preserves weights and actors remain independent (0.153875ms)
+✔ dedicated transition clips and zombie graph are not falsely replaced by generic fades (0.083708ms)
+✔ run starts with its dedicated clip and rewinds the main loop during the tail (0.285125ms)
+✔ interrupting a dedicated clip settles on the new input without replaying it (0.168625ms)
+✔ construction uses its imported loop at source speed and blend, freezes with action elapsed and returns to idle (0.095833ms)
+✔ loops at the imported duration, not a fixed one or three seconds (0.518792ms)
+✔ actors have independent starts; pause, transition and time reset are deterministic (0.38575ms)
+✔ short clips remain in range and invalid timing fails explicitly (0.484417ms)
+✔ rate changes preserve phase and zero rate freezes clip time (0.127833ms)
+✔ one-shot clips hold their exact endpoint instead of looping or losing the last key (0.133167ms)
+✔ browser camera and actor preserve the source world-view handedness in all eight directions (1.044083ms)
+✔ counter rotation matches source helper sample and preserves the world pose when motion moves to the actor (0.594333ms)
+✔ counter transform occurs after interpolation and samples do not accumulate the correction (0.332583ms)
+✔ looped rotation samples keep cumulative motion across the clip boundary (0.191167ms)
+✔ hand selection follows instance identity, variant override and excludes absent or duplicate hands (0.989708ms)
+✔ attachment composition applies parent then self then mesh and scale; selecting empty removes stale props (0.391292ms)
+✔ action models replace both hands without mutating equipped item identities (0.136125ms)
+✔ shared actor adapter preserves gameplay state, scales body only and hides dead threats (2.279875ms)
+✔ real simulation advances without changing original save and uses calibrated coordinates (3.505584ms)
+✔ door changes come from game rules, including locked failure (1.467541ms)
+✔ visitor storage uses timed game transfers and preserves the same physical instance (3.65925ms)
+✔ physical movement cancels a timed action even after nearby queries sync coordinates (0.4605ms)
+✔ nearby facilities use real sleep actions and reject stale reach or unsupported actions (1.129542ms)
+✔ physical running consumes normal endurance without moving a second time (0.228458ms)
+✔ physical speeds respect exhaustion, sneaking, world scale, death and pause (0.179666ms)
+✔ moving out of accelerated rest restores real-time survival advancement (0.141167ms)
+✔ resident mode owns the existing character and restores serialized physical position and doors (0.411625ms)
+✔ resident status exposes the same nearby threat that prevents rest (0.251583ms)
+ℹ tests 29
+ℹ suites 0
+ℹ pass 29
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 96.630666

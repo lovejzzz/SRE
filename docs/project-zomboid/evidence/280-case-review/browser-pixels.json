@@ -1,0 +1,26 @@
+{
+  "result": {
+    "type": "object",
+    "value": {
+      "channels": 17694720,
+      "differences": 0,
+      "sameDimensions": true,
+      "sources": [
+        {
+          "bytes": 149830,
+          "hash": "831d4237ee03203a13e3e68d4b2d0846926245ca543822e65be376b246f2e266",
+          "height": 5760,
+          "url": "/private-assets/original-cafe.png",
+          "width": 768
+        },
+        {
+          "bytes": 55252,
+          "hash": "05b85309d27e1b14baa39e696f7517621f43637417c5da1ece75787192a0ce8e",
+          "height": 5760,
+          "url": "/private-assets/original-cafe.webp",
+          "width": 768
+        }
+      ]
+    }
+  }
+}

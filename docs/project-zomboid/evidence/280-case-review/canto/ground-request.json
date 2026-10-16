@@ -1,0 +1,210 @@
+{
+  "requestId": "canto-ground-zones-280",
+  "baseRevision": 490,
+  "operations": [
+    {
+      "type": "rename",
+      "name": "Cantó House · Courtyard study"
+    },
+    {
+      "type": "reference.update",
+      "id": "0bd6d38e-2f88-4bfe-a218-7e9d7411a4e6",
+      "patch": {
+        "name": "Cantó · Ground plan",
+        "group": "Drawings",
+        "source": "Piano Piano Studio · Milena Villalba · ArchDaily 957636 · ground-plan.jpg",
+        "notes": "Ground plan is an explicit input. Labelled long bays: 5.43, 5.22, 4.65, 4.40 metres. Integer grid rounding is provisional."
+      }
+    },
+    {
+      "type": "reference.update",
+      "id": "e250463d-d043-4b7b-a02e-4d2aef896f14",
+      "patch": {
+        "name": "Cantó · Upper gallery",
+        "group": "Interior",
+        "source": "Piano Piano Studio · Milena Villalba · ArchDaily 957636 · photo-03.jpg",
+        "notes": "White mesh guards around living void, timber floor and pine sliding panels."
+      }
+    },
+    {
+      "type": "reference.update",
+      "id": "5e13314d-2462-4294-afae-ccda39a0bdd8",
+      "patch": {
+        "name": "Cantó · Street corner",
+        "group": "Exterior",
+        "source": "Piano Piano Studio · Milena Villalba · ArchDaily 957636 · photo-06.jpg",
+        "notes": "White facade, brick lattice terrace screen, garage opening and pitched roof. Neighbouring buildings are context."
+      }
+    },
+    {
+      "type": "reference.update",
+      "id": "b29631cb-f4d8-4146-abc2-0a59754dcdc5",
+      "patch": {
+        "name": "Cantó · Terrace bench and screen",
+        "group": "Terrace",
+        "source": "Piano Piano Studio · Milena Villalba · ArchDaily 957636 · photo-08.jpg",
+        "notes": "Perforated brick screen with open cutouts, long bench on brick piers, sink, fabric and potted tree."
+      }
+    },
+    {
+      "type": "reference.update",
+      "id": "6cfa1df9-0f70-48e9-a3a3-6ce9e7065dea",
+      "patch": {
+        "name": "Cantó · Interior stair and plinth",
+        "group": "Interior",
+        "source": "Piano Piano Studio · Milena Villalba · ArchDaily 957636 · photo-14.jpg",
+        "notes": "White stair with mesh guard, terracotta plinth, two timber steps, sideboard, books and plant. Heights are approximate."
+      }
+    },
+    {
+      "type": "reference.update",
+      "id": "914371eb-7dde-487a-bed3-f83776ef8727",
+      "patch": {
+        "name": "Cantó · Living room and kitchen",
+        "group": "Interior",
+        "source": "Piano Piano Studio · Milena Villalba · ArchDaily 957636 · photo-16.jpg",
+        "notes": "Sofa, kitchen island with two wicker stools, dining area, curtains and gallery above. Terracotta ceiling infill between beams."
+      }
+    },
+    {
+      "type": "reference.update",
+      "id": "ad84aa5f-41fb-486b-b8dd-c41794cf35d6",
+      "patch": {
+        "name": "Cantó · Upper plan",
+        "group": "Drawings",
+        "source": "Piano Piano Studio · Milena Villalba · ArchDaily 957636 · upper-plan.jpg",
+        "notes": "Upper plan establishes gallery, living and courtyard voids, and terrace above garage. This is not photo-only reconstruction."
+      }
+    },
+    {
+      "type": "room.add",
+      "room": {
+        "id": "canto-living",
+        "name": "Living and kitchen",
+        "levelId": "level:0",
+        "z": 0,
+        "rect": [
+          7993,
+          11400,
+          7998,
+          11409
+        ],
+        "floorTile": "floors_interior_tilesandwood_01_40",
+        "wallN": "tian_masonry_ivory_1",
+        "wallW": "tian_masonry_ivory_0"
+      }
+    },
+    {
+      "type": "room.add",
+      "room": {
+        "id": "canto-entry",
+        "name": "Entry and dining",
+        "levelId": "level:0",
+        "z": 0,
+        "rect": [
+          7998,
+          11405,
+          8003,
+          11409
+        ],
+        "floorTile": "floors_interior_tilesandwood_01_40",
+        "wallN": "tian_masonry_ivory_1",
+        "wallW": "tian_masonry_ivory_0"
+      }
+    },
+    {
+      "type": "room.add",
+      "room": {
+        "id": "canto-private",
+        "name": "Private ground rooms",
+        "levelId": "level:0",
+        "z": 0,
+        "rect": [
+          8003,
+          11400,
+          8008,
+          11405
+        ],
+        "floorTile": "floors_interior_tilesandwood_01_40",
+        "wallN": "tian_masonry_ivory_1",
+        "wallW": "tian_masonry_ivory_0"
+      }
+    },
+    {
+      "type": "room.add",
+      "room": {
+        "id": "canto-passage",
+        "name": "Private courtyard passage",
+        "levelId": "level:0",
+        "z": 0,
+        "rect": [
+          8003,
+          11405,
+          8004,
+          11409
+        ],
+        "floorTile": "floors_interior_tilesandwood_01_40",
+        "wallN": "tian_masonry_ivory_1",
+        "wallW": "tian_masonry_ivory_0"
+      }
+    },
+    {
+      "type": "room.add",
+      "room": {
+        "id": "canto-garage",
+        "name": "Garage",
+        "levelId": "level:0",
+        "z": 0,
+        "rect": [
+          8008,
+          11400,
+          8013,
+          11409
+        ],
+        "floorTile": "floors_interior_tilesandwood_01_28",
+        "wallN": "tian_masonry_ivory_1",
+        "wallW": "tian_masonry_ivory_0"
+      }
+    },
+    {
+      "type": "walls.draw",
+      "pathId": "canto-main-courtyard-boundary",
+      "levelId": "level:0",
+      "points": [
+        [
+          7998,
+          11400
+        ],
+        [
+          8003,
+          11400
+        ]
+      ],
+      "wallN": "tian_masonry_ivory_1",
+      "wallW": "tian_masonry_ivory_0"
+    },
+    {
+      "type": "walls.draw",
+      "pathId": "canto-private-courtyard-boundary",
+      "levelId": "level:0",
+      "points": [
+        [
+          8004,
+          11409
+        ],
+        [
+          8008,
+          11409
+        ]
+      ],
+      "wallN": "tian_masonry_ivory_1",
+      "wallW": "tian_masonry_ivory_0"
+    },
+    {
+      "type": "entry.set",
+      "x": 8000,
+      "y": 11410,
+      "z": 0
+    }
+  ]
+}

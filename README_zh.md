@@ -74,3 +74,5 @@ python3 examples/posix-path/run.py --workspace work/posix-run-1
 欢迎提交可复现、脱敏的失败案例：版本、输入、预期/实际行为和证据，并保留回归测试。欢迎改进翻译；各语言的能力和限制声明应保持一致。详细技术协议目前使用英文。
 
 证据完整性更新：目标验证和研究观察必须记录 SHA-256。参见[迁移方法与校验边界](skills/software-resynthesis/references/validation.md#recorded-evidence-integrity)及[变更记录](CHANGELOG.md)。
+
+过程记录：`sre.py record` / `report` 保留操作、失败、修复和证据指纹。参见[记录协议](skills/software-resynthesis/references/work-journal.md)和持续更新的 [Project Zomboid 案例](docs/project-zomboid/PROCESS.md)（尚未完整复刻，不是验收证明）。

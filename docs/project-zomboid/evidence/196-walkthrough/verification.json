@@ -1,0 +1,16 @@
+{
+  "tests": 533,
+  "originalSaveByteEqualAcrossEntryReturnAndReload": true,
+  "originalSaveSha256": "f41b92faf8c9410d4928b9a00cd44d8df778caef8142578a0e17e8df3ce8fa2e",
+  "originalHp": 11.558923999999168,
+  "originalTime": 704.0744700000984,
+  "routeCells": 14,
+  "temporaryCharacterHp": 100,
+  "actualInteractions": [
+    "opened glass entry door",
+    "walked around counter to wall shelves",
+    "transferred one Coffee from six stocked items; shelf 6 to 5 and player weight 4.60 to 5.60"
+  ],
+  "survivalAcceptance": false,
+  "deployed": false
+}

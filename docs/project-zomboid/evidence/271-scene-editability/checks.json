@@ -1,0 +1,9 @@
+{
+  "rotationUndoExact": true,
+  "finishUndoExact": true,
+  "finishPreservesOpenings": true,
+  "finishPreservesObjects": true,
+  "finishPreservesInventory": true,
+  "changedWallCount": 31,
+  "reloadExact": true
+}

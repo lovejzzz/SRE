@@ -1,0 +1,94 @@
+{
+  "walls": [
+    {
+      "id": "c3f5b169-92db-49ee-aaee-8a2965aeca24:0",
+      "levelId": "level:0",
+      "axis": "N",
+      "x": 8002,
+      "y": 11411,
+      "tile": "walls_exterior_house_01_33",
+      "independent": true
+    },
+    {
+      "id": "c3f5b169-92db-49ee-aaee-8a2965aeca24:1",
+      "levelId": "level:0",
+      "axis": "N",
+      "x": 8003,
+      "y": 11411,
+      "tile": "walls_exterior_house_01_33",
+      "independent": true
+    },
+    {
+      "id": "c3f5b169-92db-49ee-aaee-8a2965aeca24:2",
+      "levelId": "level:0",
+      "axis": "N",
+      "x": 8004,
+      "y": 11411,
+      "tile": "walls_exterior_house_01_33",
+      "independent": true
+    },
+    {
+      "id": "c3f5b169-92db-49ee-aaee-8a2965aeca24:3",
+      "levelId": "level:0",
+      "axis": "N",
+      "x": 8005,
+      "y": 11411,
+      "tile": "walls_exterior_house_01_33",
+      "independent": true
+    }
+  ],
+  "openings": [
+    {
+      "id": "04d93108-c5b4-44d2-b4de-91d4f532ac09",
+      "hostWallId": "c3f5b169-92db-49ee-aaee-8a2965aeca24:1",
+      "kind": "window",
+      "tile": "fixtures_windows_01_50"
+    }
+  ],
+  "objects": [
+    {
+      "id": "1221e5ea-4dbb-443a-af88-16c9b6b98979",
+      "assetId": "tile:tian_curtain_N",
+      "assetVersion": "source-v1",
+      "levelId": "level:0",
+      "x": 8003,
+      "y": 11411,
+      "parts": [
+        {
+          "dx": 0,
+          "dy": 0,
+          "tile": "tian_curtain_N"
+        }
+      ],
+      "wallMounts": [
+        {
+          "part": 0,
+          "wallId": "c3f5b169-92db-49ee-aaee-8a2965aeca24:1",
+          "openingId": "04d93108-c5b4-44d2-b4de-91d4f532ac09"
+        }
+      ]
+    },
+    {
+      "id": "99611226-a548-4248-90bf-c0df12c8b7f8",
+      "assetId": "tile:tian_wall_sconce_N",
+      "assetVersion": "source-v1",
+      "levelId": "level:0",
+      "x": 8005,
+      "y": 11411,
+      "parts": [
+        {
+          "dx": 0,
+          "dy": 0,
+          "tile": "tian_wall_sconce_N"
+        }
+      ],
+      "wallMounts": [
+        {
+          "part": 0,
+          "wallId": "c3f5b169-92db-49ee-aaee-8a2965aeca24:3"
+        }
+      ]
+    }
+  ],
+  "reopenEqual": true
+}

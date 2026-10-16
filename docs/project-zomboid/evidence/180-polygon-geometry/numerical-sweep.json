@@ -1,0 +1,6 @@
+{
+  "scope": "Geometry-only numerical sweep; not browser or reconstruction acceptance",
+  "cases": 33184,
+  "failures": [],
+  "maxAreaError": 1.4210854715202004e-14
+}

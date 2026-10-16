@@ -1,0 +1,30 @@
+{
+  "editorRevision": 423,
+  "browser": {
+    "bytes": 14254080,
+    "different": 0,
+    "hashes": [
+      "d819757952d90da4620150ccf9fab38e978f963b4ae0745c3f86acac4d7ef58b",
+      "7fef11424f83b7564082925bcb334f02030f94d5c4919f871dcbc03e046f07cc"
+    ]
+  },
+  "atlas": {
+    "recipe": "cafe",
+    "source": "original-cafe.png",
+    "runtime": "original-cafe.webp",
+    "sourceBytes": 128344,
+    "runtimeBytes": 45548,
+    "sourceSha256": "d819757952d90da4620150ccf9fab38e978f963b4ae0745c3f86acac4d7ef58b",
+    "runtimeSha256": "7fef11424f83b7564082925bcb334f02030f94d5c4919f871dcbc03e046f07cc",
+    "rgbaSha256": "5a390ae67686bca65b67d607e72e031c22443c375a270947d03c1b10dd57d567",
+    "size": [
+      768,
+      4640
+    ],
+    "generatorSha256": "de7a2b53de7a42871c1ee94796ec59d6cd828337d9bb4e1abc0bd0ef06a42321"
+  },
+  "tests": {
+    "streetFurniture": 10,
+    "failed": 0
+  }
+}

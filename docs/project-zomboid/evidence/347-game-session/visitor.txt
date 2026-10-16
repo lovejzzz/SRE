@@ -1,0 +1,2 @@
+Temporary visitor · 9:27 · Health 100 · Hunger 5.7 · Thirst 6.1
+Test body · x 7997.478 · y 11409.411 · z 0.900 · Grounded · Clear · all-floor physics · WASD / arrows

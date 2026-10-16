@@ -1,0 +1,267 @@
+{
+  "annotationChanges": [
+    {
+      "reference": "fbdb62cc-fcb0-4d22-b109-0d96108b476e",
+      "before": {
+        "id": "momento-corner-infill",
+        "rect": [
+          0.41,
+          0.26,
+          0.6,
+          0.76
+        ],
+        "label": "Closed corner sign panel",
+        "notes": "Observed: blue brick infill with painted logo, no door leaf or handle. Preserve solid chamfered corner. Current plain blue brick is an unfinished material study.",
+        "evidence": "observed",
+        "entityId": "wall:level:0:D-:8007:11409"
+      },
+      "after": {
+        "id": "momento-corner-infill",
+        "rect": [
+          0.41,
+          0.26,
+          0.6,
+          0.76
+        ],
+        "label": "Closed corner sign panel",
+        "notes": "Observed solid blue-brick infill with a painted door symbol, not an opening. The chamfer remains solid and now carries the reusable graphic; weathered lintel/surround are approximations of the photographed surfaces.",
+        "evidence": "observed",
+        "entityId": "wall:level:0:D-:8007:11409"
+      }
+    },
+    {
+      "reference": "fbdb62cc-fcb0-4d22-b109-0d96108b476e",
+      "before": {
+        "id": "momento-glazed-entry",
+        "rect": [
+          0.83,
+          0.33,
+          0.92,
+          0.68
+        ],
+        "label": "Glazed street entrance",
+        "notes": "Observed: separate glazed opening to the right of the blue door. Adopted customer entrance for the walkable study; use requires route validation.",
+        "evidence": "observed",
+        "entityId": "41c13d53-ba1a-47c0-b9a5-a52d1fbd9cc3"
+      },
+      "after": {
+        "id": "momento-glazed-entry",
+        "rect": [
+          0.83,
+          0.33,
+          0.92,
+          0.68
+        ],
+        "label": "Glazed stair entrance",
+        "notes": "Observed glazed entrance to the right of the blue exhibition door. Architect plan identifies this as the stair entry, separate from the cafe entrance on the opposite facade. Two-leaf assembly and full-width canopy now exist; both leaves were independently opened and traversed in walkthrough16. Exact dimensions remain approximate.",
+        "evidence": "observed",
+        "entityId": "momento-plan-stair-exterior-entry"
+      }
+    },
+    {
+      "reference": "fbdb62cc-fcb0-4d22-b109-0d96108b476e",
+      "before": {
+        "id": "upper-shell-inference",
+        "rect": [
+          0.057,
+          0,
+          0.9,
+          0.29
+        ],
+        "label": "Upper dark masonry shell",
+        "evidence": "inferred",
+        "entityId": "momento-upper-shell",
+        "notes": "Photo shows upper dark masonry. Shared footprint, roof and floor height are provisional. Interior is an undivided inferred space; windows and upper silhouette remain pending."
+      },
+      "after": {
+        "id": "upper-shell-inference",
+        "rect": [
+          0.057,
+          0,
+          0.9,
+          0.29
+        ],
+        "label": "Upper dark masonry shell",
+        "evidence": "inferred",
+        "entityId": "momento-upper-shell",
+        "notes": "Upper dark masonry, two front openings and a side window are photo-observed. Current editable upper shell has those openings and return-stair access. Shared footprint, floor height, flat roof and undivided upper interior remain inferred; the image crops the roofline."
+      }
+    },
+    {
+      "reference": "fbdb62cc-fcb0-4d22-b109-0d96108b476e",
+      "before": {
+        "id": "street-front-observed",
+        "rect": [
+          0.01,
+          0.59,
+          0.28,
+          0.93
+        ],
+        "label": "Four stools and concrete blocks",
+        "evidence": "observed",
+        "notes": "Four stools and blocks observed. Provisional grey paving now follows the clipped building corner. Brick texture and curb elevations remain pending. Canopy belongs to exterior stair entry; glazed door is a single-leaf approximation.",
+        "entityId": null
+      },
+      "after": {
+        "id": "street-front-observed",
+        "rect": [
+          0.01,
+          0.59,
+          0.28,
+          0.93
+        ],
+        "label": "Four stools and concrete blocks",
+        "evidence": "observed",
+        "notes": "Four stools and side-perforated concrete blocks are observed. Current paving follows the clipped corner; raised curb, road and drainage remain absent. A two-cell canopy covers the glazed double-leaf stair entrance. Furniture dimensions and paving pattern remain approximate.",
+        "entityId": null
+      }
+    },
+    {
+      "reference": "fbdb62cc-fcb0-4d22-b109-0d96108b476e",
+      "before": {
+        "id": "facade-door-symbol",
+        "rect": [
+          0.42,
+          0.33,
+          0.6,
+          0.5
+        ],
+        "label": "White open-door symbol on blue corner panel",
+        "evidence": "approximate",
+        "entityId": null,
+        "notes": "Photo-observed painted door symbol recreated as a reusable attached graphic. Position and proportions approximate; not a functional door."
+      },
+      "after": {
+        "id": "facade-door-symbol",
+        "rect": [
+          0.42,
+          0.33,
+          0.6,
+          0.5
+        ],
+        "label": "White open-door symbol on blue corner panel",
+        "evidence": "approximate",
+        "entityId": "12d4b600-1f59-4f41-9a46-55179eae395c",
+        "notes": "Photo-observed painted door symbol recreated as a reusable attached graphic. Position and proportions approximate; not a functional door."
+      }
+    },
+    {
+      "reference": "415fa382-9b6a-4187-9072-6d79f5eece2d",
+      "before": {
+        "id": "momento-rear-pendant",
+        "rect": [
+          0.68,
+          0.21,
+          0.74,
+          0.34
+        ],
+        "label": "Rear pendant",
+        "evidence": "observed",
+        "entityId": "4264d26c-f988-484c-ac3f-faa256cda605",
+        "notes": "Second suspended cone shade. Distinct from the small wall-mounted light further back, which is still missing. Placement provisional."
+      },
+      "after": {
+        "id": "momento-rear-pendant",
+        "rect": [
+          0.68,
+          0.21,
+          0.74,
+          0.34
+        ],
+        "label": "Rear pendant",
+        "evidence": "observed",
+        "entityId": "4264d26c-f988-484c-ac3f-faa256cda605",
+        "notes": "Second suspended cone shade, distinct from the implemented small bracket-mounted rear wall lamp. Both fixture types exist and are switchable. Exact location, scale and hanging height remain provisional."
+      }
+    },
+    {
+      "reference": "1ddada70-86f1-4ed4-a910-3c4ce600e6b1",
+      "before": {
+        "id": "momento-adjoining-door",
+        "rect": [
+          0.21,
+          0.27,
+          0.35,
+          0.81
+        ],
+        "label": "Raised dark door",
+        "evidence": "observed",
+        "entityId": "momento-service-door",
+        "notes": "Observed dark leaf and raised step beside the bar. Reusable editable threshold is now present and traversable; chosen height/depth are provisional, not measured from the photo. Grid location and hidden rear strip remain inferred; hidden room function unknown."
+      },
+      "after": {
+        "id": "momento-adjoining-door",
+        "rect": [
+          0.21,
+          0.27,
+          0.35,
+          0.81
+        ],
+        "label": "Raised dark door",
+        "evidence": "observed",
+        "entityId": "momento-service-door",
+        "notes": "Observed dark leaf and raised step beside the bar. The architect plan identifies the enclosed area as a bathroom. Editable threshold and bathroom route have been traversed; height, depth, finishes and hidden fixture appearance remain approximations."
+      }
+    },
+    {
+      "reference": "1ddada70-86f1-4ed4-a910-3c4ce600e6b1",
+      "before": {
+        "id": "momento-adjoining-panel",
+        "rect": [
+          0.35,
+          0.2,
+          0.86,
+          0.89
+        ],
+        "label": "Brown wall panel",
+        "evidence": "observed",
+        "entityId": "momento-adjoining-partition:2",
+        "notes": "Observed broad brown wall surface beside the dark door. Linked first of two contiguous umber plaster wall segments. Position/proportion inferred; conduit and exact panel width remain unresolved."
+      },
+      "after": {
+        "id": "momento-adjoining-panel",
+        "rect": [
+          0.35,
+          0.2,
+          0.86,
+          0.89
+        ],
+        "label": "Brown wall panel",
+        "evidence": "observed",
+        "entityId": "momento-adjoining-partition:2",
+        "notes": "Observed broad brown wall surface beside the bathroom door. Linked first of two umber-plaster segments; twin overhead conduit and end riser are now present. Exact width, surface weathering and spatial proportions remain approximate."
+      }
+    },
+    {
+      "reference": "momento-architect-plan",
+      "before": {
+        "id": "plan-stair-enclosure",
+        "rect": [
+          0.25,
+          0.55,
+          0.443,
+          0.7
+        ],
+        "label": "Return staircase \u2014 approximate geometry",
+        "evidence": "approximate",
+        "entityId": "47b01a03-a1f6-4a4e-b182-67f706420113",
+        "notes": "Generic 3x2 left-return stair added through the workshop. Actual browser ascent to floor1 and descent to ground verified. Tread dimensions/material are approximations; upper destination is provisional roof/landing, not a reconstructed upper building. Guards and visibility from above remain incomplete."
+      },
+      "after": {
+        "id": "plan-stair-enclosure",
+        "rect": [
+          0.25,
+          0.55,
+          0.443,
+          0.7
+        ],
+        "label": "Return staircase \u2014 approximate geometry",
+        "evidence": "approximate",
+        "entityId": "47b01a03-a1f6-4a4e-b182-67f706420113",
+        "notes": "Editable 3x2 left-return staircase connects ground to an upper room. Actual ascent/descent and upper-view shaft visibility have been verified; guards are present. Stair dimensions, material and upper interior are inferred rather than metrically reconstructed."
+      }
+    }
+  ],
+  "allNonReferenceSceneDataUnchanged": true,
+  "editorRevision": 426
+}

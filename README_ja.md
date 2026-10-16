@@ -56,3 +56,5 @@ Python の `posixpath.normpath` と独立した JavaScript 実装を実際に実
 再現可能で機密情報を除去した不具合報告と翻訳改善を歓迎します。バージョン、入力、期待値・実測値、証拠を添えてください。詳細な技術文書は現在英語です。
 
 証拠の整合性更新：対象環境の検証と調査観測には SHA-256 が必要です。[移行方法と検証の限界](skills/software-resynthesis/references/validation.md#recorded-evidence-integrity)と[変更履歴](CHANGELOG.md)を参照してください。
+
+作業記録：`sre.py record` / `report` は操作、失敗、修正、証拠のハッシュを保存します。[記録仕様](skills/software-resynthesis/references/work-journal.md)と進行中の [Project Zomboid 事例](docs/project-zomboid/PROCESS.md)を参照してください（未完成、忠実性の証明ではありません）。

@@ -1,0 +1,516 @@
+{
+  "requestId": "momento-raised-sidewalk-257",
+  "baseRevision": 441,
+  "operations": [
+    {
+      "type": "opening.threshold",
+      "id": "61c325b7-3b80-4a4f-8131-035acc04a0d3",
+      "threshold": {
+        "height": 8,
+        "depth": 0.35,
+        "color": "#68615a"
+      }
+    },
+    {
+      "type": "opening.threshold",
+      "id": "cd754dd7-1f7e-41f6-9ea6-fd0c19bbba76",
+      "threshold": {
+        "height": 8,
+        "depth": 0.35,
+        "color": "#68615a"
+      }
+    },
+    {
+      "type": "opening.threshold",
+      "id": "momento-plan-stair-exterior-entry",
+      "threshold": {
+        "height": 8,
+        "depth": 0.35,
+        "color": "#68615a"
+      }
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_platform_rose_6_0",
+      "x": 7999,
+      "y": 11411,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_platform_rose_6_0",
+      "x": 7999,
+      "y": 11412,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_platform_rose_6_0",
+      "x": 7999,
+      "y": 11413,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_platform_rose_6_0",
+      "x": 8000,
+      "y": 11413,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_platform_rose_6_0",
+      "x": 8001,
+      "y": 11413,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_platform_rose_6_0",
+      "x": 8002,
+      "y": 11413,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_platform_rose_6_0",
+      "x": 8003,
+      "y": 11413,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_platform_rose_6_0",
+      "x": 8004,
+      "y": 11413,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_platform_rose_6_0",
+      "x": 8005,
+      "y": 11413,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_platform_rose_6_0",
+      "x": 8006,
+      "y": 11410,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_platform_rose_6_0",
+      "x": 8006,
+      "y": 11411,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_platform_rose_6_0",
+      "x": 8006,
+      "y": 11412,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_platform_rose_6_0",
+      "x": 8006,
+      "y": 11413,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_platform_rose_6_0",
+      "x": 8007,
+      "y": 11409,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_platform_rose_6_0",
+      "x": 8007,
+      "y": 11410,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_platform_rose_6_0",
+      "x": 8007,
+      "y": 11411,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_platform_rose_6_0",
+      "x": 8007,
+      "y": 11412,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_platform_rose_6_0",
+      "x": 8007,
+      "y": 11413,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_platform_rose_6_0",
+      "x": 8008,
+      "y": 11408,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_platform_rose_6_0",
+      "x": 8008,
+      "y": 11409,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_platform_rose_6_0",
+      "x": 8008,
+      "y": 11410,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_platform_rose_6_0",
+      "x": 8008,
+      "y": 11411,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_platform_rose_6_0",
+      "x": 8008,
+      "y": 11412,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_platform_rose_6_0",
+      "x": 8008,
+      "y": 11413,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_platform_rose_6_0",
+      "x": 8009,
+      "y": 11403,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_platform_rose_6_0",
+      "x": 8009,
+      "y": 11404,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_platform_rose_6_0",
+      "x": 8009,
+      "y": 11405,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_platform_rose_6_0",
+      "x": 8009,
+      "y": 11406,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_platform_rose_6_0",
+      "x": 8009,
+      "y": 11407,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_platform_rose_6_0",
+      "x": 8009,
+      "y": 11408,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_platform_rose_6_0",
+      "x": 8009,
+      "y": 11409,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_platform_rose_6_0",
+      "x": 8009,
+      "y": 11410,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_platform_rose_6_0",
+      "x": 8009,
+      "y": 11411,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_platform_rose_6_0",
+      "x": 8009,
+      "y": 11412,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_platform_rose_6_0",
+      "x": 8009,
+      "y": 11413,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_platform_rose_6_0",
+      "x": 8010,
+      "y": 11403,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_platform_rose_6_0",
+      "x": 8010,
+      "y": 11404,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_platform_rose_6_0",
+      "x": 8010,
+      "y": 11405,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_platform_rose_6_0",
+      "x": 8010,
+      "y": 11406,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_platform_rose_6_0",
+      "x": 8010,
+      "y": 11407,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_platform_rose_6_0",
+      "x": 8010,
+      "y": 11408,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_platform_rose_6_0",
+      "x": 8010,
+      "y": 11409,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_platform_rose_6_0",
+      "x": 8010,
+      "y": 11410,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_platform_rose_6_0",
+      "x": 8010,
+      "y": 11411,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_platform_rose_6_0",
+      "x": 8010,
+      "y": 11412,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_platform_rose_6_0",
+      "x": 8010,
+      "y": 11413,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_platform_rose_6_0",
+      "x": 8011,
+      "y": 11403,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_platform_rose_6_0",
+      "x": 8011,
+      "y": 11404,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_platform_rose_6_0",
+      "x": 8011,
+      "y": 11405,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_platform_rose_6_0",
+      "x": 8011,
+      "y": 11406,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_platform_rose_6_0",
+      "x": 8011,
+      "y": 11407,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_platform_rose_6_0",
+      "x": 8011,
+      "y": 11408,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_platform_rose_6_0",
+      "x": 8011,
+      "y": 11409,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_platform_rose_6_0",
+      "x": 8011,
+      "y": 11410,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_platform_rose_6_0",
+      "x": 8011,
+      "y": 11411,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_platform_rose_6_0",
+      "x": 8011,
+      "y": 11412,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_platform_rose_6_0",
+      "x": 8011,
+      "y": 11413,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_platform_grey_12_0",
+      "x": 8000,
+      "y": 11411,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_platform_grey_12_0",
+      "x": 8000,
+      "y": 11412,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_platform_grey_12_0",
+      "x": 8001,
+      "y": 11411,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_platform_grey_12_0",
+      "x": 8001,
+      "y": 11412,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_platform_grey_12_0",
+      "x": 8002,
+      "y": 11411,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_platform_grey_12_0",
+      "x": 8002,
+      "y": 11412,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_platform_grey_12_0",
+      "x": 8003,
+      "y": 11411,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_platform_grey_12_0",
+      "x": 8003,
+      "y": 11412,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_platform_grey_12_0",
+      "x": 8004,
+      "y": 11411,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_platform_grey_12_0",
+      "x": 8004,
+      "y": 11412,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_platform_grey_12_0",
+      "x": 8005,
+      "y": 11411,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_platform_grey_12_0",
+      "x": 8005,
+      "y": 11412,
+      "z": 0
+    }
+  ]
+}

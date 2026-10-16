@@ -1,0 +1,17 @@
+{
+  "result": {
+    "type": "object",
+    "value": [
+      {
+        "bytes": 11796480,
+        "different": 0,
+        "page": "original-cafe"
+      },
+      {
+        "bytes": 2457600,
+        "different": 0,
+        "page": "original-masonry"
+      }
+    ]
+  }
+}

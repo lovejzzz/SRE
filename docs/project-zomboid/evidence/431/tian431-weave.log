@@ -1,0 +1,11 @@
+✔ authored yarn relief is deterministic and separate from source colour (6.312708ms)
+✔ different weave recipes cannot reuse the wrong source material cache (0.090458ms)
+✔ authored irregular yarn changes relief and finish without replacing imported colour (4.394667ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 47.6705

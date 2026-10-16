@@ -1,0 +1,46 @@
+{
+  "source": "/tmp/tian-house-photo-references/momento-floor-plan.jpg",
+  "method": "Manual image-axis samples from displayed 1888x1334 plan; approximate +/-5px; no physical scale calibration. Drawing rotated 180 degrees relative to scene. Ratios only.",
+  "samples": {
+    "westOuterX": 478,
+    "eastOuterX": 1236,
+    "frontY": 356,
+    "rearY": 1055,
+    "chamferFrontX": 619,
+    "chamferSideY": 487,
+    "dividerX": 943,
+    "servicePartitionY": 740
+  },
+  "comparisons": [
+    {
+      "measure": "width/depth",
+      "referenceRatio": 1.084406294706724,
+      "currentRatio": 1.125,
+      "relativeDifferencePercent": 3.743403693931402
+    },
+    {
+      "measure": "chamfer/width",
+      "referenceRatio": 0.18601583113456466,
+      "currentRatio": 0.3333333333333333,
+      "relativeDifferencePercent": 79.19621749408981
+    },
+    {
+      "measure": "chamfer/depth",
+      "referenceRatio": 0.18741058655221746,
+      "currentRatio": 0.375,
+      "relativeDifferencePercent": 100.09541984732823
+    },
+    {
+      "measure": "bar-side-width/building-width",
+      "referenceRatio": 0.3865435356200528,
+      "currentRatio": 0.4444444444444444,
+      "relativeDifferencePercent": 14.979142965491077
+    },
+    {
+      "measure": "rear-service-depth/building-depth",
+      "referenceRatio": 0.45064377682403434,
+      "currentRatio": 0.375,
+      "relativeDifferencePercent": -16.78571428571428
+    }
+  ]
+}

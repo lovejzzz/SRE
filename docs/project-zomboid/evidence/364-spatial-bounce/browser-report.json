@@ -1,0 +1,6 @@
+{
+  "dayCapture": "Spatial single-bounce study · 5 probes · 195 ms capture · distance-blended · no within-room visibility correction",
+  "nightCapture": "5 probes, 1330 ms including initial shader work",
+  "render": "{\n  \"cpuSubmission\": {\n    \"samples\": 120,\n    \"p50Ms\": 4.7,\n    \"p95Ms\": 5.1\n  },\n  \"browserFrameCadence\": {\n    \"samples\": 120,\n    \"p50Ms\": 8.3,\n    \"p95Ms\": 8.9\n  },\n  \"lastFrame\": {\n    \"drawCalls\": 1103,\n    \"triangles\": 343344\n  },\n  \"allocatedResourceCounts\": {\n    \"geometries\": 173,\n    \"textures\": 31\n  },\n  \"gpuTime\": \"not measured\",\n  \"memoryBytes\": \"not measured\"\n}",
+  "errors": []
+}

@@ -1,0 +1,19 @@
+{
+  "id": "fbdb62cc-fcb0-4d22-b109-0d96108b476e",
+  "name": "Momento \u00b7 Exterior corner",
+  "group": "Exterior",
+  "source": "Beezy Studio \u00b7 Studio Hoon \u00b7 https://www.archdaily.com/983949/momento-brewers-cafe-studio-hoon",
+  "evidence": "observed",
+  "notes": "Observed: blue brick facade, three tall recessed windows with dark sills, rough exposed masonry, blue steel side door, exterior stools and paving. Exact dimensions and hidden interior layout are not established by this photo. Development reference; not an unseen acceptance case.",
+  "knownLength": null,
+  "width": 2000,
+  "height": 1333,
+  "importInfo": {
+    "originalWidth": 2000,
+    "originalHeight": 1333,
+    "originalBytes": 3362584,
+    "sha256": "b2ddaa0d43fa50419c438b2f11c522ab145b134cda8b9ed404e2a61b9116d7f3",
+    "optimized": true
+  },
+  "storedBytes": 964903
+}

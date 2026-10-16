@@ -1,0 +1,179 @@
+{
+  "kind": "tian-house-workshop-walkthrough",
+  "version": 1,
+  "startedAt": "2026-10-14T00:04:40.545Z",
+  "houseName": "Momento Brewers · Photo study",
+  "sceneId": "2b1353d7-e74f-48a1-b6f1-1e3634bb6bfe",
+  "sceneRevision": 208,
+  "conditions": {
+    "temporaryCharacter": true,
+    "zombieSpawning": false,
+    "survivalAcceptance": false
+  },
+  "simulatedSeconds": 61.76610000000421,
+  "visited": [
+    {
+      "position": [
+        7999,
+        11409,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 0
+    },
+    {
+      "position": [
+        7999,
+        11410,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 31.67519999999929
+    },
+    {
+      "position": [
+        7999,
+        11411,
+        0
+      ],
+      "surfaceZ": 0.0625,
+      "seconds": 32.30019999999932
+    },
+    {
+      "position": [
+        7999,
+        11412,
+        0
+      ],
+      "surfaceZ": 0.0625,
+      "seconds": 32.92509999999943
+    },
+    {
+      "position": [
+        7999,
+        11413,
+        0
+      ],
+      "surfaceZ": 0.0625,
+      "seconds": 33.55019999999957
+    },
+    {
+      "position": [
+        8000,
+        11413,
+        0
+      ],
+      "surfaceZ": 0.0625,
+      "seconds": 42.10020000000097
+    },
+    {
+      "position": [
+        8001,
+        11413,
+        0
+      ],
+      "surfaceZ": 0.0625,
+      "seconds": 42.72520000000107
+    },
+    {
+      "position": [
+        8002,
+        11413,
+        0
+      ],
+      "surfaceZ": 0.0625,
+      "seconds": 43.350200000001195
+    },
+    {
+      "position": [
+        8003,
+        11413,
+        0
+      ],
+      "surfaceZ": 0.0625,
+      "seconds": 43.97520000000131
+    },
+    {
+      "position": [
+        8004,
+        11413,
+        0
+      ],
+      "surfaceZ": 0.0625,
+      "seconds": 44.6002000000014
+    },
+    {
+      "position": [
+        8005,
+        11413,
+        0
+      ],
+      "surfaceZ": 0.0625,
+      "seconds": 45.22520000000149
+    },
+    {
+      "position": [
+        8006,
+        11413,
+        0
+      ],
+      "surfaceZ": 0.0625,
+      "seconds": 45.85020000000161
+    },
+    {
+      "position": [
+        8007,
+        11413,
+        0
+      ],
+      "surfaceZ": 0.0625,
+      "seconds": 46.475200000001706
+    },
+    {
+      "position": [
+        8008,
+        11413,
+        0
+      ],
+      "surfaceZ": 0.0625,
+      "seconds": 47.10020000000182
+    },
+    {
+      "position": [
+        8009,
+        11413,
+        0
+      ],
+      "surfaceZ": 0.0625,
+      "seconds": 47.725200000001905
+    },
+    {
+      "position": [
+        8010,
+        11413,
+        0
+      ],
+      "surfaceZ": 0.0625,
+      "seconds": 48.35030000000201
+    },
+    {
+      "position": [
+        8010,
+        11413,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 61.316900000004146
+    }
+  ],
+  "events": [],
+  "changes": {},
+  "player": {
+    "x": 8010.5870538931495,
+    "y": 11413.519693893111,
+    "z": 0,
+    "surfaceZ": 0,
+    "hp": 100
+  },
+  "inventoryCount": 13
+}

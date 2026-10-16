@@ -1,0 +1,18 @@
+✔ real simulation advances without changing original save and uses calibrated coordinates (5.636458ms)
+✔ door changes come from game rules, including locked failure (1.792417ms)
+✔ visitor storage uses timed game transfers and preserves the same physical instance (4.957416ms)
+✔ physical movement cancels a timed action even after nearby queries sync coordinates (0.50625ms)
+✔ nearby facilities use real sleep actions and reject stale reach or unsupported actions (1.555667ms)
+✔ fill and drink consume finite reserves while mains leaves the reserve unchanged (1.530208ms)
+✔ fill progresses before completion; cancellation retains transferred water and roundtrips (2.384917ms)
+✔ capacity, item movement and source exhaustion prevent duplication or overfill (1.667458ms)
+✔ equipped container weight discount permits proportionally more water; malformed reserves reject (0.773875ms)
+✔ a full backpack prevents filling but not drinking directly from a reachable tap (0.184459ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 10
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 97.914375

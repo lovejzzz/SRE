@@ -1,0 +1,57 @@
+{
+  "requestId": "momento-street-evidence-259",
+  "baseRevision": 443,
+  "operations": [
+    {
+      "type": "reference.annotate",
+      "id": "fbdb62cc-fcb0-4d22-b109-0d96108b476e",
+      "annotation": {
+        "id": "street-seat-levels",
+        "rect": [
+          0.01,
+          0.6,
+          0.31,
+          0.87
+        ],
+        "label": "Raised seating ledge",
+        "notes": "The photo shows a seating ledge above the brick sidewalk. Current 12 px ledge and 6 px sidewalk are source-art approximations, not measured heights.",
+        "evidence": "approximate",
+        "entityId": null
+      }
+    },
+    {
+      "type": "reference.annotate",
+      "id": "fbdb62cc-fcb0-4d22-b109-0d96108b476e",
+      "annotation": {
+        "id": "street-sidewalk-levels",
+        "rect": [
+          0.3,
+          0.73,
+          1,
+          0.93
+        ],
+        "label": "Brick sidewalk above street",
+        "notes": "Rose brick sidewalk lies above interlocking street pavers. Tile widths, apron extent and height are approximate. Rectangular outer corner still needs a shaped curb.",
+        "evidence": "approximate",
+        "entityId": null
+      }
+    },
+    {
+      "type": "reference.annotate",
+      "id": "fbdb62cc-fcb0-4d22-b109-0d96108b476e",
+      "annotation": {
+        "id": "street-drainage",
+        "rect": [
+          0.62,
+          0.89,
+          0.91,
+          0.995
+        ],
+        "label": "Street drain and interlocking paving",
+        "notes": "One rectangular metal grate is visible in the foreground. The reusable cast-iron grate and road pattern approximate it. A second side-street grate is inferred for the current layout. No hydraulic simulation.",
+        "evidence": "approximate",
+        "entityId": null
+      }
+    }
+  ]
+}

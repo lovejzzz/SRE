@@ -1,0 +1,129 @@
+{
+  "kind": "tian-house-workshop-walkthrough",
+  "version": 1,
+  "startedAt": "2026-10-13T18:33:25.861Z",
+  "houseName": "Momento Brewers · Photo study",
+  "sceneId": "2b1353d7-e74f-48a1-b6f1-1e3634bb6bfe",
+  "sceneRevision": 58,
+  "conditions": {
+    "temporaryCharacter": true,
+    "zombieSpawning": false,
+    "survivalAcceptance": false
+  },
+  "simulatedSeconds": 37.27890000000094,
+  "visited": [
+    {
+      "position": [
+        8009,
+        11404,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 0
+    },
+    {
+      "position": [
+        8008,
+        11404,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 9.107899999999988
+    },
+    {
+      "position": [
+        8007,
+        11404,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 9.731900000000005
+    },
+    {
+      "position": [
+        8006,
+        11404,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 10.3575
+    },
+    {
+      "position": [
+        8005,
+        11404,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 10.98310000000002
+    },
+    {
+      "position": [
+        8004,
+        11404,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 11.608100000000027
+    },
+    {
+      "position": [
+        8003,
+        11404,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 12.232900000000045
+    },
+    {
+      "position": [
+        8003,
+        11405,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 12.824700000000064
+    },
+    {
+      "position": [
+        8003,
+        11406,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 13.449700000000075
+    }
+  ],
+  "events": [
+    {
+      "seconds": 8.782999999999976,
+      "message": "Open door"
+    },
+    {
+      "seconds": 21.823600000000273,
+      "message": "Light off"
+    },
+    {
+      "seconds": 37.21230000000094,
+      "message": "Light on"
+    }
+  ],
+  "changes": {
+    "8009,11404,0:fixtures_doors_01_48": {
+      "open": true,
+      "locked": false,
+      "lockedByKey": false
+    },
+    "8003,11406,0:tian_cafe_pendant_0": {
+      "lightOff": false
+    }
+  },
+  "player": {
+    "x": 8003.568960000015,
+    "y": 11406.433119999985,
+    "z": 0,
+    "surfaceZ": 0,
+    "hp": 100
+  },
+  "inventoryCount": 13
+}

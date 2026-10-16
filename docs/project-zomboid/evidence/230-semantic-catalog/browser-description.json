@@ -1,0 +1,61 @@
+{
+  "id": "tile:floors_overlay_wood_01_0",
+  "name": "Floors Overlay Wood 01 0",
+  "category": "Floors & terrain",
+  "source": "floors_overlay_wood_01_0",
+  "units": "source-grid",
+  "footprint": {
+    "width": 1,
+    "depth": 1,
+    "cells": [
+      {
+        "dx": 0,
+        "dy": 0
+      }
+    ]
+  },
+  "provenance": [
+    {
+      "tile": "floors_overlay_wood_01_0",
+      "available": true,
+      "sourceKind": "raster-import",
+      "recipe": "installed-pz-texture-packs",
+      "pack": "Overlays2x.floor.pack",
+      "packSha256": "4fbca9aa0b96ee691a85f57311173fdb996836281466a4b16a88024a9a546201",
+      "page": "Overlays2x.floor-0.png",
+      "pageSha256": "3ff5404345096b5f0a14042892f4092393202acf2b6ec72c86aba4ebf146ec78",
+      "region": {
+        "x": 178,
+        "y": 123,
+        "width": 76,
+        "height": 24,
+        "offsetX": 17,
+        "offsetY": 206,
+        "originalWidth": 128,
+        "originalHeight": 256,
+        "scale": 2
+      },
+      "evidence": "import-manifest"
+    }
+  ],
+  "facing": null,
+  "type": "Wood",
+  "condition": "Unspecified",
+  "orientations": [
+    {
+      "id": "tile:floors_overlay_wood_01_0",
+      "facing": null
+    }
+  ],
+  "parts": [
+    {
+      "dx": 0,
+      "dy": 0,
+      "tile": "floors_overlay_wood_01_0",
+      "properties": {
+        "FloorOverlay": ""
+      }
+    }
+  ],
+  "stairs": false
+}

@@ -1,0 +1,55 @@
+{
+  "requestId": "straight-flight-probe-285",
+  "baseRevision": 497,
+  "operations": [
+    {
+      "type": "room.add",
+      "room": {
+        "id": "stair-probe-0",
+        "name": "Temporary stair test",
+        "levelId": "level:0",
+        "z": 0,
+        "rect": [
+          7990,
+          11414,
+          8000,
+          11418
+        ],
+        "floorTile": "floors_interior_tilesandwood_01_40",
+        "wallN": "tian_masonry_ivory_1",
+        "wallW": "tian_masonry_ivory_0"
+      }
+    },
+    {
+      "type": "room.add",
+      "room": {
+        "id": "stair-probe-1",
+        "name": "Temporary stair test",
+        "levelId": "level:1",
+        "z": 1,
+        "rect": [
+          7990,
+          11414,
+          8000,
+          11418
+        ],
+        "floorTile": "floors_interior_tilesandwood_01_40",
+        "wallN": "tian_masonry_ivory_1",
+        "wallW": "tian_masonry_ivory_0"
+      }
+    },
+    {
+      "type": "place",
+      "assetId": "stairs:straight:E:5",
+      "x": 7992,
+      "y": 11416,
+      "z": 0
+    },
+    {
+      "type": "entry.set",
+      "x": 7991,
+      "y": 11416,
+      "z": 0
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+[
+  {
+    "level": "error",
+    "message": "IndexSizeError: Failed to execute 'ellipse' on 'CanvasRenderingContext2D': The major-axis radius provided (-1.09108) is negative.\n    at HouseWorkshop.draw (http://127.0.0.1:8883/src/workshop.js:231:224)\n    at tick (http://127.0.0.1:8883/src/workshop.js:54:152)",
+    "timestamp": "2026-10-13T09:59:46.217Z",
+    "url": "http://127.0.0.1:8883/src/workshop.js"
+  },
+  {
+    "level": "error",
+    "message": "IndexSizeError: Failed to execute 'ellipse' on 'CanvasRenderingContext2D': The major-axis radius provided (-1.30431) is negative.\n    at HouseWorkshop.draw (http://127.0.0.1:8883/src/workshop.js:231:224)\n    at tick (http://127.0.0.1:8883/src/workshop.js:54:152)",
+    "timestamp": "2026-10-13T10:01:44.565Z",
+    "url": "http://127.0.0.1:8883/src/workshop.js"
+  }
+]

@@ -1,0 +1,19 @@
+✔ chair rear allowance rotates with the rendered chair, including placement offset (9.294959ms)
+✔ activity audit catches an architectural blocker but excludes its own furniture and other floors (2.254667ms)
+✔ clearance allows touching floor but detects a raised intrusion (1.756917ms)
+✔ centred west-facing trainer keeps its full exercise envelope inside the south wall (208.00625ms)
+✔ studio equipment keeps its dimensioned physical silhouette and actual empty spaces (93.999083ms)
+✔ all studio recipes generate finite supported convex parts with stable identifiers (233.967834ms)
+✔ every studio direction is one editable catalogue assembly matching its volume recipe (404.81275ms)
+✔ wall lighting on a south boundary points into the room instead of outside (1.617708ms)
+✔ studio upholstery has top and bottom bevel rings without changing its authored footprint (8.023459ms)
+✔ volume delivery reproduces recipe exactly with real open space between legs (3.654792ms)
+✔ two source directions share recipe with correct footprint, support lift and stable identity (3.352083ms)
+ℹ tests 11
+ℹ suites 0
+ℹ pass 11
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 802.913291

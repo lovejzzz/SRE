@@ -1,0 +1,98 @@
+{
+  "kind": "tian-house-workshop-walkthrough",
+  "version": 1,
+  "startedAt": "2026-10-13T23:16:58.451Z",
+  "houseName": "Platform regression · 249 clean",
+  "sceneId": "c9405766-7a06-4f9f-bd42-f1616d2fbaea",
+  "sceneRevision": 3,
+  "conditions": {
+    "temporaryCharacter": true,
+    "zombieSpawning": false,
+    "survivalAcceptance": false
+  },
+  "simulatedSeconds": 36.42110000000059,
+  "visited": [
+    {
+      "position": [
+        8017,
+        11405,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 0
+    },
+    {
+      "position": [
+        8017,
+        11406,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 21.137600000000084
+    },
+    {
+      "position": [
+        8017,
+        11407,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 21.762600000000077
+    },
+    {
+      "position": [
+        8017,
+        11408,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 22.38600000000007
+    },
+    {
+      "position": [
+        8017,
+        11409,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 23.012900000000077
+    },
+    {
+      "position": [
+        8017,
+        11410,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 23.63600000000008
+    },
+    {
+      "position": [
+        8016,
+        11410,
+        0
+      ],
+      "surfaceZ": 0.0625,
+      "seconds": 24.062600000000078
+    },
+    {
+      "position": [
+        8015,
+        11410,
+        0
+      ],
+      "surfaceZ": 0.0625,
+      "seconds": 24.68610000000008
+    }
+  ],
+  "events": [],
+  "changes": {},
+  "player": {
+    "x": 8015.1752360634855,
+    "y": 11410.147236063443,
+    "z": 0,
+    "surfaceZ": 0.0625,
+    "hp": 100
+  },
+  "inventoryCount": 7
+}

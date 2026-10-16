@@ -1,0 +1,62 @@
+{
+  "state": "provisional actual photo-case shell; fidelity not passed",
+  "editorRevision": 363,
+  "counts": {
+    "rooms": 1,
+    "objects": 3,
+    "openings": 5,
+    "annotations": 14
+  },
+  "namedVersions": [
+    "version:momento-before-shell-190",
+    "version:momento-shell-checkpoint-190"
+  ],
+  "reloadExactExports": [
+    75,
+    76
+  ],
+  "versionRecoveryEquivalentExceptSceneRevision": [
+    75,
+    77
+  ],
+  "sharedCounterBinding": "77249345-cb56-478c-8a0c-6d8ff8ea8aeb",
+  "sharedGrinderBinding": "34e318e9-d1ae-4022-8536-e0099af62d0a",
+  "route": {
+    "outside": [
+      8009,
+      11404,
+      0
+    ],
+    "doorAction": "E opens glazed door",
+    "inside": [
+      8007,
+      11404,
+      0
+    ],
+    "staffSide": [
+      8004,
+      11407,
+      0
+    ],
+    "counterBlocksDirectCrossing": true,
+    "aroundCounterToWindow": [
+      8005,
+      11410,
+      0
+    ],
+    "pausedAt": "22:18 Day 1"
+  },
+  "consoleErrors": [],
+  "deployed": false,
+  "limitations": [
+    "inferred 9x8-cell shell and rear walls; no measured scale",
+    "window height, spacing and sash pattern differ",
+    "blue brick is too pale; rough stone differs",
+    "no separate interior/exterior wall finishes",
+    "internal partition/raised dark door/curtain absent",
+    "sills, shelves, pendants, conduit, hanging plant, small goods pending",
+    "no roof or upper exterior context yet",
+    "espresso machine and grinder decorative",
+    "import and unseen acceptance not completed for this case"
+  ]
+}

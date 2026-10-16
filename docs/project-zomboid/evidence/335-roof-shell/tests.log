@@ -1,0 +1,29 @@
+✔ roof adapter preserves asymmetric heights, thickness and source identity (3.260834ms)
+✔ roof collision follows slope and thin skin instead of filling the attic (1.222209ms)
+✔ concave roof collision leaves the courtyard open, including large coordinates (1.4095ms)
+✔ segment clipping handles reverse travel, inside starts and invalid endpoints (0.615125ms)
+✔ public roof volume transactions preserve independent geometry through room split, save, undo and redo (28.36625ms)
+✔ profile edits and removal recompile and roll back atomically; locks protect independent volumes (10.037334ms)
+✔ invalid roof volume identities, bounds, unit and material reject without modifying the scene (3.091208ms)
+✔ flat roof provides rain cover and tracks room resize, persistence and undo (8.888459ms)
+✔ roofs cannot overwrite an upper room or leave rooftop furniture suspended on removal (3.022458ms)
+✔ invalid roof materials, unsupported roof kinds and topology changes reject without mutation (1.741292ms)
+✔ gable slope recipes use both directions, odd ridge tiles and continuous six-step height bands (0.514708ms)
+✔ both ridge orientations match the source atlas height at every supported step (22.988208ms)
+✔ gable ends preserve seven-cell source geometry in the matching finish and follow rotation (0.337792ms)
+✔ gable material changes retain end geometry and roof identity; conflicting upper structures reject (23.260375ms)
+✔ resizing a gable across height bands adds levels, preserves identity and roundtrips history (22.669334ms)
+✔ gable resize rejects occupied upper volume and height overflow without changing the scene (24.9075ms)
+✔ wide gables use matching siding for full bands and source caps (1.359375ms)
+✔ flat overhangs provide exterior rain cover and survive roof edits, undo and reload (3.542833ms)
+✔ gable-end overhang extends along the ridge without lifting its slope or moving its walls (0.241458ms)
+✔ overhangs reject neighboring upper structures and lot overflow atomically (1.841ms)
+✔ roof cutaway preserves shadow geometry and excludes hidden panels from picking (1.16125ms)
+ℹ tests 21
+ℹ suites 0
+ℹ pass 21
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 170.9635

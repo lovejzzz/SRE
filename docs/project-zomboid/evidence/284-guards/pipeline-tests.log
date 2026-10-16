@@ -1,0 +1,9 @@
+......Traceback (most recent call last):
+  File "/var/folders/m5/9b5k0tt50x91406yr6zww2r40000gn/T/tian-assets-stage-okuxmway/tools/generate.py", line 6, in <module>
+    raise RuntimeError('injected failure')
+RuntimeError: injected failure
+.........
+----------------------------------------------------------------------
+Ran 15 tests in 0.530s
+
+OK

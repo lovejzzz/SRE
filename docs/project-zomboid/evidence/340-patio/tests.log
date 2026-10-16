@@ -1,0 +1,12 @@
+✔ wrong multipart arrangement cannot silently match a source family (0.434958ms)
+✔ unsupported furnishings and dependent fixtures report omissions without fabricated geometry (0.565417ms)
+✔ bench has walk-blocking seat in both reviewed multipart orientations (6.162458ms)
+✔ plant remains deterministic, pot blocks walking while high leaf canopy is nonblocking (4.924416ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 52.745542

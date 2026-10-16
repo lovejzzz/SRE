@@ -1,0 +1,271 @@
+{
+  "kind": "tian-house-workshop-walkthrough",
+  "version": 1,
+  "startedAt": "2026-10-14T02:23:21.464Z",
+  "houseName": "Momento Brewers · Photo study",
+  "sceneId": "2b1353d7-e74f-48a1-b6f1-1e3634bb6bfe",
+  "sceneRevision": 269,
+  "conditions": {
+    "temporaryCharacter": true,
+    "zombieSpawning": false,
+    "survivalAcceptance": false
+  },
+  "simulatedSeconds": 82.48370000000624,
+  "visited": [
+    {
+      "position": [
+        7999,
+        11409,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 0
+    },
+    {
+      "position": [
+        8000,
+        11409,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 28.04179999999957
+    },
+    {
+      "position": [
+        8001,
+        11409,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 28.66679999999955
+    },
+    {
+      "position": [
+        8002,
+        11409,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 29.291899999999554
+    },
+    {
+      "position": [
+        8002,
+        11408,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 30.075199999999533
+    },
+    {
+      "position": [
+        8002,
+        11407,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 30.70009999999954
+    },
+    {
+      "position": [
+        8003,
+        11407,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 31.29179999999952
+    },
+    {
+      "position": [
+        8004,
+        11407,
+        0
+      ],
+      "surfaceZ": 0.08333333333333333,
+      "seconds": 31.9168999999995
+    },
+    {
+      "position": [
+        8004,
+        11406,
+        0
+      ],
+      "surfaceZ": 0.08333333333333333,
+      "seconds": 47.258500000001504
+    },
+    {
+      "position": [
+        8004,
+        11406,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 47.4752000000015
+    },
+    {
+      "position": [
+        8004,
+        11405,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 47.88200000000157
+    },
+    {
+      "position": [
+        8004,
+        11406,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 62.9170000000036
+    },
+    {
+      "position": [
+        8004,
+        11406,
+        0
+      ],
+      "surfaceZ": 0.08333333333333333,
+      "seconds": 63.32530000000366
+    },
+    {
+      "position": [
+        8004,
+        11407,
+        0
+      ],
+      "surfaceZ": 0.08333333333333333,
+      "seconds": 63.5420000000037
+    },
+    {
+      "position": [
+        8004,
+        11407,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 63.78360000000375
+    },
+    {
+      "position": [
+        8005,
+        11407,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 63.94200000000378
+    },
+    {
+      "position": [
+        8006,
+        11407,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 64.56700000000386
+    },
+    {
+      "position": [
+        8007,
+        11407,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 65.19100000000397
+    },
+    {
+      "position": [
+        8008,
+        11407,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 65.81700000000407
+    },
+    {
+      "position": [
+        8008,
+        11407,
+        0
+      ],
+      "surfaceZ": 0.08333333333333333,
+      "seconds": 66.24030000000408
+    },
+    {
+      "position": [
+        8009,
+        11407,
+        0
+      ],
+      "surfaceZ": 0.08333333333333333,
+      "seconds": 66.45870000000409
+    },
+    {
+      "position": [
+        8009,
+        11407,
+        0
+      ],
+      "surfaceZ": 0.0625,
+      "seconds": 66.68200000000415
+    },
+    {
+      "position": [
+        8010,
+        11407,
+        0
+      ],
+      "surfaceZ": 0.0625,
+      "seconds": 67.08370000000419
+    },
+    {
+      "position": [
+        8011,
+        11407,
+        0
+      ],
+      "surfaceZ": 0.0625,
+      "seconds": 67.7087000000043
+    }
+  ],
+  "events": [
+    {
+      "seconds": 27.72369999999957,
+      "message": "Open door"
+    },
+    {
+      "seconds": 47.025200000001476,
+      "message": "Open door"
+    },
+    {
+      "seconds": 66.00870000000407,
+      "message": "Open door"
+    }
+  ],
+  "changes": {
+    "8000,11409,0:fixtures_doors_01_48": {
+      "open": true,
+      "locked": false,
+      "lockedByKey": false
+    },
+    "8004,11407,0:scene-opening:momento-service-door": {
+      "open": true,
+      "locked": false,
+      "lockedByKey": false
+    },
+    "8009,11407,0:scene-opening:61c325b7-3b80-4a4f-8131-035acc04a0d3": {
+      "open": true,
+      "locked": false,
+      "lockedByKey": false
+    }
+  },
+  "player": {
+    "x": 8011.176720167332,
+    "y": 11407.353680167373,
+    "z": 0,
+    "surfaceZ": 0.0625,
+    "hp": 100
+  },
+  "inventoryCount": 13
+}

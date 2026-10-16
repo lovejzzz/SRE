@@ -1,0 +1,7 @@
+{
+  "objects": true,
+  "openings": true,
+  "walls": true,
+  "verticalLinks": true,
+  "items": true
+}

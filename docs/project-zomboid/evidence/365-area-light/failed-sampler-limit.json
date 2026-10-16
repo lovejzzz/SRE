@@ -1,0 +1,20 @@
+[
+  {
+    "level": "error",
+    "message": "THREE.WebGLProgram: Shader Error 1282 - VALIDATE_STATUS false\n\nMaterial Name: \nMaterial Type: MeshStandardMaterial\n\nProgram Info Log: FRAGMENT shader texture image units count exceeds MAX_TEXTURE_IMAGE_UNITS(16)\n\n",
+    "timestamp": "2026-10-14T20:31:07.071Z",
+    "url": "http://127.0.0.1:8883/node_modules/three/build/three.core.js"
+  },
+  {
+    "level": "error",
+    "message": "THREE.WebGLProgram: Shader Error 1282 - VALIDATE_STATUS false\n\nMaterial Name: \nMaterial Type: MeshStandardMaterial\n\nProgram Info Log: FRAGMENT shader texture image units count exceeds MAX_TEXTURE_IMAGE_UNITS(16)\n\n",
+    "timestamp": "2026-10-14T20:31:07.079Z",
+    "url": "http://127.0.0.1:8883/node_modules/three/build/three.core.js"
+  },
+  {
+    "level": "error",
+    "message": "THREE.WebGLProgram: Shader Error 1282 - VALIDATE_STATUS false\n\nMaterial Name: \nMaterial Type: MeshStandardMaterial\n\nProgram Info Log: FRAGMENT shader texture image units count exceeds MAX_TEXTURE_IMAGE_UNITS(16)\n\n",
+    "timestamp": "2026-10-14T20:31:07.093Z",
+    "url": "http://127.0.0.1:8883/node_modules/three/build/three.core.js"
+  }
+]

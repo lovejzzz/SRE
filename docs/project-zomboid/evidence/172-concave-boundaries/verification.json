@@ -1,0 +1,42 @@
+{
+  "refreshExactEquality": [
+    23,
+    24
+  ],
+  "cleanupExactEquality": [
+    22,
+    25
+  ],
+  "roomArea": 24,
+  "movedWallIdentities": [
+    {
+      "id": "enclosure-171:11",
+      "levelId": "level:0",
+      "axis": "W",
+      "x": 8002,
+      "y": 11405,
+      "tile": "walls_exterior_house_01_32",
+      "independent": true
+    },
+    {
+      "id": "enclosure-171:12",
+      "levelId": "level:0",
+      "axis": "W",
+      "x": 8002,
+      "y": 11406,
+      "tile": "walls_exterior_house_01_32",
+      "independent": true
+    },
+    {
+      "id": "enclosure-171:13",
+      "levelId": "level:0",
+      "axis": "W",
+      "x": 8002,
+      "y": 11407,
+      "tile": "walls_exterior_house_01_32",
+      "independent": true
+    }
+  ],
+  "referenceCountAfterCleanup": 4,
+  "browserErrors": []
+}

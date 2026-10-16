@@ -1,0 +1,10 @@
+{
+  "allObjectIdsPreserved": true,
+  "inventoryExact": true,
+  "stairsExact": true,
+  "oldBorderRemoved": true,
+  "newBorderPresent": true,
+  "visitedServiceInterior": true,
+  "visitedSideExit": true,
+  "runtimeTests": 646
+}

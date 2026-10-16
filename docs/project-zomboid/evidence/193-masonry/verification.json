@@ -1,0 +1,97 @@
+{
+  "milestone": 193,
+  "tests": {
+    "passed": 518,
+    "failed": 0
+  },
+  "editorRevision": 375,
+  "exports": {
+    "80": {
+      "path": "/Users/tianxing/Downloads/momento-brewers-photo-study (80).json",
+      "sha256": "8c798f4a452a112fb17e94913d0ac5d09f64687067f94c5c82fa8fbf38c2bf4d"
+    },
+    "81": {
+      "path": "/Users/tianxing/Downloads/momento-brewers-photo-study (81).json",
+      "sha256": "329d4c8420b13b17056b3b28cc56855e01ca9f523134435192afeb6310f45393"
+    },
+    "82": {
+      "path": "/Users/tianxing/Downloads/momento-brewers-photo-study (82).json",
+      "sha256": "329d4c8420b13b17056b3b28cc56855e01ca9f523134435192afeb6310f45393"
+    },
+    "83": {
+      "path": "/Users/tianxing/Downloads/momento-brewers-photo-study (83).json",
+      "sha256": "1f7cd183d19c42857bcb48ee6f96ce3f4567bbf111654328c8e79964081fa474"
+    }
+  },
+  "reloadExact": true,
+  "importEqualExceptRevision": true,
+  "openingIdentitiesPreserved": true,
+  "newObjects": [
+    {
+      "id": "3a9be1ff-db01-4909-a434-a73472176b7c",
+      "assetId": "tile:tian_cafe_brewkit_S_0",
+      "assetVersion": "source-v1",
+      "levelId": "level:0",
+      "x": 8003,
+      "y": 11408,
+      "parts": [
+        {
+          "dx": 0,
+          "dy": 0,
+          "tile": "tian_cafe_brewkit_S_0"
+        }
+      ],
+      "hostId": "77249345-cb56-478c-8a0c-6d8ff8ea8aeb"
+    },
+    {
+      "id": "3d4edb75-d21d-4594-aabe-be410c0bbb74",
+      "assetId": "tile:tian_cafe_cups_S_0",
+      "assetVersion": "source-v1",
+      "levelId": "level:0",
+      "x": 8002,
+      "y": 11407,
+      "parts": [
+        {
+          "dx": 0,
+          "dy": 0,
+          "tile": "tian_cafe_cups_S_0"
+        }
+      ],
+      "hostId": "77249345-cb56-478c-8a0c-6d8ff8ea8aeb"
+    }
+  ],
+  "annotations": 16,
+  "materials": [
+    "Deep blue painted brick",
+    "Chalk painted brick",
+    "Weathered plaster and brick"
+  ],
+  "initialVisualRevision": "Rejected repeated camouflage-like plaster patches; replaced with continuous render and narrow exposed edges. Repetition still not final fidelity.",
+  "catalog": "Three complete materials with grouped N/W orientations; generated surrounds excluded",
+  "namedVersion": "version:momento-material-detail-checkpoint-193",
+  "walkthrough": {
+    "entry": [
+      8009,
+      11404,
+      0
+    ],
+    "inside": [
+      8006,
+      11404,
+      0
+    ],
+    "doorOpened": true,
+    "paused": "11:44 Day 1",
+    "health": 12,
+    "injury": "Six pre-existing bleeding scratches retained; no hidden state changes"
+  },
+  "consoleErrors": [],
+  "deployed": false,
+  "remaining": [
+    "Independent inside/outside finishes",
+    "Window grouping and continuous sills",
+    "Shelves, pendants and conduits",
+    "Partitions, raised threshold, brown panel and curtain",
+    "Full development cases and frozen unseen acceptance"
+  ]
+}

@@ -1,0 +1,36 @@
+✔ floor opening is editable, persisted, refloored and reversible without filling the void (8.78975ms)
+✔ openings reject occupied cells, outside bounds and overlap atomically (4.349959ms)
+✔ split, merge and floor copy preserve opening identities without silently filling holes (4.104875ms)
+✔ walkthrough blocks unsupported floor openings and furniture cannot be placed over them (2.595417ms)
+✖ supported structural edges may guard a void without filling it; internal walls remain rejected (1.981167ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 4
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 71.021958
+
+✖ failing tests:
+
+test at apps/pz-browser/tests/scene-floor-openings.test.mjs:12:1
+✖ supported structural edges may guard a void without filling it; internal walls remain rejected (1.981167ms)
+  AssertionError [ERR_ASSERTION]: Clear objects and stairs from the floor opening first
+  
+  false !== true
+  
+      at TestContext.<anonymous> (file:///Users/tianxing/Documents/ChatGPT/SRE/apps/pz-browser/tests/scene-floor-openings.test.mjs:16:9)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

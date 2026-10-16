@@ -1,0 +1,21 @@
+{
+  "requestId": "momento-display-wall-correction-264",
+  "baseRevision": 449,
+  "operations": [
+    {
+      "type": "objects.rehost",
+      "id": "9de26944-292d-49e1-99fa-a06ff88ebad4",
+      "assetId": "tile:tian_cafe_wall_shelves_E_0",
+      "x": 8004,
+      "y": 11410,
+      "levelId": "level:0"
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_cafe_display_cabinet_S_0",
+      "x": 8003,
+      "y": 11409,
+      "z": 0
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+✔ controller stops before thin wall while preserving tangential motion (1.435583ms)
+✔ controller handles two-wall corner and can move away afterwards (0.678208ms)
+✔ gravity lands on thin floor, stays stable, and resumes falling off the edge (0.947833ms)
+✔ upward motion stops at underside without falsely reporting grounded (0.582208ms)
+✔ frame partitioning yields the same floor landing and horizontal path (0.679959ms)
+✔ grounded body climbs generated flight to upper landing and descends without teleport (31.478542ms)
+✔ step-up rejects overheight and overhead obstruction (1.699417ms)
+✔ capacity boundary accepted; rejection atomic; no duplication (0.720375ms)
+✔ closed door blocks, open door permits, walls prevent tunnelling (2.850208ms)
+✔ diagonal movement cannot bypass blocked orthogonal crossing (0.099584ms)
+✔ movement cancels timed action without consuming resources (1.609333ms)
+✔ exclusive crafting consumes exact materials once (0.71475ms)
+✔ attack cannot cross wall and cooldown prevents spam (0.29675ms)
+✔ save roundtrip preserves changes and inventory; malformed input rejected (0.852ms)
+✔ legacy counts migrate once into distinct instances without losing world-container contents (0.363625ms)
+✔ wall endpoints cannot trap the footprint; older overlapping saves can retreat (0.971916ms)
+✔ time acceleration returns to normal when walking or danger approaches (0.505833ms)
+✔ curated occupancy cupboards stay empty unless explicitly stocked; previous saves retain their stock (0.29375ms)
+✔ overnight sleep advances the ordinary clock and needs continuously, without skipping a night on completion (2.086791ms)
+✔ moving interrupts sleep and urgent thirst wakes the resident at normal speed (0.293875ms)
+✔ real simulation advances without changing original save and uses calibrated coordinates (3.613666ms)
+✔ door changes come from game rules, including locked failure (1.605458ms)
+✔ visitor storage uses timed game transfers and preserves the same physical instance (4.011167ms)
+✔ physical movement cancels a timed action even after nearby queries sync coordinates (0.381583ms)
+✔ nearby facilities use real sleep actions and reject stale reach or unsupported actions (1.245208ms)
+✔ physical running consumes normal endurance without moving a second time (0.37375ms)
+✔ physical speeds respect exhaustion, sneaking, world scale, death and pause (0.263833ms)
+✔ moving out of accelerated rest restores real-time survival advancement (0.177375ms)
+✔ resident mode owns the existing character and restores serialized physical position and doors (0.466083ms)
+✔ resident status exposes the same nearby threat that prevents rest (0.2745ms)
+✔ compiled partition blocks NPC motion and attacks; removing it restores both (1.735209ms)
+✔ simulation melee cannot damage an enemy through physical geometry absent from legacy line check (1.42775ms)
+✔ pursuing enemy uses the physical wall and cannot injure through it (1.743209ms)
+ℹ tests 33
+ℹ suites 0
+ℹ pass 33
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 81.003375

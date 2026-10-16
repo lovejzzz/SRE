@@ -1,0 +1,14 @@
+{
+  "requestId": "studio-circulation-498",
+  "baseRevision": 594,
+  "operations": [
+    {
+      "type": "objects.nudge",
+      "ids": [
+        "98edb229-0253-4976-828d-0755607d8f0a"
+      ],
+      "dx": 0,
+      "dy": 0.35
+    }
+  ]
+}

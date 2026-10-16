@@ -56,3 +56,5 @@ Avaliações independentes de agentes ainda não foram realizadas. Mantenha amos
 Contribuições com falhas reproduzíveis e dados sensíveis removidos, incluindo versões, entradas, comportamento esperado/real e evidências, além de melhorias de tradução, são bem-vindas. Os protocolos técnicos detalhados estão atualmente em inglês.
 
 Atualização de integridade: validações do destino e observações de pesquisa exigem SHA-256. Consulte a [migração e seus limites](skills/software-resynthesis/references/validation.md#recorded-evidence-integrity) e o [histórico de alterações](CHANGELOG.md).
+
+Registro do processo: `sre.py record` / `report` preservam ações, falhas, correções e hashes das evidências. Veja o [protocolo](skills/software-resynthesis/references/work-journal.md) e o [caso Project Zomboid](docs/project-zomboid/PROCESS.md), ainda incompleto e sem comprovação de fidelidade.

@@ -5,3 +5,6 @@ __pycache__/
 work/
 .env
 .env.*
+
+# Local-only continuation notes
+/docs/project-zomboid/HANDOFF-2026-10-15.md

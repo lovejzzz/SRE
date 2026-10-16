@@ -1,0 +1,19 @@
+{
+  "initial": {
+    "state": "Resident · 12:00 · Health 6 · Hunger 9.7 · Thirst 12.5 · Endurance 100",
+    "position": "Test body · x 8003.500 · y 11406.500 · z 0.900 · Grounded · Clear · all-floor physics · WASD / arrows",
+    "save": "Resident progress saved on this device"
+  },
+  "firstRestore": {
+    "state": "Resident · 12:00 · Health 6 · Hunger 9.7 · Thirst 12.5 · Endurance 100",
+    "position": "Test body · x 8003.500 · y 11406.500 · z 0.900 · Grounded · Clear · all-floor physics · WASD / arrows"
+  },
+  "moved": {
+    "state": "Resident · 12:01 · Health 6 · Hunger 9.7 · Thirst 12.5 · Endurance 100",
+    "position": "Test body · x 8002.780 · y 11406.500 · z 0.900 · Grounded · Clear · all-floor physics · WASD / arrows"
+  },
+  "restored": {
+    "state": "Resident · 12:01 · Health 6 · Hunger 9.7 · Thirst 12.5 · Endurance 100",
+    "position": "Test body · x 8002.780 · y 11406.500 · z 0.900 · Grounded · Clear · all-floor physics · WASD / arrows"
+  }
+}

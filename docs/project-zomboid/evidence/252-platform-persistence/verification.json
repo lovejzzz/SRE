@@ -1,0 +1,25 @@
+{
+  "undoMatches249": true,
+  "redoMatches250": true,
+  "reloadMatchesRedo": true,
+  "tests": 622,
+  "browserStoredKiB": 7992,
+  "browserUncompressedKiB": 383152,
+  "syntheticBenchmark": {
+    "rawBytes": 169176923,
+    "legacy": {
+      "peakRssKiB": 647360,
+      "elapsedMs": 164
+    },
+    "stream": {
+      "peakRssKiB": 67712,
+      "elapsedMs": 47
+    }
+  },
+  "limitations": [
+    "Synthetic benchmark is not browser heap measurement",
+    "Redo input response timed out despite completed save",
+    "Workshop restoration approximately 11 seconds",
+    "Rapid save queue retains cloned snapshots; still to optimize"
+  ]
+}

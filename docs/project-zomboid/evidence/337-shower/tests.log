@@ -1,0 +1,15 @@
+✔ late generation and publication failures preserve the previous complete manifest (32.474041ms)
+✔ runtime rejects corrupted bytes and invalid manifest paths before accepting geometry (0.904ms)
+✔ shower batch retains flush entry and solid screens in both source orientations (9.648125ms)
+✔ counter: reproducible four-direction plumbing/storage body (5.082958ms)
+✔ sink: reproducible four-direction plumbing/storage body (14.362541ms)
+✔ toilet: reproducible four-direction plumbing/storage body (17.462375ms)
+✔ sink rim leaves a real basin cavity and counter preserves tabletop source height (0.838208ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 83.770042

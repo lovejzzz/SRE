@@ -1,0 +1,692 @@
+{
+  "requestId": "momento-road-drainage-258",
+  "baseRevision": 442,
+  "operations": [
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_interlocking_0",
+      "x": 7996,
+      "y": 11414,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_interlocking_0",
+      "x": 7996,
+      "y": 11415,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_interlocking_0",
+      "x": 7996,
+      "y": 11416,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_interlocking_0",
+      "x": 7997,
+      "y": 11414,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_interlocking_0",
+      "x": 7997,
+      "y": 11415,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_interlocking_0",
+      "x": 7997,
+      "y": 11416,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_interlocking_0",
+      "x": 7998,
+      "y": 11414,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_interlocking_0",
+      "x": 7998,
+      "y": 11415,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_interlocking_0",
+      "x": 7998,
+      "y": 11416,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_interlocking_0",
+      "x": 7999,
+      "y": 11414,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_interlocking_0",
+      "x": 7999,
+      "y": 11415,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_interlocking_0",
+      "x": 7999,
+      "y": 11416,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_interlocking_0",
+      "x": 8000,
+      "y": 11414,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_interlocking_0",
+      "x": 8000,
+      "y": 11415,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_interlocking_0",
+      "x": 8000,
+      "y": 11416,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_interlocking_0",
+      "x": 8001,
+      "y": 11414,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_interlocking_0",
+      "x": 8001,
+      "y": 11415,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_interlocking_0",
+      "x": 8001,
+      "y": 11416,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_interlocking_0",
+      "x": 8002,
+      "y": 11414,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_interlocking_0",
+      "x": 8002,
+      "y": 11415,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_interlocking_0",
+      "x": 8002,
+      "y": 11416,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_interlocking_0",
+      "x": 8003,
+      "y": 11414,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_interlocking_0",
+      "x": 8003,
+      "y": 11415,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_interlocking_0",
+      "x": 8003,
+      "y": 11416,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_interlocking_0",
+      "x": 8004,
+      "y": 11414,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_interlocking_0",
+      "x": 8004,
+      "y": 11415,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_interlocking_0",
+      "x": 8004,
+      "y": 11416,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_interlocking_0",
+      "x": 8005,
+      "y": 11414,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_interlocking_0",
+      "x": 8005,
+      "y": 11415,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_interlocking_0",
+      "x": 8005,
+      "y": 11416,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_interlocking_0",
+      "x": 8006,
+      "y": 11414,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_interlocking_0",
+      "x": 8006,
+      "y": 11415,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_interlocking_0",
+      "x": 8006,
+      "y": 11416,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_interlocking_0",
+      "x": 8007,
+      "y": 11414,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_interlocking_0",
+      "x": 8007,
+      "y": 11415,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_interlocking_0",
+      "x": 8007,
+      "y": 11416,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_interlocking_0",
+      "x": 8008,
+      "y": 11414,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_interlocking_0",
+      "x": 8008,
+      "y": 11415,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_interlocking_0",
+      "x": 8008,
+      "y": 11416,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_interlocking_0",
+      "x": 8009,
+      "y": 11414,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_interlocking_0",
+      "x": 8009,
+      "y": 11415,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_interlocking_0",
+      "x": 8009,
+      "y": 11416,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_interlocking_0",
+      "x": 8010,
+      "y": 11414,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_interlocking_0",
+      "x": 8010,
+      "y": 11415,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_interlocking_0",
+      "x": 8010,
+      "y": 11416,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_interlocking_0",
+      "x": 8011,
+      "y": 11414,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_interlocking_0",
+      "x": 8011,
+      "y": 11415,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_interlocking_0",
+      "x": 8011,
+      "y": 11416,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_interlocking_0",
+      "x": 8012,
+      "y": 11401,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_interlocking_0",
+      "x": 8012,
+      "y": 11402,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_interlocking_0",
+      "x": 8012,
+      "y": 11403,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_interlocking_0",
+      "x": 8012,
+      "y": 11404,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_interlocking_0",
+      "x": 8012,
+      "y": 11405,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_interlocking_0",
+      "x": 8012,
+      "y": 11406,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_interlocking_0",
+      "x": 8012,
+      "y": 11407,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_interlocking_0",
+      "x": 8012,
+      "y": 11408,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_interlocking_0",
+      "x": 8012,
+      "y": 11409,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_interlocking_0",
+      "x": 8012,
+      "y": 11410,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_interlocking_0",
+      "x": 8012,
+      "y": 11411,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_interlocking_0",
+      "x": 8012,
+      "y": 11412,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_interlocking_0",
+      "x": 8012,
+      "y": 11413,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_interlocking_0",
+      "x": 8012,
+      "y": 11414,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_interlocking_0",
+      "x": 8012,
+      "y": 11415,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_interlocking_0",
+      "x": 8012,
+      "y": 11416,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_interlocking_0",
+      "x": 8013,
+      "y": 11401,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_interlocking_0",
+      "x": 8013,
+      "y": 11402,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_interlocking_0",
+      "x": 8013,
+      "y": 11403,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_interlocking_0",
+      "x": 8013,
+      "y": 11404,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_interlocking_0",
+      "x": 8013,
+      "y": 11405,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_interlocking_0",
+      "x": 8013,
+      "y": 11406,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_interlocking_0",
+      "x": 8013,
+      "y": 11407,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_interlocking_0",
+      "x": 8013,
+      "y": 11408,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_interlocking_0",
+      "x": 8013,
+      "y": 11409,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_interlocking_0",
+      "x": 8013,
+      "y": 11410,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_interlocking_0",
+      "x": 8013,
+      "y": 11411,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_interlocking_0",
+      "x": 8013,
+      "y": 11412,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_interlocking_0",
+      "x": 8013,
+      "y": 11413,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_interlocking_0",
+      "x": 8013,
+      "y": 11414,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_interlocking_0",
+      "x": 8013,
+      "y": 11415,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_interlocking_0",
+      "x": 8013,
+      "y": 11416,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_interlocking_0",
+      "x": 8014,
+      "y": 11401,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_interlocking_0",
+      "x": 8014,
+      "y": 11402,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_interlocking_0",
+      "x": 8014,
+      "y": 11403,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_interlocking_0",
+      "x": 8014,
+      "y": 11404,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_interlocking_0",
+      "x": 8014,
+      "y": 11405,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_interlocking_0",
+      "x": 8014,
+      "y": 11406,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_interlocking_0",
+      "x": 8014,
+      "y": 11407,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_interlocking_0",
+      "x": 8014,
+      "y": 11408,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_interlocking_0",
+      "x": 8014,
+      "y": 11409,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_interlocking_0",
+      "x": 8014,
+      "y": 11410,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_interlocking_0",
+      "x": 8014,
+      "y": 11411,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_interlocking_0",
+      "x": 8014,
+      "y": 11412,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_interlocking_0",
+      "x": 8014,
+      "y": 11413,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_interlocking_0",
+      "x": 8014,
+      "y": 11414,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_interlocking_0",
+      "x": 8014,
+      "y": 11415,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_interlocking_0",
+      "x": 8014,
+      "y": 11416,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_drain_N_0",
+      "x": 8012,
+      "y": 11412,
+      "z": 0
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_street_drain_W_0",
+      "x": 8006,
+      "y": 11414,
+      "z": 0
+    }
+  ]
+}

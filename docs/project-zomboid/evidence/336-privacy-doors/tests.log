@@ -1,0 +1,14 @@
+✔ reviewed legacy door profiles preserve wall jambs and lintel while admitting standing body (6.05275ms)
+✔ corner aperture clips its jamb and retains adjacent geometry (0.846792ms)
+✔ window frame and glass fit the aperture with independent identity and physical depth (1.407417ms)
+✔ door has no raised sill and pivot rotates leaf geometry and collision together (0.531959ms)
+✔ oversized frames and invalid poses reject instead of silently filling the opening (0.233834ms)
+✔ glazed door preserves a hollow metal leaf and glass at either hinge (1.434958ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 46.125334

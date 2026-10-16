@@ -1,0 +1,28 @@
+{
+  "importExact": true,
+  "restoreDifferences": [
+    "/sceneDocument/revision"
+  ],
+  "visitedFloors": [
+    0,
+    1
+  ],
+  "hp": 100,
+  "finalPosition": {
+    "x": 8007.1126255353665,
+    "y": 11408.683025535385,
+    "z": 0,
+    "surfaceZ": 0,
+    "hp": 100
+  },
+  "events": [
+    {
+      "seconds": 52.38380000000261,
+      "message": "Open door"
+    },
+    {
+      "seconds": 122.01760000001259,
+      "message": "Open door"
+    }
+  ]
+}

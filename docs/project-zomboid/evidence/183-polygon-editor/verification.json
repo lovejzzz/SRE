@@ -1,0 +1,41 @@
+{
+  "scope": "Public editor fixture, not Momento reconstruction",
+  "reopen_46_equals_47": true,
+  "redo_48_equals_46": true,
+  "import_49_equals_48_except_scene_revision": true,
+  "import_scene_revisions": [
+    20,
+    21
+  ],
+  "cleanup_50_equals_45": true,
+  "references_after_cleanup": 4,
+  "rooms_after_cleanup": 0,
+  "walkthrough": {
+    "initial": [
+      8000,
+      11405,
+      0
+    ],
+    "after_3s_forward": [
+      8003,
+      11408,
+      0
+    ],
+    "after_another_1_4s_forward": [
+      8003,
+      11408,
+      0
+    ],
+    "after_1_1s_back": [
+      8002,
+      11407,
+      0
+    ],
+    "after_game_reload": [
+      8002,
+      11407,
+      0
+    ]
+  },
+  "console_errors_after_fix": []
+}

@@ -1,0 +1,20 @@
+✔ physical dimensions preserve horizontal evidence, source and old defaults (0.580125ms)
+✔ contradictory dimensions, invented fields, empty evidence and locked geometry reject (0.231708ms)
+✔ solid wall has closed outward geometry and matching collision volume (1.304291ms)
+✔ window wall has closed outward geometry and matching collision volume (0.8385ms)
+✔ door wall has closed outward geometry and matching collision volume (0.291792ms)
+✔ diagonal wall keeps physical thickness and full-height passage is empty (0.36925ms)
+✔ scene adapter preserves identity, explicit calibration and reports unknown apertures (0.785042ms)
+✔ corner junction has closed nonoverlapping physical partitions (0.582792ms)
+✔ T junction has closed nonoverlapping physical partitions (0.541875ms)
+✔ cross junction has closed nonoverlapping physical partitions (0.344209ms)
+✔ diagonal junction has closed nonoverlapping physical partitions (0.219583ms)
+✔ reversing a wall keeps joined volume while duplicate rays fail explicitly (0.285875ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 12
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 46.405584

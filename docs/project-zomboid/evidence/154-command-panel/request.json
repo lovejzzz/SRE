@@ -1,0 +1,33 @@
+{
+  "requestId": "browser-build-154",
+  "baseRevision": 70,
+  "operations": [
+    {
+      "type": "room.add",
+      "room": {
+        "id": "browser-room-154",
+        "name": "Command Studio",
+        "levelId": "level:0",
+        "z": 0,
+        "rect": [
+          7994,
+          11413,
+          7998,
+          11417
+        ],
+        "floorTile": "floors_interior_tilesandwood_01_40",
+        "wallN": "walls_exterior_house_01_33",
+        "wallW": "walls_exterior_house_01_32"
+      }
+    },
+    {
+      "type": "roof.set",
+      "roomId": "browser-room-154",
+      "roof": {
+        "id": "browser-roof-154",
+        "kind": "flat",
+        "tile": "floors_exterior_tilesandstone_01_0"
+      }
+    }
+  ]
+}

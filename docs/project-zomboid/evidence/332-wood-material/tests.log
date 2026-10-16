@@ -1,0 +1,19 @@
+✔ chair batch delivery is reproducible and rejects impossible dimensions (3.177458ms)
+✔ chair source variants rotate visible geometry and collision together (4.605209ms)
+✔ shelf batch delivery is reproducible and rejects impossible dimensions (1.158542ms)
+✔ shelf source variants rotate visible geometry and collision together (1.347125ms)
+✔ wrong multipart arrangement cannot silently match a source family (0.469667ms)
+✔ unsupported furnishings and dependent fixtures report omissions without fabricated geometry (0.547917ms)
+✔ volume delivery reproduces recipe exactly with real open space between legs (3.532ms)
+✔ two source directions share recipe with correct footprint, support lift and stable identity (2.507125ms)
+✔ wood recipe regenerates bounded maps with stable detail and seed variation (12.721083ms)
+✔ material UVs stay attached through rotation and relocation with physical repeat scale (3.13325ms)
+✔ identical material recipes reuse two GPU maps and dispose them once (2.306667ms)
+ℹ tests 11
+ℹ suites 0
+ℹ pass 11
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 75.319709

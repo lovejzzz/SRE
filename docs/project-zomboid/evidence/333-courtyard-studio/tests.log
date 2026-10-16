@@ -1,0 +1,20 @@
+✔ sofa: delivery regenerates, all source directions preserve geometry and collision (10.598584ms)
+✔ sofa: invalid scale and altered multipart layout rejected (0.311375ms)
+✔ bed: delivery regenerates, all source directions preserve geometry and collision (7.159333ms)
+✔ bed: invalid scale and altered multipart layout rejected (0.091ms)
+✔ oven: delivery regenerates, all source directions preserve geometry and collision (7.216833ms)
+✔ oven: invalid scale and altered multipart layout rejected (0.082584ms)
+✔ fridge: delivery regenerates, all source directions preserve geometry and collision (3.362ms)
+✔ fridge: invalid scale and altered multipart layout rejected (0.151458ms)
+✔ wrong multipart arrangement cannot silently match a source family (0.392792ms)
+✔ unsupported furnishings and dependent fixtures report omissions without fabricated geometry (0.501917ms)
+✔ volume delivery reproduces recipe exactly with real open space between legs (3.299917ms)
+✔ two source directions share recipe with correct footprint, support lift and stable identity (2.785917ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 12
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 75.699667

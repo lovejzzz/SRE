@@ -1,0 +1,9 @@
+{
+  "browserFlow": "save named house \u2192 new blank \u2192 reload \u2192 load saved house \u2192 export",
+  "savedCopies": 1,
+  "contentEqualExceptIntentionalNameAndEditRevision": true,
+  "sceneRevisionBefore": 38,
+  "sceneRevisionAfter": 40,
+  "referenceCount": 1,
+  "annotations": 1
+}

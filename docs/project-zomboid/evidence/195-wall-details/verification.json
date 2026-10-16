@@ -1,0 +1,29 @@
+{
+  "milestone": 195,
+  "testsPassed": 530,
+  "editorRevision": 384,
+  "sceneRevision": 44,
+  "objects": 11,
+  "openings": 5,
+  "annotations": 17,
+  "stockCount": 6,
+  "exportsIdentical": [
+    86,
+    87,
+    88
+  ],
+  "version": "version:momento-sill-shelf-checkpoint-195",
+  "digest": "d3d54eae063d007fc4f56310a0c823d15ab6f1bbf3884e3c5d862b741b1cb097",
+  "browserChecks": [
+    "compact orientation family",
+    "cutaway three-tier stock placement",
+    "item placement followed by room finish retains seven items",
+    "undo restores six items",
+    "rehost W to N carries all six items and changes storage tile",
+    "undo restores original shelf location",
+    "reload export identical"
+  ],
+  "runtimeWalkRetested": false,
+  "consoleErrors": [],
+  "deployed": false
+}

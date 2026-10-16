@@ -1,0 +1,29 @@
+{
+  "milestone": 194,
+  "testsPassed": 525,
+  "reloadExportsIdentical": true,
+  "exports": [
+    "/Users/tianxing/Downloads/momento-brewers-photo-study (84).json",
+    "/Users/tianxing/Downloads/momento-brewers-photo-study (85).json"
+  ],
+  "sceneRevision": 40,
+  "walls": 31,
+  "wallsWithFinishes": 31,
+  "openings": 5,
+  "objects": 5,
+  "references": 4,
+  "annotations": 16,
+  "consoleErrors": [],
+  "runtimeWalkRetested": false,
+  "deployed": false,
+  "editorRevision": 378,
+  "version": "version:momento-wall-finish-checkpoint-194",
+  "digest": "39982ce4681775a52dc815811f54719f09bfacb69f793c41bae8deea99b7cb81",
+  "uiChecks": [
+    "catalog interior finish",
+    "inspection versus standard view",
+    "undo",
+    "redo",
+    "reload"
+  ]
+}

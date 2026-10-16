@@ -1,0 +1,19 @@
+{
+  "reloadEqual": true,
+  "redoEqual": true,
+  "importDifferences": [
+    "/sceneDocument/revision"
+  ],
+  "restoredBaselineEqual": true,
+  "roomsAfterRestore": 0,
+  "photosAfterRestore": 4,
+  "consoleErrors": [],
+  "roofArea": 127.5,
+  "exports": {
+    "beforeReload": 51,
+    "afterReload": 52,
+    "redo": 53,
+    "imported": 54,
+    "baselineRestored": 55
+  }
+}

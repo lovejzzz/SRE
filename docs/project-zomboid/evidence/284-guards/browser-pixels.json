@@ -1,0 +1,16 @@
+{
+  "result": {
+    "type": "object",
+    "value": {
+      "channels": 5406720,
+      "different": 0,
+      "runtimeHash": "e32d0d27c8867dd369ba9760a68457e9373795bee2b73fe1d7f9a615b1153715",
+      "sameDimensions": true,
+      "size": [
+        768,
+        1760
+      ],
+      "sourceHash": "6568f46df8329d56a1dc6cb83f6b006804faaf44a0f83186b91e95db6dbee946"
+    }
+  }
+}

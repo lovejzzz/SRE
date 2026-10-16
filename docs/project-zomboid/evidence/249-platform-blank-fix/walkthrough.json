@@ -1,0 +1,119 @@
+{
+  "kind": "tian-house-workshop-walkthrough",
+  "version": 1,
+  "startedAt": "2026-10-13T23:03:25.707Z",
+  "houseName": "Platform regression · 249 clean",
+  "conditions": {
+    "temporaryCharacter": true,
+    "zombieSpawning": false,
+    "survivalAcceptance": false
+  },
+  "simulatedSeconds": 228.7662714285765,
+  "visited": [
+    {
+      "position": [
+        7999,
+        11405,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 0
+    },
+    {
+      "position": [
+        8000,
+        11405,
+        0
+      ],
+      "surfaceZ": 0.0625,
+      "seconds": 16.95429999999993
+    },
+    {
+      "position": [
+        8001,
+        11405,
+        0
+      ],
+      "surfaceZ": 0.0625,
+      "seconds": 17.579199999999897
+    },
+    {
+      "position": [
+        8002,
+        11405,
+        0
+      ],
+      "surfaceZ": 0.0625,
+      "seconds": 18.204299999999872
+    },
+    {
+      "position": [
+        8003,
+        11405,
+        0
+      ],
+      "surfaceZ": 0.0625,
+      "seconds": 212.7370714285732
+    },
+    {
+      "position": [
+        8004,
+        11405,
+        0
+      ],
+      "surfaceZ": 0.0625,
+      "seconds": 213.36207142857336
+    },
+    {
+      "position": [
+        8005,
+        11405,
+        0
+      ],
+      "surfaceZ": 0.125,
+      "seconds": 213.98707142857344
+    },
+    {
+      "position": [
+        8006,
+        11405,
+        0
+      ],
+      "surfaceZ": 0.125,
+      "seconds": 214.6120714285736
+    },
+    {
+      "position": [
+        8007,
+        11405,
+        0
+      ],
+      "surfaceZ": 0.125,
+      "seconds": 227.44127142857616
+    },
+    {
+      "position": [
+        8008,
+        11405,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 228.06617142857633
+    }
+  ],
+  "events": [
+    {
+      "seconds": 202.04867142857094,
+      "message": "You rested for two hours"
+    }
+  ],
+  "changes": {},
+  "player": {
+    "x": 8008.659743515114,
+    "y": 11405.490496484861,
+    "z": 0,
+    "surfaceZ": 0,
+    "hp": 100
+  },
+  "inventoryCount": 7
+}

@@ -1,0 +1,372 @@
+{
+  "revision": 284,
+  "bounds": [
+    7988,
+    11390,
+    8020,
+    11425
+  ],
+  "query": {
+    "level": 0,
+    "bounds": [
+      8000,
+      11408,
+      8001,
+      11410
+    ]
+  },
+  "partial": true,
+  "format": "scene-query",
+  "dependencyIds": [
+    "wall:level:0:N:7998:11403",
+    "wall:level:0:W:7998:11403",
+    "wall:level:0:W:7998:11404",
+    "wall:level:0:W:7998:11405",
+    "wall:level:0:W:7998:11406",
+    "wall:level:0:N:7998:11408",
+    "wall:level:0:W:7998:11407",
+    "wall:level:0:N:7999:11403",
+    "wall:level:0:N:7999:11408",
+    "wall:level:0:N:8000:11403",
+    "wall:level:0:N:8001:11403",
+    "wall:level:0:N:8001:11408",
+    "wall:level:0:N:8002:11403",
+    "wall:level:0:N:8002:11408",
+    "wall:level:0:N:8003:11403",
+    "wall:level:0:W:8004:11403",
+    "wall:level:0:W:8004:11404",
+    "wall:level:0:W:8004:11405",
+    "wall:level:0:W:8004:11406",
+    "wall:level:0:N:8003:11408",
+    "wall:level:0:W:8004:11407",
+    "wall:level:0:W:7998:11408",
+    "wall:level:0:W:8004:11408",
+    "reference-window-179"
+  ],
+  "scene": {
+    "id": "2b1353d7-e74f-48a1-b6f1-1e3634bb6bfe",
+    "units": {
+      "kind": "source-grid",
+      "metresPerCell": null,
+      "evidence": null
+    },
+    "levels": [
+      {
+        "id": "level:0",
+        "index": 0,
+        "elevation": null,
+        "height": null
+      }
+    ],
+    "rooms": [
+      {
+        "id": "reference-room-179",
+        "name": "Reference binding study",
+        "levelId": "level:0",
+        "rect": [
+          7998,
+          11403,
+          8004,
+          11409
+        ],
+        "floorTile": "floors_interior_tilesandwood_01_40",
+        "wallIds": [
+          "wall:level:0:N:7998:11403",
+          "wall:level:0:W:7998:11403",
+          "wall:level:0:W:7998:11404",
+          "wall:level:0:W:7998:11405",
+          "wall:level:0:W:7998:11406",
+          "wall:level:0:W:7998:11407",
+          "wall:level:0:N:7998:11408",
+          "wall:level:0:W:7998:11408",
+          "wall:level:0:N:7999:11403",
+          "wall:level:0:N:7999:11408",
+          "wall:level:0:N:8000:11403",
+          "wall:level:0:N:8000:11408",
+          "wall:level:0:N:8001:11403",
+          "wall:level:0:N:8001:11408",
+          "wall:level:0:N:8002:11403",
+          "wall:level:0:N:8002:11408",
+          "wall:level:0:N:8003:11403",
+          "wall:level:0:W:8004:11403",
+          "wall:level:0:W:8004:11404",
+          "wall:level:0:W:8004:11405",
+          "wall:level:0:W:8004:11406",
+          "wall:level:0:W:8004:11407",
+          "wall:level:0:N:8003:11408",
+          "wall:level:0:W:8004:11408"
+        ]
+      }
+    ],
+    "walls": [
+      {
+        "id": "wall:level:0:N:7998:11403",
+        "levelId": "level:0",
+        "axis": "N",
+        "x": 7998,
+        "y": 11403,
+        "tile": "walls_exterior_house_01_33"
+      },
+      {
+        "id": "wall:level:0:W:7998:11403",
+        "levelId": "level:0",
+        "axis": "W",
+        "x": 7998,
+        "y": 11403,
+        "tile": "walls_exterior_house_01_32"
+      },
+      {
+        "id": "wall:level:0:W:7998:11404",
+        "levelId": "level:0",
+        "axis": "W",
+        "x": 7998,
+        "y": 11404,
+        "tile": "walls_exterior_house_01_32"
+      },
+      {
+        "id": "wall:level:0:W:7998:11405",
+        "levelId": "level:0",
+        "axis": "W",
+        "x": 7998,
+        "y": 11405,
+        "tile": "walls_exterior_house_01_32"
+      },
+      {
+        "id": "wall:level:0:W:7998:11406",
+        "levelId": "level:0",
+        "axis": "W",
+        "x": 7998,
+        "y": 11406,
+        "tile": "walls_exterior_house_01_32"
+      },
+      {
+        "id": "wall:level:0:N:7998:11408",
+        "levelId": "level:0",
+        "axis": "N",
+        "x": 7998,
+        "y": 11409,
+        "tile": "walls_exterior_house_01_33"
+      },
+      {
+        "id": "wall:level:0:W:7998:11407",
+        "levelId": "level:0",
+        "axis": "W",
+        "x": 7998,
+        "y": 11407,
+        "tile": "walls_exterior_house_01_32"
+      },
+      {
+        "id": "wall:level:0:N:7999:11403",
+        "levelId": "level:0",
+        "axis": "N",
+        "x": 7999,
+        "y": 11403,
+        "tile": "walls_exterior_house_01_33"
+      },
+      {
+        "id": "wall:level:0:N:7999:11408",
+        "levelId": "level:0",
+        "axis": "N",
+        "x": 7999,
+        "y": 11409,
+        "tile": "walls_exterior_house_01_33"
+      },
+      {
+        "id": "wall:level:0:N:8000:11403",
+        "levelId": "level:0",
+        "axis": "N",
+        "x": 8000,
+        "y": 11403,
+        "tile": "walls_exterior_house_01_33"
+      },
+      {
+        "id": "wall:level:0:N:8000:11408",
+        "levelId": "level:0",
+        "axis": "N",
+        "x": 8000,
+        "y": 11409,
+        "tile": "walls_exterior_house_01_33"
+      },
+      {
+        "id": "wall:level:0:N:8001:11403",
+        "levelId": "level:0",
+        "axis": "N",
+        "x": 8001,
+        "y": 11403,
+        "tile": "walls_exterior_house_01_33"
+      },
+      {
+        "id": "wall:level:0:N:8001:11408",
+        "levelId": "level:0",
+        "axis": "N",
+        "x": 8001,
+        "y": 11409,
+        "tile": "walls_exterior_house_01_33"
+      },
+      {
+        "id": "wall:level:0:N:8002:11403",
+        "levelId": "level:0",
+        "axis": "N",
+        "x": 8002,
+        "y": 11403,
+        "tile": "walls_exterior_house_01_33"
+      },
+      {
+        "id": "wall:level:0:N:8002:11408",
+        "levelId": "level:0",
+        "axis": "N",
+        "x": 8002,
+        "y": 11409,
+        "tile": "walls_exterior_house_01_33"
+      },
+      {
+        "id": "wall:level:0:N:8003:11403",
+        "levelId": "level:0",
+        "axis": "N",
+        "x": 8003,
+        "y": 11403,
+        "tile": "walls_exterior_house_01_33"
+      },
+      {
+        "id": "wall:level:0:W:8004:11403",
+        "levelId": "level:0",
+        "axis": "W",
+        "x": 8004,
+        "y": 11403,
+        "tile": "walls_exterior_house_01_32"
+      },
+      {
+        "id": "wall:level:0:W:8004:11404",
+        "levelId": "level:0",
+        "axis": "W",
+        "x": 8004,
+        "y": 11404,
+        "tile": "walls_exterior_house_01_32"
+      },
+      {
+        "id": "wall:level:0:W:8004:11405",
+        "levelId": "level:0",
+        "axis": "W",
+        "x": 8004,
+        "y": 11405,
+        "tile": "walls_exterior_house_01_32"
+      },
+      {
+        "id": "wall:level:0:W:8004:11406",
+        "levelId": "level:0",
+        "axis": "W",
+        "x": 8004,
+        "y": 11406,
+        "tile": "walls_exterior_house_01_32"
+      },
+      {
+        "id": "wall:level:0:N:8003:11408",
+        "levelId": "level:0",
+        "axis": "N",
+        "x": 8003,
+        "y": 11409,
+        "tile": "walls_exterior_house_01_33"
+      },
+      {
+        "id": "wall:level:0:W:8004:11407",
+        "levelId": "level:0",
+        "axis": "W",
+        "x": 8004,
+        "y": 11407,
+        "tile": "walls_exterior_house_01_32"
+      },
+      {
+        "id": "wall:level:0:W:7998:11408",
+        "levelId": "level:0",
+        "axis": "W",
+        "x": 7998,
+        "y": 11408,
+        "tile": "walls_exterior_house_01_32"
+      },
+      {
+        "id": "wall:level:0:W:8004:11408",
+        "levelId": "level:0",
+        "axis": "W",
+        "x": 8004,
+        "y": 11408,
+        "tile": "walls_exterior_house_01_32"
+      }
+    ],
+    "openings": [
+      {
+        "id": "reference-window-179",
+        "hostWallId": "wall:level:0:N:8000:11408",
+        "kind": "window",
+        "tile": "fixtures_windows_01_50"
+      }
+    ],
+    "objects": [],
+    "verticalLinks": [],
+    "references": [
+      {
+        "id": "fbdb62cc-fcb0-4d22-b109-0d96108b476e",
+        "name": "Momento · Exterior corner",
+        "group": "Exterior",
+        "source": "Beezy Studio · Studio Hoon · https://www.archdaily.com/983949/momento-brewers-cafe-studio-hoon",
+        "evidence": "observed",
+        "notes": "Observed: blue brick facade, three tall recessed windows with dark sills, rough exposed masonry, blue steel side door, exterior stools and paving. Exact dimensions and hidden interior layout are not established by this photo. Development reference; not an unseen acceptance case.",
+        "knownLength": null,
+        "width": 2000,
+        "height": 1333,
+        "importInfo": {
+          "originalWidth": 2000,
+          "originalHeight": 1333,
+          "originalBytes": 3362584,
+          "sha256": "b2ddaa0d43fa50419c438b2f11c522ab145b134cda8b9ed404e2a61b9116d7f3",
+          "optimized": true
+        },
+        "annotations": [
+          {
+            "id": "window-region-179",
+            "rect": [
+              0.19,
+              0.31,
+              0.236,
+              0.56
+            ],
+            "label": "Window binding test",
+            "notes": "Tool verification fixture; not cafe reconstruction.",
+            "evidence": "approximate",
+            "entityId": "reference-window-179",
+            "bindingStatus": "linked"
+          }
+        ]
+      }
+    ],
+    "legacy": {
+      "squares": [
+        {
+          "id": "square:438",
+          "value": {
+            "x": 8000,
+            "y": 11408,
+            "z": 0,
+            "room": -1,
+            "tiles": [
+              "blends_natural_01_16"
+            ]
+          }
+        },
+        {
+          "id": "square:439",
+          "value": {
+            "x": 8000,
+            "y": 11409,
+            "z": 0,
+            "room": -1,
+            "tiles": [
+              "blends_natural_01_16"
+            ]
+          }
+        }
+      ],
+      "items": [],
+      "vehicles": []
+    }
+  }
+}

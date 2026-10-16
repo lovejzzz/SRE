@@ -1,0 +1,46 @@
+{
+  "on": {
+    "cpuSubmission": {
+      "samples": 120,
+      "p50Ms": 9,
+      "p95Ms": 10.9
+    },
+    "browserFrameCadence": {
+      "samples": 120,
+      "p50Ms": 8.3,
+      "p95Ms": 16.7
+    },
+    "lastFrame": {
+      "drawCalls": 2856,
+      "triangles": 799037
+    },
+    "allocatedResourceCounts": {
+      "geometries": 381,
+      "textures": 65
+    },
+    "gpuTime": "not measured",
+    "memoryBytes": "not measured"
+  },
+  "off": {
+    "cpuSubmission": {
+      "samples": 120,
+      "p50Ms": 8.2,
+      "p95Ms": 9.2
+    },
+    "browserFrameCadence": {
+      "samples": 120,
+      "p50Ms": 8.3,
+      "p95Ms": 9.8
+    },
+    "lastFrame": {
+      "drawCalls": 2601,
+      "triangles": 714712
+    },
+    "allocatedResourceCounts": {
+      "geometries": 381,
+      "textures": 65
+    },
+    "gpuTime": "not measured",
+    "memoryBytes": "not measured"
+  }
+}

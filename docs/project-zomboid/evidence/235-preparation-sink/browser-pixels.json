@@ -1,0 +1,13 @@
+{
+  "result": {
+    "type": "object",
+    "value": {
+      "bytes": 14254080,
+      "different": 0,
+      "hashes": [
+        "c3f4d1d0ebf20dabed2ad4722bbfcaddd6acd0db2dfa4b028ed307614fcff35a",
+        "72f53859742da2f34aaf501f68c7b3dbc23171cbb9fba7ef067c9b97ea2bb2b5"
+      ]
+    }
+  }
+}

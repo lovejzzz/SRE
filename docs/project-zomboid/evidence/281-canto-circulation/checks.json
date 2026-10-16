@@ -1,0 +1,12 @@
+{
+  "indoorStairAscent": true,
+  "terraceAboveGarage": true,
+  "groundReturn": true,
+  "centralCourtyard": true,
+  "privateRoom": true,
+  "privateCourtyard": true,
+  "garage": true,
+  "garageStreetExit": true,
+  "hp": 100,
+  "reloadExact": true
+}

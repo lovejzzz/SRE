@@ -1,0 +1,50 @@
+{
+  "browser": "155.0.8059.40",
+  "results": [
+    {
+      "source": "original-cafe.png",
+      "runtime": "original-cafe.webp",
+      "equal": true,
+      "size": [
+        768,
+        960
+      ]
+    },
+    {
+      "source": "original-masonry.png",
+      "runtime": "original-masonry.webp",
+      "equal": true,
+      "size": [
+        768,
+        640
+      ]
+    },
+    {
+      "source": "original-architecture.png",
+      "runtime": "original-architecture.webp",
+      "equal": false,
+      "size": [
+        768,
+        160
+      ]
+    },
+    {
+      "source": "original-house-details.png",
+      "runtime": "original-house-details.webp",
+      "equal": false,
+      "size": [
+        768,
+        960
+      ]
+    },
+    {
+      "source": "original-interiors.png",
+      "runtime": "original-interiors.webp",
+      "equal": true,
+      "size": [
+        1792,
+        32
+      ]
+    }
+  ]
+}

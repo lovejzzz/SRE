@@ -1,0 +1,20 @@
+{
+  "exportsEqual": true,
+  "exports": [
+    "momento-brewers-photo-study (91).json",
+    "momento-brewers-photo-study (92).json"
+  ],
+  "editorRevision": 388,
+  "versionId": "version:momento-threshold-checkpoint-198",
+  "walkthroughPlayer": {
+    "x": 8005.628871220826,
+    "y": 11404.18457648485,
+    "z": 0,
+    "surfaceZ": 0.08333333333333333,
+    "hp": 100
+  },
+  "surfaceHeights": [
+    0,
+    0.08333333333333333
+  ]
+}

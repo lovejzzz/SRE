@@ -1,0 +1,17 @@
+✔ public diagonal door placement and replacement preserve host and opening identity through undo, removal and reload (128.412875ms)
+✔ all diagonal orientations block closed doors, pass the open centre in both directions, and retain physical jamb collision (79.39075ms)
+✔ opaque and glazed diagonal doors have distinct movement and vision, and game interaction/save restore uses the stable opening key (24.843042ms)
+✔ wall-face placement chooses a compatible source direction automatically and previews the real diagonal host (18.901333ms)
+✔ walkthrough checks derived wall, frame and leaf textures before replacing game state (22.365333ms)
+✔ diagonal window host/frame survives undo, export/reload, and all four orientations have continuous two-way climb with a real sill (235.342709ms)
+✔ full-body landing rejects partial support and solid objects; barricades prevent climbing from either side (35.247625ms)
+✔ continuous climb never uses cell-centre snaps, cancels before crossing if the window closes, and revalidates landing during motion (33.187833ms)
+✔ walkthrough rejects missing diagonal window state artwork before changing game state (35.352292ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 9
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 415.062292

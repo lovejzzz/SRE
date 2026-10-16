@@ -1,0 +1,22 @@
+{
+  "identical": true,
+  "files": {
+    "src/cafe-assets.js": "a5c4534ae6f4741284de811fca0f0f7d0f60cb4c4f29a39cccdeb09ea23eeafb",
+    "src/masonry-assets.js": "9c2d079c48545f4057444c89e13b6104122bea4a0e3696a0c4becf018932d4ee",
+    "src/architectural-assets.js": "a96ad317549b68f3d070c3f7a7c5d99c575d7a00404e9c3eb11ca1d336d542a5",
+    "src/house-detail-assets.js": "8cac2b4ca8008052311a2d6592706891c35edd089718965c62a66cd5c20d2621",
+    "src/original-assets.js": "6012a0e00983ea25f5baa6e98bb209a9770d1b9726ff5d87d6f66ea3e6f08169",
+    "private-assets/original-house-details.webp": "22930ae46c5178c39985d91fb80f9610040ceb2a84ba9fa026c70fd854ce71fd",
+    "private-assets/original-masonry.png": "0128894934e9e0ed14e522ee3f4b2c7771e60fbed961d047a1e259af4bc432b4",
+    "private-assets/original-masonry.webp": "ebd97e65b4fc99f339fed5d273f2f5114f00c8f6f61073ba840080039683ef25",
+    "private-assets/original-architecture.webp": "869bf23a98fd3b6bdb1d780410b6ce5a46734c24017399a73933f8604898837d",
+    "private-assets/original-architecture.png": "66dc6d2d12d9673065db53f318ae12007e87a95c54dc418d44c4a2d3135e4019",
+    "private-assets/original-interiors.webp": "82c93a18af74c2493a546ea846e241ddfb7868c27872b9081b733280b77b6943",
+    "private-assets/original-house-details.png": "352e78ef2ea8bd76ed76382fd4802d4a5763ccd4d02d7ea20a151fe9682d2e18",
+    "private-assets/original-cafe.webp": "3a55d26a60f0ef6760cdae1d03ccd8c45dc5e4629c488cc8aacac83eb13b256a",
+    "private-assets/original-interiors.png": "63fd79e8fe9dc41216c5786f90a7b0ad622156966e7c315e4c7fa7e22124c92b",
+    "private-assets/original-cafe.png": "736bbf967fb409c5fd5a7ac1bf6c7cca532ceea9bfd815e23b5c752dcd3970c2",
+    "private-assets/semantic-catalog.json": "94ce5bc92e5a31b56ab37f05a208ed63518c42690a9a4ac40fc6a663613fa052",
+    "private-assets/asset-build-report.json": "35b3f29945ccf0b150ff5212756a896446f1392d3ab1882f04889a48d8464e51"
+  }
+}

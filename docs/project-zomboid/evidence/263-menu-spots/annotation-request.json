@@ -1,0 +1,57 @@
+{
+  "requestId": "momento-reverse-details-evidence-263",
+  "baseRevision": 448,
+  "operations": [
+    {
+      "type": "reference.annotate",
+      "id": "737f1e20-d279-4d30-aedf-b80ffd4cd55f",
+      "annotation": {
+        "id": "framed-counter-menu",
+        "rect": [
+          0.51,
+          0.66,
+          0.83,
+          0.84
+        ],
+        "label": "Framed countertop menu",
+        "entityId": "6dc22d27-7f1c-473f-8112-4fd0a8bf088f",
+        "notes": "Flat framed menu on the shared counter. Reusable wood/paper decoration; marks do not reproduce or claim legible source prices. Exact dimensions approximate.",
+        "evidence": "approximate"
+      }
+    },
+    {
+      "type": "reference.annotate",
+      "id": "737f1e20-d279-4d30-aedf-b80ffd4cd55f",
+      "annotation": {
+        "id": "ceiling-spot-near",
+        "rect": [
+          0.49,
+          0.17,
+          0.57,
+          0.22
+        ],
+        "label": "Adjustable ceiling spotlight",
+        "entityId": "510c4406-d90c-474b-b400-0a7ec678cd2e",
+        "notes": "Near ceiling-mounted cylindrical spotlight, distinct from the pendant. Position and aiming approximate; normal light toggle is supported.",
+        "evidence": "approximate"
+      }
+    },
+    {
+      "type": "reference.annotate",
+      "id": "737f1e20-d279-4d30-aedf-b80ffd4cd55f",
+      "annotation": {
+        "id": "ceiling-spot-far",
+        "rect": [
+          0.62,
+          0.27,
+          0.71,
+          0.33
+        ],
+        "label": "Second ceiling spotlight",
+        "entityId": "10fb71ac-2d99-4b51-ad3b-60dd746de11e",
+        "notes": "Second ceiling-mounted spotlight. Position and aiming approximate; wiring route remains inferred.",
+        "evidence": "approximate"
+      }
+    }
+  ]
+}

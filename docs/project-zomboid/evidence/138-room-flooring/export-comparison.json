@@ -1,0 +1,24 @@
+{
+  "walls": true,
+  "openings": true,
+  "objects": true,
+  "verticalLinks": true,
+  "items": true,
+  "rooms": [
+    {
+      "id": "22a39866-5a15-419c-8a4c-7be62f4279bd",
+      "before": "floors_interior_tilesandwood_01_40",
+      "after": "floors_interior_tilesandwood_01_40"
+    },
+    {
+      "id": "6f95df7c-9dc7-4b7b-8006-bc309957d35f",
+      "before": "floors_interior_tilesandwood_01_40",
+      "after": "floors_interior_tilesandwood_01_40"
+    },
+    {
+      "id": "c9ca8eae-9bb5-464b-81fc-4ae9a267f13e",
+      "before": "floors_interior_tilesandwood_01_40",
+      "after": "floors_exterior_tilesandstone_01_0"
+    }
+  ]
+}

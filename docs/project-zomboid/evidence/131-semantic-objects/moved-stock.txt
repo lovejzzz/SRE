@@ -1,0 +1,134 @@
+- generic "Tian’s House single-player game view"
+- banner:
+  - text: TIAN’S HOUSE
+  - generic: 8005, 11406 · Floor 0
+  - generic: 09:57
+  - generic: Day 1
+  - button "▶"
+  - button "Time speed 1×" [pressed]: ×1
+  - button "Time speed 5×": ×5
+  - button "Time speed 20×": ×20
+  - button "Time speed 120×": ×120
+- navigation "Game menu":
+  - button "Inventory Inventory":
+    - generic "Inventory"
+    - generic: Inventory
+  - button "Health Health":
+    - generic "Health"
+    - generic: Health
+  - button "Craft Craft":
+    - generic "Craft"
+    - generic: Craft
+  - button "▧ Map":
+    - text: ▧
+    - generic: Map
+  - button "☷ Journal":
+    - text: ☷
+    - generic: Journal
+  - button "⌂ Workshop":
+    - text: ⌂
+    - generic: Workshop
+  - button "▣ Save":
+    - text: ▣
+    - generic: Save
+- complementary
+- status
+- contentinfo "Game assistance":
+  - button "Main menu": Menu
+  - button "Nearby interactions":
+    - text: Nearby
+    - generic: Q
+  - button "Controls":
+    - text: Controls
+    - generic: "?"
+- dialog "Main menu":
+  - generic: TIAN / HOUSE
+  - paragraph: A place to wander. A place to make.
+  - heading "Welcome. Make yourself at home." [level=1]:
+    - generic: Welcome.
+    - generic: Make yourself
+    - generic: at home.
+  - navigation "Main menu actions":
+    - button "Start Game":
+      - generic: "01"
+      - generic: Start Game
+      - generic: ↗
+    - button "Workshop":
+      - generic: "02"
+      - generic: Workshop
+      - generic: ↗
+    - button "Settings":
+      - generic: "03"
+      - generic: Settings
+      - generic: ↗
+  - paragraph: Your progress stays with you, in this browser.
+  - img "Isometric preview of your house"
+  - generic: YOUR LITTLE CORNER OF THE WORLD
+  - generic: Explore it. Make it yours.
+- dialog "House workshop":
+  - banner:
+    - button "House library":
+      - generic: House library
+    - textbox "House name": Shared-wall current editor
+    - generic "Draft and undo history saved on this device": ·Saved
+    - button "Save house":
+    - button "Walk through":
+      - generic: Walk through
+    - button "Return":
+  - navigation "Building tools":
+    - button "Select / Move":
+    - button "Place":
+    - button "Room":
+    - button "Edit rooms":
+    - button "Select objects":
+    - button "Floor area":
+    - button "Paint":
+    - button "Pool":
+    - button "Erase":
+    - button "Clear area":
+    - button "Entry point":
+    - button "Contents" [pressed]:
+    - button "Undo":
+    - button "Redo" [disabled]:
+  - complementary:
+    - searchbox "Search workshop objects": Base.WaterBottle
+    - navigation "Object categories":
+      - button "Essentials":
+      - button "Furniture":
+      - button "Walls & roofs":
+      - button "Doors & windows":
+      - button "Floors & terrain":
+      - button "Stairs":
+      - button "Appliances":
+      - button "Garden":
+      - button "Outdoor":
+      - button "Pools":
+      - button "Vehicles":
+      - button "Items":
+      - button "Decoration & tiles":
+      - button "Favorites":
+      - button "All" [pressed]:
+    - paragraph: Search results · 1
+    - generic "Workshop object catalog":
+      - button "Choose Water Bottle" [pressed]:
+        - generic: Water Bottle
+  - generic "House building canvas" [active]
+  - button "Floor down":
+  - combobox "Current floor":
+    - option "F4"
+    - option "F3"
+    - option "F2"
+    - option "G" [selected]
+    - option "B1"
+    - option "B2"
+  - button "Floor up":
+  - button "Fit lot":
+  - generic "View options":
+  - text: ✓ ✓ ✓
+  - complementary "Tool options":
+    - heading "Container contents" [level=3]
+    - generic: Water Bottle × 1
+    - button "−"
+  - contentinfo:
+    - status: 1 stocked items · 8003, 11404
+    - generic "Workshop controls":

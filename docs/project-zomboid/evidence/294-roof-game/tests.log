@@ -1,0 +1,45 @@
+✔ all four roof chamfers preserve exact area with continuous square eaves, including translated world coordinates (28.3105ms)
+✔ concave and chamfered eaves match an independent polygon/square intersection oracle (20.361709ms)
+✔ public roof edits share partial geometry with rendering, rain, support, visibility and persistent history (16.703458ms)
+✔ cutting a roof follows the room and atomically protects rooftop occupants, while partial cells cannot support whole furniture (10.429833ms)
+✔ polygon roof eaves reject boundary overflow and existing upper structures without changing scene (6.567ms)
+✔ asymmetric measured profiles retain both eaves and ridge without assuming a fixed pitch (0.577833ms)
+✔ concave courtyard stays uncovered; every raised edge closes and all slope pieces stay planar (1.973375ms)
+✔ roof profile rejects uncovered footprint, crossed outline and invalid heights (0.176875ms)
+✔ manual roof outline follows merged L-shaped room, preserving courtyard and bridging interior floor void (1.495667ms)
+✔ rectangular and diagonal outlines retain geometry; multi-loop footprints reject clearly (0.726917ms)
+✔ volume cutaway distinguishes the courtyard, covered interior and above-roof player (2.304083ms)
+✔ unexplored roof does not become visible and one lit edge illuminates a coherent volume (0.248791ms)
+✔ roof render pieces preserve area, heights, closure lengths and stable cached ownership (2.460208ms)
+✔ actual roof surfaces shelter below unequal eaves but not above, outside or in courtyard (1.475958ms)
+✔ world rain queries use surface height with no synthetic upper floor; removing roof clears shelter (0.794167ms)
+✔ floor intersection clips partial cells exactly, accepting touching triangles without shared area (0.474875ms)
+✔ room insertion and roof profile edits reject an intersecting slab atomically in either edit order (13.09425ms)
+✔ roomless squares beneath rain-blocking upper floors are interior, including basements (0.685667ms)
+✔ rooms, decorated roofs and own-level floors retain distinct semantics (0.230625ms)
+✔ public roof volume transactions preserve independent geometry through room split, save, undo and redo (29.450667ms)
+✔ profile edits and removal recompile and roll back atomically; locks protect independent volumes (11.103875ms)
+✔ invalid roof volume identities, bounds, unit and material reject without modifying the scene (3.224084ms)
+✔ flat roof provides rain cover and tracks room resize, persistence and undo (10.265083ms)
+✔ roofs cannot overwrite an upper room or leave rooftop furniture suspended on removal (3.267208ms)
+✔ invalid roof materials, unsupported roof kinds and topology changes reject without mutation (1.926291ms)
+✔ gable slope recipes use both directions, odd ridge tiles and continuous six-step height bands (0.521292ms)
+✔ both ridge orientations match the source atlas height at every supported step (26.261584ms)
+✔ gable ends preserve seven-cell source geometry in the matching finish and follow rotation (0.384792ms)
+✔ gable material changes retain end geometry and roof identity; conflicting upper structures reject (27.056583ms)
+✔ resizing a gable across height bands adds levels, preserves identity and roundtrips history (26.104083ms)
+✔ gable resize rejects occupied upper volume and height overflow without changing the scene (28.340291ms)
+✔ wide gables use matching siding for full bands and source caps (1.28ms)
+✔ flat overhangs provide exterior rain cover and survive roof edits, undo and reload (3.541666ms)
+✔ gable-end overhang extends along the ridge without lifting its slope or moving its walls (0.276916ms)
+✔ overhangs reject neighboring upper structures and lot overflow atomically (1.889791ms)
+✔ roof visibility hides only owned flat roof cells and legacy roof sprites without changing scene or floors (0.884667ms)
+✔ saved views preserve roof visibility while older views default to visible (0.153375ms)
+ℹ tests 37
+ℹ suites 0
+ℹ pass 37
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 193.959792

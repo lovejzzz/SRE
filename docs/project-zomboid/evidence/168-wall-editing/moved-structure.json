@@ -1,0 +1,49 @@
+{
+  "walls": [
+    {
+      "id": "c3f5b169-92db-49ee-aaee-8a2965aeca24:0",
+      "levelId": "level:0",
+      "axis": "N",
+      "x": 8000,
+      "y": 11409,
+      "tile": "walls_exterior_house_01_33",
+      "independent": true
+    },
+    {
+      "id": "c3f5b169-92db-49ee-aaee-8a2965aeca24:1",
+      "levelId": "level:0",
+      "axis": "N",
+      "x": 8001,
+      "y": 11409,
+      "tile": "walls_exterior_house_01_33",
+      "independent": true
+    },
+    {
+      "id": "c3f5b169-92db-49ee-aaee-8a2965aeca24:2",
+      "levelId": "level:0",
+      "axis": "N",
+      "x": 8002,
+      "y": 11409,
+      "tile": "walls_exterior_house_01_33",
+      "independent": true
+    },
+    {
+      "id": "c3f5b169-92db-49ee-aaee-8a2965aeca24:3",
+      "levelId": "level:0",
+      "axis": "N",
+      "x": 8003,
+      "y": 11409,
+      "tile": "walls_exterior_house_01_33",
+      "independent": true
+    }
+  ],
+  "openings": [
+    {
+      "id": "04d93108-c5b4-44d2-b4de-91d4f532ac09",
+      "hostWallId": "c3f5b169-92db-49ee-aaee-8a2965aeca24:1",
+      "kind": "window",
+      "tile": "fixtures_windows_01_50"
+    }
+  ],
+  "refreshExportEqual": true
+}

@@ -1,0 +1,95 @@
+{
+  "kind": "tian-house-workshop-walkthrough",
+  "version": 1,
+  "startedAt": "2026-10-14T00:24:24.669Z",
+  "houseName": "Momento Brewers · Photo study",
+  "sceneId": "2b1353d7-e74f-48a1-b6f1-1e3634bb6bfe",
+  "sceneRevision": 217,
+  "conditions": {
+    "temporaryCharacter": true,
+    "zombieSpawning": false,
+    "survivalAcceptance": false
+  },
+  "simulatedSeconds": 96.7998000000113,
+  "visited": [
+    {
+      "position": [
+        7999,
+        11409,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 0
+    },
+    {
+      "position": [
+        8000,
+        11409,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 32.758499999999586
+    },
+    {
+      "position": [
+        8001,
+        11409,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 33.383499999999685
+    },
+    {
+      "position": [
+        8001,
+        11410,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 84.41720000000883
+    }
+  ],
+  "events": [
+    {
+      "seconds": 32.43349999999954,
+      "message": "Open door"
+    },
+    {
+      "seconds": 43.33360000000131,
+      "message": "Light off"
+    },
+    {
+      "seconds": 63.425300000004825,
+      "message": "Light off"
+    },
+    {
+      "seconds": 73.08380000000672,
+      "message": "Light on"
+    },
+    {
+      "seconds": 83.86710000000873,
+      "message": "Light on"
+    }
+  ],
+  "changes": {
+    "8000,11409,0:fixtures_doors_01_48": {
+      "open": true,
+      "locked": false,
+      "lockedByKey": false
+    },
+    "8001,11409,0:tian_cafe_ceiling_spot_W_0": {
+      "lightOff": false
+    },
+    "8002,11410,0:tian_cafe_ceiling_spot_S_0": {
+      "lightOff": false
+    }
+  },
+  "player": {
+    "x": 8001.353279999992,
+    "y": 11410.393279999982,
+    "z": 0,
+    "surfaceZ": 0,
+    "hp": 100
+  },
+  "inventoryCount": 13
+}

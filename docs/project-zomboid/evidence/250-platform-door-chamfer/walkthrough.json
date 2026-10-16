@@ -1,0 +1,244 @@
+{
+  "kind": "tian-house-workshop-walkthrough",
+  "version": 1,
+  "startedAt": "2026-10-13T23:07:23.887Z",
+  "houseName": "Platform regression · 249 clean",
+  "sceneId": "c9405766-7a06-4f9f-bd42-f1616d2fbaea",
+  "sceneRevision": 3,
+  "conditions": {
+    "temporaryCharacter": true,
+    "zombieSpawning": false,
+    "survivalAcceptance": false
+  },
+  "simulatedSeconds": 86.86300000000723,
+  "visited": [
+    {
+      "position": [
+        8017,
+        11405,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 0
+    },
+    {
+      "position": [
+        8016,
+        11405,
+        0
+      ],
+      "surfaceZ": 0.0625,
+      "seconds": 22.388699999999982
+    },
+    {
+      "position": [
+        8016,
+        11405,
+        0
+      ],
+      "surfaceZ": 0.08333333333333333,
+      "seconds": 22.763799999999982
+    },
+    {
+      "position": [
+        8015,
+        11405,
+        0
+      ],
+      "surfaceZ": 0.08333333333333333,
+      "seconds": 23.905400000000025
+    },
+    {
+      "position": [
+        8015,
+        11405,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 24.15540000000004
+    },
+    {
+      "position": [
+        8014,
+        11405,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 24.530400000000057
+    },
+    {
+      "position": [
+        8014,
+        11406,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 43.92880000000199
+    },
+    {
+      "position": [
+        8014,
+        11407,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 44.55550000000204
+    },
+    {
+      "position": [
+        8014,
+        11408,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 45.178800000002134
+    },
+    {
+      "position": [
+        8014,
+        11407,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 46.472100000002236
+    },
+    {
+      "position": [
+        8014,
+        11406,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 47.09720000000236
+    },
+    {
+      "position": [
+        8014,
+        11405,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 47.72050000000242
+    },
+    {
+      "position": [
+        8015,
+        11405,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 48.52060000000247
+    },
+    {
+      "position": [
+        8015,
+        11405,
+        0
+      ],
+      "surfaceZ": 0.08333333333333333,
+      "seconds": 48.895500000002556
+    },
+    {
+      "position": [
+        8016,
+        11405,
+        0
+      ],
+      "surfaceZ": 0.08333333333333333,
+      "seconds": 49.1472000000026
+    },
+    {
+      "position": [
+        8016,
+        11405,
+        0
+      ],
+      "surfaceZ": 0.0625,
+      "seconds": 65.3806000000049
+    },
+    {
+      "position": [
+        8016,
+        11406,
+        0
+      ],
+      "surfaceZ": 0.0625,
+      "seconds": 65.82220000000501
+    },
+    {
+      "position": [
+        8016,
+        11407,
+        0
+      ],
+      "surfaceZ": 0.0625,
+      "seconds": 66.4473000000051
+    },
+    {
+      "position": [
+        8016,
+        11408,
+        0
+      ],
+      "surfaceZ": 0.0625,
+      "seconds": 67.07240000000512
+    },
+    {
+      "position": [
+        8016,
+        11409,
+        0
+      ],
+      "surfaceZ": 0.0625,
+      "seconds": 67.69730000000519
+    },
+    {
+      "position": [
+        8016,
+        11410,
+        0
+      ],
+      "surfaceZ": 0.0625,
+      "seconds": 68.3222000000053
+    },
+    {
+      "position": [
+        8015,
+        11410,
+        0
+      ],
+      "surfaceZ": 0.0625,
+      "seconds": 68.97060000000529
+    },
+    {
+      "position": [
+        8015,
+        11409,
+        0
+      ],
+      "surfaceZ": 0.0625,
+      "seconds": 86.24730000000714
+    }
+  ],
+  "events": [
+    {
+      "seconds": 23.78870000000007,
+      "message": "Open door"
+    }
+  ],
+  "changes": {
+    "8016,11405,0:scene-opening:platform-entry": {
+      "open": true,
+      "locked": false,
+      "lockedByKey": false
+    }
+  },
+  "player": {
+    "x": 8015.115273743172,
+    "y": 11409.48007374313,
+    "z": 0,
+    "surfaceZ": 0.0625,
+    "hp": 100
+  },
+  "inventoryCount": 7
+}

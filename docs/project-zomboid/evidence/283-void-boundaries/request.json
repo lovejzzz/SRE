@@ -1,0 +1,27 @@
+{
+  "requestId": "canto-void-boundary-probe-283",
+  "baseRevision": 494,
+  "operations": [
+    {
+      "type": "walls.draw",
+      "pathId": "canto-void-probe",
+      "levelId": "level:1",
+      "points": [
+        [
+          7995,
+          11405
+        ],
+        [
+          7995,
+          11401
+        ],
+        [
+          7998,
+          11401
+        ]
+      ],
+      "wallN": "tian_masonry_ivory_1",
+      "wallW": "tian_masonry_ivory_0"
+    }
+  ]
+}

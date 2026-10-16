@@ -1,0 +1,88 @@
+Generated 357 cafe sprite parts
+Generated 88 masonry faces
+Generated 42 window states
+Created 47 original furnishing sprites
+{
+  "schemaVersion": 1,
+  "pillow": "12.3.0",
+  "webp": "1.6.0",
+  "pages": [
+    {
+      "recipe": "cafe",
+      "source": "original-cafe.png",
+      "runtime": "original-cafe.webp",
+      "sourceBytes": 198586,
+      "runtimeBytes": 73546,
+      "sourceSha256": "2a936096eb3dcce5411f93271e194b8217828ade4356c6784f6d7c9323a034ef",
+      "runtimeSha256": "39ff14dd3c9908c0a2f218c136b058d777861abeb10a01bce133d867c7d84811",
+      "rgbaSha256": "fee35bdfa67054e2920193515ff3cb859a4b613903fa7641a2c4fba9332bf4cd",
+      "size": [
+        768,
+        7200
+      ],
+      "generatorSha256": "a6c899444806773d405a5b3e9bf2c60222f3d570f482d89c1d65091636248a51"
+    },
+    {
+      "recipe": "masonry",
+      "source": "original-masonry.png",
+      "runtime": "original-masonry.webp",
+      "sourceBytes": 229301,
+      "runtimeBytes": 144002,
+      "sourceSha256": "6568f46df8329d56a1dc6cb83f6b006804faaf44a0f83186b91e95db6dbee946",
+      "runtimeSha256": "e32d0d27c8867dd369ba9760a68457e9373795bee2b73fe1d7f9a615b1153715",
+      "rgbaSha256": "a741a0d029b9ab599c6e8af5cb226fc66b91808a874fe8ea88c8f207994f9dfb",
+      "size": [
+        768,
+        1760
+      ],
+      "generatorSha256": "4ed49dd540d4923a6c45dc873bb56ea303c1b576a3ae2d381f4162a7aedca231"
+    },
+    {
+      "recipe": "architecture",
+      "source": "original-architecture.png",
+      "runtime": "original-architecture.png",
+      "sourceBytes": 12602,
+      "runtimeBytes": 12602,
+      "sourceSha256": "52558de60a046a169bdb6c066b4eeb96b0dd84d9bd94088e9c810d390a19bd3c",
+      "runtimeSha256": "52558de60a046a169bdb6c066b4eeb96b0dd84d9bd94088e9c810d390a19bd3c",
+      "rgbaSha256": "4275bddfeb47b1a81f4fb7adc9ec38bccc7467a31f42e7f87111eb3ec48bc67b",
+      "size": [
+        4032,
+        160
+      ],
+      "generatorSha256": "71a1888ebe117185e1709660d92c3f4bf79a4b83c836ad4346b48ef0ded52741"
+    },
+    {
+      "recipe": "house-details",
+      "source": "original-house-details.png",
+      "runtime": "original-house-details.png",
+      "sourceBytes": 20640,
+      "runtimeBytes": 20640,
+      "sourceSha256": "352e78ef2ea8bd76ed76382fd4802d4a5763ccd4d02d7ea20a151fe9682d2e18",
+      "runtimeSha256": "352e78ef2ea8bd76ed76382fd4802d4a5763ccd4d02d7ea20a151fe9682d2e18",
+      "rgbaSha256": "0121bd5b0ea68d4720ad639fdac246ccebcc39efe7fc39ac1fb4bd50e5a0278b",
+      "size": [
+        768,
+        960
+      ],
+      "generatorSha256": "a6494b55e7ceda6d8cc1e14b590232b3955bcf8383b6d0b96affffe596245b43"
+    },
+    {
+      "recipe": "interiors",
+      "source": "original-interiors.png",
+      "runtime": "original-interiors.webp",
+      "sourceBytes": 16595,
+      "runtimeBytes": 11604,
+      "sourceSha256": "63fd79e8fe9dc41216c5786f90a7b0ad622156966e7c315e4c7fa7e22124c92b",
+      "runtimeSha256": "82c93a18af74c2493a546ea846e241ddfb7868c27872b9081b733280b77b6943",
+      "rgbaSha256": "08f9db15e10aa8fb8c38ccc686915fdd10ebd7f263e71d2585fb7544c76eb1b6",
+      "size": [
+        1792,
+        32
+      ],
+      "generatorSha256": "2f504a357a47cca43a39c5f8328a023e7f3a18948f36008e7aa513597f650211"
+    }
+  ],
+  "sourceBytes": 477724,
+  "runtimeBytes": 262394
+}

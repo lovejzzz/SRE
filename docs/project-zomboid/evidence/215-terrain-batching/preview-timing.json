@@ -1,0 +1,7 @@
+{
+  "previewWallClockMs": 450,
+  "floorCells": 69,
+  "otherOperations": 1,
+  "includesBrowserCallOverhead": true,
+  "measurement": "single local browser observation, not a percentile benchmark"
+}

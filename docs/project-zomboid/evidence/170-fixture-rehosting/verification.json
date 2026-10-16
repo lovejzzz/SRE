@@ -1,0 +1,56 @@
+{
+  "fixtureBefore": {
+    "id": "1221e5ea-4dbb-443a-af88-16c9b6b98979",
+    "assetId": "tile:tian_curtain_N",
+    "assetVersion": "source-v1",
+    "levelId": "level:0",
+    "x": 8003,
+    "y": 11411,
+    "parts": [
+      {
+        "dx": 0,
+        "dy": 0,
+        "tile": "tian_curtain_N"
+      }
+    ],
+    "wallMounts": [
+      {
+        "part": 0,
+        "wallId": "c3f5b169-92db-49ee-aaee-8a2965aeca24:1",
+        "openingId": "04d93108-c5b4-44d2-b4de-91d4f532ac09"
+      }
+    ]
+  },
+  "fixtureAfter": {
+    "id": "1221e5ea-4dbb-443a-af88-16c9b6b98979",
+    "assetId": "tile:tian_curtain_W",
+    "assetVersion": "source-v1",
+    "levelId": "level:0",
+    "x": 8006,
+    "y": 11411,
+    "parts": [
+      {
+        "dx": 0,
+        "dy": 0,
+        "tile": "tian_curtain_W"
+      }
+    ],
+    "wallMounts": [
+      {
+        "part": 0,
+        "wallId": "64608d26-0c02-41c8-8c43-96f6bf1990b4:0",
+        "openingId": "3d985999-07c0-4fcc-a4a2-59b77a23fd0c"
+      }
+    ]
+  },
+  "refreshFullExportEqual": true,
+  "cleanupFullExportEqual": true,
+  "referenceCount": 4,
+  "exports": {
+    "before": 13,
+    "rehosted": 15,
+    "reopened": 16,
+    "cleaned": 17,
+    "baseline": 14
+  }
+}

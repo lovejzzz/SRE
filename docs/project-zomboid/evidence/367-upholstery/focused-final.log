@@ -1,0 +1,14 @@
+✔ studio equipment keeps its dimensioned physical silhouette and actual empty spaces (363.736458ms)
+✔ all studio recipes generate finite supported convex parts with stable identifiers (1009.354ms)
+✔ every studio direction is one editable catalogue assembly matching its volume recipe (1924.473875ms)
+✔ wall lighting on a south boundary points into the room instead of outside (2.912958ms)
+✔ studio upholstery has curved height sections without changing its authored footprint (298.953ms)
+✔ padded volumes keep authored bounds and use the visible hull for collision (37.253625ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3671.601875

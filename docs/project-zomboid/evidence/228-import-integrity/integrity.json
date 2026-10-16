@@ -1,0 +1,9 @@
+{
+  "schemaVersion": 1,
+  "packs": 9,
+  "pages": 601,
+  "regions": 44654,
+  "sourceBytes": 522603100,
+  "atlasSha256": "c337b8aa1007910c9e9c720d85c76584e07ecec7605568e0a199691c5c0bf58b",
+  "scope": "Imported PNG hashes, dimensions, region bounds and anchors; not visual or semantic acceptance"
+}

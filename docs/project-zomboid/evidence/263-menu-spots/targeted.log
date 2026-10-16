@@ -1,0 +1,13 @@
+✔ sparse L counters retain five parts in all four catalog orientations and convex collision area (1.82675ms)
+✔ counter equipment stays supported through four rotations, undo and serialized reopening (46.168167ms)
+✔ world uses rounded geometry rather than a full-cell invisible corner in every orientation (13.500792ms)
+✔ invalid or concave footprint metadata preserves legacy solid-cell collision (0.158666ms)
+✔ reverse-counter details retain mount requirements and editable direction families (12.630708ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 140.585084

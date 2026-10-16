@@ -8,6 +8,7 @@ import sys
 from sre_common import require, read, write_new, digest, text, object_v1, difference
 import sre_research
 import sre_domains
+import sre_journal
 from sre_adapter import run_adapter
 
 
@@ -17,10 +18,22 @@ def trace(path):
     require(text(data.get("scenario")), "Missing trace scenario")
     provenance = data.get("provenance")
     require(isinstance(provenance, dict), "Missing trace provenance")
-    require(text(provenance.get("kind")) and provenance["kind"] in {"source-runtime", "successor-runtime", "synthetic"},
+    require(text(provenance.get("kind")) and provenance["kind"] in {"source-runtime", "successor-runtime", "source-component", "successor-component", "synthetic"},
             "Invalid provenance kind")
     for key in ("build", "adapter"):
         require(text(provenance.get(key)), f"Missing provenance {key}")
+    captures = provenance.get("raw_captures", [])
+    require(isinstance(captures, list), "Invalid raw_captures list")
+    if provenance.get("observation_method") == "manual-ui":
+        require(captures, "Manual UI observations require fingerprinted raw captures")
+    capture_root = Path(path).resolve().parent
+    seen = set()
+    for capture in captures:
+        require(isinstance(capture, dict) and text(capture.get("description")), "Invalid raw capture record")
+        raw = inside(capture_root, capture_root, capture.get("path"))
+        require(raw not in seen, "Duplicate raw capture")
+        seen.add(raw)
+        require(capture.get("sha256") == digest(raw), "Missing or stale raw capture sha256")
     require(isinstance(data.get("steps"), list) and data["steps"], "Empty or invalid steps")
     for i, step in enumerate(data["steps"]):
         require(isinstance(step, dict), f"Invalid step {i}")
@@ -167,7 +180,7 @@ def initialize(path, source, target):
     require(text(source) and text(target), "Source and target must be nonempty")
     root = Path(path)
     root.mkdir(parents=True, exist_ok=False)
-    for name in ("evidence", "runs", "implementation", "checkpoints"):
+    for name in ("evidence", "runs", "implementation", "checkpoints", "journal"):
         (root / name).mkdir()
     write_new(root / "project.json", {
         "schema_version": 1, "request": f"Rebuild {source} for {target}",
@@ -177,7 +190,7 @@ def initialize(path, source, target):
     write_new(root / "research.json", {"schema_version": 1,
         "scope": {"claim": "milestone", "description": source, "source_build": "unresolved",
                   "target": target, "features": []}, "surveys": [], "questions": []})
-    (root / ".gitignore").write_text("evidence/\nruns/\ncheckpoints/\nproject.json\nresearch*.json\n", encoding="utf-8")
+    (root / ".gitignore").write_text("evidence/\nruns/\ncheckpoints/\njournal/\nproject.json\nresearch*.json\n", encoding="utf-8")
     return {"workspace": str(root.resolve()), "stage": "discovery"}
 
 
@@ -211,11 +224,26 @@ def main(argv=None):
     domain = sub.add_parser("domain-check", help="Evaluate images, semantic roundtrips, interactions, or performance")
     domain.add_argument("manifest")
     domain.add_argument("--out", required=True)
+    journal = sub.add_parser("record", help="Append a work record with explicit evidence fingerprints")
+    journal.add_argument("workspace")
+    journal.add_argument("--entry", required=True)
+    report = sub.add_parser("report", help="Render work history; never certifies acceptance")
+    report.add_argument("workspace")
+    report.add_argument("--out", required=True)
     args = parser.parse_args(argv)
     try:
         code = 0
         if args.command == "init":
             result = initialize(args.workspace, args.source, args.target)
+        elif args.command == "record":
+            result = sre_journal.record(args.workspace, args.entry)
+        elif args.command == "report":
+            rendered, problems = sre_journal.report(args.workspace)
+            with open(args.out, 'x', encoding='utf-8') as out:
+                out.write(rendered)
+            result = {"report": str(Path(args.out).resolve()), "evidence_problems": problems,
+                      "acceptance_evidence": False}
+            code = 1 if problems else 0
         elif args.command == "fingerprint":
             result = {"file": str(Path(args.file).resolve()), "sha256": digest(args.file)}
         elif args.command == "compare":

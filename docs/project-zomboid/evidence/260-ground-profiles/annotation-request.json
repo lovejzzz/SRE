@@ -1,0 +1,23 @@
+{
+  "requestId": "momento-chamfer-evidence-260",
+  "baseRevision": 445,
+  "operations": [
+    {
+      "type": "reference.annotate",
+      "id": "fbdb62cc-fcb0-4d22-b109-0d96108b476e",
+      "annotation": {
+        "id": "street-sidewalk-levels",
+        "rect": [
+          0.3,
+          0.73,
+          1,
+          0.93
+        ],
+        "label": "Brick sidewalk above street",
+        "notes": "Rose brick sidewalk lies above interlocking street pavers. Outer corner now uses reusable triangular paving with a continuous diagonal curb. Tile widths, apron extent, straight chamfer versus source curve and 6 px height remain approximate, not measured.",
+        "evidence": "approximate",
+        "entityId": null
+      }
+    }
+  ]
+}

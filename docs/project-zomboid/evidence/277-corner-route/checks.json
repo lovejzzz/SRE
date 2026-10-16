@@ -1,0 +1,41 @@
+{
+  "reloadExact": true,
+  "hp": 100,
+  "oldBoundaryCellsVisited": [
+    {
+      "position": [
+        8007,
+        11409,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 27.2592000000006
+    },
+    {
+      "position": [
+        8008,
+        11408,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 48.06760000000101
+    }
+  ],
+  "finalPosition": {
+    "x": 8011.245611134138,
+    "y": 11407.443531134186,
+    "z": 0,
+    "surfaceZ": 0.0625,
+    "hp": 100
+  },
+  "events": [
+    {
+      "seconds": 7.925799999999851,
+      "message": "Open door"
+    },
+    {
+      "seconds": 49.76610000000091,
+      "message": "Open door"
+    }
+  ]
+}

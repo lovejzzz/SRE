@@ -1,0 +1,13 @@
+✔ solid wall has closed outward geometry and matching collision volume (1.277917ms)
+✔ window wall has closed outward geometry and matching collision volume (0.33425ms)
+✔ door wall has closed outward geometry and matching collision volume (0.407125ms)
+✔ diagonal wall keeps physical thickness and full-height passage is empty (0.278875ms)
+✔ scene adapter preserves identity, explicit calibration and reports unknown apertures (0.404ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 41.48925

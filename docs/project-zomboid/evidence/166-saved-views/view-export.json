@@ -1,0 +1,21 @@
+[
+  {
+    "id": "dc69bae0-d5a0-4348-aa51-4fd803f33277",
+    "name": "Left room \u00b7 comparison test",
+    "referenceId": "aff81027-eb6a-4412-8e1c-1e3b8207ea43",
+    "z": 0,
+    "center": {
+      "x": 8001.5,
+      "y": 11405.5
+    },
+    "zoom": 0.45276292335115864,
+    "cutaway": false,
+    "ghost": true,
+    "grid": true,
+    "wholeBuilding": false,
+    "viewport": {
+      "width": 716,
+      "height": 572
+    }
+  }
+]

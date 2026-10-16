@@ -1,0 +1,19 @@
+✔ whole interior batch regenerates deterministic finite assemblies (23.356541ms)
+✔ curtains require their actual opening and use wall mounting instead of freestanding rotation (1.4045ms)
+✔ tabletop set refuses missing host, and wardrobe mapping keeps all source directions (2.908959ms)
+✔ architectural finishes are scoped so roof and wall source choices do not repaint floors (0.321ms)
+✔ lamp delivery retains open shade and source dimensions (7.682333ms)
+✔ mounted light follows host surface, raised ground, floor and object movement without scene mutation (16.055917ms)
+✔ fixture lighting has real shadow-casting sources, level filtering, persistent switch and cleanup (1.137375ms)
+✔ asymmetric emitter samples rotate with furniture in all directions without inheriting translation (43.134958ms)
+✔ wall-strip uses actual wall face and thickness in both axes (5.30625ms)
+✔ wall-sconce uses actual wall face and thickness in both axes (1.908834ms)
+✔ wall light rejects degenerate diffuser geometry (0.569833ms)
+ℹ tests 11
+ℹ suites 0
+ℹ pass 11
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 140.667166

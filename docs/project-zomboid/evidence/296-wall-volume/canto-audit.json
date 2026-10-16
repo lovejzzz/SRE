@@ -1,0 +1,98 @@
+{
+  "calibration": "Diagnostic assumptions only; not measured Cantó dimensions",
+  "walls": 198,
+  "converted": 180,
+  "unresolved": [
+    {
+      "wallId": "wall:level:0:W:7998:11401",
+      "openingId": "e39e9996-888a-4f9e-a914-dc7d3e8fb696",
+      "reason": "Explicit aperture profile required"
+    },
+    {
+      "wallId": "wall:level:0:W:7998:11402",
+      "openingId": "3ff11c0d-e73f-4708-b1e4-42a1c9ff7cfd",
+      "reason": "Explicit aperture profile required"
+    },
+    {
+      "wallId": "wall:level:0:W:7998:11403",
+      "openingId": "41107263-65da-40c9-90b9-ea0651bc2a49",
+      "reason": "Explicit aperture profile required"
+    },
+    {
+      "wallId": "wall:level:0:W:7998:11404",
+      "openingId": "f9433dd1-0301-4721-9987-ff5dd8409c76",
+      "reason": "Explicit aperture profile required"
+    },
+    {
+      "wallId": "wall:level:0:N:7998:11405",
+      "openingId": "69f91f9b-0e65-4515-b6b1-c07510c71a03",
+      "reason": "Explicit aperture profile required"
+    },
+    {
+      "wallId": "wall:level:0:N:7999:11405",
+      "openingId": "6ed9e0bd-0ca0-4cb8-a0ea-2c6258b49f07",
+      "reason": "Explicit aperture profile required"
+    },
+    {
+      "wallId": "wall:level:0:N:8000:11405",
+      "openingId": "1cbe271e-44e5-4941-a73c-895d8f8ea6b5",
+      "reason": "Explicit aperture profile required"
+    },
+    {
+      "wallId": "wall:level:0:N:8000:11409",
+      "openingId": "7624cbdd-57cd-4b20-8cef-fad46edd4fd4",
+      "reason": "Explicit aperture profile required"
+    },
+    {
+      "wallId": "wall:level:0:N:8001:11405",
+      "openingId": "293df3ef-695e-441f-8a58-b442d07c8efe",
+      "reason": "Explicit aperture profile required"
+    },
+    {
+      "wallId": "wall:level:0:N:8002:11405",
+      "openingId": "cfea5309-a90e-4cfa-bf91-ef483db980ed",
+      "reason": "Explicit aperture profile required"
+    },
+    {
+      "wallId": "wall:level:0:W:8003:11403",
+      "openingId": "7a0f218a-6477-45fa-9780-6c1eab92c9ea",
+      "reason": "Explicit aperture profile required"
+    },
+    {
+      "wallId": "wall:level:0:N:8004:11405",
+      "openingId": "0d73d893-3d6a-4806-b539-e1f744b84825",
+      "reason": "Explicit aperture profile required"
+    },
+    {
+      "wallId": "wall:level:0:W:8004:11407",
+      "openingId": "6756efcd-6d35-4675-97dd-a9ecc54ea914",
+      "reason": "Explicit aperture profile required"
+    },
+    {
+      "wallId": "wall:level:0:W:8008:11407",
+      "openingId": "0ca4747f-3fea-470d-bb65-ab6fcdeee8a1",
+      "reason": "Explicit aperture profile required"
+    },
+    {
+      "wallId": "wall:level:1:N:8003:11405",
+      "openingId": "5cbc2018-c588-4142-b9e3-be34216cd74a",
+      "reason": "Explicit aperture profile required"
+    },
+    {
+      "wallId": "wall:level:1:N:7993:11406",
+      "openingId": "canto-upper-bath-access",
+      "reason": "Explicit aperture profile required"
+    },
+    {
+      "wallId": "wall:level:1:N:7995:11406",
+      "openingId": "canto-upper-bed-access",
+      "reason": "Explicit aperture profile required"
+    },
+    {
+      "wallId": "wall:level:1:N:8000:11406",
+      "openingId": "canto-upper-flex-access",
+      "reason": "Explicit aperture profile required"
+    }
+  ],
+  "complete": false
+}

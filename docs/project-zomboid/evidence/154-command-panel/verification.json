@@ -1,0 +1,7 @@
+{
+  "before": 70,
+  "afterCommit": 71,
+  "afterUndoRetry": 72,
+  "roomsAfterRetry": 7,
+  "roomsAfterUndoRetry": 6
+}

@@ -1,0 +1,21 @@
+✔ a contiguous terrace has no interior risers and only its outer perimeter is drawn (1.225334ms)
+✔ different platform heights expose only the difference, including basement coordinates (0.112875ms)
+✔ destroyed adjacent support reveals a riser and draw applies ghost-layer height consistently (0.2365ms)
+✔ a chamfer has a diagonal riser, without full-cell faces or triangulation seams (0.49275ms)
+✔ a partially supported neighbor splits the exposed edge at the actual height transition (0.158958ms)
+✔ asset-shaped neighboring platform exposes the unsupported portion without room geometry (0.230791ms)
+✔ raised exterior excludes a chamfer interior with exact complementary area (0.917666ms)
+✔ multiple room triangles subtract without overlap or slivers (0.367458ms)
+✔ actor support follows the exterior half and does not lift the indoor floor (0.435583ms)
+✔ asset ground profiles share geometry with actor height, even without room geometry (0.234ms)
+✔ invalid asset ground geometry fails instead of silently using a full tile (0.157458ms)
+✔ storm drain stays an editable floor overlay without removing street support (1.570875ms)
+✔ chamfer paving reuses atlas pixels and persists both shaped top and road base (0.517333ms)
+ℹ tests 13
+ℹ suites 0
+ℹ pass 13
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 51.898333

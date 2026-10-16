@@ -1,0 +1,24 @@
+✔ bandage consumes one item, suppresses bleeding without immediate HP recovery and persists (1.011917ms)
+✔ dirty bandage removal returns source replacement; clean bandage removal returns same type (0.2285ms)
+✔ disinfect uses one wipe dose and is rejected while bandaged (0.5575ms)
+✔ old aggregate bleeding migrates once and wounds evolve on simulation minutes (0.205625ms)
+✔ cancelled timed treatment and lost material do not heal or consume (23.027792ms)
+✔ natural recovery is slow, resource-gated, never revives death and does not bypass infection (0.144834ms)
+✔ a dirty retained dressing cannot create a new infection after the wound has healed (0.078542ms)
+✔ real simulation advances without changing original save and uses calibrated coordinates (3.622625ms)
+✔ door changes come from game rules, including locked failure (1.506375ms)
+✔ visitor storage uses timed game transfers and preserves the same physical instance (3.677542ms)
+✔ physical movement cancels a timed action even after nearby queries sync coordinates (0.354666ms)
+✔ nearby facilities use real sleep actions and reject stale reach or unsupported actions (1.188667ms)
+✔ physical running consumes normal endurance without moving a second time (0.239125ms)
+✔ physical speeds respect exhaustion, sneaking, world scale, death and pause (0.197708ms)
+✔ moving out of accelerated rest restores real-time survival advancement (0.149459ms)
+✔ resident mode owns the existing character and restores serialized physical position and doors (0.416958ms)
+ℹ tests 16
+ℹ suites 0
+ℹ pass 16
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 87.258417

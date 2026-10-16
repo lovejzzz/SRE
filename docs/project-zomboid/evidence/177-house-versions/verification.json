@@ -1,0 +1,30 @@
+{
+  "test_origin": "http://127.0.0.1:8883",
+  "saved_version": "177 · Gable Y with eaves",
+  "restore_equality_except_scene_revision": true,
+  "saved_scene_revision": 21,
+  "restored_scene_revision": 22,
+  "original_scene_id": "2b1353d7-e74f-48a1-b6f1-1e3634bb6bfe",
+  "branch_scene_id": "e919c07d-bd92-4ed9-a43c-35c88cc32e18",
+  "branch_refresh_full_equality": true,
+  "recovery_checkpoint_restored_original_X_axis": true,
+  "cleanup_full_equality_to_export_36": true,
+  "references_retained": 4,
+  "public_ui_actions": [
+    "House library → Versions → Save version",
+    "Undo roof rotation",
+    "Restore version",
+    "Create branch",
+    "reload → Workshop",
+    "Restore Before restore checkpoint",
+    "Undo five operations"
+  ],
+  "exports": [
+    "momento-brewers-photo-study (37).json",
+    "momento-brewers-photo-study (38).json",
+    "177-alternate-roof-study.json",
+    "177-alternate-roof-study (1).json",
+    "momento-brewers-photo-study (39).json",
+    "momento-brewers-photo-study (40).json"
+  ]
+}

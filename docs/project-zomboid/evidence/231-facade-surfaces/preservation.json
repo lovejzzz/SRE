@@ -1,0 +1,17 @@
+{
+  "changedWalls": [
+    "wall:level:0:N:8003:11411",
+    "wall:level:0:N:8004:11411",
+    "wall:level:0:N:8005:11411",
+    "wall:level:0:D-:8008:11408",
+    "wall:level:0:D-:8007:11409",
+    "wall:level:0:D-:8006:11410",
+    "wall:level:0:N:8002:11411",
+    "wall:level:0:N:8001:11411",
+    "wall:level:0:N:8000:11411"
+  ],
+  "openingsUnchanged": true,
+  "objectsUnchanged": true,
+  "verticalLinksUnchanged": true,
+  "roomFinishesUnchanged": true
+}

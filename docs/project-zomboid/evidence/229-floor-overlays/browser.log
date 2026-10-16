@@ -1,0 +1,15 @@
+PREVIEW {
+  "ok": true,
+  "baseRevision": 1,
+  "alreadyApplied": false,
+  "rooms": 0,
+  "objects": 0,
+  "squares": 1120
+}
+COMMIT {
+  "alreadyApplied": false,
+  "currentRevision": 2,
+  "ok": true,
+  "changed": true,
+  "revision": 2
+}

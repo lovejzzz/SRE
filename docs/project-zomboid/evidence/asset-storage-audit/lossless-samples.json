@@ -1,0 +1,72 @@
+[
+  {
+    "file": "original-cafe.png",
+    "size": [
+      768,
+      960
+    ],
+    "pngBytes": 24632,
+    "rawRGBABytes": 2949120,
+    "rawZlibBytes": 19604,
+    "optimizedPngBytes": 23448,
+    "losslessWebPBytes": 9544,
+    "RGBAExact": true,
+    "seconds": 1.27
+  },
+  {
+    "file": "original-masonry.png",
+    "size": [
+      768,
+      640
+    ],
+    "pngBytes": 70284,
+    "rawRGBABytes": 1966080,
+    "rawZlibBytes": 51784,
+    "optimizedPngBytes": 74707,
+    "losslessWebPBytes": 43844,
+    "RGBAExact": true,
+    "seconds": 0.2
+  },
+  {
+    "file": "Tiles2x-194.png",
+    "size": [
+      1020,
+      1015
+    ],
+    "pngBytes": 1047407,
+    "rawRGBABytes": 4141200,
+    "rawZlibBytes": 942875,
+    "optimizedPngBytes": 1016607,
+    "losslessWebPBytes": 721674,
+    "RGBAExact": true,
+    "seconds": 0.83
+  },
+  {
+    "file": "Tiles2x.floor-0.png",
+    "size": [
+      1024,
+      1021
+    ],
+    "pngBytes": 1196182,
+    "rawRGBABytes": 4182016,
+    "rawZlibBytes": 1068814,
+    "optimizedPngBytes": 1176890,
+    "losslessWebPBytes": 758702,
+    "RGBAExact": true,
+    "seconds": 0.6
+  },
+  {
+    "file": "UI2-0.png",
+    "size": [
+      1024,
+      1022
+    ],
+    "pngBytes": 4193990,
+    "rawRGBABytes": 4186112,
+    "rawZlibBytes": 500400,
+    "optimizedPngBytes": 802063,
+    "losslessWebPBytes": 550920,
+    "RGBAExact": true,
+    "seconds": 0.86
+  }
+]

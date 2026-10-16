@@ -1,0 +1,247 @@
+[
+  {
+    "requestId": "canto-ground-circulation-281",
+    "baseRevision": 492,
+    "operations": [
+      {
+        "type": "room.merge",
+        "roomId": "canto-living",
+        "otherRoomId": "canto-entry"
+      },
+      {
+        "type": "room.merge",
+        "roomId": "canto-living",
+        "otherRoomId": "canto-passage"
+      },
+      {
+        "type": "place",
+        "assetId": "tile:fixtures_doors_01_49",
+        "x": 8000,
+        "y": 11409,
+        "z": 0
+      },
+      {
+        "type": "place",
+        "assetId": "tile:tian_double_steel_door_N_0",
+        "x": 7999,
+        "y": 11405,
+        "z": 0
+      },
+      {
+        "type": "place",
+        "assetId": "tile:tian_glazing_N_1_0",
+        "x": 7998,
+        "y": 11405,
+        "z": 0
+      },
+      {
+        "type": "place",
+        "assetId": "tile:tian_glazing_N_1_0",
+        "x": 8001,
+        "y": 11405,
+        "z": 0
+      },
+      {
+        "type": "place",
+        "assetId": "tile:tian_glazing_N_1_0",
+        "x": 8002,
+        "y": 11405,
+        "z": 0
+      },
+      {
+        "type": "place",
+        "assetId": "tile:tian_double_steel_door_W_0",
+        "x": 7998,
+        "y": 11402,
+        "z": 0
+      },
+      {
+        "type": "place",
+        "assetId": "tile:tian_glazing_W_1_0",
+        "x": 7998,
+        "y": 11401,
+        "z": 0
+      },
+      {
+        "type": "place",
+        "assetId": "tile:tian_glazing_W_1_0",
+        "x": 7998,
+        "y": 11404,
+        "z": 0
+      },
+      {
+        "type": "place",
+        "assetId": "tile:fixtures_doors_01_48",
+        "x": 8003,
+        "y": 11403,
+        "z": 0
+      },
+      {
+        "type": "place",
+        "assetId": "tile:fixtures_doors_01_49",
+        "x": 8004,
+        "y": 11405,
+        "z": 0
+      },
+      {
+        "type": "place",
+        "assetId": "tile:fixtures_doors_01_48",
+        "x": 8004,
+        "y": 11407,
+        "z": 0
+      },
+      {
+        "type": "place",
+        "assetId": "tile:fixtures_doors_01_48",
+        "x": 8008,
+        "y": 11407,
+        "z": 0
+      },
+      {
+        "type": "place",
+        "assetId": "garage:N",
+        "x": 8009,
+        "y": 11409,
+        "z": 0
+      }
+    ]
+  },
+  {
+    "requestId": "canto-upper-void-stair-281",
+    "baseRevision": 493,
+    "operations": [
+      {
+        "type": "room.add",
+        "room": {
+          "id": "canto-upper-main",
+          "name": "Upper gallery and rooms",
+          "levelId": "level:1",
+          "z": 1,
+          "rect": [
+            7993,
+            11400,
+            7998,
+            11409
+          ],
+          "floorTile": "floors_interior_tilesandwood_01_40",
+          "wallN": "tian_masonry_ivory_1",
+          "wallW": "tian_masonry_ivory_0"
+        }
+      },
+      {
+        "type": "room.add",
+        "room": {
+          "id": "canto-upper-entry",
+          "name": "Upper private wing",
+          "levelId": "level:1",
+          "z": 1,
+          "rect": [
+            7998,
+            11405,
+            8003,
+            11409
+          ],
+          "floorTile": "floors_interior_tilesandwood_01_40",
+          "wallN": "tian_masonry_ivory_1",
+          "wallW": "tian_masonry_ivory_0"
+        }
+      },
+      {
+        "type": "room.add",
+        "room": {
+          "id": "canto-upper-passage",
+          "name": "Terrace passage",
+          "levelId": "level:1",
+          "z": 1,
+          "rect": [
+            8003,
+            11405,
+            8004,
+            11409
+          ],
+          "floorTile": "floors_interior_tilesandwood_01_40",
+          "wallN": "tian_masonry_ivory_1",
+          "wallW": "tian_masonry_ivory_0"
+        }
+      },
+      {
+        "type": "room.add",
+        "room": {
+          "id": "canto-terrace-north",
+          "name": "Terrace above private rooms",
+          "levelId": "level:1",
+          "z": 1,
+          "rect": [
+            8003,
+            11400,
+            8008,
+            11405
+          ],
+          "floorTile": "floors_interior_tilesandwood_01_28",
+          "wallN": "tian_masonry_ivory_1",
+          "wallW": "tian_masonry_ivory_0"
+        }
+      },
+      {
+        "type": "room.add",
+        "room": {
+          "id": "canto-terrace-garage",
+          "name": "Terrace above garage",
+          "levelId": "level:1",
+          "z": 1,
+          "rect": [
+            8008,
+            11400,
+            8013,
+            11409
+          ],
+          "floorTile": "floors_interior_tilesandwood_01_28",
+          "wallN": "tian_masonry_ivory_1",
+          "wallW": "tian_masonry_ivory_0"
+        }
+      },
+      {
+        "type": "room.merge",
+        "roomId": "canto-upper-main",
+        "otherRoomId": "canto-upper-entry"
+      },
+      {
+        "type": "room.merge",
+        "roomId": "canto-upper-main",
+        "otherRoomId": "canto-upper-passage"
+      },
+      {
+        "type": "room.merge",
+        "roomId": "canto-terrace-north",
+        "otherRoomId": "canto-terrace-garage"
+      },
+      {
+        "type": "floorOpening.add",
+        "roomId": "canto-upper-main",
+        "opening": {
+          "id": "canto-living-void",
+          "rect": [
+            7995,
+            11401,
+            7998,
+            11405
+          ]
+        }
+      },
+      {
+        "type": "place",
+        "assetId": "stairs:N",
+        "x": 7994,
+        "y": 11401,
+        "z": 0
+      },
+      {
+        "type": "place",
+        "assetId": "tile:fixtures_doors_01_49",
+        "x": 8003,
+        "y": 11405,
+        "z": 1
+      }
+    ]
+  }
+]

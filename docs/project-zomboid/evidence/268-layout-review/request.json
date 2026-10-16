@@ -1,0 +1,15 @@
+{
+  "requestId": "momento-service-threshold-268",
+  "baseRevision": 456,
+  "operations": [
+    {
+      "type": "opening.threshold",
+      "id": "momento-service-door",
+      "threshold": {
+        "height": 8,
+        "depth": 0.35,
+        "color": "#343733"
+      }
+    }
+  ]
+}

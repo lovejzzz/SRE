@@ -1,0 +1,58 @@
+{
+  "allExistingObjectIdsPreserved": true,
+  "openingsUnchanged": true,
+  "stairsUnchanged": true,
+  "inventoryUnchanged": true,
+  "rooms": [
+    {
+      "id": "momento-main",
+      "polygon": [
+        [
+          8000,
+          11403
+        ],
+        [
+          8009,
+          11403
+        ],
+        [
+          8009,
+          11409
+        ],
+        [
+          8007,
+          11411
+        ],
+        [
+          8000,
+          11411
+        ]
+      ]
+    },
+    {
+      "id": "momento-upper-shell",
+      "polygon": [
+        [
+          8000,
+          11403
+        ],
+        [
+          8009,
+          11403
+        ],
+        [
+          8009,
+          11409
+        ],
+        [
+          8007,
+          11411
+        ],
+        [
+          8000,
+          11411
+        ]
+      ]
+    }
+  ]
+}

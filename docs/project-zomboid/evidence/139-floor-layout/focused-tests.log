@@ -1,0 +1,19 @@
+✔ floor layout copies shared walls and hosted openings with independent identities and undo (8.466708ms)
+✔ copy rejects overlapping destination, invalid levels and duplicate identity atomically (3.452709ms)
+✔ semantic staircase opens upper floor and supports real world traversal, removal and undo (29.968709ms)
+✔ stairs move restores old shaft and cuts the new shaft without changing identity (19.429834ms)
+✔ stairs reject occupied lower floor or headroom and do not corrupt the draft (28.760542ms)
+✔ stairs create a missing upper level and landing but reject the height limit (3.63575ms)
+✔ placing a staircase at the highest allowed floor is rejected without adding a level (6.572083ms)
+✔ picked stair preview preserves original link until a valid move commits and cancel restores it (23.485417ms)
+✔ new staircase preview and placement agree on furniture conflicts and copies receive new identity (15.951667ms)
+✔ reflooring above stairs preserves the shaft and removing stairs restores the new material (22.077375ms)
+✔ copying a floor preserves the stair shaft and permits a far wall at the upper landing (4.963167ms)
+ℹ tests 11
+ℹ suites 0
+ℹ pass 11
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 222.239375

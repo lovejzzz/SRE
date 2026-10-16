@@ -1,0 +1,14 @@
+{
+  "requestId": "momento-bat-on-counter-261",
+  "baseRevision": 446,
+  "operations": [
+    {
+      "type": "place",
+      "assetId": "item:Base.BaseballBat",
+      "x": 8000,
+      "y": 11408,
+      "z": 0,
+      "storeInContainer": true
+    }
+  ]
+}

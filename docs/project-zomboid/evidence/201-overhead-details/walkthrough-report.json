@@ -1,0 +1,138 @@
+{
+  "kind": "tian-house-workshop-walkthrough",
+  "version": 1,
+  "startedAt": "2026-10-13T18:42:45.301Z",
+  "houseName": "Momento Brewers · Photo study",
+  "sceneId": "2b1353d7-e74f-48a1-b6f1-1e3634bb6bfe",
+  "sceneRevision": 64,
+  "conditions": {
+    "temporaryCharacter": true,
+    "zombieSpawning": false,
+    "survivalAcceptance": false
+  },
+  "simulatedSeconds": 30.090299999999733,
+  "visited": [
+    {
+      "position": [
+        8009,
+        11404,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 0
+    },
+    {
+      "position": [
+        8008,
+        11404,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 10.241799999999966
+    },
+    {
+      "position": [
+        8007,
+        11404,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 10.866799999999968
+    },
+    {
+      "position": [
+        8006,
+        11404,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 11.491799999999971
+    },
+    {
+      "position": [
+        8005,
+        11404,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 12.11689999999997
+    },
+    {
+      "position": [
+        8004,
+        11404,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 12.741699999999957
+    },
+    {
+      "position": [
+        8003,
+        11404,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 13.36669999999995
+    },
+    {
+      "position": [
+        8002,
+        11404,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 13.990099999999975
+    },
+    {
+      "position": [
+        8001,
+        11404,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 14.616799999999957
+    },
+    {
+      "position": [
+        8001,
+        11403,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 15.258499999999962
+    }
+  ],
+  "events": [
+    {
+      "seconds": 9.917099999999984,
+      "message": "Open door"
+    },
+    {
+      "seconds": 30.008499999999746,
+      "message": "Light off"
+    },
+    {
+      "seconds": 30.025299999999735,
+      "message": "Light on"
+    }
+  ],
+  "changes": {
+    "8009,11404,0:fixtures_doors_01_48": {
+      "open": true,
+      "locked": false,
+      "lockedByKey": false
+    },
+    "8001,11403,0:tian_cafe_wall_cone_N_0": {
+      "lightOff": false
+    }
+  },
+  "player": {
+    "x": 8001.500000000008,
+    "y": 11403.777439999993,
+    "z": 0,
+    "surfaceZ": 0,
+    "hp": 100
+  },
+  "inventoryCount": 13
+}

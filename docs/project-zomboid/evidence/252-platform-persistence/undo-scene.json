@@ -1,0 +1,10095 @@
+{
+  "version": 1,
+  "name": "Platform regression · 249 clean",
+  "spawn": {
+    "x": 7999.5,
+    "y": 11405.5,
+    "z": 0
+  },
+  "deterministicContainers": true,
+  "squares": [
+    {
+      "x": 7988,
+      "y": 11390,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7988,
+      "y": 11391,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7988,
+      "y": 11392,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7988,
+      "y": 11393,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7988,
+      "y": 11394,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7988,
+      "y": 11395,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7988,
+      "y": 11396,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7988,
+      "y": 11397,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7988,
+      "y": 11398,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7988,
+      "y": 11399,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7988,
+      "y": 11400,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7988,
+      "y": 11401,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7988,
+      "y": 11402,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7988,
+      "y": 11403,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7988,
+      "y": 11404,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7988,
+      "y": 11405,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7988,
+      "y": 11406,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7988,
+      "y": 11407,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7988,
+      "y": 11408,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7988,
+      "y": 11409,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7988,
+      "y": 11410,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7988,
+      "y": 11411,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7988,
+      "y": 11412,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7988,
+      "y": 11413,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7988,
+      "y": 11414,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7988,
+      "y": 11415,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7988,
+      "y": 11416,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7988,
+      "y": 11417,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7988,
+      "y": 11418,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7988,
+      "y": 11419,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7988,
+      "y": 11420,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7988,
+      "y": 11421,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7988,
+      "y": 11422,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7988,
+      "y": 11423,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7988,
+      "y": 11424,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7989,
+      "y": 11390,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7989,
+      "y": 11391,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7989,
+      "y": 11392,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7989,
+      "y": 11393,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7989,
+      "y": 11394,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7989,
+      "y": 11395,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7989,
+      "y": 11396,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7989,
+      "y": 11397,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7989,
+      "y": 11398,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7989,
+      "y": 11399,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7989,
+      "y": 11400,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7989,
+      "y": 11401,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7989,
+      "y": 11402,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7989,
+      "y": 11403,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7989,
+      "y": 11404,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7989,
+      "y": 11405,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7989,
+      "y": 11406,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7989,
+      "y": 11407,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7989,
+      "y": 11408,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7989,
+      "y": 11409,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7989,
+      "y": 11410,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7989,
+      "y": 11411,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7989,
+      "y": 11412,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7989,
+      "y": 11413,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7989,
+      "y": 11414,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7989,
+      "y": 11415,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7989,
+      "y": 11416,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7989,
+      "y": 11417,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7989,
+      "y": 11418,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7989,
+      "y": 11419,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7989,
+      "y": 11420,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7989,
+      "y": 11421,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7989,
+      "y": 11422,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7989,
+      "y": 11423,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7989,
+      "y": 11424,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7990,
+      "y": 11390,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7990,
+      "y": 11391,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7990,
+      "y": 11392,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7990,
+      "y": 11393,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7990,
+      "y": 11394,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7990,
+      "y": 11395,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7990,
+      "y": 11396,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7990,
+      "y": 11397,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7990,
+      "y": 11398,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7990,
+      "y": 11399,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7990,
+      "y": 11400,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7990,
+      "y": 11401,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7990,
+      "y": 11402,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7990,
+      "y": 11403,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7990,
+      "y": 11404,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7990,
+      "y": 11405,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7990,
+      "y": 11406,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7990,
+      "y": 11407,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7990,
+      "y": 11408,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7990,
+      "y": 11409,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7990,
+      "y": 11410,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7990,
+      "y": 11411,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7990,
+      "y": 11412,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7990,
+      "y": 11413,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7990,
+      "y": 11414,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7990,
+      "y": 11415,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7990,
+      "y": 11416,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7990,
+      "y": 11417,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7990,
+      "y": 11418,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7990,
+      "y": 11419,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7990,
+      "y": 11420,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7990,
+      "y": 11421,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7990,
+      "y": 11422,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7990,
+      "y": 11423,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7990,
+      "y": 11424,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7991,
+      "y": 11390,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7991,
+      "y": 11391,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7991,
+      "y": 11392,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7991,
+      "y": 11393,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7991,
+      "y": 11394,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7991,
+      "y": 11395,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7991,
+      "y": 11396,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7991,
+      "y": 11397,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7991,
+      "y": 11398,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7991,
+      "y": 11399,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7991,
+      "y": 11400,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7991,
+      "y": 11401,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7991,
+      "y": 11402,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7991,
+      "y": 11403,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7991,
+      "y": 11404,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7991,
+      "y": 11405,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7991,
+      "y": 11406,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7991,
+      "y": 11407,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7991,
+      "y": 11408,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7991,
+      "y": 11409,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7991,
+      "y": 11410,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7991,
+      "y": 11411,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7991,
+      "y": 11412,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7991,
+      "y": 11413,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7991,
+      "y": 11414,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7991,
+      "y": 11415,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7991,
+      "y": 11416,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7991,
+      "y": 11417,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7991,
+      "y": 11418,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7991,
+      "y": 11419,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7991,
+      "y": 11420,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7991,
+      "y": 11421,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7991,
+      "y": 11422,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7991,
+      "y": 11423,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7991,
+      "y": 11424,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7992,
+      "y": 11390,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7992,
+      "y": 11391,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7992,
+      "y": 11392,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7992,
+      "y": 11393,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7992,
+      "y": 11394,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7992,
+      "y": 11395,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7992,
+      "y": 11396,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7992,
+      "y": 11397,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7992,
+      "y": 11398,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7992,
+      "y": 11399,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7992,
+      "y": 11400,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7992,
+      "y": 11401,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7992,
+      "y": 11402,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7992,
+      "y": 11403,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7992,
+      "y": 11404,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7992,
+      "y": 11405,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7992,
+      "y": 11406,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7992,
+      "y": 11407,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7992,
+      "y": 11408,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7992,
+      "y": 11409,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7992,
+      "y": 11410,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7992,
+      "y": 11411,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7992,
+      "y": 11412,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7992,
+      "y": 11413,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7992,
+      "y": 11414,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7992,
+      "y": 11415,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7992,
+      "y": 11416,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7992,
+      "y": 11417,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7992,
+      "y": 11418,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7992,
+      "y": 11419,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7992,
+      "y": 11420,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7992,
+      "y": 11421,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7992,
+      "y": 11422,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7992,
+      "y": 11423,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7992,
+      "y": 11424,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7993,
+      "y": 11390,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7993,
+      "y": 11391,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7993,
+      "y": 11392,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7993,
+      "y": 11393,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7993,
+      "y": 11394,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7993,
+      "y": 11395,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7993,
+      "y": 11396,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7993,
+      "y": 11397,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7993,
+      "y": 11398,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7993,
+      "y": 11399,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7993,
+      "y": 11400,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7993,
+      "y": 11401,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7993,
+      "y": 11402,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7993,
+      "y": 11403,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7993,
+      "y": 11404,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7993,
+      "y": 11405,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7993,
+      "y": 11406,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7993,
+      "y": 11407,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7993,
+      "y": 11408,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7993,
+      "y": 11409,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7993,
+      "y": 11410,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7993,
+      "y": 11411,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7993,
+      "y": 11412,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7993,
+      "y": 11413,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7993,
+      "y": 11414,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7993,
+      "y": 11415,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7993,
+      "y": 11416,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7993,
+      "y": 11417,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7993,
+      "y": 11418,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7993,
+      "y": 11419,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7993,
+      "y": 11420,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7993,
+      "y": 11421,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7993,
+      "y": 11422,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7993,
+      "y": 11423,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7993,
+      "y": 11424,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7994,
+      "y": 11390,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7994,
+      "y": 11391,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7994,
+      "y": 11392,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7994,
+      "y": 11393,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7994,
+      "y": 11394,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7994,
+      "y": 11395,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7994,
+      "y": 11396,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7994,
+      "y": 11397,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7994,
+      "y": 11398,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7994,
+      "y": 11399,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7994,
+      "y": 11400,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7994,
+      "y": 11401,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7994,
+      "y": 11402,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7994,
+      "y": 11403,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7994,
+      "y": 11404,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7994,
+      "y": 11405,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7994,
+      "y": 11406,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7994,
+      "y": 11407,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7994,
+      "y": 11408,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7994,
+      "y": 11409,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7994,
+      "y": 11410,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7994,
+      "y": 11411,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7994,
+      "y": 11412,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7994,
+      "y": 11413,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7994,
+      "y": 11414,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7994,
+      "y": 11415,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7994,
+      "y": 11416,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7994,
+      "y": 11417,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7994,
+      "y": 11418,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7994,
+      "y": 11419,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7994,
+      "y": 11420,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7994,
+      "y": 11421,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7994,
+      "y": 11422,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7994,
+      "y": 11423,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7994,
+      "y": 11424,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7995,
+      "y": 11390,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7995,
+      "y": 11391,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7995,
+      "y": 11392,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7995,
+      "y": 11393,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7995,
+      "y": 11394,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7995,
+      "y": 11395,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7995,
+      "y": 11396,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7995,
+      "y": 11397,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7995,
+      "y": 11398,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7995,
+      "y": 11399,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7995,
+      "y": 11400,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7995,
+      "y": 11401,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7995,
+      "y": 11402,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7995,
+      "y": 11403,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7995,
+      "y": 11404,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7995,
+      "y": 11405,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7995,
+      "y": 11406,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7995,
+      "y": 11407,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7995,
+      "y": 11408,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7995,
+      "y": 11409,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7995,
+      "y": 11410,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7995,
+      "y": 11411,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7995,
+      "y": 11412,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7995,
+      "y": 11413,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7995,
+      "y": 11414,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7995,
+      "y": 11415,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7995,
+      "y": 11416,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7995,
+      "y": 11417,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7995,
+      "y": 11418,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7995,
+      "y": 11419,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7995,
+      "y": 11420,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7995,
+      "y": 11421,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7995,
+      "y": 11422,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7995,
+      "y": 11423,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7995,
+      "y": 11424,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7996,
+      "y": 11390,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7996,
+      "y": 11391,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7996,
+      "y": 11392,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7996,
+      "y": 11393,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7996,
+      "y": 11394,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7996,
+      "y": 11395,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7996,
+      "y": 11396,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7996,
+      "y": 11397,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7996,
+      "y": 11398,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7996,
+      "y": 11399,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7996,
+      "y": 11400,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7996,
+      "y": 11401,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7996,
+      "y": 11402,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7996,
+      "y": 11403,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7996,
+      "y": 11404,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7996,
+      "y": 11405,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7996,
+      "y": 11406,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7996,
+      "y": 11407,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7996,
+      "y": 11408,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7996,
+      "y": 11409,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7996,
+      "y": 11410,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7996,
+      "y": 11411,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7996,
+      "y": 11412,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7996,
+      "y": 11413,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7996,
+      "y": 11414,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7996,
+      "y": 11415,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7996,
+      "y": 11416,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7996,
+      "y": 11417,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7996,
+      "y": 11418,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7996,
+      "y": 11419,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7996,
+      "y": 11420,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7996,
+      "y": 11421,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7996,
+      "y": 11422,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7996,
+      "y": 11423,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7996,
+      "y": 11424,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7997,
+      "y": 11390,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7997,
+      "y": 11391,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7997,
+      "y": 11392,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7997,
+      "y": 11393,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7997,
+      "y": 11394,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7997,
+      "y": 11395,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7997,
+      "y": 11396,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7997,
+      "y": 11397,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7997,
+      "y": 11398,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7997,
+      "y": 11399,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7997,
+      "y": 11400,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7997,
+      "y": 11401,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7997,
+      "y": 11402,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7997,
+      "y": 11403,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7997,
+      "y": 11404,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7997,
+      "y": 11405,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7997,
+      "y": 11406,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7997,
+      "y": 11407,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7997,
+      "y": 11408,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7997,
+      "y": 11409,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7997,
+      "y": 11410,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7997,
+      "y": 11411,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7997,
+      "y": 11412,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7997,
+      "y": 11413,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7997,
+      "y": 11414,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7997,
+      "y": 11415,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7997,
+      "y": 11416,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7997,
+      "y": 11417,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7997,
+      "y": 11418,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7997,
+      "y": 11419,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7997,
+      "y": 11420,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7997,
+      "y": 11421,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7997,
+      "y": 11422,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7997,
+      "y": 11423,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7997,
+      "y": 11424,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7998,
+      "y": 11390,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7998,
+      "y": 11391,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7998,
+      "y": 11392,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7998,
+      "y": 11393,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7998,
+      "y": 11394,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7998,
+      "y": 11395,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7998,
+      "y": 11396,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7998,
+      "y": 11397,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7998,
+      "y": 11398,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7998,
+      "y": 11399,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7998,
+      "y": 11400,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7998,
+      "y": 11401,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7998,
+      "y": 11402,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7998,
+      "y": 11403,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7998,
+      "y": 11404,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7998,
+      "y": 11405,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7998,
+      "y": 11406,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7998,
+      "y": 11407,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7998,
+      "y": 11408,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7998,
+      "y": 11409,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7998,
+      "y": 11410,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7998,
+      "y": 11411,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7998,
+      "y": 11412,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7998,
+      "y": 11413,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7998,
+      "y": 11414,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7998,
+      "y": 11415,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7998,
+      "y": 11416,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7998,
+      "y": 11417,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7998,
+      "y": 11418,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7998,
+      "y": 11419,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7998,
+      "y": 11420,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7998,
+      "y": 11421,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7998,
+      "y": 11422,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7998,
+      "y": 11423,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7998,
+      "y": 11424,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7999,
+      "y": 11390,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7999,
+      "y": 11391,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7999,
+      "y": 11392,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7999,
+      "y": 11393,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7999,
+      "y": 11394,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7999,
+      "y": 11395,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7999,
+      "y": 11396,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7999,
+      "y": 11397,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7999,
+      "y": 11398,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7999,
+      "y": 11399,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7999,
+      "y": 11400,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7999,
+      "y": 11401,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7999,
+      "y": 11402,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7999,
+      "y": 11403,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7999,
+      "y": 11404,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7999,
+      "y": 11405,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7999,
+      "y": 11406,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7999,
+      "y": 11407,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7999,
+      "y": 11408,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7999,
+      "y": 11409,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7999,
+      "y": 11410,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7999,
+      "y": 11411,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7999,
+      "y": 11412,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7999,
+      "y": 11413,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7999,
+      "y": 11414,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7999,
+      "y": 11415,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7999,
+      "y": 11416,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7999,
+      "y": 11417,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7999,
+      "y": 11418,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7999,
+      "y": 11419,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7999,
+      "y": 11420,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7999,
+      "y": 11421,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7999,
+      "y": 11422,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7999,
+      "y": 11423,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 7999,
+      "y": 11424,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8000,
+      "y": 11390,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8000,
+      "y": 11391,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8000,
+      "y": 11392,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8000,
+      "y": 11393,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8000,
+      "y": 11394,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8000,
+      "y": 11395,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8000,
+      "y": 11396,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8000,
+      "y": 11397,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8000,
+      "y": 11398,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8000,
+      "y": 11399,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8000,
+      "y": 11400,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8000,
+      "y": 11401,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8000,
+      "y": 11402,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8000,
+      "y": 11403,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "tian_street_platform_grey_6_0"
+      ]
+    },
+    {
+      "x": 8000,
+      "y": 11404,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "tian_street_platform_grey_6_0"
+      ]
+    },
+    {
+      "x": 8000,
+      "y": 11405,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "tian_street_platform_grey_6_0"
+      ]
+    },
+    {
+      "x": 8000,
+      "y": 11406,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "tian_street_platform_grey_6_0"
+      ]
+    },
+    {
+      "x": 8000,
+      "y": 11407,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "tian_street_platform_grey_6_0"
+      ]
+    },
+    {
+      "x": 8000,
+      "y": 11408,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8000,
+      "y": 11409,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8000,
+      "y": 11410,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8000,
+      "y": 11411,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8000,
+      "y": 11412,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8000,
+      "y": 11413,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8000,
+      "y": 11414,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8000,
+      "y": 11415,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8000,
+      "y": 11416,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8000,
+      "y": 11417,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8000,
+      "y": 11418,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8000,
+      "y": 11419,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8000,
+      "y": 11420,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8000,
+      "y": 11421,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8000,
+      "y": 11422,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8000,
+      "y": 11423,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8000,
+      "y": 11424,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8001,
+      "y": 11390,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8001,
+      "y": 11391,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8001,
+      "y": 11392,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8001,
+      "y": 11393,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8001,
+      "y": 11394,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8001,
+      "y": 11395,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8001,
+      "y": 11396,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8001,
+      "y": 11397,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8001,
+      "y": 11398,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8001,
+      "y": 11399,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8001,
+      "y": 11400,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8001,
+      "y": 11401,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8001,
+      "y": 11402,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8001,
+      "y": 11403,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "tian_street_platform_grey_6_0"
+      ]
+    },
+    {
+      "x": 8001,
+      "y": 11404,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "tian_street_platform_grey_6_0"
+      ]
+    },
+    {
+      "x": 8001,
+      "y": 11405,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "tian_street_platform_grey_6_0"
+      ]
+    },
+    {
+      "x": 8001,
+      "y": 11406,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "tian_street_platform_grey_6_0"
+      ]
+    },
+    {
+      "x": 8001,
+      "y": 11407,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "tian_street_platform_grey_6_0"
+      ]
+    },
+    {
+      "x": 8001,
+      "y": 11408,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8001,
+      "y": 11409,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8001,
+      "y": 11410,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8001,
+      "y": 11411,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8001,
+      "y": 11412,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8001,
+      "y": 11413,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8001,
+      "y": 11414,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8001,
+      "y": 11415,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8001,
+      "y": 11416,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8001,
+      "y": 11417,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8001,
+      "y": 11418,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8001,
+      "y": 11419,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8001,
+      "y": 11420,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8001,
+      "y": 11421,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8001,
+      "y": 11422,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8001,
+      "y": 11423,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8001,
+      "y": 11424,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8002,
+      "y": 11390,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8002,
+      "y": 11391,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8002,
+      "y": 11392,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8002,
+      "y": 11393,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8002,
+      "y": 11394,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8002,
+      "y": 11395,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8002,
+      "y": 11396,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8002,
+      "y": 11397,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8002,
+      "y": 11398,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8002,
+      "y": 11399,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8002,
+      "y": 11400,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8002,
+      "y": 11401,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8002,
+      "y": 11402,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8002,
+      "y": 11403,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "tian_street_platform_grey_6_0"
+      ]
+    },
+    {
+      "x": 8002,
+      "y": 11404,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "tian_street_platform_grey_6_0"
+      ]
+    },
+    {
+      "x": 8002,
+      "y": 11405,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "tian_street_platform_grey_6_0"
+      ]
+    },
+    {
+      "x": 8002,
+      "y": 11406,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "tian_street_platform_grey_6_0",
+        "tian_street_stool_0"
+      ]
+    },
+    {
+      "x": 8002,
+      "y": 11407,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "tian_street_platform_grey_6_0"
+      ]
+    },
+    {
+      "x": 8002,
+      "y": 11408,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8002,
+      "y": 11409,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8002,
+      "y": 11410,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8002,
+      "y": 11411,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8002,
+      "y": 11412,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8002,
+      "y": 11413,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8002,
+      "y": 11414,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8002,
+      "y": 11415,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8002,
+      "y": 11416,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8002,
+      "y": 11417,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8002,
+      "y": 11418,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8002,
+      "y": 11419,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8002,
+      "y": 11420,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8002,
+      "y": 11421,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8002,
+      "y": 11422,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8002,
+      "y": 11423,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8002,
+      "y": 11424,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8003,
+      "y": 11390,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8003,
+      "y": 11391,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8003,
+      "y": 11392,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8003,
+      "y": 11393,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8003,
+      "y": 11394,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8003,
+      "y": 11395,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8003,
+      "y": 11396,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8003,
+      "y": 11397,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8003,
+      "y": 11398,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8003,
+      "y": 11399,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8003,
+      "y": 11400,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8003,
+      "y": 11401,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8003,
+      "y": 11402,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8003,
+      "y": 11403,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "tian_street_platform_grey_6_0"
+      ]
+    },
+    {
+      "x": 8003,
+      "y": 11404,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "tian_street_platform_grey_6_0"
+      ]
+    },
+    {
+      "x": 8003,
+      "y": 11405,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "tian_street_platform_grey_6_0"
+      ]
+    },
+    {
+      "x": 8003,
+      "y": 11406,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "tian_street_platform_grey_6_0"
+      ]
+    },
+    {
+      "x": 8003,
+      "y": 11407,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "tian_street_platform_grey_6_0"
+      ]
+    },
+    {
+      "x": 8003,
+      "y": 11408,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8003,
+      "y": 11409,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8003,
+      "y": 11410,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8003,
+      "y": 11411,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8003,
+      "y": 11412,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8003,
+      "y": 11413,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8003,
+      "y": 11414,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8003,
+      "y": 11415,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8003,
+      "y": 11416,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8003,
+      "y": 11417,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8003,
+      "y": 11418,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8003,
+      "y": 11419,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8003,
+      "y": 11420,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8003,
+      "y": 11421,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8003,
+      "y": 11422,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8003,
+      "y": 11423,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8003,
+      "y": 11424,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8004,
+      "y": 11390,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8004,
+      "y": 11391,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8004,
+      "y": 11392,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8004,
+      "y": 11393,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8004,
+      "y": 11394,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8004,
+      "y": 11395,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8004,
+      "y": 11396,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8004,
+      "y": 11397,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8004,
+      "y": 11398,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8004,
+      "y": 11399,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8004,
+      "y": 11400,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8004,
+      "y": 11401,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8004,
+      "y": 11402,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8004,
+      "y": 11403,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "tian_street_platform_grey_6_0"
+      ]
+    },
+    {
+      "x": 8004,
+      "y": 11404,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "tian_street_platform_grey_6_0"
+      ]
+    },
+    {
+      "x": 8004,
+      "y": 11405,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "tian_street_platform_grey_6_0"
+      ]
+    },
+    {
+      "x": 8004,
+      "y": 11406,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "tian_street_platform_grey_6_0"
+      ]
+    },
+    {
+      "x": 8004,
+      "y": 11407,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "tian_street_platform_grey_6_0"
+      ]
+    },
+    {
+      "x": 8004,
+      "y": 11408,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8004,
+      "y": 11409,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8004,
+      "y": 11410,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8004,
+      "y": 11411,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8004,
+      "y": 11412,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8004,
+      "y": 11413,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8004,
+      "y": 11414,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8004,
+      "y": 11415,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8004,
+      "y": 11416,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8004,
+      "y": 11417,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8004,
+      "y": 11418,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8004,
+      "y": 11419,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8004,
+      "y": 11420,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8004,
+      "y": 11421,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8004,
+      "y": 11422,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8004,
+      "y": 11423,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8004,
+      "y": 11424,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8005,
+      "y": 11390,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8005,
+      "y": 11391,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8005,
+      "y": 11392,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8005,
+      "y": 11393,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8005,
+      "y": 11394,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8005,
+      "y": 11395,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8005,
+      "y": 11396,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8005,
+      "y": 11397,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8005,
+      "y": 11398,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8005,
+      "y": 11399,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8005,
+      "y": 11400,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8005,
+      "y": 11401,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8005,
+      "y": 11402,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8005,
+      "y": 11403,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "tian_street_platform_rose_12_0"
+      ]
+    },
+    {
+      "x": 8005,
+      "y": 11404,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "tian_street_platform_rose_12_0"
+      ]
+    },
+    {
+      "x": 8005,
+      "y": 11405,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "tian_street_platform_rose_12_0"
+      ]
+    },
+    {
+      "x": 8005,
+      "y": 11406,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "tian_street_platform_rose_12_0"
+      ]
+    },
+    {
+      "x": 8005,
+      "y": 11407,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "tian_street_platform_rose_12_0"
+      ]
+    },
+    {
+      "x": 8005,
+      "y": 11408,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8005,
+      "y": 11409,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8005,
+      "y": 11410,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8005,
+      "y": 11411,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8005,
+      "y": 11412,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8005,
+      "y": 11413,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8005,
+      "y": 11414,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8005,
+      "y": 11415,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8005,
+      "y": 11416,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8005,
+      "y": 11417,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8005,
+      "y": 11418,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8005,
+      "y": 11419,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8005,
+      "y": 11420,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8005,
+      "y": 11421,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8005,
+      "y": 11422,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8005,
+      "y": 11423,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8005,
+      "y": 11424,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8006,
+      "y": 11390,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8006,
+      "y": 11391,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8006,
+      "y": 11392,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8006,
+      "y": 11393,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8006,
+      "y": 11394,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8006,
+      "y": 11395,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8006,
+      "y": 11396,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8006,
+      "y": 11397,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8006,
+      "y": 11398,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8006,
+      "y": 11399,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8006,
+      "y": 11400,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8006,
+      "y": 11401,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8006,
+      "y": 11402,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8006,
+      "y": 11403,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "tian_street_platform_rose_12_0"
+      ]
+    },
+    {
+      "x": 8006,
+      "y": 11404,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "tian_street_platform_rose_12_0"
+      ]
+    },
+    {
+      "x": 8006,
+      "y": 11405,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "tian_street_platform_rose_12_0"
+      ]
+    },
+    {
+      "x": 8006,
+      "y": 11406,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "tian_street_platform_rose_12_0"
+      ]
+    },
+    {
+      "x": 8006,
+      "y": 11407,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "tian_street_platform_rose_12_0"
+      ]
+    },
+    {
+      "x": 8006,
+      "y": 11408,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8006,
+      "y": 11409,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8006,
+      "y": 11410,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8006,
+      "y": 11411,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8006,
+      "y": 11412,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8006,
+      "y": 11413,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8006,
+      "y": 11414,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8006,
+      "y": 11415,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8006,
+      "y": 11416,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8006,
+      "y": 11417,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8006,
+      "y": 11418,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8006,
+      "y": 11419,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8006,
+      "y": 11420,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8006,
+      "y": 11421,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8006,
+      "y": 11422,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8006,
+      "y": 11423,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8006,
+      "y": 11424,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8007,
+      "y": 11390,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8007,
+      "y": 11391,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8007,
+      "y": 11392,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8007,
+      "y": 11393,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8007,
+      "y": 11394,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8007,
+      "y": 11395,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8007,
+      "y": 11396,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8007,
+      "y": 11397,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8007,
+      "y": 11398,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8007,
+      "y": 11399,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8007,
+      "y": 11400,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8007,
+      "y": 11401,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8007,
+      "y": 11402,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8007,
+      "y": 11403,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "tian_street_platform_rose_12_0"
+      ]
+    },
+    {
+      "x": 8007,
+      "y": 11404,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "tian_street_platform_rose_12_0"
+      ]
+    },
+    {
+      "x": 8007,
+      "y": 11405,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "tian_street_platform_rose_12_0"
+      ]
+    },
+    {
+      "x": 8007,
+      "y": 11406,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "tian_street_platform_rose_12_0"
+      ]
+    },
+    {
+      "x": 8007,
+      "y": 11407,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "tian_street_platform_rose_12_0"
+      ]
+    },
+    {
+      "x": 8007,
+      "y": 11408,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8007,
+      "y": 11409,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8007,
+      "y": 11410,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8007,
+      "y": 11411,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8007,
+      "y": 11412,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8007,
+      "y": 11413,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8007,
+      "y": 11414,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8007,
+      "y": 11415,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8007,
+      "y": 11416,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8007,
+      "y": 11417,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8007,
+      "y": 11418,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8007,
+      "y": 11419,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8007,
+      "y": 11420,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8007,
+      "y": 11421,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8007,
+      "y": 11422,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8007,
+      "y": 11423,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8007,
+      "y": 11424,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8008,
+      "y": 11390,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8008,
+      "y": 11391,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8008,
+      "y": 11392,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8008,
+      "y": 11393,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8008,
+      "y": 11394,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8008,
+      "y": 11395,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8008,
+      "y": 11396,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8008,
+      "y": 11397,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8008,
+      "y": 11398,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8008,
+      "y": 11399,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8008,
+      "y": 11400,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8008,
+      "y": 11401,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8008,
+      "y": 11402,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8008,
+      "y": 11403,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8008,
+      "y": 11404,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8008,
+      "y": 11405,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8008,
+      "y": 11406,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8008,
+      "y": 11407,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8008,
+      "y": 11408,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8008,
+      "y": 11409,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8008,
+      "y": 11410,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8008,
+      "y": 11411,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8008,
+      "y": 11412,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8008,
+      "y": 11413,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8008,
+      "y": 11414,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8008,
+      "y": 11415,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8008,
+      "y": 11416,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8008,
+      "y": 11417,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8008,
+      "y": 11418,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8008,
+      "y": 11419,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8008,
+      "y": 11420,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8008,
+      "y": 11421,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8008,
+      "y": 11422,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8008,
+      "y": 11423,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8008,
+      "y": 11424,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8009,
+      "y": 11390,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8009,
+      "y": 11391,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8009,
+      "y": 11392,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8009,
+      "y": 11393,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8009,
+      "y": 11394,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8009,
+      "y": 11395,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8009,
+      "y": 11396,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8009,
+      "y": 11397,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8009,
+      "y": 11398,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8009,
+      "y": 11399,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8009,
+      "y": 11400,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8009,
+      "y": 11401,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8009,
+      "y": 11402,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8009,
+      "y": 11403,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8009,
+      "y": 11404,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8009,
+      "y": 11405,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8009,
+      "y": 11406,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8009,
+      "y": 11407,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8009,
+      "y": 11408,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8009,
+      "y": 11409,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8009,
+      "y": 11410,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8009,
+      "y": 11411,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8009,
+      "y": 11412,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8009,
+      "y": 11413,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8009,
+      "y": 11414,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8009,
+      "y": 11415,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8009,
+      "y": 11416,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8009,
+      "y": 11417,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8009,
+      "y": 11418,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8009,
+      "y": 11419,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8009,
+      "y": 11420,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8009,
+      "y": 11421,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8009,
+      "y": 11422,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8009,
+      "y": 11423,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8009,
+      "y": 11424,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8010,
+      "y": 11390,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8010,
+      "y": 11391,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8010,
+      "y": 11392,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8010,
+      "y": 11393,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8010,
+      "y": 11394,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8010,
+      "y": 11395,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8010,
+      "y": 11396,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8010,
+      "y": 11397,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8010,
+      "y": 11398,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8010,
+      "y": 11399,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8010,
+      "y": 11400,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8010,
+      "y": 11401,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8010,
+      "y": 11402,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8010,
+      "y": 11403,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8010,
+      "y": 11404,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8010,
+      "y": 11405,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8010,
+      "y": 11406,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8010,
+      "y": 11407,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8010,
+      "y": 11408,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8010,
+      "y": 11409,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8010,
+      "y": 11410,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8010,
+      "y": 11411,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8010,
+      "y": 11412,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8010,
+      "y": 11413,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8010,
+      "y": 11414,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8010,
+      "y": 11415,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8010,
+      "y": 11416,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8010,
+      "y": 11417,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8010,
+      "y": 11418,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8010,
+      "y": 11419,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8010,
+      "y": 11420,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8010,
+      "y": 11421,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8010,
+      "y": 11422,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8010,
+      "y": 11423,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8010,
+      "y": 11424,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8011,
+      "y": 11390,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8011,
+      "y": 11391,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8011,
+      "y": 11392,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8011,
+      "y": 11393,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8011,
+      "y": 11394,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8011,
+      "y": 11395,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8011,
+      "y": 11396,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8011,
+      "y": 11397,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8011,
+      "y": 11398,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8011,
+      "y": 11399,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8011,
+      "y": 11400,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8011,
+      "y": 11401,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8011,
+      "y": 11402,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8011,
+      "y": 11403,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8011,
+      "y": 11404,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8011,
+      "y": 11405,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8011,
+      "y": 11406,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8011,
+      "y": 11407,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8011,
+      "y": 11408,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8011,
+      "y": 11409,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8011,
+      "y": 11410,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8011,
+      "y": 11411,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8011,
+      "y": 11412,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8011,
+      "y": 11413,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8011,
+      "y": 11414,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8011,
+      "y": 11415,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8011,
+      "y": 11416,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8011,
+      "y": 11417,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8011,
+      "y": 11418,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8011,
+      "y": 11419,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8011,
+      "y": 11420,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8011,
+      "y": 11421,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8011,
+      "y": 11422,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8011,
+      "y": 11423,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8011,
+      "y": 11424,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8012,
+      "y": 11390,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8012,
+      "y": 11391,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8012,
+      "y": 11392,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8012,
+      "y": 11393,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8012,
+      "y": 11394,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8012,
+      "y": 11395,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8012,
+      "y": 11396,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8012,
+      "y": 11397,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8012,
+      "y": 11398,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8012,
+      "y": 11399,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8012,
+      "y": 11400,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8012,
+      "y": 11401,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8012,
+      "y": 11402,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8012,
+      "y": 11403,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8012,
+      "y": 11404,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8012,
+      "y": 11405,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8012,
+      "y": 11406,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8012,
+      "y": 11407,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8012,
+      "y": 11408,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8012,
+      "y": 11409,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8012,
+      "y": 11410,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8012,
+      "y": 11411,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8012,
+      "y": 11412,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8012,
+      "y": 11413,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8012,
+      "y": 11414,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8012,
+      "y": 11415,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8012,
+      "y": 11416,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8012,
+      "y": 11417,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8012,
+      "y": 11418,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8012,
+      "y": 11419,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8012,
+      "y": 11420,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8012,
+      "y": 11421,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8012,
+      "y": 11422,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8012,
+      "y": 11423,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8012,
+      "y": 11424,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8013,
+      "y": 11390,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8013,
+      "y": 11391,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8013,
+      "y": 11392,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8013,
+      "y": 11393,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8013,
+      "y": 11394,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8013,
+      "y": 11395,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8013,
+      "y": 11396,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8013,
+      "y": 11397,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8013,
+      "y": 11398,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8013,
+      "y": 11399,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8013,
+      "y": 11400,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8013,
+      "y": 11401,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8013,
+      "y": 11402,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8013,
+      "y": 11403,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8013,
+      "y": 11404,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8013,
+      "y": 11405,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8013,
+      "y": 11406,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8013,
+      "y": 11407,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8013,
+      "y": 11408,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8013,
+      "y": 11409,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8013,
+      "y": 11410,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8013,
+      "y": 11411,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8013,
+      "y": 11412,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8013,
+      "y": 11413,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8013,
+      "y": 11414,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8013,
+      "y": 11415,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8013,
+      "y": 11416,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8013,
+      "y": 11417,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8013,
+      "y": 11418,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8013,
+      "y": 11419,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8013,
+      "y": 11420,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8013,
+      "y": 11421,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8013,
+      "y": 11422,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8013,
+      "y": 11423,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8013,
+      "y": 11424,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8014,
+      "y": 11390,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8014,
+      "y": 11391,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8014,
+      "y": 11392,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8014,
+      "y": 11393,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8014,
+      "y": 11394,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8014,
+      "y": 11395,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8014,
+      "y": 11396,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8014,
+      "y": 11397,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8014,
+      "y": 11398,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8014,
+      "y": 11399,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8014,
+      "y": 11400,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8014,
+      "y": 11401,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8014,
+      "y": 11402,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8014,
+      "y": 11403,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8014,
+      "y": 11404,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8014,
+      "y": 11405,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8014,
+      "y": 11406,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8014,
+      "y": 11407,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8014,
+      "y": 11408,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8014,
+      "y": 11409,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8014,
+      "y": 11410,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8014,
+      "y": 11411,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8014,
+      "y": 11412,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8014,
+      "y": 11413,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8014,
+      "y": 11414,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8014,
+      "y": 11415,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8014,
+      "y": 11416,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8014,
+      "y": 11417,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8014,
+      "y": 11418,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8014,
+      "y": 11419,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8014,
+      "y": 11420,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8014,
+      "y": 11421,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8014,
+      "y": 11422,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8014,
+      "y": 11423,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8014,
+      "y": 11424,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8015,
+      "y": 11390,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8015,
+      "y": 11391,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8015,
+      "y": 11392,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8015,
+      "y": 11393,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8015,
+      "y": 11394,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8015,
+      "y": 11395,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8015,
+      "y": 11396,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8015,
+      "y": 11397,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8015,
+      "y": 11398,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8015,
+      "y": 11399,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8015,
+      "y": 11400,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8015,
+      "y": 11401,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8015,
+      "y": 11402,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8015,
+      "y": 11403,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8015,
+      "y": 11404,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8015,
+      "y": 11405,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8015,
+      "y": 11406,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8015,
+      "y": 11407,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8015,
+      "y": 11408,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8015,
+      "y": 11409,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8015,
+      "y": 11410,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8015,
+      "y": 11411,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8015,
+      "y": 11412,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8015,
+      "y": 11413,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8015,
+      "y": 11414,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8015,
+      "y": 11415,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8015,
+      "y": 11416,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8015,
+      "y": 11417,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8015,
+      "y": 11418,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8015,
+      "y": 11419,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8015,
+      "y": 11420,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8015,
+      "y": 11421,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8015,
+      "y": 11422,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8015,
+      "y": 11423,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8015,
+      "y": 11424,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8016,
+      "y": 11390,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8016,
+      "y": 11391,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8016,
+      "y": 11392,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8016,
+      "y": 11393,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8016,
+      "y": 11394,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8016,
+      "y": 11395,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8016,
+      "y": 11396,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8016,
+      "y": 11397,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8016,
+      "y": 11398,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8016,
+      "y": 11399,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8016,
+      "y": 11400,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8016,
+      "y": 11401,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8016,
+      "y": 11402,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8016,
+      "y": 11403,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8016,
+      "y": 11404,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8016,
+      "y": 11405,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8016,
+      "y": 11406,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8016,
+      "y": 11407,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8016,
+      "y": 11408,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8016,
+      "y": 11409,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8016,
+      "y": 11410,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8016,
+      "y": 11411,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8016,
+      "y": 11412,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8016,
+      "y": 11413,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8016,
+      "y": 11414,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8016,
+      "y": 11415,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8016,
+      "y": 11416,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8016,
+      "y": 11417,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8016,
+      "y": 11418,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8016,
+      "y": 11419,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8016,
+      "y": 11420,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8016,
+      "y": 11421,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8016,
+      "y": 11422,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8016,
+      "y": 11423,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8016,
+      "y": 11424,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8017,
+      "y": 11390,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8017,
+      "y": 11391,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8017,
+      "y": 11392,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8017,
+      "y": 11393,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8017,
+      "y": 11394,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8017,
+      "y": 11395,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8017,
+      "y": 11396,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8017,
+      "y": 11397,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8017,
+      "y": 11398,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8017,
+      "y": 11399,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8017,
+      "y": 11400,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8017,
+      "y": 11401,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8017,
+      "y": 11402,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8017,
+      "y": 11403,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8017,
+      "y": 11404,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8017,
+      "y": 11405,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8017,
+      "y": 11406,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8017,
+      "y": 11407,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8017,
+      "y": 11408,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8017,
+      "y": 11409,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8017,
+      "y": 11410,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8017,
+      "y": 11411,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8017,
+      "y": 11412,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8017,
+      "y": 11413,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8017,
+      "y": 11414,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8017,
+      "y": 11415,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8017,
+      "y": 11416,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8017,
+      "y": 11417,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8017,
+      "y": 11418,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8017,
+      "y": 11419,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8017,
+      "y": 11420,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8017,
+      "y": 11421,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8017,
+      "y": 11422,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8017,
+      "y": 11423,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8017,
+      "y": 11424,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8018,
+      "y": 11390,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8018,
+      "y": 11391,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8018,
+      "y": 11392,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8018,
+      "y": 11393,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8018,
+      "y": 11394,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8018,
+      "y": 11395,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8018,
+      "y": 11396,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8018,
+      "y": 11397,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8018,
+      "y": 11398,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8018,
+      "y": 11399,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8018,
+      "y": 11400,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8018,
+      "y": 11401,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8018,
+      "y": 11402,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8018,
+      "y": 11403,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8018,
+      "y": 11404,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8018,
+      "y": 11405,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8018,
+      "y": 11406,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8018,
+      "y": 11407,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8018,
+      "y": 11408,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8018,
+      "y": 11409,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8018,
+      "y": 11410,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8018,
+      "y": 11411,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8018,
+      "y": 11412,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8018,
+      "y": 11413,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8018,
+      "y": 11414,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8018,
+      "y": 11415,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8018,
+      "y": 11416,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8018,
+      "y": 11417,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8018,
+      "y": 11418,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8018,
+      "y": 11419,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8018,
+      "y": 11420,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8018,
+      "y": 11421,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8018,
+      "y": 11422,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8018,
+      "y": 11423,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8018,
+      "y": 11424,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8019,
+      "y": 11390,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8019,
+      "y": 11391,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8019,
+      "y": 11392,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8019,
+      "y": 11393,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8019,
+      "y": 11394,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8019,
+      "y": 11395,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8019,
+      "y": 11396,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8019,
+      "y": 11397,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8019,
+      "y": 11398,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8019,
+      "y": 11399,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8019,
+      "y": 11400,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8019,
+      "y": 11401,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8019,
+      "y": 11402,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8019,
+      "y": 11403,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8019,
+      "y": 11404,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8019,
+      "y": 11405,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8019,
+      "y": 11406,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8019,
+      "y": 11407,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8019,
+      "y": 11408,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8019,
+      "y": 11409,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8019,
+      "y": 11410,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8019,
+      "y": 11411,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8019,
+      "y": 11412,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8019,
+      "y": 11413,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8019,
+      "y": 11414,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8019,
+      "y": 11415,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8019,
+      "y": 11416,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8019,
+      "y": 11417,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8019,
+      "y": 11418,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8019,
+      "y": 11419,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8019,
+      "y": 11420,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8019,
+      "y": 11421,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8019,
+      "y": 11422,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8019,
+      "y": 11423,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    },
+    {
+      "x": 8019,
+      "y": 11424,
+      "z": 0,
+      "room": -1,
+      "tiles": [
+        "blends_natural_01_16"
+      ]
+    }
+  ],
+  "items": [],
+  "vehicles": []
+}

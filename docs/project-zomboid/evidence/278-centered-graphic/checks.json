@@ -1,0 +1,11 @@
+{
+  "noDanglingReferenceEntities": true,
+  "wallsUnchanged": true,
+  "openingsUnchanged": true,
+  "inventoryUnchanged": true,
+  "stairsUnchanged": true,
+  "objects": 76,
+  "runtimeTests": 645,
+  "freshnessExit": 0,
+  "reloadExact": true
+}

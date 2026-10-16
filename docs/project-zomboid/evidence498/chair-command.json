@@ -1,0 +1,22 @@
+{
+  "requestId": "studio-chair-alignment-498",
+  "baseRevision": 593,
+  "operations": [
+    {
+      "type": "objects.move",
+      "ids": [
+        "e97a8f27-5bac-4a3f-865f-559c74ac8a2e"
+      ],
+      "dx": 0,
+      "dy": -1
+    },
+    {
+      "type": "objects.nudge",
+      "ids": [
+        "e97a8f27-5bac-4a3f-865f-559c74ac8a2e"
+      ],
+      "dx": -0.25,
+      "dy": 0.44
+    }
+  ]
+}

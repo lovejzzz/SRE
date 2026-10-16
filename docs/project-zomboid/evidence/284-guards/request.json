@@ -1,0 +1,31 @@
+{
+  "requestId": "canto-mesh-void-guards-284",
+  "baseRevision": 496,
+  "operations": [
+    {
+      "type": "walls.draw",
+      "pathId": "canto-void-guard",
+      "levelId": "level:1",
+      "points": [
+        [
+          7998,
+          11405
+        ],
+        [
+          7995,
+          11405
+        ],
+        [
+          7995,
+          11401
+        ],
+        [
+          7998,
+          11401
+        ]
+      ],
+      "wallN": "tian_guard_mesh_N",
+      "wallW": "tian_guard_mesh_W"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "result": {
+    "type": "object",
+    "value": {
+      "channels": 22118400,
+      "different": 0,
+      "hashes": [
+        "2a936096eb3dcce5411f93271e194b8217828ade4356c6784f6d7c9323a034ef",
+        "39ff14dd3c9908c0a2f218c136b058d777861abeb10a01bce133d867c7d84811"
+      ],
+      "sameDimensions": true,
+      "size": [
+        768,
+        7200
+      ]
+    }
+  }
+}

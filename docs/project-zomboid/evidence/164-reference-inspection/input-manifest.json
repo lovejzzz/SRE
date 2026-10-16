@@ -1,0 +1,78 @@
+[
+  {
+    "id": "fbdb62cc-fcb0-4d22-b109-0d96108b476e",
+    "name": "Momento · Exterior corner",
+    "sourcePage": "https://www.archdaily.com/983949/momento-brewers-cafe-studio-hoon",
+    "sourceImage": "https://images.adsttc.com/media/images/62b0/6fca/45e0/bb44/b12e/53a7/large_jpg/momento-brewers-cafe-studio-hoon_1.jpg?1655730186",
+    "credit": "Beezy Studio / Studio Hoon via ArchDaily",
+    "sourceSha256": "b2ddaa0d43fa50419c438b2f11c522ab145b134cda8b9ed404e2a61b9116d7f3",
+    "sourceBytes": 3362584,
+    "originalDimensions": [
+      2000,
+      1333
+    ],
+    "storedDimensions": [
+      2000,
+      1333
+    ],
+    "storedBytes": 964903,
+    "observations": "Observed: blue brick facade, three tall recessed windows with dark sills, rough exposed masonry, blue steel side door, exterior stools and paving. Exact dimensions and hidden interior layout are not established by this photo. Development reference; not an unseen acceptance case."
+  },
+  {
+    "id": "415fa382-9b6a-4187-9072-6d79f5eece2d",
+    "name": "Momento · Coffee bar",
+    "sourcePage": "https://www.archdaily.com/983949/momento-brewers-cafe-studio-hoon/62b06fd145e0bb44b12e53ab-momento-brewers-cafe-studio-hoon-photo",
+    "sourceImage": "https://images.adsttc.com/media/images/62b0/6fd1/45e0/bb44/b12e/53ab/large_jpg/momento-brewers-cafe-studio-hoon_6.jpg?1655730211",
+    "credit": "Beezy Studio / Studio Hoon via ArchDaily",
+    "sourceSha256": "a2e4242325d3ed5d18b724c67fc4740d027c4954a598510ed7e199f9214e43e2",
+    "sourceBytes": 1901135,
+    "originalDimensions": [
+      2000,
+      1333
+    ],
+    "storedDimensions": [
+      2000,
+      1333
+    ],
+    "storedBytes": 448733,
+    "observations": "Observed: dark curved timber counter, grinder, espresso machine, kettle and cups; white brick walls, grey tiled floor, pendant lights, hanging plant and exposed ceiling conduits. Hidden service clearances and exact dimensions remain unknown."
+  },
+  {
+    "id": "1ddada70-86f1-4ed4-a910-3c4ce600e6b1",
+    "name": "Momento · Adjoining wall",
+    "sourcePage": "https://www.archdaily.com/983949/momento-brewers-cafe-studio-hoon/62b06fcf6f92430819297015-momento-brewers-cafe-studio-hoon-photo",
+    "sourceImage": "https://images.adsttc.com/media/images/62b0/6fcf/6f92/4308/1929/7015/large_jpg/momento-brewers-cafe-studio-hoon_9.jpg?1655730200",
+    "credit": "Beezy Studio / Studio Hoon via ArchDaily",
+    "sourceSha256": "b4747c8ada2ea13820bf90aaa5db902599499ab4d2ef947a63f54859cca20efe",
+    "sourceBytes": 1774414,
+    "originalDimensions": [
+      2000,
+      1333
+    ],
+    "storedDimensions": [
+      2000,
+      1333
+    ],
+    "storedBytes": 355042,
+    "observations": "Observed: dark doorway on a raised threshold, brown wall panel, full-height curtain, exposed conduit and adjacent coffee equipment. The room behind the door and the area behind the curtain are unknown; do not assign a bathroom or storage function without more evidence."
+  },
+  {
+    "id": "737f1e20-d279-4d30-aedf-b80ffd4cd55f",
+    "name": "Momento · Counter reverse",
+    "sourcePage": "https://www.archdaily.com/983949/momento-brewers-cafe-studio-hoon/62b06fd145e0bb44b12e53ab-momento-brewers-cafe-studio-hoon-photo",
+    "sourceImage": "https://images.adsttc.com/media/images/62b0/6fcc/45e0/bb44/b12e/53a8/large_jpg/momento-brewers-cafe-studio-hoon_8.jpg?1655730199",
+    "credit": "Beezy Studio / Studio Hoon via ArchDaily",
+    "sourceSha256": "d3fe50ca0e8b7c5df102b0607e08568796a2eb72295b7a6ec9cf234950e134ce",
+    "sourceBytes": 4898247,
+    "originalDimensions": [
+      2000,
+      3000
+    ],
+    "storedDimensions": [
+      1365,
+      2048
+    ],
+    "storedBytes": 495135,
+    "observations": "Observed: twin dark-framed windows, continuous sill, wall-mounted product shelves, tall cabinet, menu board and cups on curved counter, grinder, ceiling spots and pendant. Grinder and counter match the coffee-bar view; approximate camera relationship needs annotation."
+  }
+]

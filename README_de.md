@@ -56,3 +56,5 @@ Unabhängige Agentenbewertungen wurden noch nicht durchgeführt. Private Beispie
 Reproduzierbare, bereinigte Fehlerberichte mit Versionen, Eingaben, Soll-/Ist-Verhalten und Belegen sowie Übersetzungsverbesserungen sind willkommen. Detaillierte technische Protokolle liegen derzeit auf Englisch vor.
 
 Integritätsupdate: Zielvalidierungen und Forschungsbeobachtungen benötigen SHA-256. Siehe [Migration und Grenzen](skills/software-resynthesis/references/validation.md#recorded-evidence-integrity) und [Änderungsprotokoll](CHANGELOG.md).
+
+Prozessprotokoll: `sre.py record` / `report` speichern Schritte, Fehler, Korrekturen und Prüfsummen der Nachweise. Siehe [Protokollformat](skills/software-resynthesis/references/work-journal.md) und den laufenden [Project-Zomboid-Fall](docs/project-zomboid/PROCESS.md), der noch unvollständig ist und keine Übereinstimmung bestätigt.

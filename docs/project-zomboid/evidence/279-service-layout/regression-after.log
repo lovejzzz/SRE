@@ -1,0 +1,22 @@
+✔ preview is isolated; commit is a single undoable transaction (1.990334ms)
+✔ a later failed placement rolls back the entire batch without history changes (0.563958ms)
+✔ stale versions and active manual edits cannot be overwritten (0.17825ms)
+✔ retry is idempotent even after undo; request ID reuse with another body fails (0.149083ms)
+✔ caller cannot inject assets or malformed coordinates (0.428333ms)
+✔ versioned batches use the same structural and furnishing rules as the editor (9.602708ms)
+✔ structural collision late in a command batch cannot leak earlier edits (0.471667ms)
+✔ manual structural commits invalidate a previously previewed batch (5.509666ms)
+✔ request receipts survive serialization and undo without replaying deleted construction (2.231417ms)
+✔ command adapters share receipts and corrupt receipt snapshots reject (2.474792ms)
+✔ persisted commit keeps live scene unchanged until storage succeeds and locks competing edits (1.715792ms)
+✔ storage failure preserves the entire live snapshot and permits retry through a healthy writer (3.242333ms)
+✔ persisted command forks full history without recompiling or mutating retained checkpoints (129.902625ms)
+✔ erased legacy floor overlay stays removed before subsequent structural operations (8.707084ms)
+ℹ tests 14
+ℹ suites 0
+ℹ pass 14
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 217.486958

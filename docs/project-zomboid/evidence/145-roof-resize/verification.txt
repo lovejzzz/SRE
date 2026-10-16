@@ -1,0 +1,5 @@
+Actual browser drag: roof room [8003,11403,8006,11408] → [8003,11402,8006,11415].
+Stable roof ID retained; compiler added level index 3.
+Undo → reload → redo → export: full JSON equals expanded-house.json.
+371 tests pass.
+Visual defect observed: full-height gable support uses room wall material, visibly mismatching sloped white siding. Needs unified gable finish mapping.

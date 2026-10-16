@@ -1,0 +1,16 @@
+{
+  "origin": "http://127.0.0.1:8883",
+  "fixture_only_not_cafe_reconstruction": true,
+  "annotation_id": "window-region-179",
+  "bound_opening_id": "reference-window-179",
+  "wall_host_id": "wall:level:0:N:8000:11408",
+  "wall_moved_from_y": 11408,
+  "wall_moved_to_y": 11409,
+  "UI_binding_and_photo_region_focus": true,
+  "missing_component_note_edit_retains_identity": true,
+  "undo_reenables_photo_navigation": true,
+  "refresh_full_export_equality": true,
+  "cleanup_full_export_equality": true,
+  "reference_count_after_cleanup": 4,
+  "console_errors": []
+}

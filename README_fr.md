@@ -56,3 +56,5 @@ Les évaluations indépendantes d’agents n’ont pas été réalisées. Gardez
 Les rapports de défauts reproductibles et anonymisés, avec versions, entrées, résultats attendus/réels et preuves, ainsi que les améliorations de traduction, sont bienvenus. Les protocoles techniques détaillés sont actuellement en anglais.
 
 Mise à jour de l’intégrité : les validations de la cible et les observations de recherche exigent SHA-256. Voir la [migration et les limites](skills/software-resynthesis/references/validation.md#recorded-evidence-integrity) et le [journal des modifications](CHANGELOG.md).
+
+Journal du processus : `sre.py record` / `report` conservent les actions, échecs, corrections et empreintes des preuves. Voir le [protocole](skills/software-resynthesis/references/work-journal.md) et le [cas Project Zomboid](docs/project-zomboid/PROCESS.md), encore incomplet et sans certification de fidélité.

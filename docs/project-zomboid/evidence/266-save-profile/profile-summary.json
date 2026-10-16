@@ -1,0 +1,228 @@
+{
+  "save.cpuprofile": {
+    "durationMs": 32892.862,
+    "topSelfSamples": [
+      {
+        "function": "(idle)",
+        "url": "",
+        "line": 0,
+        "sampleMs": 13356.62
+      },
+      {
+        "function": "node",
+        "url": "http://127.0.0.1:8883/src/workshop-snapshot-codec.js",
+        "line": 49,
+        "sampleMs": 2438.56
+      },
+      {
+        "function": "drawImage",
+        "url": "",
+        "line": 0,
+        "sampleMs": 2205.37
+      },
+      {
+        "function": "(program)",
+        "url": "",
+        "line": 0,
+        "sampleMs": 1632.73
+      },
+      {
+        "function": "draw",
+        "url": "http://127.0.0.1:8883/src/workshop.js",
+        "line": 262,
+        "sampleMs": 1362.03
+      },
+      {
+        "function": "wallJoins",
+        "url": "http://127.0.0.1:8883/src/wall-joins.js",
+        "line": 11,
+        "sampleMs": 1267.02
+      },
+      {
+        "function": "supportedGroundSquare",
+        "url": "http://127.0.0.1:8883/src/ground-height.js",
+        "line": 26,
+        "sampleMs": 1099.92
+      },
+      {
+        "function": "(garbage collector)",
+        "url": "",
+        "line": 0,
+        "sampleMs": 935.95
+      },
+      {
+        "function": "state",
+        "url": "http://127.0.0.1:8883/src/world.js",
+        "line": 65,
+        "sampleMs": 935.01
+      },
+      {
+        "function": "clippedBoundaryFaces",
+        "url": "http://127.0.0.1:8883/src/ground-boundary.js",
+        "line": 31,
+        "sampleMs": 901.65
+      },
+      {
+        "function": "drawGroundBoundary",
+        "url": "http://127.0.0.1:8883/src/ground-boundary.js",
+        "line": 19,
+        "sampleMs": 780.69
+      },
+      {
+        "function": "yieldDraftTask",
+        "url": "http://127.0.0.1:8883/src/workshop-snapshot-codec.js",
+        "line": 70,
+        "sampleMs": 747.64
+      },
+      {
+        "function": "encode",
+        "url": "",
+        "line": 0,
+        "sampleMs": 629.87
+      },
+      {
+        "function": "windowSurrounds",
+        "url": "http://127.0.0.1:8883/src/wall-joins.js",
+        "line": 61,
+        "sampleMs": 512.07
+      },
+      {
+        "function": "doorSurrounds",
+        "url": "http://127.0.0.1:8883/src/wall-joins.js",
+        "line": 32,
+        "sampleMs": 453.8
+      },
+      {
+        "function": "tick",
+        "url": "http://127.0.0.1:8883/src/workshop.js",
+        "line": 69,
+        "sampleMs": 426.76
+      },
+      {
+        "function": "sprite",
+        "url": "http://127.0.0.1:8883/src/render.js",
+        "line": 25,
+        "sampleMs": 344.77
+      },
+      {
+        "function": "floor",
+        "url": "http://127.0.0.1:8883/src/render.js",
+        "line": 33,
+        "sampleMs": 282.9
+      }
+    ]
+  },
+  "save-after.cpuprofile": {
+    "durationMs": 18271.728,
+    "topSelfSamples": [
+      {
+        "function": "(idle)",
+        "url": "",
+        "line": 0,
+        "sampleMs": 11832.7
+      },
+      {
+        "function": "node",
+        "url": "http://127.0.0.1:8883/src/workshop-snapshot-codec.js",
+        "line": 49,
+        "sampleMs": 2237.43
+      },
+      {
+        "function": "(program)",
+        "url": "",
+        "line": 0,
+        "sampleMs": 1210.43
+      },
+      {
+        "function": "(garbage collector)",
+        "url": "",
+        "line": 0,
+        "sampleMs": 807.74
+      },
+      {
+        "function": "encode",
+        "url": "",
+        "line": 0,
+        "sampleMs": 592.39
+      },
+      {
+        "function": "measureSnapshotInSlices",
+        "url": "http://127.0.0.1:8883/src/workshop-snapshot-codec.js",
+        "line": 71,
+        "sampleMs": 432.31
+      },
+      {
+        "function": "pull",
+        "url": "http://127.0.0.1:8883/src/workshop-snapshot-codec.js",
+        "line": 91,
+        "sampleMs": 354.5
+      },
+      {
+        "function": "scalar",
+        "url": "http://127.0.0.1:8883/src/workshop-snapshot-codec.js",
+        "line": 73,
+        "sampleMs": 330.17
+      },
+      {
+        "function": "snapshotWireChunks",
+        "url": "http://127.0.0.1:8883/src/workshop-snapshot-codec.js",
+        "line": 47,
+        "sampleMs": 132.58
+      },
+      {
+        "function": "now",
+        "url": "",
+        "line": 0,
+        "sampleMs": 116.54
+      },
+      {
+        "function": "resolve",
+        "url": "",
+        "line": 0,
+        "sampleMs": 49.14
+      },
+      {
+        "function": "querySelector",
+        "url": "",
+        "line": 0,
+        "sampleMs": 45.73
+      },
+      {
+        "function": "requestAnimationFrame",
+        "url": "",
+        "line": 0,
+        "sampleMs": 20.4
+      },
+      {
+        "function": "animate",
+        "url": "http://127.0.0.1:8883/src/main-menu.js",
+        "line": 17,
+        "sampleMs": 19.88
+      },
+      {
+        "function": "validateHousePlan",
+        "url": "http://127.0.0.1:8883/src/workshop-model.js",
+        "line": 57,
+        "sampleMs": 13.91
+      },
+      {
+        "function": "compileStructuralScene",
+        "url": "http://127.0.0.1:8883/src/scene-structure.js",
+        "line": 61,
+        "sampleMs": 6.01
+      },
+      {
+        "function": "tick",
+        "url": "http://127.0.0.1:8883/src/workshop.js",
+        "line": 69,
+        "sampleMs": 5.07
+      },
+      {
+        "function": "export",
+        "url": "http://127.0.0.1:8883/src/workshop-model.js",
+        "line": 95,
+        "sampleMs": 3.94
+      }
+    ]
+  }
+}

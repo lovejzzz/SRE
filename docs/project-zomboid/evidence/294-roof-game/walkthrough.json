@@ -1,0 +1,80 @@
+{
+  "kind": "tian-house-workshop-walkthrough",
+  "version": 1,
+  "startedAt": "2026-10-14T04:39:41.816Z",
+  "houseName": "Cantó House · Courtyard study",
+  "sceneId": "551b003e-1b31-44f9-a35d-6dbc53b56682",
+  "sceneRevision": 36,
+  "conditions": {
+    "temporaryCharacter": true,
+    "zombieSpawning": false,
+    "survivalAcceptance": false
+  },
+  "simulatedSeconds": 68.49230000000372,
+  "visited": [
+    {
+      "position": [
+        7997,
+        11418,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 0
+    },
+    {
+      "position": [
+        7996,
+        11418,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 41.026200000001275
+    },
+    {
+      "position": [
+        7995,
+        11418,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 41.651100000001335
+    },
+    {
+      "position": [
+        7994,
+        11418,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 42.276200000001374
+    },
+    {
+      "position": [
+        7994,
+        11419,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 52.33450000000249
+    },
+    {
+      "position": [
+        7994,
+        11420,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 52.958400000002555
+    }
+  ],
+  "events": [],
+  "changes": {},
+  "player": {
+    "x": 7994.786510378055,
+    "y": 11420.762830378044,
+    "z": 0,
+    "surfaceZ": 0,
+    "hp": 100
+  },
+  "inventoryCount": 6
+}

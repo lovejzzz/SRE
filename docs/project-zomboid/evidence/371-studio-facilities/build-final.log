@@ -1,0 +1,289 @@
+
+> assets:rebuild:verify
+> npm run assets:build && npm run assets:test && npm run assets:check
+
+
+> assets:build
+> "${TIAN_ASSET_PYTHON:-python3}" tools/build_asset_library.py --regenerate
+
+Generated 357 cafe sprite parts
+Generated 88 masonry faces
+Generated 42 window states
+Created 47 original furnishing sprites
+Created 80 studio catalogue regions
+{
+  "schemaVersion": 1,
+  "pillow": "12.3.0",
+  "webp": "1.6.0",
+  "pages": [
+    {
+      "recipe": "cafe",
+      "source": "original-cafe.png",
+      "runtime": "original-cafe.webp",
+      "sourceBytes": 198586,
+      "runtimeBytes": 73546,
+      "sourceSha256": "2a936096eb3dcce5411f93271e194b8217828ade4356c6784f6d7c9323a034ef",
+      "runtimeSha256": "39ff14dd3c9908c0a2f218c136b058d777861abeb10a01bce133d867c7d84811",
+      "rgbaSha256": "fee35bdfa67054e2920193515ff3cb859a4b613903fa7641a2c4fba9332bf4cd",
+      "size": [
+        768,
+        7200
+      ],
+      "generatorSha256": "a6c899444806773d405a5b3e9bf2c60222f3d570f482d89c1d65091636248a51",
+      "sourceHashes": {}
+    },
+    {
+      "recipe": "masonry",
+      "source": "original-masonry.png",
+      "runtime": "original-masonry.webp",
+      "sourceBytes": 229301,
+      "runtimeBytes": 144002,
+      "sourceSha256": "6568f46df8329d56a1dc6cb83f6b006804faaf44a0f83186b91e95db6dbee946",
+      "runtimeSha256": "e32d0d27c8867dd369ba9760a68457e9373795bee2b73fe1d7f9a615b1153715",
+      "rgbaSha256": "a741a0d029b9ab599c6e8af5cb226fc66b91808a874fe8ea88c8f207994f9dfb",
+      "size": [
+        768,
+        1760
+      ],
+      "generatorSha256": "4ed49dd540d4923a6c45dc873bb56ea303c1b576a3ae2d381f4162a7aedca231",
+      "sourceHashes": {}
+    },
+    {
+      "recipe": "architecture",
+      "source": "original-architecture.png",
+      "runtime": "original-architecture.png",
+      "sourceBytes": 12602,
+      "runtimeBytes": 12602,
+      "sourceSha256": "52558de60a046a169bdb6c066b4eeb96b0dd84d9bd94088e9c810d390a19bd3c",
+      "runtimeSha256": "52558de60a046a169bdb6c066b4eeb96b0dd84d9bd94088e9c810d390a19bd3c",
+      "rgbaSha256": "4275bddfeb47b1a81f4fb7adc9ec38bccc7467a31f42e7f87111eb3ec48bc67b",
+      "size": [
+        4032,
+        160
+      ],
+      "generatorSha256": "71a1888ebe117185e1709660d92c3f4bf79a4b83c836ad4346b48ef0ded52741",
+      "sourceHashes": {}
+    },
+    {
+      "recipe": "house-details",
+      "source": "original-house-details.png",
+      "runtime": "original-house-details.png",
+      "sourceBytes": 20640,
+      "runtimeBytes": 20640,
+      "sourceSha256": "352e78ef2ea8bd76ed76382fd4802d4a5763ccd4d02d7ea20a151fe9682d2e18",
+      "runtimeSha256": "352e78ef2ea8bd76ed76382fd4802d4a5763ccd4d02d7ea20a151fe9682d2e18",
+      "rgbaSha256": "0121bd5b0ea68d4720ad639fdac246ccebcc39efe7fc39ac1fb4bd50e5a0278b",
+      "size": [
+        768,
+        960
+      ],
+      "generatorSha256": "a6494b55e7ceda6d8cc1e14b590232b3955bcf8383b6d0b96affffe596245b43",
+      "sourceHashes": {}
+    },
+    {
+      "recipe": "interiors",
+      "source": "original-interiors.png",
+      "runtime": "original-interiors.webp",
+      "sourceBytes": 16595,
+      "runtimeBytes": 11604,
+      "sourceSha256": "63fd79e8fe9dc41216c5786f90a7b0ad622156966e7c315e4c7fa7e22124c92b",
+      "runtimeSha256": "82c93a18af74c2493a546ea846e241ddfb7868c27872b9081b733280b77b6943",
+      "rgbaSha256": "08f9db15e10aa8fb8c38ccc686915fdd10ebd7f263e71d2585fb7544c76eb1b6",
+      "size": [
+        1792,
+        32
+      ],
+      "generatorSha256": "b28522afdc2f6577c75db42c9e49d4178bd6174ddea57463598a2bf808893fd8",
+      "sourceHashes": {}
+    },
+    {
+      "recipe": "studio",
+      "source": "original-studio.png",
+      "runtime": "original-studio.webp",
+      "sourceBytes": 78530,
+      "runtimeBytes": 19964,
+      "sourceSha256": "4f17113f0583db8794a3199d14d377bfaee4730d82b21287ced9384ca3cf3a28",
+      "runtimeSha256": "9b6353367ecbd340a8dd5046ea626744776fba028dd6151f42849719837ffa11",
+      "rgbaSha256": "12bbd64046d72787ed47b700ddf5b55c390bd9811813d571e4520dc9f4924566",
+      "size": [
+        1280,
+        5120
+      ],
+      "generatorSha256": "eb8d5ed9270448376fe8ad65e0fb53fd6138662d7625c63dab7470209aba21e5",
+      "sourceHashes": {
+        "assets/recipes/volume/studio-bar-stool.json": "15a25a74c7eed60c8769fb298cc7897fe2c6d3c920125e0aa81bea810f20c367",
+        "assets/recipes/volume/studio-breakfast-bar.json": "a60119f34c9babe8493e9e1581ad55c7446142152359fecf2fa2eb438c114c30",
+        "assets/recipes/volume/studio-floor-speaker.json": "3d826df93f0ad12d48b3c3361bf84646e8cb05a6f0721faec37870db32275940",
+        "assets/recipes/volume/studio-functional-trainer.json": "d6b8d54a3f7ffcd2c4a039e1b9dbeaf8f22495abf48c2ca73af7ef75775eccc7",
+        "assets/recipes/volume/studio-media-console.json": "afc39a24b6728507ba9f926211abb846b3c840aa879c6b826b89d6a30577a9ec",
+        "assets/recipes/volume/studio-piano-bench.json": "ebce83a512a6f387057bc18177fc954156613532be3bf5fc8c1dc738149b0ae6",
+        "assets/recipes/volume/studio-sectional-sofa.json": "31705d77fc84d318bd8cd6bb6391b9828528ff5160bfa7f670591557e59e62b0",
+        "assets/recipes/volume/studio-television-85.json": "33556561914939f64f2189effec8e9acfe771915be68a5d98bd8823df323ec7e",
+        "assets/recipes/volume/studio-upright-piano.json": "f214e04003fc00f72dd97d1c65939f0b637f6966df1ce9f03a0526fbc6c9beaa",
+        "assets/recipes/volume/studio-workstation.json": "0f12c00ee8eaae9b92a3fcfc28698bbd8a351a9c3875c5fc7b5f75f84da2f50c",
+        "src/convex-solid.js": "4b6a982e341fb7b01229087a25f2055a7a9b969a484d684e56c687e270ee7c8c",
+        "src/polygon-footprint.js": "e2e55ee8d1cdde471e47fa7edf1fd0794e0466c367a96039b81f235fcd536499",
+        "src/room-footprint.js": "d504a7db1693b3a285bc42605b11bfa6102af3ec1d6b59ea00a311a5e6911b04",
+        "src/scene-slab-volumes.js": "fe0cf3f8f5df8a7b087dbd6e2820c3e93930ef25b68bb3002cbfeffaa6d77911",
+        "src/studio-furniture-volume.js": "dc2f83c96be0b5ce555605ac2195d12dccef0a104dfdbc9bb144d81ae891fa79",
+        "src/upholstery-volume.js": "fcbde006aebb4a9b576a222d6153398fde77127306c78f55b23f55478174de90",
+        "node_modules/three/package.json": "f9c474a27c920b9435353a6235968f4453436bee0444fac7e5fd289c8fa463de",
+        "node_modules/three/LICENSE": "8b378ebe60e2fe500158cb0ac71cb5e8b7d92953c2abcc63a0eb90499653b5bc",
+        "node_modules/three/build/three.module.js": "9052042d676cb0fdc1ddfefe193053f34b7ac0513a616fdac4535d49987812ea",
+        "node_modules/three/build/three.core.js": "9edde002b066a9a05676a6127f67735b62baf399bdea529f2f7e31657da769e6",
+        "node_modules/three/examples/jsm/math/ConvexHull.js": "7b7d53ed4533556f555440676d2cbc3680ffab32b1a910c79c9a522019bd3a06"
+      }
+    }
+  ],
+  "sourceBytes": 556254,
+  "runtimeBytes": 282358
+}
+
+> assets:test
+> "${TIAN_ASSET_PYTHON:-python3}" tools/test_asset_library.py
+
+......Traceback (most recent call last):
+  File "/var/folders/m5/9b5k0tt50x91406yr6zww2r40000gn/T/tian-assets-stage-6jf_0vl6/tools/generate.py", line 6, in <module>
+    raise RuntimeError('injected failure')
+RuntimeError: injected failure
+.........
+----------------------------------------------------------------------
+Ran 15 tests in 0.421s
+
+OK
+
+> assets:check
+> "${TIAN_ASSET_PYTHON:-python3}" tools/build_asset_library.py --check
+
+Generated 357 cafe sprite parts
+Generated 88 masonry faces
+Generated 42 window states
+Created 47 original furnishing sprites
+Created 80 studio catalogue regions
+{
+  "schemaVersion": 1,
+  "pillow": "12.3.0",
+  "webp": "1.6.0",
+  "pages": [
+    {
+      "recipe": "cafe",
+      "source": "original-cafe.png",
+      "runtime": "original-cafe.webp",
+      "sourceBytes": 198586,
+      "runtimeBytes": 73546,
+      "sourceSha256": "2a936096eb3dcce5411f93271e194b8217828ade4356c6784f6d7c9323a034ef",
+      "runtimeSha256": "39ff14dd3c9908c0a2f218c136b058d777861abeb10a01bce133d867c7d84811",
+      "rgbaSha256": "fee35bdfa67054e2920193515ff3cb859a4b613903fa7641a2c4fba9332bf4cd",
+      "size": [
+        768,
+        7200
+      ],
+      "generatorSha256": "a6c899444806773d405a5b3e9bf2c60222f3d570f482d89c1d65091636248a51",
+      "sourceHashes": {}
+    },
+    {
+      "recipe": "masonry",
+      "source": "original-masonry.png",
+      "runtime": "original-masonry.webp",
+      "sourceBytes": 229301,
+      "runtimeBytes": 144002,
+      "sourceSha256": "6568f46df8329d56a1dc6cb83f6b006804faaf44a0f83186b91e95db6dbee946",
+      "runtimeSha256": "e32d0d27c8867dd369ba9760a68457e9373795bee2b73fe1d7f9a615b1153715",
+      "rgbaSha256": "a741a0d029b9ab599c6e8af5cb226fc66b91808a874fe8ea88c8f207994f9dfb",
+      "size": [
+        768,
+        1760
+      ],
+      "generatorSha256": "4ed49dd540d4923a6c45dc873bb56ea303c1b576a3ae2d381f4162a7aedca231",
+      "sourceHashes": {}
+    },
+    {
+      "recipe": "architecture",
+      "source": "original-architecture.png",
+      "runtime": "original-architecture.png",
+      "sourceBytes": 12602,
+      "runtimeBytes": 12602,
+      "sourceSha256": "52558de60a046a169bdb6c066b4eeb96b0dd84d9bd94088e9c810d390a19bd3c",
+      "runtimeSha256": "52558de60a046a169bdb6c066b4eeb96b0dd84d9bd94088e9c810d390a19bd3c",
+      "rgbaSha256": "4275bddfeb47b1a81f4fb7adc9ec38bccc7467a31f42e7f87111eb3ec48bc67b",
+      "size": [
+        4032,
+        160
+      ],
+      "generatorSha256": "71a1888ebe117185e1709660d92c3f4bf79a4b83c836ad4346b48ef0ded52741",
+      "sourceHashes": {}
+    },
+    {
+      "recipe": "house-details",
+      "source": "original-house-details.png",
+      "runtime": "original-house-details.png",
+      "sourceBytes": 20640,
+      "runtimeBytes": 20640,
+      "sourceSha256": "352e78ef2ea8bd76ed76382fd4802d4a5763ccd4d02d7ea20a151fe9682d2e18",
+      "runtimeSha256": "352e78ef2ea8bd76ed76382fd4802d4a5763ccd4d02d7ea20a151fe9682d2e18",
+      "rgbaSha256": "0121bd5b0ea68d4720ad639fdac246ccebcc39efe7fc39ac1fb4bd50e5a0278b",
+      "size": [
+        768,
+        960
+      ],
+      "generatorSha256": "a6494b55e7ceda6d8cc1e14b590232b3955bcf8383b6d0b96affffe596245b43",
+      "sourceHashes": {}
+    },
+    {
+      "recipe": "interiors",
+      "source": "original-interiors.png",
+      "runtime": "original-interiors.webp",
+      "sourceBytes": 16595,
+      "runtimeBytes": 11604,
+      "sourceSha256": "63fd79e8fe9dc41216c5786f90a7b0ad622156966e7c315e4c7fa7e22124c92b",
+      "runtimeSha256": "82c93a18af74c2493a546ea846e241ddfb7868c27872b9081b733280b77b6943",
+      "rgbaSha256": "08f9db15e10aa8fb8c38ccc686915fdd10ebd7f263e71d2585fb7544c76eb1b6",
+      "size": [
+        1792,
+        32
+      ],
+      "generatorSha256": "b28522afdc2f6577c75db42c9e49d4178bd6174ddea57463598a2bf808893fd8",
+      "sourceHashes": {}
+    },
+    {
+      "recipe": "studio",
+      "source": "original-studio.png",
+      "runtime": "original-studio.webp",
+      "sourceBytes": 78530,
+      "runtimeBytes": 19964,
+      "sourceSha256": "4f17113f0583db8794a3199d14d377bfaee4730d82b21287ced9384ca3cf3a28",
+      "runtimeSha256": "9b6353367ecbd340a8dd5046ea626744776fba028dd6151f42849719837ffa11",
+      "rgbaSha256": "12bbd64046d72787ed47b700ddf5b55c390bd9811813d571e4520dc9f4924566",
+      "size": [
+        1280,
+        5120
+      ],
+      "generatorSha256": "eb8d5ed9270448376fe8ad65e0fb53fd6138662d7625c63dab7470209aba21e5",
+      "sourceHashes": {
+        "assets/recipes/volume/studio-bar-stool.json": "15a25a74c7eed60c8769fb298cc7897fe2c6d3c920125e0aa81bea810f20c367",
+        "assets/recipes/volume/studio-breakfast-bar.json": "a60119f34c9babe8493e9e1581ad55c7446142152359fecf2fa2eb438c114c30",
+        "assets/recipes/volume/studio-floor-speaker.json": "3d826df93f0ad12d48b3c3361bf84646e8cb05a6f0721faec37870db32275940",
+        "assets/recipes/volume/studio-functional-trainer.json": "d6b8d54a3f7ffcd2c4a039e1b9dbeaf8f22495abf48c2ca73af7ef75775eccc7",
+        "assets/recipes/volume/studio-media-console.json": "afc39a24b6728507ba9f926211abb846b3c840aa879c6b826b89d6a30577a9ec",
+        "assets/recipes/volume/studio-piano-bench.json": "ebce83a512a6f387057bc18177fc954156613532be3bf5fc8c1dc738149b0ae6",
+        "assets/recipes/volume/studio-sectional-sofa.json": "31705d77fc84d318bd8cd6bb6391b9828528ff5160bfa7f670591557e59e62b0",
+        "assets/recipes/volume/studio-television-85.json": "33556561914939f64f2189effec8e9acfe771915be68a5d98bd8823df323ec7e",
+        "assets/recipes/volume/studio-upright-piano.json": "f214e04003fc00f72dd97d1c65939f0b637f6966df1ce9f03a0526fbc6c9beaa",
+        "assets/recipes/volume/studio-workstation.json": "0f12c00ee8eaae9b92a3fcfc28698bbd8a351a9c3875c5fc7b5f75f84da2f50c",
+        "src/convex-solid.js": "4b6a982e341fb7b01229087a25f2055a7a9b969a484d684e56c687e270ee7c8c",
+        "src/polygon-footprint.js": "e2e55ee8d1cdde471e47fa7edf1fd0794e0466c367a96039b81f235fcd536499",
+        "src/room-footprint.js": "d504a7db1693b3a285bc42605b11bfa6102af3ec1d6b59ea00a311a5e6911b04",
+        "src/scene-slab-volumes.js": "fe0cf3f8f5df8a7b087dbd6e2820c3e93930ef25b68bb3002cbfeffaa6d77911",
+        "src/studio-furniture-volume.js": "dc2f83c96be0b5ce555605ac2195d12dccef0a104dfdbc9bb144d81ae891fa79",
+        "src/upholstery-volume.js": "fcbde006aebb4a9b576a222d6153398fde77127306c78f55b23f55478174de90",
+        "node_modules/three/package.json": "f9c474a27c920b9435353a6235968f4453436bee0444fac7e5fd289c8fa463de",
+        "node_modules/three/LICENSE": "8b378ebe60e2fe500158cb0ac71cb5e8b7d92953c2abcc63a0eb90499653b5bc",
+        "node_modules/three/build/three.module.js": "9052042d676cb0fdc1ddfefe193053f34b7ac0513a616fdac4535d49987812ea",
+        "node_modules/three/build/three.core.js": "9edde002b066a9a05676a6127f67735b62baf399bdea529f2f7e31657da769e6",
+        "node_modules/three/examples/jsm/math/ConvexHull.js": "7b7d53ed4533556f555440676d2cbc3680ffab32b1a910c79c9a522019bd3a06"
+      }
+    }
+  ],
+  "sourceBytes": 556254,
+  "runtimeBytes": 282358
+}

@@ -1,0 +1,37 @@
+{
+  "view": {
+    "id": "d23af148-d606-463d-87b1-d462a9a769ef",
+    "name": "Roof study \u00b7 Interior",
+    "referenceId": null,
+    "z": 0,
+    "center": {
+      "x": 7997.28125,
+      "y": 11401.78125
+    },
+    "zoom": 1.2057142857142857,
+    "cutaway": true,
+    "ghost": true,
+    "grid": true,
+    "wholeBuilding": true,
+    "showRoofs": false,
+    "viewport": {
+      "width": 1016,
+      "height": 572
+    }
+  },
+  "architectureUnchanged": true,
+  "expectedMetadataChanges": [
+    "sceneDocument.views",
+    "sceneDocument.revision"
+  ],
+  "refreshExactEquality": [
+    30,
+    31
+  ],
+  "cleanupExactEquality": [
+    28,
+    32
+  ],
+  "referenceCount": 4,
+  "browserErrors": []
+}

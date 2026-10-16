@@ -1,0 +1,25 @@
+{
+  "flatRoof": {
+    "id": "663095ac-75cf-414f-94d5-7ef5c33a8ae0",
+    "kind": "flat",
+    "tile": "floors_exterior_tilesandstone_01_0",
+    "overhang": 1
+  },
+  "gableRoof": {
+    "id": "gable-roof-176",
+    "kind": "gable",
+    "axis": "Y",
+    "source": "roofs_30_08",
+    "overhang": 1
+  },
+  "refreshExactEquality": [
+    34,
+    35
+  ],
+  "cleanupExactEquality": [
+    32,
+    36
+  ],
+  "referencesRetained": 4,
+  "browserErrors": []
+}

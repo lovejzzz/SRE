@@ -1,0 +1,121 @@
+{
+  "kind": "tian-house-workshop-walkthrough",
+  "version": 1,
+  "startedAt": "2026-10-13T17:47:45.471Z",
+  "houseName": "Momento Brewers · Photo study",
+  "sceneId": "2b1353d7-e74f-48a1-b6f1-1e3634bb6bfe",
+  "sceneRevision": 48,
+  "conditions": {
+    "temporaryCharacter": true,
+    "zombieSpawning": false,
+    "survivalAcceptance": false
+  },
+  "simulatedSeconds": 85.28510000000506,
+  "visited": [
+    {
+      "position": [
+        8009,
+        11404,
+        0
+      ],
+      "seconds": 0
+    },
+    {
+      "position": [
+        8008,
+        11404,
+        0
+      ],
+      "seconds": 13.193000000000033
+    },
+    {
+      "position": [
+        8007,
+        11404,
+        0
+      ],
+      "seconds": 13.818100000000044
+    },
+    {
+      "position": [
+        8006,
+        11404,
+        0
+      ],
+      "seconds": 14.443000000000053
+    },
+    {
+      "position": [
+        8005,
+        11404,
+        0
+      ],
+      "seconds": 15.068300000000065
+    },
+    {
+      "position": [
+        8004,
+        11404,
+        0
+      ],
+      "seconds": 57.52660000000277
+    },
+    {
+      "position": [
+        8005,
+        11404,
+        0
+      ],
+      "seconds": 67.6500000000036
+    },
+    {
+      "position": [
+        8005,
+        11403,
+        0
+      ],
+      "seconds": 68.15100000000359
+    },
+    {
+      "position": [
+        8005,
+        11404,
+        0
+      ],
+      "seconds": 84.36870000000494
+    }
+  ],
+  "events": [
+    {
+      "seconds": 12.876500000000036,
+      "message": "Open door"
+    },
+    {
+      "seconds": 37.80080000000085,
+      "message": "Open door"
+    },
+    {
+      "seconds": 84.51830000000494,
+      "message": "Close door"
+    }
+  ],
+  "changes": {
+    "8009,11404,0:fixtures_doors_01_48": {
+      "open": true,
+      "locked": false,
+      "lockedByKey": false
+    },
+    "8005,11404,0:tian_cafe_service_door_1": {
+      "open": false,
+      "locked": false,
+      "lockedByKey": false
+    }
+  },
+  "player": {
+    "x": 8005.6051862741815,
+    "y": 11404.180259243885,
+    "z": 0,
+    "hp": 100
+  },
+  "inventoryCount": 13
+}

@@ -1,0 +1,6 @@
+{
+  "duringCapture": "{\n  \"cpuSubmission\": {\n    \"samples\": 120,\n    \"p50Ms\": 6.4,\n    \"p95Ms\": 10.1\n  },\n  \"browserFrameCadence\": {\n    \"samples\": 120,\n    \"p50Ms\": 8.3,\n    \"p95Ms\": 23.4\n  },\n  \"lastFrame\": {\n    \"drawCalls\": 2388,\n    \"triangles\": 678628\n  },\n  \"allocatedResourceCounts\": {\n    \"geometries\": 382,\n    \"textures\": 56\n  },\n  \"gpuTime\": \"not measured\",\n  \"memoryBytes\": \"not measured\"\n}",
+  "warmCapture": "Spatial two-bounce study · 5 probes · 1552 ms capture · occluded sky + distance-blended diffuse + box-projected local reflections · no furniture reflection parallax or within-room diffuse visibility correction",
+  "nightCapture": "Spatial two-bounce study · 5 probes · 769 ms capture · occluded sky + distance-blended diffuse + box-projected local reflections · no furniture reflection parallax or within-room diffuse visibility correction",
+  "errors": []
+}

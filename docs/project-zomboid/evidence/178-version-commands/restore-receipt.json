@@ -1,0 +1,26 @@
+{
+  "ok": true,
+  "changed": true,
+  "revision": 279,
+  "version": {
+    "id": "version:verify178-save-baseline",
+    "label": "178 · Command baseline",
+    "savedAt": "2026-10-13T11:59:48.867Z",
+    "digest": "9fc13d94e3ff79d6a8d528fa8ba499a8fb898e1f70e6e96c8a26aea313c55875",
+    "sceneId": "2b1353d7-e74f-48a1-b6f1-1e3634bb6bfe",
+    "houseName": "Momento Brewers · Photo study",
+    "kind": "named",
+    "sourceVersionId": null
+  },
+  "checkpoint": {
+    "id": "checkpoint:verify178-restore-baseline",
+    "label": "Before restore: 178 · Command baseline",
+    "savedAt": "2026-10-13T12:02:10.364Z",
+    "digest": "f33d78c9b30f7ad5452ecd7b064bb51dfed96332ecc3287ad499eb3d162cb07b",
+    "sceneId": "branch:ff2b2bbdf55a41d483aabe7183a54317abf3abb45abe7cf8c32c8321b2c54c2b",
+    "houseName": "178 · Command branch",
+    "kind": "checkpoint",
+    "sourceVersionId": "version:verify178-save-baseline"
+  },
+  "sceneId": "2b1353d7-e74f-48a1-b6f1-1e3634bb6bfe"
+}

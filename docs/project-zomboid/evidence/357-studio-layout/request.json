@@ -1,0 +1,52 @@
+{
+  "requestId": "hearth-work-zone-20261014",
+  "baseRevision": 557,
+  "operations": [
+    {
+      "type": "objects.move",
+      "ids": [
+        "313c675b-0c99-4a08-9a8f-bf4da34d4b60"
+      ],
+      "dx": 2,
+      "dy": 1
+    },
+    {
+      "type": "objects.move",
+      "ids": [
+        "10118b24-4611-452d-a5ad-6c773cdd7b3d"
+      ],
+      "dx": 8,
+      "dy": -2
+    },
+    {
+      "type": "objects.move",
+      "ids": [
+        "44031355-092b-49cd-9246-1f9f793818c9"
+      ],
+      "dx": -3,
+      "dy": 2
+    },
+    {
+      "type": "objects.rotate",
+      "ids": [
+        "44031355-092b-49cd-9246-1f9f793818c9"
+      ],
+      "turns": 1
+    },
+    {
+      "type": "objects.rotate",
+      "ids": [
+        "7d5321ee-35d7-4267-9214-4f01034b3117"
+      ],
+      "turns": 1
+    },
+    {
+      "type": "objects.move",
+      "ids": [
+        "7d5321ee-35d7-4267-9214-4f01034b3117"
+      ],
+      "dx": -3,
+      "dy": 2
+    }
+  ]
+}

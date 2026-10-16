@@ -1,0 +1,248 @@
+{
+  "kind": "tian-house-workshop-walkthrough",
+  "version": 1,
+  "startedAt": "2026-10-13T19:07:17.628Z",
+  "houseName": "Momento Brewers · Photo study",
+  "sceneId": "2b1353d7-e74f-48a1-b6f1-1e3634bb6bfe",
+  "sceneRevision": 76,
+  "conditions": {
+    "temporaryCharacter": true,
+    "zombieSpawning": false,
+    "survivalAcceptance": false
+  },
+  "simulatedSeconds": 116.7840000000125,
+  "visited": [
+    {
+      "position": [
+        7999,
+        11409,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 0
+    },
+    {
+      "position": [
+        8000,
+        11409,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 7.933499999999932
+    },
+    {
+      "position": [
+        8001,
+        11409,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 8.558499999999931
+    },
+    {
+      "position": [
+        8002,
+        11409,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 9.18349999999993
+    },
+    {
+      "position": [
+        8003,
+        11409,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 9.808799999999945
+    },
+    {
+      "position": [
+        8003,
+        11408,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 10.550099999999931
+    },
+    {
+      "position": [
+        8003,
+        11407,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 11.175199999999935
+    },
+    {
+      "position": [
+        8004,
+        11407,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 20.83359999999957
+    },
+    {
+      "position": [
+        8004,
+        11406,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 21.583499999999503
+    },
+    {
+      "position": [
+        8004,
+        11405,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 29.216899999999516
+    },
+    {
+      "position": [
+        8004,
+        11406,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 74.7591000000062
+    },
+    {
+      "position": [
+        8004,
+        11407,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 75.38380000000622
+    },
+    {
+      "position": [
+        8005,
+        11407,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 87.00880000000797
+    },
+    {
+      "position": [
+        8006,
+        11407,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 87.63390000000813
+    },
+    {
+      "position": [
+        8007,
+        11407,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 88.25880000000822
+    },
+    {
+      "position": [
+        8008,
+        11407,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 88.8839000000084
+    },
+    {
+      "position": [
+        8009,
+        11407,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 102.14230000001034
+    },
+    {
+      "position": [
+        8009,
+        11406,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 103.04220000001051
+    },
+    {
+      "position": [
+        8009,
+        11405,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 103.66730000001056
+    },
+    {
+      "position": [
+        8008,
+        11405,
+        0
+      ],
+      "surfaceZ": 0,
+      "seconds": 116.23390000001247
+    }
+  ],
+  "events": [
+    {
+      "seconds": 7.615299999999955,
+      "message": "Open door"
+    },
+    {
+      "seconds": 28.900199999999497,
+      "message": "Open door"
+    },
+    {
+      "seconds": 59.90880000000385,
+      "message": "Drink from Sink canceled"
+    },
+    {
+      "seconds": 101.8743000000103,
+      "message": "Open door"
+    },
+    {
+      "seconds": 115.80730000001239,
+      "message": "Open door"
+    }
+  ],
+  "changes": {
+    "8000,11409,0:fixtures_doors_01_48": {
+      "open": true,
+      "locked": false,
+      "lockedByKey": false
+    },
+    "8004,11406,0:tian_cafe_service_door_1": {
+      "open": true,
+      "locked": false,
+      "lockedByKey": false
+    },
+    "8009,11407,0:fixtures_doors_01_24": {
+      "open": true,
+      "locked": false,
+      "lockedByKey": false
+    },
+    "8009,11405,0:fixtures_doors_01_24": {
+      "open": true,
+      "locked": false,
+      "lockedByKey": false
+    }
+  },
+  "player": {
+    "x": 8008.219492548299,
+    "y": 11405.739194718688,
+    "z": 0,
+    "surfaceZ": 0,
+    "hp": 100
+  },
+  "inventoryCount": 13
+}

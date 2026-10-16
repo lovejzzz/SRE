@@ -1,0 +1,30 @@
+{
+  "atlas": {
+    "recipe": "cafe",
+    "source": "original-cafe.png",
+    "runtime": "original-cafe.webp",
+    "sourceBytes": 128476,
+    "runtimeBytes": 45530,
+    "sourceSha256": "f4ee58540faa92b658a0f0a01fc2ca434c9b0853cde420a5b0c2d28d67d7d99e",
+    "runtimeSha256": "f207781b313be7de1b7d28b9c05c842e6a5bcace3cbd02366ee9e7bc4b48974d",
+    "rgbaSha256": "c7516cdef9f98548924fd5e110c6ed52f0ca2bac504a0c36dbcad8a2b7fedfd0",
+    "size": [
+      768,
+      4640
+    ],
+    "generatorSha256": "508bb1c044b8a9858afc40be8f059b6564ad2582963dfc89aa33bac10b53d8e6"
+  },
+  "browser": {
+    "bytes": 14254080,
+    "different": 0,
+    "hashes": [
+      "f4ee58540faa92b658a0f0a01fc2ca434c9b0853cde420a5b0c2d28d67d7d99e",
+      "f207781b313be7de1b7d28b9c05c842e6a5bcace3cbd02366ee9e7bc4b48974d"
+    ]
+  },
+  "sceneRevision": 423,
+  "sceneChanges": false,
+  "affectedTestsPassed": 10,
+  "catalogueResults": 1,
+  "orientations": 2
+}

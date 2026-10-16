@@ -1,0 +1,4 @@
+{
+  "before": "Resident · x 7998.037 · y 11405.150 · z 0.900 · Grounded · Contact · all-floor physics · WASD / arrows",
+  "after": "Resident · x 7998.037 · y 11405.150 · z 0.900 · Grounded · Clear · all-floor physics · WASD / arrows"
+}

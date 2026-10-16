@@ -1,0 +1,14 @@
+✔ double glazed doors form a shared editable assembly with independent passage and opposite hinges (12.850041ms)
+✔ door apertures must reach the floor and double doors cannot hang off a wall end (0.716542ms)
+✔ asset search reaches every result with stable pages and resets for a new query (1.982125ms)
+✔ descriptions expose actual footprint and source mounting properties without leaking mutable catalog data (0.4075ms)
+✔ descriptions trace each prefab sprite to its selected imported page without inventing unknown provenance (0.158209ms)
+✔ generated art retains its recipe and does not pretend to come from an installed pack (0.100625ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 63.354084

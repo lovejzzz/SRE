@@ -1,0 +1,685 @@
+{
+  "ground": {
+    "revision": 72,
+    "bounds": [
+      7988,
+      11390,
+      8020,
+      11425
+    ],
+    "query": {
+      "level": 0,
+      "bounds": [
+        8000,
+        11403,
+        8002,
+        11405
+      ]
+    },
+    "partial": true,
+    "format": "scene-query",
+    "dependencyIds": [
+      "wall:level:0:N:8000:11408",
+      "wall:level:0:N:8001:11408",
+      "wall:level:0:N:8002:11403",
+      "wall:level:0:N:8002:11408",
+      "wall:level:0:W:8000:11405",
+      "wall:level:0:W:8000:11406",
+      "wall:level:0:W:8000:11407",
+      "wall:level:0:W:8003:11403",
+      "wall:level:0:W:8003:11404",
+      "wall:level:0:W:8003:11405",
+      "wall:level:0:W:8003:11406",
+      "wall:level:0:W:8003:11407"
+    ],
+    "scene": {
+      "id": "4c57fbbb-9f81-4924-bf42-63a6b73bb01f",
+      "units": {
+        "kind": "source-grid",
+        "metresPerCell": null,
+        "evidence": null
+      },
+      "levels": [
+        {
+          "id": "level:0",
+          "index": 0,
+          "elevation": null,
+          "height": null
+        },
+        {
+          "id": "level:1",
+          "index": 1,
+          "height": null,
+          "elevation": null
+        }
+      ],
+      "rooms": [
+        {
+          "id": "6f95df7c-9dc7-4b7b-8006-bc309957d35f",
+          "name": "Room",
+          "levelId": "level:0",
+          "rect": [
+            8000,
+            11403,
+            8003,
+            11408
+          ],
+          "floorTile": "floors_interior_tilesandwood_01_40",
+          "wallIds": [
+            "wall:level:0:N:8000:11403",
+            "wall:level:0:N:8000:11408",
+            "wall:level:0:N:8001:11403",
+            "wall:level:0:N:8001:11408",
+            "wall:level:0:N:8002:11403",
+            "wall:level:0:N:8002:11408",
+            "wall:level:0:W:8000:11403",
+            "wall:level:0:W:8003:11403",
+            "wall:level:0:W:8000:11404",
+            "wall:level:0:W:8003:11404",
+            "wall:level:0:W:8000:11405",
+            "wall:level:0:W:8003:11405",
+            "wall:level:0:W:8000:11406",
+            "wall:level:0:W:8003:11406",
+            "wall:level:0:W:8000:11407",
+            "wall:level:0:W:8003:11407"
+          ]
+        }
+      ],
+      "walls": [
+        {
+          "id": "wall:level:0:N:8000:11403",
+          "levelId": "level:0",
+          "axis": "N",
+          "x": 8000,
+          "y": 11403,
+          "tile": "walls_exterior_house_01_33"
+        },
+        {
+          "id": "wall:level:0:N:8000:11408",
+          "levelId": "level:0",
+          "axis": "N",
+          "x": 8000,
+          "y": 11408,
+          "tile": "walls_exterior_house_01_33"
+        },
+        {
+          "id": "wall:level:0:N:8001:11403",
+          "levelId": "level:0",
+          "axis": "N",
+          "x": 8001,
+          "y": 11403,
+          "tile": "walls_exterior_house_01_33"
+        },
+        {
+          "id": "wall:level:0:N:8001:11408",
+          "levelId": "level:0",
+          "axis": "N",
+          "x": 8001,
+          "y": 11408,
+          "tile": "walls_exterior_house_01_33"
+        },
+        {
+          "id": "wall:level:0:N:8002:11403",
+          "levelId": "level:0",
+          "axis": "N",
+          "x": 8002,
+          "y": 11403,
+          "tile": "walls_exterior_house_01_33"
+        },
+        {
+          "id": "wall:level:0:N:8002:11408",
+          "levelId": "level:0",
+          "axis": "N",
+          "x": 8002,
+          "y": 11408,
+          "tile": "walls_exterior_house_01_33"
+        },
+        {
+          "id": "wall:level:0:W:8000:11403",
+          "levelId": "level:0",
+          "axis": "W",
+          "x": 8000,
+          "y": 11403,
+          "tile": "walls_exterior_house_01_32"
+        },
+        {
+          "id": "wall:level:0:W:8000:11404",
+          "levelId": "level:0",
+          "axis": "W",
+          "x": 8000,
+          "y": 11404,
+          "tile": "walls_exterior_house_01_32"
+        },
+        {
+          "id": "wall:level:0:W:8000:11405",
+          "levelId": "level:0",
+          "axis": "W",
+          "x": 8000,
+          "y": 11405,
+          "tile": "walls_exterior_house_01_32"
+        },
+        {
+          "id": "wall:level:0:W:8000:11406",
+          "levelId": "level:0",
+          "axis": "W",
+          "x": 8000,
+          "y": 11406,
+          "tile": "walls_exterior_house_01_32"
+        },
+        {
+          "id": "wall:level:0:W:8000:11407",
+          "levelId": "level:0",
+          "axis": "W",
+          "x": 8000,
+          "y": 11407,
+          "tile": "walls_exterior_house_01_32"
+        },
+        {
+          "id": "wall:level:0:W:8003:11403",
+          "levelId": "level:0",
+          "axis": "W",
+          "x": 8003,
+          "y": 11403,
+          "tile": "walls_exterior_house_01_32"
+        },
+        {
+          "id": "wall:level:0:W:8003:11404",
+          "levelId": "level:0",
+          "axis": "W",
+          "x": 8003,
+          "y": 11404,
+          "tile": "walls_exterior_house_01_32"
+        },
+        {
+          "id": "wall:level:0:W:8003:11405",
+          "levelId": "level:0",
+          "axis": "W",
+          "x": 8003,
+          "y": 11405,
+          "tile": "walls_exterior_house_01_32"
+        },
+        {
+          "id": "wall:level:0:W:8003:11406",
+          "levelId": "level:0",
+          "axis": "W",
+          "x": 8003,
+          "y": 11406,
+          "tile": "walls_exterior_house_01_32"
+        },
+        {
+          "id": "wall:level:0:W:8003:11407",
+          "levelId": "level:0",
+          "axis": "W",
+          "x": 8003,
+          "y": 11407,
+          "tile": "walls_exterior_house_01_32"
+        }
+      ],
+      "openings": [],
+      "objects": [],
+      "verticalLinks": [
+        {
+          "id": "0813ec6b-dcad-4bb7-92ea-4d57566169c7",
+          "kind": "stairs",
+          "assetId": "stairs:N",
+          "axis": "N",
+          "x": 8001,
+          "y": 11404,
+          "fromLevelId": "level:0",
+          "toLevelId": "level:1"
+        }
+      ],
+      "legacy": {
+        "squares": [
+          {
+            "id": "square:433",
+            "value": {
+              "x": 8000,
+              "y": 11403,
+              "z": 0,
+              "room": -1,
+              "tiles": [
+                "blends_natural_01_16"
+              ]
+            }
+          },
+          {
+            "id": "square:434",
+            "value": {
+              "x": 8000,
+              "y": 11404,
+              "z": 0,
+              "room": -1,
+              "tiles": [
+                "blends_natural_01_16"
+              ]
+            }
+          },
+          {
+            "id": "square:468",
+            "value": {
+              "x": 8001,
+              "y": 11403,
+              "z": 0,
+              "room": -1,
+              "tiles": [
+                "blends_natural_01_16"
+              ]
+            }
+          },
+          {
+            "id": "square:469",
+            "value": {
+              "x": 8001,
+              "y": 11404,
+              "z": 0,
+              "room": -1,
+              "tiles": [
+                "blends_natural_01_16"
+              ]
+            }
+          }
+        ],
+        "items": [],
+        "vehicles": []
+      }
+    }
+  },
+  "upper": {
+    "revision": 72,
+    "bounds": [
+      7988,
+      11390,
+      8020,
+      11425
+    ],
+    "query": {
+      "level": 1,
+      "bounds": [
+        8003,
+        11402,
+        8006,
+        11415
+      ]
+    },
+    "partial": true,
+    "format": "scene-query",
+    "dependencyIds": [
+      "3f9d9a10-1755-4ba6-9d5a-3d2637e452aa:wall:level:0:N:8003:11408",
+      "3f9d9a10-1755-4ba6-9d5a-3d2637e452aa:wall:level:0:N:8004:11408",
+      "3f9d9a10-1755-4ba6-9d5a-3d2637e452aa:wall:level:0:W:8005:11403",
+      "3f9d9a10-1755-4ba6-9d5a-3d2637e452aa:wall:level:0:W:8005:11404",
+      "3f9d9a10-1755-4ba6-9d5a-3d2637e452aa:wall:level:0:W:8005:11405",
+      "3f9d9a10-1755-4ba6-9d5a-3d2637e452aa:wall:level:0:W:8005:11406",
+      "3f9d9a10-1755-4ba6-9d5a-3d2637e452aa:wall:level:0:W:8005:11407",
+      "3f9d9a10-1755-4ba6-9d5a-3d2637e452aa:wall:level:0:N:8005:11408",
+      "wall:level:1:W:8006:11408",
+      "wall:level:1:W:8006:11409",
+      "wall:level:1:W:8006:11410",
+      "wall:level:1:W:8006:11411",
+      "wall:level:1:W:8006:11412",
+      "wall:level:1:W:8006:11413",
+      "wall:level:1:W:8006:11414",
+      "wall:level:1:W:8006:11402",
+      "3f9d9a10-1755-4ba6-9d5a-3d2637e452aa:8eb5c955-ba1e-47e2-a602-19ffe5e9f371"
+    ],
+    "scene": {
+      "id": "4c57fbbb-9f81-4924-bf42-63a6b73bb01f",
+      "units": {
+        "kind": "source-grid",
+        "metresPerCell": null,
+        "evidence": null
+      },
+      "levels": [
+        {
+          "id": "level:1",
+          "index": 1,
+          "height": null,
+          "elevation": null
+        }
+      ],
+      "rooms": [
+        {
+          "id": "3f9d9a10-1755-4ba6-9d5a-3d2637e452aa:c9ca8eae-9bb5-464b-81fc-4ae9a267f13e",
+          "name": "Room · 2",
+          "levelId": "level:1",
+          "rect": [
+            8003,
+            11402,
+            8006,
+            11415
+          ],
+          "floorTile": "floors_exterior_tilesandstone_01_0",
+          "wallIds": [
+            "3f9d9a10-1755-4ba6-9d5a-3d2637e452aa:wall:level:0:N:8003:11403",
+            "3f9d9a10-1755-4ba6-9d5a-3d2637e452aa:wall:level:0:N:8003:11408",
+            "3f9d9a10-1755-4ba6-9d5a-3d2637e452aa:wall:level:0:N:8004:11403",
+            "3f9d9a10-1755-4ba6-9d5a-3d2637e452aa:wall:level:0:N:8004:11408",
+            "3f9d9a10-1755-4ba6-9d5a-3d2637e452aa:wall:level:0:N:8005:11403",
+            "3f9d9a10-1755-4ba6-9d5a-3d2637e452aa:wall:level:0:N:8005:11408",
+            "wall:level:1:W:8003:11402",
+            "wall:level:1:W:8006:11402",
+            "3f9d9a10-1755-4ba6-9d5a-3d2637e452aa:wall:level:0:W:8003:11403",
+            "3f9d9a10-1755-4ba6-9d5a-3d2637e452aa:wall:level:0:W:8005:11403",
+            "3f9d9a10-1755-4ba6-9d5a-3d2637e452aa:wall:level:0:W:8003:11404",
+            "3f9d9a10-1755-4ba6-9d5a-3d2637e452aa:wall:level:0:W:8005:11404",
+            "3f9d9a10-1755-4ba6-9d5a-3d2637e452aa:wall:level:0:W:8003:11405",
+            "3f9d9a10-1755-4ba6-9d5a-3d2637e452aa:wall:level:0:W:8005:11405",
+            "3f9d9a10-1755-4ba6-9d5a-3d2637e452aa:wall:level:0:W:8003:11406",
+            "3f9d9a10-1755-4ba6-9d5a-3d2637e452aa:wall:level:0:W:8005:11406",
+            "3f9d9a10-1755-4ba6-9d5a-3d2637e452aa:wall:level:0:W:8003:11407",
+            "3f9d9a10-1755-4ba6-9d5a-3d2637e452aa:wall:level:0:W:8005:11407",
+            "wall:level:1:W:8003:11408",
+            "wall:level:1:W:8006:11408",
+            "wall:level:1:W:8003:11409",
+            "wall:level:1:W:8006:11409",
+            "wall:level:1:W:8003:11410",
+            "wall:level:1:W:8006:11410",
+            "wall:level:1:W:8003:11411",
+            "wall:level:1:W:8006:11411",
+            "wall:level:1:W:8003:11412",
+            "wall:level:1:W:8006:11412",
+            "wall:level:1:W:8003:11413",
+            "wall:level:1:W:8006:11413",
+            "wall:level:1:W:8003:11414",
+            "wall:level:1:W:8006:11414"
+          ],
+          "floorOpenings": [
+            {
+              "id": "12947651-577f-47b4-905b-1f467554efab",
+              "rect": [
+                8004,
+                11404,
+                8006,
+                11406
+              ]
+            }
+          ],
+          "roof": {
+            "id": "36c20300-0726-4be0-ab3c-a53cb1268ed3",
+            "kind": "gable",
+            "source": "roofs_30_01",
+            "axis": "X"
+          }
+        }
+      ],
+      "walls": [
+        {
+          "id": "3f9d9a10-1755-4ba6-9d5a-3d2637e452aa:wall:level:0:N:8003:11403",
+          "levelId": "level:1",
+          "axis": "N",
+          "x": 8003,
+          "y": 11402,
+          "tile": "walls_exterior_house_01_33"
+        },
+        {
+          "id": "3f9d9a10-1755-4ba6-9d5a-3d2637e452aa:wall:level:0:N:8003:11408",
+          "levelId": "level:1",
+          "axis": "N",
+          "x": 8003,
+          "y": 11415,
+          "tile": "walls_exterior_house_01_33"
+        },
+        {
+          "id": "3f9d9a10-1755-4ba6-9d5a-3d2637e452aa:wall:level:0:N:8004:11403",
+          "levelId": "level:1",
+          "axis": "N",
+          "x": 8004,
+          "y": 11402,
+          "tile": "walls_exterior_house_01_33"
+        },
+        {
+          "id": "3f9d9a10-1755-4ba6-9d5a-3d2637e452aa:wall:level:0:N:8004:11408",
+          "levelId": "level:1",
+          "axis": "N",
+          "x": 8004,
+          "y": 11415,
+          "tile": "walls_exterior_house_01_33"
+        },
+        {
+          "id": "3f9d9a10-1755-4ba6-9d5a-3d2637e452aa:wall:level:0:W:8005:11403",
+          "levelId": "level:1",
+          "axis": "W",
+          "x": 8006,
+          "y": 11403,
+          "tile": "walls_exterior_house_01_32"
+        },
+        {
+          "id": "3f9d9a10-1755-4ba6-9d5a-3d2637e452aa:wall:level:0:W:8005:11404",
+          "levelId": "level:1",
+          "axis": "W",
+          "x": 8006,
+          "y": 11404,
+          "tile": "walls_exterior_house_01_32"
+        },
+        {
+          "id": "3f9d9a10-1755-4ba6-9d5a-3d2637e452aa:wall:level:0:W:8005:11405",
+          "levelId": "level:1",
+          "axis": "W",
+          "x": 8006,
+          "y": 11405,
+          "tile": "walls_exterior_house_01_32"
+        },
+        {
+          "id": "3f9d9a10-1755-4ba6-9d5a-3d2637e452aa:wall:level:0:W:8005:11406",
+          "levelId": "level:1",
+          "axis": "W",
+          "x": 8006,
+          "y": 11406,
+          "tile": "walls_exterior_house_01_32"
+        },
+        {
+          "id": "3f9d9a10-1755-4ba6-9d5a-3d2637e452aa:wall:level:0:W:8005:11407",
+          "levelId": "level:1",
+          "axis": "W",
+          "x": 8006,
+          "y": 11407,
+          "tile": "walls_exterior_house_01_32"
+        },
+        {
+          "id": "3f9d9a10-1755-4ba6-9d5a-3d2637e452aa:wall:level:0:N:8005:11403",
+          "levelId": "level:1",
+          "axis": "N",
+          "x": 8005,
+          "y": 11402,
+          "tile": "walls_exterior_house_01_33"
+        },
+        {
+          "id": "3f9d9a10-1755-4ba6-9d5a-3d2637e452aa:wall:level:0:N:8005:11408",
+          "levelId": "level:1",
+          "axis": "N",
+          "x": 8005,
+          "y": 11415,
+          "tile": "walls_exterior_house_01_33"
+        },
+        {
+          "id": "3f9d9a10-1755-4ba6-9d5a-3d2637e452aa:wall:level:0:W:8003:11403",
+          "levelId": "level:1",
+          "axis": "W",
+          "x": 8003,
+          "y": 11403,
+          "tile": "walls_exterior_house_01_32"
+        },
+        {
+          "id": "3f9d9a10-1755-4ba6-9d5a-3d2637e452aa:wall:level:0:W:8003:11404",
+          "levelId": "level:1",
+          "axis": "W",
+          "x": 8003,
+          "y": 11404,
+          "tile": "walls_exterior_house_01_32"
+        },
+        {
+          "id": "3f9d9a10-1755-4ba6-9d5a-3d2637e452aa:wall:level:0:W:8003:11405",
+          "levelId": "level:1",
+          "axis": "W",
+          "x": 8003,
+          "y": 11405,
+          "tile": "walls_exterior_house_01_32"
+        },
+        {
+          "id": "3f9d9a10-1755-4ba6-9d5a-3d2637e452aa:wall:level:0:W:8003:11406",
+          "levelId": "level:1",
+          "axis": "W",
+          "x": 8003,
+          "y": 11406,
+          "tile": "walls_exterior_house_01_32"
+        },
+        {
+          "id": "3f9d9a10-1755-4ba6-9d5a-3d2637e452aa:wall:level:0:W:8003:11407",
+          "levelId": "level:1",
+          "axis": "W",
+          "x": 8003,
+          "y": 11407,
+          "tile": "walls_exterior_house_01_32"
+        },
+        {
+          "id": "wall:level:1:W:8003:11408",
+          "levelId": "level:1",
+          "axis": "W",
+          "x": 8003,
+          "y": 11408,
+          "tile": "walls_exterior_house_01_32"
+        },
+        {
+          "id": "wall:level:1:W:8006:11408",
+          "levelId": "level:1",
+          "axis": "W",
+          "x": 8006,
+          "y": 11408,
+          "tile": "walls_exterior_house_01_32"
+        },
+        {
+          "id": "wall:level:1:W:8003:11409",
+          "levelId": "level:1",
+          "axis": "W",
+          "x": 8003,
+          "y": 11409,
+          "tile": "walls_exterior_house_01_32"
+        },
+        {
+          "id": "wall:level:1:W:8006:11409",
+          "levelId": "level:1",
+          "axis": "W",
+          "x": 8006,
+          "y": 11409,
+          "tile": "walls_exterior_house_01_32"
+        },
+        {
+          "id": "wall:level:1:W:8003:11410",
+          "levelId": "level:1",
+          "axis": "W",
+          "x": 8003,
+          "y": 11410,
+          "tile": "walls_exterior_house_01_32"
+        },
+        {
+          "id": "wall:level:1:W:8006:11410",
+          "levelId": "level:1",
+          "axis": "W",
+          "x": 8006,
+          "y": 11410,
+          "tile": "walls_exterior_house_01_32"
+        },
+        {
+          "id": "wall:level:1:W:8003:11411",
+          "levelId": "level:1",
+          "axis": "W",
+          "x": 8003,
+          "y": 11411,
+          "tile": "walls_exterior_house_01_32"
+        },
+        {
+          "id": "wall:level:1:W:8006:11411",
+          "levelId": "level:1",
+          "axis": "W",
+          "x": 8006,
+          "y": 11411,
+          "tile": "walls_exterior_house_01_32"
+        },
+        {
+          "id": "wall:level:1:W:8003:11412",
+          "levelId": "level:1",
+          "axis": "W",
+          "x": 8003,
+          "y": 11412,
+          "tile": "walls_exterior_house_01_32"
+        },
+        {
+          "id": "wall:level:1:W:8006:11412",
+          "levelId": "level:1",
+          "axis": "W",
+          "x": 8006,
+          "y": 11412,
+          "tile": "walls_exterior_house_01_32"
+        },
+        {
+          "id": "wall:level:1:W:8003:11413",
+          "levelId": "level:1",
+          "axis": "W",
+          "x": 8003,
+          "y": 11413,
+          "tile": "walls_exterior_house_01_32"
+        },
+        {
+          "id": "wall:level:1:W:8006:11413",
+          "levelId": "level:1",
+          "axis": "W",
+          "x": 8006,
+          "y": 11413,
+          "tile": "walls_exterior_house_01_32"
+        },
+        {
+          "id": "wall:level:1:W:8003:11414",
+          "levelId": "level:1",
+          "axis": "W",
+          "x": 8003,
+          "y": 11414,
+          "tile": "walls_exterior_house_01_32"
+        },
+        {
+          "id": "wall:level:1:W:8006:11414",
+          "levelId": "level:1",
+          "axis": "W",
+          "x": 8006,
+          "y": 11414,
+          "tile": "walls_exterior_house_01_32"
+        },
+        {
+          "id": "wall:level:1:W:8003:11402",
+          "levelId": "level:1",
+          "axis": "W",
+          "x": 8003,
+          "y": 11402,
+          "tile": "walls_exterior_house_01_32"
+        },
+        {
+          "id": "wall:level:1:W:8006:11402",
+          "levelId": "level:1",
+          "axis": "W",
+          "x": 8006,
+          "y": 11402,
+          "tile": "walls_exterior_house_01_32"
+        }
+      ],
+      "openings": [
+        {
+          "id": "3f9d9a10-1755-4ba6-9d5a-3d2637e452aa:8eb5c955-ba1e-47e2-a602-19ffe5e9f371",
+          "hostWallId": "3f9d9a10-1755-4ba6-9d5a-3d2637e452aa:wall:level:0:W:8005:11405",
+          "kind": "door",
+          "tile": "fixtures_doors_01_0"
+        }
+      ],
+      "objects": [],
+      "verticalLinks": [],
+      "legacy": {
+        "squares": [],
+        "items": [],
+        "vehicles": []
+      }
+    }
+  },
+  "invalid": {
+    "ok": false,
+    "error": "Requested level does not exist"
+  }
+}

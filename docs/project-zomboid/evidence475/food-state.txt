@@ -1,0 +1,39 @@
+Fridge
+
+Refrigerated
+
+Water Bottle × 3 · 1000 / 1000 mL each
+Take Water Bottle
+Apple × 3 · Fresh
+Take Apple
+Cheese · Fresh
+Take Cheese
+Chicken Leg · Raw · Fresh
+Take Chicken Leg
+Orange × 2 · Fresh
+Take Orange
+Yogurt · Fresh
+Take Yogurt
+Apple · Fresh
+Take Apple
+
+Carried items
+Water Bottle × 2 · 0 / 1000 mL each
+Store Water Bottle
+Can Opener
+Store Can Opener
+Tin Can × 12 · 0 / 300 mL each
+Store Tin Can
+Water Bottle · 500 / 1000 mL
+Drink Water Bottle
+Store Water Bottle
+Bandage (Dirty) × 6
+Store Bandage (Dirty)
+Alcohol Wipes · 4 uses remaining
+Store Alcohol Wipes
+Apple · Fresh · 50% remaining
+All remaining
+Half remaining
+Quarter remaining
+Eat Apple
+Store Apple

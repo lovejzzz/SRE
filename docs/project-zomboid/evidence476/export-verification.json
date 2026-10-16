@@ -1,0 +1,53 @@
+{
+  "download": "/Users/tianxing/Downloads/tian-house-save (26).json",
+  "bytes": 333814,
+  "sha256": "8b07c8aea1ac1201e50dfeba1c4e0d1181c927a1d47e49094d6923e8853d0dd1",
+  "time": 20797.01303000864,
+  "roofInteriors": [
+    [
+      "hearth-roof-0",
+      "tian_masonry_ivory_1"
+    ],
+    [
+      "hearth-roof-1",
+      "tian_masonry_ivory_1"
+    ]
+  ],
+  "apples": [
+    {
+      "id": "item-299",
+      "container": "player",
+      "portion": 0.5,
+      "ageHours": 1.6680694333513053
+    },
+    {
+      "id": "item-300",
+      "container": "world:8001,11401,0:appliances_refrigeration_01_8",
+      "portion": 1,
+      "ageHours": 0.8247159666757284
+    },
+    {
+      "id": "item-301",
+      "container": "world:8001,11401,0:appliances_refrigeration_01_8",
+      "portion": 1,
+      "ageHours": 0.8247159666757284
+    },
+    {
+      "id": "item-302",
+      "container": "world:8001,11401,0:appliances_refrigeration_01_8",
+      "portion": 1,
+      "ageHours": 0.8247159666757284
+    },
+    {
+      "id": "item-316",
+      "container": "world:8001,11401,0:appliances_refrigeration_01_8",
+      "portion": 1,
+      "ageHours": 0.4045895000043296
+    }
+  ],
+  "carriedWater": [
+    0,
+    0,
+    0.5
+  ]
+}

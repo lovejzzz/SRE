@@ -1,0 +1,11 @@
+{
+  "requestId": "momento-terrazzo-269",
+  "baseRevision": 459,
+  "operations": [
+    {
+      "type": "room.floor",
+      "roomId": "momento-main",
+      "tile": "tian_material_terrazzo_grey_0"
+    }
+  ]
+}

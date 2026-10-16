@@ -1,0 +1,28 @@
+✔ chamfer preserves unaffected wall and opening identities and serializes authoritative vertices (6.466875ms)
+✔ cut refuses lost door/window and wall fixture supports, locks, contents and circulation without changing input (10.281333ms)
+✔ outline editing reuses diagonal identities and restores the rectangular perimeter without inventing diagonal replacements (1.737ms)
+✔ two room halves may share a grid cell and diagonal wall without actual overlap (1.386041ms)
+✔ partial floors cannot support whole-cell holes and malformed dual footprints are rejected (0.8085ms)
+✔ public session refuses polygon commits until renderer and movement integration exists (2.061417ms)
+✔ staged compilation keeps ground outside partial floors and emits physical diagonal walls without fake N/W blockers (6.130125ms)
+✔ flat roof provides rain cover and tracks room resize, persistence and undo (8.143209ms)
+✔ roofs cannot overwrite an upper room or leave rooftop furniture suspended on removal (2.740208ms)
+✔ invalid roof materials, unsupported roof kinds and topology changes reject without mutation (1.601167ms)
+✔ gable slope recipes use both directions, odd ridge tiles and continuous six-step height bands (0.439834ms)
+✔ both ridge orientations match the source atlas height at every supported step (22.564792ms)
+✔ gable ends preserve seven-cell source geometry in the matching finish and follow rotation (0.325583ms)
+✔ gable material changes retain end geometry and roof identity; conflicting upper structures reject (22.600333ms)
+✔ resizing a gable across height bands adds levels, preserves identity and roundtrips history (22.894958ms)
+✔ gable resize rejects occupied upper volume and height overflow without changing the scene (23.61825ms)
+✔ wide gables use matching siding for full bands and source caps (1.206791ms)
+✔ flat overhangs provide exterior rain cover and survive roof edits, undo and reload (2.937333ms)
+✔ gable-end overhang extends along the ridge without lifting its slope or moving its walls (0.226542ms)
+✔ overhangs reject neighboring upper structures and lot overflow atomically (1.426959ms)
+ℹ tests 20
+ℹ suites 0
+ℹ pass 20
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 157.446041

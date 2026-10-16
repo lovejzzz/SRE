@@ -50,12 +50,55 @@ class EvidenceTests(unittest.TestCase):
     def save(self, path, data):
         path.write_text(json.dumps(data), encoding="utf-8")
 
+    def test_manual_ui_requires_raw_capture_and_rechecks_it(self):
+        self.original['provenance']['observation_method'] = 'manual-ui'
+        self.save(self.a, self.original)
+        with self.assertRaisesRegex(ValueError, 'fingerprinted raw captures'):
+            sre.trace(self.a)
+        raw = self.a.parent / 'screen.bin'
+        raw.write_bytes(b'fixture screenshot bytes, not source evidence')
+        self.original['provenance']['raw_captures'] = [{'path':'screen.bin', 'description':'Fixture', 'sha256':sre.digest(raw)}]
+        self.save(self.a, self.original)
+        self.save(self.report, sre.compare(self.a, self.b, self.report))
+        self.assertTrue(self.gate()['behavior_ready'])
+        raw.write_bytes(b'changed screenshot')
+        self.assertFalse(self.gate()['behavior_ready'])
+        with self.assertRaisesRegex(ValueError, 'stale raw capture'):
+            sre.compare(self.a, self.b, self.report)
+
+    def test_raw_capture_escape_and_duplicate_rejected(self):
+        raw = self.root / 'outside.bin'; raw.write_bytes(b'fixture')
+        capture = {'path':'../outside.bin', 'description':'Fixture', 'sha256':sre.digest(raw)}
+        self.original['provenance']['raw_captures'] = [capture]
+        self.save(self.a, self.original)
+        with self.assertRaisesRegex(ValueError, 'escapes'):
+            sre.trace(self.a)
+        raw = self.a.parent / 'inside.bin'; raw.write_bytes(b'fixture')
+        capture['path'] = 'inside.bin'
+        self.original['provenance']['raw_captures'] = [capture, capture]
+        self.save(self.a, self.original)
+        with self.assertRaisesRegex(ValueError, 'Duplicate raw capture'):
+            sre.trace(self.a)
+
     def gate(self):
         self.save(self.root / "project.json", self.project)
         return sre.check(self.root)
 
     def test_complete_recorded_obligations(self):
         self.assertTrue(self.gate()["recorded_acceptance"])
+
+    def test_component_comparison_cannot_establish_application_fidelity(self):
+        for side, kind in ((self.a, 'source-component'), (self.b, 'successor-component')):
+            with self.subTest(kind=kind):
+                self.save(self.a, self.original)
+                self.save(self.b, self.successor)
+                data = sre.read(side)
+                data['provenance']['kind'] = kind
+                self.save(side, data)
+                report = sre.compare(self.a, self.b, self.report)
+                self.assertTrue(report['passed'], 'Equal component results remain useful evidence')
+                self.save(self.report, report)
+                self.assertFalse(self.gate()['behavior_ready'], 'Component equality is not a whole-app workflow')
 
     def test_target_metadata_mutation_rejected(self):
         path = self.root / "runs/target.json"

@@ -1,0 +1,10 @@
+✔ transformed delivered hull matches rebuilt geometry for four facings and nonuniform scale (111.423334ms)
+✔ unsupported oblique collision transforms fail instead of dropping separating axes (0.8235ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 2
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 166.075166

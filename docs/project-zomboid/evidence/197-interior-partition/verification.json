@@ -1,0 +1,28 @@
+{
+  "sceneRevision": 48,
+  "objects": 12,
+  "openings": 6,
+  "walls": 36,
+  "references": 4,
+  "annotations": 18,
+  "editorRevision": 386,
+  "testsPassed": 535,
+  "refreshExportEqual": true,
+  "namedVersion": "version:momento-partition-checkpoint-197",
+  "digest": "9d6d9fba47aaa008e72117c071ecde348a0d8bfa3213846e183b876e61e5b3f5",
+  "runtimeVerification": [
+    "street door entrance",
+    "interior door opened",
+    "walked north through to y11403",
+    "walked south back to y11404",
+    "closed interior door blocks crossing"
+  ],
+  "survivalAcceptance": false,
+  "missing": [
+    "raised threshold and compatible door bottom",
+    "ceiling lights and conduits",
+    "calibrated proportions",
+    "remaining reference features"
+  ],
+  "deployed": false
+}

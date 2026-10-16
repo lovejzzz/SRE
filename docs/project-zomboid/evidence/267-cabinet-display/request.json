@@ -1,0 +1,13 @@
+{
+  "requestId": "momento-cabinet-display-267",
+  "baseRevision": 454,
+  "operations": [
+    {
+      "type": "place",
+      "assetId": "tile:tian_cafe_round_display_pair_S_0",
+      "x": 8003,
+      "y": 11409,
+      "z": 0
+    }
+  ]
+}

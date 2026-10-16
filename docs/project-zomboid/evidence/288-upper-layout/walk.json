@@ -1,0 +1,298 @@
+{
+  "kind": "tian-house-workshop-walkthrough",
+  "version": 1,
+  "startedAt": "2026-10-14T04:02:54.466Z",
+  "houseName": "Cantó House · Courtyard study",
+  "sceneId": "551b003e-1b31-44f9-a35d-6dbc53b56682",
+  "sceneRevision": 36,
+  "conditions": {
+    "temporaryCharacter": true,
+    "zombieSpawning": false,
+    "survivalAcceptance": false
+  },
+  "simulatedSeconds": 84.44470000000462,
+  "visited": [
+    {
+      "position": [
+        7995,
+        11405,
+        1
+      ],
+      "surfaceZ": 1,
+      "seconds": 0
+    },
+    {
+      "position": [
+        7995,
+        11406,
+        1
+      ],
+      "surfaceZ": 1,
+      "seconds": 17.69219999999983
+    },
+    {
+      "position": [
+        7995,
+        11407,
+        1
+      ],
+      "surfaceZ": 1,
+      "seconds": 18.31699999999985
+    },
+    {
+      "position": [
+        7995,
+        11406,
+        1
+      ],
+      "surfaceZ": 1,
+      "seconds": 28.79180000000009
+    },
+    {
+      "position": [
+        7995,
+        11405,
+        1
+      ],
+      "surfaceZ": 1,
+      "seconds": 29.41720000000011
+    },
+    {
+      "position": [
+        7994,
+        11405,
+        1
+      ],
+      "surfaceZ": 1,
+      "seconds": 30.041900000000116
+    },
+    {
+      "position": [
+        7993,
+        11405,
+        1
+      ],
+      "surfaceZ": 1,
+      "seconds": 30.666800000000084
+    },
+    {
+      "position": [
+        7993,
+        11406,
+        1
+      ],
+      "surfaceZ": 1,
+      "seconds": 38.47520000000081
+    },
+    {
+      "position": [
+        7993,
+        11407,
+        1
+      ],
+      "surfaceZ": 1,
+      "seconds": 39.100100000000886
+    },
+    {
+      "position": [
+        7993,
+        11406,
+        1
+      ],
+      "surfaceZ": 1,
+      "seconds": 54.20870000000234
+    },
+    {
+      "position": [
+        7993,
+        11405,
+        1
+      ],
+      "surfaceZ": 1,
+      "seconds": 54.832000000002395
+    },
+    {
+      "position": [
+        7994,
+        11405,
+        1
+      ],
+      "surfaceZ": 1,
+      "seconds": 55.492200000002434
+    },
+    {
+      "position": [
+        7995,
+        11405,
+        1
+      ],
+      "surfaceZ": 1,
+      "seconds": 56.10860000000247
+    },
+    {
+      "position": [
+        7996,
+        11405,
+        1
+      ],
+      "surfaceZ": 1,
+      "seconds": 56.733600000002525
+    },
+    {
+      "position": [
+        7997,
+        11405,
+        1
+      ],
+      "surfaceZ": 1,
+      "seconds": 57.358600000002575
+    },
+    {
+      "position": [
+        7998,
+        11405,
+        1
+      ],
+      "surfaceZ": 1,
+      "seconds": 57.98350000000261
+    },
+    {
+      "position": [
+        7999,
+        11405,
+        1
+      ],
+      "surfaceZ": 1,
+      "seconds": 58.608700000002635
+    },
+    {
+      "position": [
+        8000,
+        11405,
+        1
+      ],
+      "surfaceZ": 1,
+      "seconds": 59.23360000000275
+    },
+    {
+      "position": [
+        8000,
+        11406,
+        1
+      ],
+      "surfaceZ": 1,
+      "seconds": 67.29060000000344
+    },
+    {
+      "position": [
+        8000,
+        11407,
+        1
+      ],
+      "surfaceZ": 1,
+      "seconds": 67.91700000000343
+    },
+    {
+      "position": [
+        8000,
+        11406,
+        1
+      ],
+      "surfaceZ": 1,
+      "seconds": 80.2754000000046
+    },
+    {
+      "position": [
+        8000,
+        11405,
+        1
+      ],
+      "surfaceZ": 1,
+      "seconds": 80.90040000000465
+    },
+    {
+      "position": [
+        8001,
+        11405,
+        1
+      ],
+      "surfaceZ": 1,
+      "seconds": 81.53380000000463
+    },
+    {
+      "position": [
+        8002,
+        11405,
+        1
+      ],
+      "surfaceZ": 1,
+      "seconds": 82.16280000000467
+    },
+    {
+      "position": [
+        8003,
+        11405,
+        1
+      ],
+      "surfaceZ": 1,
+      "seconds": 82.78630000000466
+    },
+    {
+      "position": [
+        8003,
+        11406,
+        1
+      ],
+      "surfaceZ": 1,
+      "seconds": 83.42980000000463
+    },
+    {
+      "position": [
+        8003,
+        11407,
+        1
+      ],
+      "surfaceZ": 1,
+      "seconds": 84.04640000000467
+    }
+  ],
+  "events": [
+    {
+      "seconds": 17.374199999999817,
+      "message": "Open door"
+    },
+    {
+      "seconds": 38.1669000000008,
+      "message": "Open door"
+    },
+    {
+      "seconds": 66.96700000000341,
+      "message": "Open door"
+    }
+  ],
+  "changes": {
+    "7995,11406,1:fixtures_doors_01_49": {
+      "open": true,
+      "locked": false,
+      "lockedByKey": false
+    },
+    "7993,11406,1:fixtures_doors_01_49": {
+      "open": true,
+      "locked": false,
+      "lockedByKey": false
+    },
+    "8000,11406,1:fixtures_doors_01_49": {
+      "open": true,
+      "locked": false,
+      "lockedByKey": false
+    }
+  },
+  "player": {
+    "x": 8003.517905870111,
+    "y": 11407.467025870115,
+    "z": 1,
+    "surfaceZ": 1,
+    "hp": 100
+  },
+  "inventoryCount": 6
+}

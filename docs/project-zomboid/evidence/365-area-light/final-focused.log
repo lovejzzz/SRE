@@ -1,0 +1,19 @@
+✔ distributed emitters preserve energy, cast shadows, and follow switches (1.12525ms)
+✔ limited shadow budget retains energy without exceeding allocation (0.203417ms)
+✔ lamp delivery retains open shade and source dimensions (6.498375ms)
+✔ mounted light follows host surface, raised ground, floor and object movement without scene mutation (13.627ms)
+✔ fixture lighting has real shadow-casting sources, level filtering, persistent switch and cleanup (1.431958ms)
+✔ asymmetric emitter samples rotate with furniture in all directions without inheriting translation (38.314208ms)
+✔ whole-room lamp batch shares shadow sampler budget without changing total light energy (0.306791ms)
+✔ over-budget floor reports an explicit limit rather than compiling invisible geometry (0.088125ms)
+✔ wall-strip uses actual wall face and thickness in both axes (4.43625ms)
+✔ wall-sconce uses actual wall face and thickness in both axes (1.562333ms)
+✔ wall light rejects degenerate diffuser geometry (0.464292ms)
+ℹ tests 11
+ℹ suites 0
+ℹ pass 11
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 120.855708

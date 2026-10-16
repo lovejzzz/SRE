@@ -1,0 +1,39 @@
+✔ sofa: delivery regenerates, all source directions preserve geometry and collision (11.44475ms)
+✔ sofa: invalid scale and altered multipart layout rejected (0.248708ms)
+✔ bed: delivery regenerates, all source directions preserve geometry and collision (7.340833ms)
+✔ bed: invalid scale and altered multipart layout rejected (0.089583ms)
+✔ oven: delivery regenerates, all source directions preserve geometry and collision (7.356625ms)
+✔ oven: invalid scale and altered multipart layout rejected (0.080583ms)
+✔ fridge: delivery regenerates, all source directions preserve geometry and collision (3.276291ms)
+✔ fridge: invalid scale and altered multipart layout rejected (0.060417ms)
+✔ chair batch delivery is reproducible and rejects impossible dimensions (2.86775ms)
+✔ chair source variants rotate visible geometry and collision together (4.994166ms)
+✔ shelf batch delivery is reproducible and rejects impossible dimensions (1.280584ms)
+✔ shelf source variants rotate visible geometry and collision together (1.701625ms)
+✔ wrong multipart arrangement cannot silently match a source family (0.478791ms)
+✔ unsupported furnishings and dependent fixtures report omissions without fabricated geometry (1.219708ms)
+✔ volume delivery reproduces recipe exactly with real open space between legs (3.558334ms)
+✔ two source directions share recipe with correct footprint, support lift and stable identity (2.858125ms)
+✔ lamp delivery retains open shade and source dimensions (6.735416ms)
+✔ mounted light follows host surface, raised ground, floor and object movement without scene mutation (14.125625ms)
+✔ fixture lighting has real shadow-casting sources, level filtering, persistent switch and cleanup (1.05675ms)
+✔ lighting fits far-world geometry, uses Z-up and changes actual light energy (1.357917ms)
+✔ wood recipe regenerates bounded maps with stable detail and seed variation (13.027834ms)
+✔ material UVs stay attached through rotation and relocation with physical repeat scale (3.096375ms)
+✔ identical material recipes reuse two GPU maps and dispose them once (2.239083ms)
+✔ picking a mounted lamp edits its host group and preserves mounted offsets (0.863959ms)
+✔ 3D object selection refuses broken or cyclic support references (0.288583ms)
+✔ late generation and publication failures preserve the previous complete manifest (34.945584ms)
+✔ runtime rejects corrupted bytes and invalid manifest paths before accepting geometry (1.032292ms)
+✔ counter: reproducible four-direction plumbing/storage body (5.468792ms)
+✔ sink: reproducible four-direction plumbing/storage body (14.866541ms)
+✔ toilet: reproducible four-direction plumbing/storage body (17.94225ms)
+✔ sink rim leaves a real basin cavity and counter preserves tabletop source height (0.806833ms)
+ℹ tests 31
+ℹ suites 0
+ℹ pass 31
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 90.075166

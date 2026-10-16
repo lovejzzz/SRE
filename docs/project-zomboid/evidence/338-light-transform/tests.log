@@ -1,0 +1,14 @@
+✔ wrong multipart arrangement cannot silently match a source family (0.460583ms)
+✔ unsupported furnishings and dependent fixtures report omissions without fabricated geometry (0.811084ms)
+✔ lamp delivery retains open shade and source dimensions (6.336625ms)
+✔ mounted light follows host surface, raised ground, floor and object movement without scene mutation (12.611125ms)
+✔ fixture lighting has real shadow-casting sources, level filtering, persistent switch and cleanup (1.075708ms)
+✔ asymmetric emitter samples rotate with furniture in all directions without inheriting translation (36.995833ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 114.611042

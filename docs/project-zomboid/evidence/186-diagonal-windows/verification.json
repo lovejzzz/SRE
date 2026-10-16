@@ -1,0 +1,34 @@
+{
+  "milestone": 186,
+  "url": "http://127.0.0.1:8883/",
+  "fullSuitePassed": 499,
+  "finalAffectedPassed": 9,
+  "baselineRestoredExactly": true,
+  "fixtureExport": "/Users/tianxing/Downloads/momento-brewers-photo-study (60).json",
+  "opening": [
+    {
+      "id": "40e0c50b-a5b0-455b-8d11-d126ee99c253",
+      "hostWallId": "wall:level:0:D-:8004:11408",
+      "kind": "window",
+      "tile": "fixtures_windows_01_0"
+    }
+  ],
+  "walkthrough": {
+    "openViaE": true,
+    "openSillBlocksWalking": true,
+    "climbedOutAndBack": true,
+    "reloadedPosition": [
+      8003,
+      11407,
+      0
+    ],
+    "reloadedTime": "19:36 Day1",
+    "reloadedPrompt": "Close window",
+    "closeAfterReload": true,
+    "finalPreflightWalkthrough": true,
+    "injuryDuringTest": "Existing exterior zombie; preserved, game paused"
+  },
+  "consoleErrors": [],
+  "photoCasesCompleted": 0,
+  "deployed": false
+}

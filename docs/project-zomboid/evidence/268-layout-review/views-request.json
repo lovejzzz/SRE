@@ -1,0 +1,94 @@
+{
+  "requestId": "momento-comparison-views-268",
+  "baseRevision": 457,
+  "operations": [
+    {
+      "type": "view.save",
+      "view": {
+        "id": "momento-review-exterior",
+        "name": "Exterior · facade review",
+        "z": 0,
+        "center": {
+          "x": 8004.5,
+          "y": 11407
+        },
+        "zoom": 1.15,
+        "cutaway": false,
+        "wholeBuilding": true,
+        "ghost": false,
+        "grid": false,
+        "referenceId": "fbdb62cc-fcb0-4d22-b109-0d96108b476e",
+        "viewport": {
+          "width": 1280,
+          "height": 720
+        }
+      }
+    },
+    {
+      "type": "view.save",
+      "view": {
+        "id": "momento-review-coffee",
+        "name": "Coffee bar · fixture review",
+        "z": 0,
+        "center": {
+          "x": 8002.5,
+          "y": 11406.5
+        },
+        "zoom": 2,
+        "cutaway": true,
+        "wholeBuilding": false,
+        "ghost": false,
+        "grid": false,
+        "referenceId": "415fa382-9b6a-4187-9072-6d79f5eece2d",
+        "viewport": {
+          "width": 1280,
+          "height": 720
+        }
+      }
+    },
+    {
+      "type": "view.save",
+      "view": {
+        "id": "momento-review-reverse",
+        "name": "Reverse counter · windows and display",
+        "z": 0,
+        "center": {
+          "x": 8002.5,
+          "y": 11409.5
+        },
+        "zoom": 2,
+        "cutaway": true,
+        "wholeBuilding": false,
+        "ghost": false,
+        "grid": false,
+        "referenceId": "737f1e20-d279-4d30-aedf-b80ffd4cd55f",
+        "viewport": {
+          "width": 1280,
+          "height": 720
+        }
+      }
+    },
+    {
+      "type": "view.save",
+      "view": {
+        "id": "momento-review-adjoining",
+        "name": "Adjoining wall · doorway and curtain",
+        "z": 0,
+        "center": {
+          "x": 8006,
+          "y": 11406.5
+        },
+        "zoom": 2,
+        "cutaway": false,
+        "wholeBuilding": false,
+        "ghost": false,
+        "grid": false,
+        "referenceId": "1ddada70-86f1-4ed4-a910-3c4ce600e6b1",
+        "viewport": {
+          "width": 1280,
+          "height": 720
+        }
+      }
+    }
+  ]
+}

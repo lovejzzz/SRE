@@ -1,0 +1,98 @@
+- generic "Tian’s House single-player game view"
+- banner:
+  - text: TIAN’S HOUSE
+  - generic: 8001, 11402 · Floor 0
+  - generic: 01:06
+  - generic: Day 17
+  - button "▶"
+  - button "Time speed 1×" [pressed]: ×1
+  - button "Time speed 5×": ×5
+  - button "Time speed 20×": ×20
+  - button "Time speed 120×": ×120
+- navigation "Game menu":
+  - button "Inventory Inventory":
+    - generic "Inventory"
+    - generic: Inventory
+  - button "Health Health":
+    - generic "Health"
+    - generic: Health
+  - button "Craft Craft":
+    - generic "Craft"
+    - generic: Craft
+  - button "▧ Map":
+    - text: ▧
+    - generic: Map
+  - button "☷ Journal":
+    - text: ☷
+    - generic: Journal
+  - button "⌂ Workshop":
+    - text: ⌂
+    - generic: Workshop
+  - button "▣ Save":
+    - text: ▣
+    - generic: Save
+- complementary
+- status: Progress saved locally
+- contentinfo "Game assistance":
+  - button "Main menu": Menu
+  - button "Nearby interactions":
+    - text: Nearby
+    - generic: Q
+  - button "Controls":
+    - text: Controls
+    - generic: "?"
+- dialog "Your home":
+  - banner:
+    - heading "Hearth Studio" [level=2]
+    - generic "House options"
+  - paragraph: Resident · Day 17 · 1:38 · Health 74 · Hunger 27.4 · Thirst 0.5 · Endurance 100
+  - button "Pause"
+  - button "Nearby interaction": E · Search · Fridge
+  - text: Time
+  - combobox "Time speed":
+    - option "1×" [selected]
+    - option "5×"
+    - option "20×"
+    - option "120×"
+  - button "Inventory"
+  - paragraph: Resident progress saved on this device
+  - generic "Rotatable wall structure"
+  - paragraph: WASD / arrows move in screen direction · Drag to orbit · Scroll to zoom
+  - dialog "Inventory":
+    - heading "Inventory" [level=2]
+    - paragraph: Resident · Actions resume when you return to the house
+    - combobox "Nearby storage" [active]:
+      - option "No storage selected" [selected]
+      - option "Fridge"
+      - option "Breakfast bar"
+    - region "Storage contents":
+      - paragraph: Move near a cupboard, shelf or fridge to search it.
+    - region "Carried items":
+      - heading "Carried items" [level=3]
+      - generic "Water Bottle"
+      - generic: Water Bottle · 500 / 1000 mL
+      - button "Drink Water Bottle"
+      - generic "Water Bottle"
+      - generic: Water Bottle · 0 / 1000 mL
+      - generic "Can Opener"
+      - generic: Can Opener
+      - generic "Tin Can"
+      - generic: Tin Can × 12 · 0 / 300 mL each
+      - generic "Water Bottle"
+      - generic: Water Bottle · 0 / 1000 mL
+      - generic "Bandage (Dirty)"
+      - generic: Bandage (Dirty) × 6
+      - generic "Alcohol Wipes"
+      - generic: Alcohol Wipes · 4 uses remaining
+    - group "Character health":
+      - generic "Health & care"
+    - region "Nearby media":
+      - heading "Music & television" [level=3]
+      - button "Play piano"
+    - region "Nearby facilities":
+      - heading "Nearby facilities" [level=3]
+      - generic: Piano bench
+      - button "Rest · 2 hours"
+      - button "Sit and watch TV"
+    - status
+    - button "Return to house"

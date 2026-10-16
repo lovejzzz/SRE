@@ -1,0 +1,19 @@
+{
+  "origin": "http://127.0.0.1:8883",
+  "saved_version_id": "version:verify178-save-baseline",
+  "branch_scene_id": "branch:ff2b2bbdf55a41d483aabe7183a54317abf3abb45abe7cf8c32c8321b2c54c2b",
+  "public_commands": [
+    "versions.save",
+    "versions.branch",
+    "versions.restore"
+  ],
+  "save_retry_same_id_and_timestamp": true,
+  "manual_edit_rejected_stale_restore": true,
+  "refresh_then_retry_preserves_undone_scene_full_export_equality": true,
+  "cleanup_full_export_equality": true,
+  "references_retained": 4,
+  "original_restore_revision": 279,
+  "replay_preview_current_revision": 280,
+  "final_current_revision": 281,
+  "console_errors": []
+}

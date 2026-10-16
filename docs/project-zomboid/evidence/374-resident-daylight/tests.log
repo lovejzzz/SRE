@@ -1,0 +1,11 @@
+✔ game-clock cycle wraps days and transitions continuously across dawn and dusk (0.69675ms)
+✔ lighting fits far-world geometry, uses Z-up and changes actual light energy (1.238292ms)
+✔ clock changes source direction and intensity without losing the fitted far-world target (0.3025ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 54.206

@@ -1,0 +1,26 @@
+[
+  {
+    "file": "section-3.jpg",
+    "url": "https://images.adsttc.com/media/images/6037/bc07/f91c/8122/3000/0463/medium_jpg/Piano_Piano_La_casa_del_canto-3-seccion.jpg?1614265342",
+    "sha256": "783ef2c39c0a68ed419014a0e2402cf0e5230e009300f5bd5140ca7fe8715ede",
+    "bytes": 20928
+  },
+  {
+    "file": "section-4.jpg",
+    "url": "https://images.adsttc.com/media/images/6037/bc12/f91c/8122/3000/0464/medium_jpg/Piano_Piano_La_casa_del_canto-4-seccion.jpg?1614265352",
+    "sha256": "9037a7a60ed48e95c56501ecad0942a9ed6ef04cdfa2ac17d7c26a98198cebb4",
+    "bytes": 21345
+  },
+  {
+    "file": "section-6.jpg",
+    "url": "https://images.adsttc.com/media/images/6037/bc63/f91c/8122/3000/0465/medium_jpg/Piano_Piano_La_casa_del_canto-6-seccion.jpg?1614265433",
+    "sha256": "9e6a94619159724fc85529b55d2867132c5b60b965af67a58044e7bc9f71e4a7",
+    "bytes": 12232
+  },
+  {
+    "file": "section-5.jpg",
+    "url": "https://images.adsttc.com/media/images/6037/bc67/f91c/812d/a000/0480/medium_jpg/Piano_Piano_La_casa_del_canto-5-seccion.jpg?1614265435",
+    "sha256": "34fcaab5ee3f678e779e43d006e684d4b16f869b91a0587564a11547439bb48a",
+    "bytes": 11887
+  }
+]

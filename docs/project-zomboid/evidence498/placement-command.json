@@ -1,0 +1,69 @@
+{
+  "requestId": "studio-ergonomics-498",
+  "baseRevision": 592,
+  "operations": [
+    {
+      "type": "objects.nudge",
+      "ids": [
+        "7d5321ee-35d7-4267-9214-4f01034b3117"
+      ],
+      "dx": 0.12,
+      "dy": 0
+    },
+    {
+      "type": "objects.nudge",
+      "ids": [
+        "3eac7b0a-1883-41f6-a614-82681d413cf0"
+      ],
+      "dx": 0,
+      "dy": -0.12
+    },
+    {
+      "type": "objects.nudge",
+      "ids": [
+        "7cf9e499-e757-433e-98b8-2261f1b78595"
+      ],
+      "dx": -0.1539,
+      "dy": 0,
+      "relativeToHost": true
+    },
+    {
+      "type": "objects.nudge",
+      "ids": [
+        "98edb229-0253-4976-828d-0755607d8f0a"
+      ],
+      "dx": 0.5,
+      "dy": 0
+    },
+    {
+      "type": "objects.nudge",
+      "ids": [
+        "933dfb42-bdc9-4f23-af14-10438a22d92f"
+      ],
+      "dx": -0.3,
+      "dy": 0.27,
+      "relativeToHost": true
+    },
+    {
+      "type": "objects.nudge",
+      "ids": [
+        "ffb3b8a6-ee75-4fd7-b0c3-b16f84acf62f"
+      ],
+      "dx": 0.265,
+      "dy": 0
+    },
+    {
+      "type": "objects.remove",
+      "ids": [
+        "44031355-092b-49cd-9246-1f9f793818c9"
+      ]
+    },
+    {
+      "type": "place",
+      "assetId": "tile:tian_studio_office_chair_E_0",
+      "x": 7995,
+      "y": 11404,
+      "z": 0
+    }
+  ]
+}

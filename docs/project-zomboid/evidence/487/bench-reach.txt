@@ -1,0 +1,202 @@
+- generic "Tian’s House single-player game view"
+- banner:
+  - text: TIAN’S HOUSE
+  - generic: 8001, 11407 · Floor 0
+  - generic: 07:07
+  - generic: Day 16
+  - button "▶"
+  - button "Time speed 1×" [pressed]: ×1
+  - button "Time speed 5×": ×5
+  - button "Time speed 20×": ×20
+  - button "Time speed 120×": ×120
+- navigation "Game menu":
+  - button "Inventory Inventory":
+    - generic "Inventory"
+    - generic: Inventory
+  - button "Health Health":
+    - generic "Health"
+    - generic: Health
+  - button "Craft Craft":
+    - generic "Craft"
+    - generic: Craft
+  - button "▧ Map":
+    - text: ▧
+    - generic: Map
+  - button "☷ Journal":
+    - text: ☷
+    - generic: Journal
+  - button "⌂ Workshop":
+    - text: ⌂
+    - generic: Workshop
+  - button "▣ Save":
+    - text: ▣
+    - generic: Save
+- complementary
+- status: Progress saved locally
+- contentinfo "Game assistance":
+  - button "Main menu": Menu
+  - button "Nearby interactions":
+    - text: Nearby
+    - generic: Q
+  - button "Controls":
+    - text: Controls
+    - generic: "?"
+- dialog "Your home":
+  - banner:
+    - heading "Hearth Studio" [level=2]
+    - generic "House options"
+  - paragraph: Resident · Day 16 · 7:48 · Health 61 · Hunger 11.9 · Thirst 17.4 · Endurance 100 · Danger nearby — rest unavailable
+  - button "Pause"
+  - button "Nearby interaction": E · Rest · L-shaped sofa
+  - text: Time
+  - combobox "Time speed":
+    - option "1×" [selected]
+    - option "5×"
+    - option "20×"
+    - option "120×"
+  - button "Inventory"
+  - paragraph: Resident progress saved on this device
+  - generic "Rotatable wall structure"
+  - paragraph: WASD / arrows move in screen direction · Drag to orbit · Scroll to zoom
+  - dialog "Inventory":
+    - heading "Inventory" [level=2]
+    - paragraph: Resident · Actions resume when you return to the house
+    - combobox "Nearby storage":
+      - option "No storage selected" [selected]
+      - option "Wardrobe"
+    - region "Storage contents":
+      - paragraph: Move near a cupboard, shelf or fridge to search it.
+    - region "Carried items":
+      - heading "Carried items" [level=3]
+      - generic "Water Bottle"
+      - generic: Water Bottle · 1000 / 1000 mL
+      - button "Drink Water Bottle"
+      - generic "Water Bottle"
+      - generic: Water Bottle · 0 / 1000 mL
+      - generic "Can Opener"
+      - generic: Can Opener
+      - generic "Tin Can"
+      - generic: Tin Can × 12 · 0 / 300 mL each
+      - generic "Water Bottle"
+      - generic: Water Bottle · 0 / 1000 mL
+      - generic "Bandage (Dirty)"
+      - generic: Bandage (Dirty) × 6
+      - generic "Alcohol Wipes"
+      - generic: Alcohol Wipes · 4 uses remaining
+    - group "Character health":
+      - generic "Health & care"
+    - region "Nearby media":
+      - heading "Music & television" [level=3]
+      - button "Play piano"
+    - region "Nearby facilities":
+      - heading "Nearby facilities" [level=3]
+      - generic: L-shaped sofa
+      - button "Rest · 2 hours"
+      - button "Sit and watch TV"
+      - generic: L-shaped sofa
+      - button "Rest · 2 hours"
+      - button "Sit and watch TV"
+      - generic: Piano bench
+      - button "Rest · 2 hours"
+      - button "Sit and watch TV"
+    - status
+    - button "Return to house"
+    - dialog "Piano":
+      - heading "Upright piano" [level=2]
+      - button "Sit at piano" [active]
+      - paragraph: 88 keys · A0–C8. Scroll horizontally to reach every key.
+      - text: Tempo · BPM
+      - spinbutton "Practice tempo": "60"
+      - button "Play Hanon No. 1 · ascending study"
+      - button "Stop"
+      - generic "88-key piano A0 to C8":
+        - button "A0"
+        - button "A♯0"
+        - button "B0"
+        - button "C1"
+        - button "C♯1"
+        - button "D1"
+        - button "D♯1"
+        - button "E1"
+        - button "F1"
+        - button "F♯1"
+        - button "G1"
+        - button "G♯1"
+        - button "A1"
+        - button "A♯1"
+        - button "B1"
+        - button "C2"
+        - button "C♯2"
+        - button "D2"
+        - button "D♯2"
+        - button "E2"
+        - button "F2"
+        - button "F♯2"
+        - button "G2"
+        - button "G♯2"
+        - button "A2"
+        - button "A♯2"
+        - button "B2"
+        - button "C3"
+        - button "C♯3"
+        - button "D3"
+        - button "D♯3"
+        - button "E3"
+        - button "F3"
+        - button "F♯3"
+        - button "G3"
+        - button "G♯3"
+        - button "A3"
+        - button "A♯3"
+        - button "B3"
+        - button "C4"
+        - button "C♯4"
+        - button "D4"
+        - button "D♯4"
+        - button "E4"
+        - button "F4"
+        - button "F♯4"
+        - button "G4"
+        - button "G♯4"
+        - button "A4"
+        - button "A♯4"
+        - button "B4"
+        - button "C5"
+        - button "C♯5"
+        - button "D5"
+        - button "D♯5"
+        - button "E5"
+        - button "F5"
+        - button "F♯5"
+        - button "G5"
+        - button "G♯5"
+        - button "A5"
+        - button "A♯5"
+        - button "B5"
+        - button "C6"
+        - button "C♯6"
+        - button "D6"
+        - button "D♯6"
+        - button "E6"
+        - button "F6"
+        - button "F♯6"
+        - button "G6"
+        - button "G♯6"
+        - button "A6"
+        - button "A♯6"
+        - button "B6"
+        - button "C7"
+        - button "C♯7"
+        - button "D7"
+        - button "D♯7"
+        - button "E7"
+        - button "F7"
+        - button "F♯7"
+        - button "G7"
+        - button "G♯7"
+        - button "A7"
+        - button "A♯7"
+        - button "B7"
+        - button "C8"
+      - status: Approach a piano bench placed in front of the keyboard
+      - button "Return to house"

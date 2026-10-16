@@ -1,0 +1,315 @@
+{
+  "refreshExactEquality": [
+    18,
+    19
+  ],
+  "cleanupExactEquality": [
+    17,
+    22
+  ],
+  "closedRoom": {
+    "id": "ff805ea4-b639-4464-9b1c-9746f2ea7daa",
+    "name": "Room",
+    "levelId": "level:0",
+    "rect": [
+      7998,
+      11403,
+      8004,
+      11408
+    ],
+    "cells": [
+      [
+        7998,
+        11403
+      ],
+      [
+        7998,
+        11404
+      ],
+      [
+        7998,
+        11405
+      ],
+      [
+        7998,
+        11406
+      ],
+      [
+        7998,
+        11407
+      ],
+      [
+        7999,
+        11403
+      ],
+      [
+        7999,
+        11404
+      ],
+      [
+        7999,
+        11405
+      ],
+      [
+        7999,
+        11406
+      ],
+      [
+        7999,
+        11407
+      ],
+      [
+        8000,
+        11403
+      ],
+      [
+        8000,
+        11404
+      ],
+      [
+        8000,
+        11405
+      ],
+      [
+        8000,
+        11406
+      ],
+      [
+        8000,
+        11407
+      ],
+      [
+        8001,
+        11403
+      ],
+      [
+        8001,
+        11404
+      ],
+      [
+        8002,
+        11403
+      ],
+      [
+        8002,
+        11404
+      ],
+      [
+        8003,
+        11403
+      ],
+      [
+        8003,
+        11404
+      ]
+    ],
+    "floorTile": "floors_interior_tilesandwood_01_40",
+    "wallIds": [
+      "enclosure-171:0",
+      "enclosure-171:17",
+      "enclosure-171:18",
+      "enclosure-171:19",
+      "enclosure-171:20",
+      "enclosure-171:14",
+      "enclosure-171:21",
+      "enclosure-171:1",
+      "enclosure-171:15",
+      "enclosure-171:2",
+      "enclosure-171:11",
+      "enclosure-171:12",
+      "enclosure-171:16",
+      "enclosure-171:13",
+      "enclosure-171:3",
+      "enclosure-171:8",
+      "enclosure-171:4",
+      "enclosure-171:9",
+      "enclosure-171:5",
+      "enclosure-171:6",
+      "enclosure-171:10",
+      "enclosure-171:7"
+    ]
+  },
+  "splitRooms": [
+    {
+      "id": "ff805ea4-b639-4464-9b1c-9746f2ea7daa",
+      "name": "Room",
+      "levelId": "level:0",
+      "rect": [
+        7998,
+        11403,
+        8004,
+        11405
+      ],
+      "floorTile": "floors_interior_tilesandwood_01_40",
+      "wallIds": [
+        "enclosure-171:0",
+        "enclosure-171:17",
+        "wall:level:0:N:7998:11405",
+        "enclosure-171:18",
+        "enclosure-171:1",
+        "wall:level:0:N:7999:11405",
+        "enclosure-171:2",
+        "wall:level:0:N:8000:11405",
+        "enclosure-171:3",
+        "enclosure-171:8",
+        "enclosure-171:4",
+        "enclosure-171:9",
+        "enclosure-171:5",
+        "enclosure-171:6",
+        "enclosure-171:10",
+        "enclosure-171:7"
+      ]
+    },
+    {
+      "id": "24771891-cc90-454d-8573-4b7fd17de132",
+      "name": "Room \u00b7 2",
+      "levelId": "level:0",
+      "rect": [
+        7998,
+        11405,
+        8001,
+        11408
+      ],
+      "floorTile": "floors_interior_tilesandwood_01_40",
+      "wallIds": [
+        "wall:level:0:N:7998:11405",
+        "enclosure-171:19",
+        "enclosure-171:20",
+        "enclosure-171:14",
+        "enclosure-171:21",
+        "wall:level:0:N:7999:11405",
+        "enclosure-171:15",
+        "wall:level:0:N:8000:11405",
+        "enclosure-171:11",
+        "enclosure-171:12",
+        "enclosure-171:16",
+        "enclosure-171:13"
+      ]
+    }
+  ],
+  "mergedRoom": {
+    "id": "ff805ea4-b639-4464-9b1c-9746f2ea7daa",
+    "name": "Room",
+    "levelId": "level:0",
+    "rect": [
+      7998,
+      11403,
+      8004,
+      11408
+    ],
+    "cells": [
+      [
+        7998,
+        11403
+      ],
+      [
+        7998,
+        11404
+      ],
+      [
+        7999,
+        11403
+      ],
+      [
+        7999,
+        11404
+      ],
+      [
+        8000,
+        11403
+      ],
+      [
+        8000,
+        11404
+      ],
+      [
+        8001,
+        11403
+      ],
+      [
+        8001,
+        11404
+      ],
+      [
+        8002,
+        11403
+      ],
+      [
+        8002,
+        11404
+      ],
+      [
+        8003,
+        11403
+      ],
+      [
+        8003,
+        11404
+      ],
+      [
+        7998,
+        11405
+      ],
+      [
+        7998,
+        11406
+      ],
+      [
+        7998,
+        11407
+      ],
+      [
+        7999,
+        11405
+      ],
+      [
+        7999,
+        11406
+      ],
+      [
+        7999,
+        11407
+      ],
+      [
+        8000,
+        11405
+      ],
+      [
+        8000,
+        11406
+      ],
+      [
+        8000,
+        11407
+      ]
+    ],
+    "floorTile": "floors_interior_tilesandwood_01_40",
+    "wallIds": [
+      "enclosure-171:0",
+      "enclosure-171:17",
+      "enclosure-171:18",
+      "enclosure-171:1",
+      "enclosure-171:2",
+      "enclosure-171:3",
+      "enclosure-171:8",
+      "enclosure-171:4",
+      "enclosure-171:9",
+      "enclosure-171:5",
+      "enclosure-171:6",
+      "enclosure-171:10",
+      "enclosure-171:7",
+      "enclosure-171:19",
+      "enclosure-171:20",
+      "enclosure-171:14",
+      "enclosure-171:21",
+      "enclosure-171:15",
+      "enclosure-171:11",
+      "enclosure-171:12",
+      "enclosure-171:16",
+      "enclosure-171:13"
+    ],
+    "floorOpenings": []
+  },
+  "referenceCountAfterCleanup": 4,
+  "browserErrors": []
+}

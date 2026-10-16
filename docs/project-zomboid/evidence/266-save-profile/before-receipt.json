@@ -1,0 +1,18 @@
+{
+  "alreadyApplied": false,
+  "currentRevision": 454,
+  "ok": true,
+  "changed": false,
+  "revision": 454,
+  "version": {
+    "id": "version:momento-profile-save-266",
+    "label": "Momento · Save profiling checkpoint",
+    "savedAt": "2026-10-14T00:48:16.972Z",
+    "digest": "6e3b0c5fade8eb322337c8f838da01357e3d391ba8f9113f775e3549abf19302",
+    "sceneId": "2b1353d7-e74f-48a1-b6f1-1e3634bb6bfe",
+    "houseName": "Momento Brewers · Photo study",
+    "kind": "named",
+    "sourceVersionId": null
+  },
+  "sceneId": "2b1353d7-e74f-48a1-b6f1-1e3634bb6bfe"
+}

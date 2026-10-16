@@ -1,0 +1,60 @@
+{
+  "browser": "155.0.8059.40",
+  "results": [
+    {
+      "source": "original-cafe.png",
+      "runtime": "original-cafe.webp",
+      "equal": true,
+      "size": [
+        768,
+        4480
+      ],
+      "sourceSha256": "b40d7261ec3458bc368f712ba99cbd87fa760fd8b7d96166637047c2fb799b0d",
+      "runtimeSha256": "f036686f238f54b600a2e222b019c3e20548c9e5cc46d94d7b3e599619d6e68b"
+    },
+    {
+      "source": "original-masonry.png",
+      "runtime": "original-masonry.webp",
+      "equal": true,
+      "size": [
+        768,
+        1120
+      ],
+      "sourceSha256": "0128894934e9e0ed14e522ee3f4b2c7771e60fbed961d047a1e259af4bc432b4",
+      "runtimeSha256": "ebd97e65b4fc99f339fed5d273f2f5114f00c8f6f61073ba840080039683ef25"
+    },
+    {
+      "source": "original-architecture.png",
+      "runtime": "original-architecture.png",
+      "equal": true,
+      "size": [
+        3648,
+        160
+      ],
+      "sourceSha256": "66dc6d2d12d9673065db53f318ae12007e87a95c54dc418d44c4a2d3135e4019",
+      "runtimeSha256": "66dc6d2d12d9673065db53f318ae12007e87a95c54dc418d44c4a2d3135e4019"
+    },
+    {
+      "source": "original-house-details.png",
+      "runtime": "original-house-details.png",
+      "equal": true,
+      "size": [
+        768,
+        960
+      ],
+      "sourceSha256": "352e78ef2ea8bd76ed76382fd4802d4a5763ccd4d02d7ea20a151fe9682d2e18",
+      "runtimeSha256": "352e78ef2ea8bd76ed76382fd4802d4a5763ccd4d02d7ea20a151fe9682d2e18"
+    },
+    {
+      "source": "original-interiors.png",
+      "runtime": "original-interiors.webp",
+      "equal": true,
+      "size": [
+        1792,
+        32
+      ],
+      "sourceSha256": "63fd79e8fe9dc41216c5786f90a7b0ad622156966e7c315e4c7fa7e22124c92b",
+      "runtimeSha256": "82c93a18af74c2493a546ea846e241ddfb7868c27872b9081b733280b77b6943"
+    }
+  ]
+}

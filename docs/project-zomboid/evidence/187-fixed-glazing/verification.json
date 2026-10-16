@@ -1,0 +1,63 @@
+{
+  "milestone": 187,
+  "fullSuitePassed": 506,
+  "url": "http://127.0.0.1:8883/",
+  "fixtureExport": "/Users/tianxing/Downloads/momento-brewers-photo-study (62).json",
+  "reloadExact": true,
+  "importDifferences": [],
+  "baselineExact": true,
+  "openings": [
+    {
+      "id": "ee4ebcc1-7661-4577-8ece-b09846fa012f",
+      "hostWallId": "wall:level:0:D-:8003:11409",
+      "kind": "window",
+      "tile": "tian_glazing_W_2_0",
+      "assemblyId": "21cfb942-09dc-4f47-8c79-d9d942af6b97"
+    },
+    {
+      "id": "e6e630fe-92a3-436c-ab69-090c7a20258b",
+      "hostWallId": "wall:level:0:D-:8004:11408",
+      "kind": "window",
+      "tile": "tian_glazing_W_2_1",
+      "assemblyId": "21cfb942-09dc-4f47-8c79-d9d942af6b97"
+    },
+    {
+      "id": "0dfb00a4-4034-495e-95e3-3127cf7199dc",
+      "hostWallId": "wall:level:0:W:8006:11404",
+      "kind": "window",
+      "tile": "tian_glazing_W_2_0",
+      "assemblyId": "243dc717-d741-4a45-9622-41121c7fb6ef"
+    },
+    {
+      "id": "9ee758ce-d49e-4eba-ae8c-e8535ea3ed3b",
+      "hostWallId": "wall:level:0:W:8006:11405",
+      "kind": "window",
+      "tile": "tian_glazing_W_2_1",
+      "assemblyId": "243dc717-d741-4a45-9622-41121c7fb6ef"
+    }
+  ],
+  "browser": {
+    "automaticNToW": true,
+    "shortRunRejected": true,
+    "eraseSecondPanelRemovesAssembly": true,
+    "undoRestores": true,
+    "walkBlockedHUD": [
+      8004,
+      11408,
+      0
+    ],
+    "nearbyActions": [],
+    "gameSavedTime": "20:49 Day1",
+    "consoleErrors": []
+  },
+  "deployed": false,
+  "photoCasesCompleted": 0,
+  "baselineExport": "/Users/tianxing/Downloads/momento-brewers-photo-study (68).json",
+  "historyCorrection": "Identical import was a no-op. One excess undo reverted reference metadata; Redo restored exact baseline, checked against export61.",
+  "restoredFromEmptyExport": "/Users/tianxing/Downloads/momento-brewers-photo-study (67).json",
+  "restoredFromEmptyEqualExceptRevision": true,
+  "restoredRevision": [
+    22,
+    23
+  ]
+}

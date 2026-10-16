@@ -1,0 +1,11 @@
+✔ public roof volume transactions preserve independent geometry through room split, save, undo and redo (26.126834ms)
+✔ profile edits and removal recompile and roll back atomically; locks protect independent volumes (8.981667ms)
+✔ invalid roof volume identities, bounds, unit and material reject without modifying the scene (3.340125ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 106.729208
