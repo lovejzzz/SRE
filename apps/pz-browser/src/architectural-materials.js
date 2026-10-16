@@ -2,7 +2,7 @@ import {validateWallFinishProfile} from './scene-wall-trims.js';
 // Reviewed source IDs; no scene-specific coordinates or silent name-based guessing.
 export function architecturalMaterialBundle(recipe){
  if(!Array.isArray(recipe.surfaces)||!recipe.surfaces.length)throw Error('Surface material mappings required');
- const ids=new Set();for(const entry of recipe.surfaces){if(entry.trim)validateWallFinishProfile(entry.trim);if(!entry.tiles?.length||!entry.material?.texture||!['planks','grass','paving','plaster','roof','source-floor'].includes(entry.material.texture.kind)||entry.material.texture.repeatMetres?.length!==2||!entry.material.texture.repeatMetres.every(v=>Number.isFinite(v)&&v>0))throw Error('Invalid surface material');for(const tile of entry.tiles){if(ids.has(tile))throw Error('Duplicate surface material');ids.add(tile);}}
+ const ids=new Set();for(const entry of recipe.surfaces){if(entry.trim)validateWallFinishProfile(entry.trim);if(!entry.tiles?.length||!entry.material?.texture||!['planks','grass','paving','plaster','roof','source-floor','oak-floor','lawn','wall-paint'].includes(entry.material.texture.kind)||entry.material.texture.repeatMetres?.length!==2||!entry.material.texture.repeatMetres.every(v=>Number.isFinite(v)&&v>0))throw Error('Invalid surface material');for(const tile of entry.tiles){if(ids.has(tile))throw Error('Duplicate surface material');ids.add(tile);}}
  return {parts:[]};
 }
 // Fixed world axes retain pattern phase across separate rooms/cells and polygon seams.

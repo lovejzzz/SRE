@@ -63,6 +63,13 @@
     "z": 0
   },
   {
+    "type": "Base.Garbagebag_box",
+    "count": 1,
+    "x": 8003,
+    "y": 11402,
+    "z": 0
+  },
+  {
     "type": "Base.WaterBottle",
     "count": 4,
     "x": 8003,
@@ -102,6 +109,181 @@
     "count": 2,
     "x": 8003,
     "y": 11401,
+    "z": 0
+  },
+  {
+    "type": "Base.Soap2",
+    "count": 1,
+    "x": 8003,
+    "y": 11407,
+    "z": 0
+  },
+  {
+    "type": "Base.Toothbrush",
+    "count": 1,
+    "x": 8003,
+    "y": 11407,
+    "z": 0
+  },
+  {
+    "type": "Base.Toothpaste",
+    "count": 1,
+    "x": 8003,
+    "y": 11407,
+    "z": 0
+  },
+  {
+    "type": "Base.ToiletPaper",
+    "count": 3,
+    "x": 8003,
+    "y": 11407,
+    "z": 0
+  },
+  {
+    "type": "Base.BathTowel",
+    "count": 2,
+    "x": 8003,
+    "y": 11407,
+    "z": 0
+  },
+  {
+    "type": "Base.Soap2",
+    "count": 1,
+    "x": 8003,
+    "y": 11402,
+    "z": 0
+  },
+  {
+    "type": "Base.DishCloth",
+    "count": 1,
+    "x": 8003,
+    "y": 11402,
+    "z": 0
+  },
+  {
+    "type": "Base.Bread",
+    "count": 2,
+    "x": 8003,
+    "y": 11402,
+    "z": 0
+  },
+  {
+    "type": "Base.PeanutButter",
+    "count": 1,
+    "x": 8003,
+    "y": 11402,
+    "z": 0
+  },
+  {
+    "type": "Base.JamFruit",
+    "count": 1,
+    "x": 8003,
+    "y": 11402,
+    "z": 0
+  },
+  {
+    "type": "Base.Cereal",
+    "count": 2,
+    "x": 8003,
+    "y": 11402,
+    "z": 0
+  },
+  {
+    "type": "Base.Crackers",
+    "count": 2,
+    "x": 8003,
+    "y": 11402,
+    "z": 0
+  },
+  {
+    "type": "Base.TinnedSoup",
+    "count": 4,
+    "x": 8003,
+    "y": 11402,
+    "z": 0
+  },
+  {
+    "type": "Base.Potato",
+    "count": 6,
+    "x": 8003,
+    "y": 11402,
+    "z": 0
+  },
+  {
+    "type": "Base.Milk",
+    "count": 2,
+    "x": 8003,
+    "y": 11401,
+    "z": 0
+  },
+  {
+    "type": "Base.Butter",
+    "count": 1,
+    "x": 8003,
+    "y": 11401,
+    "z": 0
+  },
+  {
+    "type": "Base.Carrots",
+    "count": 4,
+    "x": 8003,
+    "y": 11401,
+    "z": 0
+  },
+  {
+    "type": "Base.Bowl",
+    "count": 2,
+    "x": 8001,
+    "y": 11403,
+    "z": 0
+  },
+  {
+    "type": "Base.Plate",
+    "count": 2,
+    "x": 8001,
+    "y": 11403,
+    "z": 0
+  },
+  {
+    "type": "Base.MugWhite",
+    "count": 2,
+    "x": 8001,
+    "y": 11403,
+    "z": 0
+  },
+  {
+    "type": "Base.Trousers",
+    "count": 2,
+    "x": 7994,
+    "y": 11401,
+    "z": 0
+  },
+  {
+    "type": "Base.Underpants_White",
+    "count": 4,
+    "x": 7994,
+    "y": 11401,
+    "z": 0
+  },
+  {
+    "type": "Base.Socks_Ankle",
+    "count": 4,
+    "x": 7994,
+    "y": 11401,
+    "z": 0
+  },
+  {
+    "type": "Base.Book",
+    "count": 2,
+    "x": 7997,
+    "y": 11406,
+    "z": 0
+  },
+  {
+    "type": "Base.MagazineCrossword",
+    "count": 2,
+    "x": 7997,
+    "y": 11406,
     "z": 0
   }
 ]

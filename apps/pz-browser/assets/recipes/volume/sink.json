@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "tian-volume-sink",
-  "version": 3,
+  "version": 4,
   "generator": "src/wet-furniture-volume.js",
   "sourceKind": "procedural",
   "status": "prototype",
@@ -15,14 +15,15 @@
       "color": 6378054,
       "roughness": 0.7,
       "texture": {
-        "kind": "wood",
-        "size": 128,
-        "seed": 17,
+        "kind": "walnut",
+        "size": 512,
+        "seed": 31,
         "repeatMetres": [
-          1.2,
-          0.35
+          0.6,
+          0.3
         ]
-      }
+      },
+      "bumpScale": 0.25
     },
     "enamel": {
       "color": 13553087,
@@ -41,16 +42,27 @@
     },
     "ceramic": {
       "color": 14737361,
-      "roughness": 0.24
+      "roughness": 0.24,
+      "texture": {
+        "kind": "ceramic",
+        "size": 512,
+        "seed": 61,
+        "repeatMetres": [
+          0.25,
+          0.25
+        ]
+      },
+      "bumpScale": 0.1
     },
     "stone": {
       "color": 5659993,
       "roughness": 0.66,
-      "bumpScale": 0.00015,
+      "bumpScale": 0.15,
       "texture": {
-        "kind": "honed-stone",
-        "size": 256,
+        "kind": "quartz",
+        "size": 1024,
         "seed": 83,
+        "veins": 2,
         "repeatMetres": [
           0.4,
           0.4
@@ -74,7 +86,17 @@
     },
     "dark": {
       "color": 2238500,
-      "roughness": 0.8
+      "roughness": 0.8,
+      "texture": {
+        "kind": "paint",
+        "size": 512,
+        "seed": 67,
+        "repeatMetres": [
+          0.6,
+          0.6
+        ]
+      },
+      "bumpScale": 0.15
     }
   },
   "migration": {
@@ -145,6 +167,8 @@
   },
   "sourceFiles": [
     "src/material-relief.js",
-    "src/volume-material-texture.js"
+    "src/volume-material-texture.js",
+    "src/detail-geometry.js",
+    "src/bathroom-detail-volume.js"
   ]
 }

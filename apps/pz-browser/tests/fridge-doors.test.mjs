@@ -7,7 +7,7 @@ import {readVolume} from './helpers/volume-delivery.mjs';
 import {sceneFurnitureVolumes} from '../src/scene-furniture-volumes.js';
 test('fridge hinge follows all four source directions independently of shell',()=>{
  const a=readVolume('fridge');assert.ok(a.geometry.parts.some(p=>p.id==='shelf:0'));assert.ok(!a.geometry.parts.some(p=>p.id==='cabinet'));
- for(const parts of Object.values(a.recipe.sourceLayout)){const s={levels:[{id:'g',index:0}],objects:[{id:'fridge',levelId:'g',x:10,y:20,parts}]},v=sceneFurnitureVolumes(s,{squares:[]},{},a,{cellSize:1,storeyHeight:3});assert.equal(v.filter(p=>p.fridgeHinge).length,6);assert.ok(v.filter(p=>p.fridgeHinge).every(p=>p.fridgeHinge.every(Number.isFinite)));}
+ for(const parts of Object.values(a.recipe.sourceLayout)){const s={levels:[{id:'g',index:0}],objects:[{id:'fridge',levelId:'g',x:10,y:20,parts}]},v=sceneFurnitureVolumes(s,{squares:[]},{},a,{cellSize:1,storeyHeight:3});const swinging=a.geometry.parts.filter(p=>/^(lower|freezer)-(seal|door|handle)(:.+)?$/.test(p.id));assert.equal(v.filter(p=>p.fridgeHinge).length,swinging.length);for(const door of ['lower','freezer'])for(const kind of ['door','seal','handle'])assert.ok(swinging.some(p=>p.id===`${door}-${kind}`||p.id.startsWith(`${door}-${kind}:`)),door+' '+kind+' swings with its door');assert.ok(swinging.some(p=>p.id.startsWith('lower-door:bin:')),'door bins swing with the door');assert.ok(v.filter(p=>p.fridgeHinge).every(p=>p.fridgeHinge.every(Number.isFinite)));}
 });
 test('inspection door closes exactly and cannot batch into the static shell',()=>{
  let cb;const oldR=globalThis.requestAnimationFrame,oldC=globalThis.cancelAnimationFrame;

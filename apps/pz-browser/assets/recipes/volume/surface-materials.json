@@ -23,31 +23,18 @@
       ],
       "material": {
         "color": 16777215,
-        "roughness": 0.82,
+        "roughness": 0.55,
         "texture": {
-          "kind": "source-floor",
-          "sourceTile": "floors_interior_tilesandwood_01_40",
-          "size": 128,
+          "kind": "oak-floor",
+          "size": 1024,
+          "boards": 10,
+          "seed": 7,
           "repeatMetres": [
-            1,
-            1
-          ],
-          "plane": {
-            "originX": 64,
-            "originY": 192,
-            "halfWidth": 64,
-            "halfHeight": 32
-          },
-          "finish": {
-            "size": 256,
-            "metres": [
-              1,
-              1
-            ],
-            "relief": 0.00012,
-            "seed": 73
-          }
-        }
+            1.4,
+            1.4
+          ]
+        },
+        "bumpScale": 0.35
       }
     },
     {
@@ -56,22 +43,17 @@
       ],
       "material": {
         "color": 16777215,
-        "roughness": 0.98,
+        "roughness": 0.95,
         "texture": {
-          "kind": "source-floor",
-          "sourceTile": "blends_natural_01_16",
-          "size": 128,
+          "kind": "lawn",
+          "size": 1024,
+          "seed": 11,
           "repeatMetres": [
-            1,
-            1
-          ],
-          "plane": {
-            "originX": 64,
-            "originY": 192,
-            "halfWidth": 64,
-            "halfHeight": 32
-          }
-        }
+            1.2,
+            1.2
+          ]
+        },
+        "bumpScale": 0.5
       }
     },
     {
@@ -108,15 +90,15 @@
         "color": 14077883,
         "roughness": 0.94,
         "texture": {
-          "kind": "plaster",
-          "size": 256,
+          "kind": "wall-paint",
+          "size": 1024,
           "seed": 37,
           "repeatMetres": [
-            0.8,
-            0.8
+            1.8,
+            1.8
           ]
         },
-        "bumpScale": 0.002
+        "bumpScale": 0.004
       },
       "trim": {
         "height": 0.09,
@@ -179,22 +161,18 @@
       ],
       "material": {
         "color": 16777215,
-        "roughness": 0.82,
+        "roughness": 0.55,
         "texture": {
-          "kind": "source-floor",
-          "sourceTile": "floors_interior_tilesandwood_01_44",
-          "size": 128,
+          "kind": "oak-floor",
+          "size": 1024,
+          "boards": 10,
+          "seed": 5,
           "repeatMetres": [
-            1,
-            1
-          ],
-          "plane": {
-            "originX": 64,
-            "originY": 192,
-            "halfWidth": 64,
-            "halfHeight": 32
-          }
-        }
+            1.4,
+            1.4
+          ]
+        },
+        "bumpScale": 0.35
       }
     }
   ],

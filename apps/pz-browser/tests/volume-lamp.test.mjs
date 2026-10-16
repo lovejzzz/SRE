@@ -3,13 +3,13 @@ import test from 'node:test';import assert from 'node:assert/strict';import {rea
 import {lampVolume} from '../src/lamp-volume.js';import {sceneFurnitureVolumes} from '../src/scene-furniture-volumes.js';import {createVolumeFixtureLights} from '../src/volume-fixture-lights.js';
 const asset=readVolume('lamp');
 test('lamp delivery retains open shade and source dimensions',()=>{
- assert.deepEqual(asset.geometry,JSON.parse(JSON.stringify(lampVolume(asset.recipe))));const shade=asset.geometry.parts.find(p=>p.id==='shade');assert.equal(shade.doubleSided,true);assert.equal(shade.indices.length,asset.recipe.parameters.segments*6);assert.equal(shade.collision.length,0);assert.ok(asset.geometry.light.position[2]<asset.recipe.parameters.shadeBottom);
+ assert.deepEqual(asset.geometry,JSON.parse(JSON.stringify(lampVolume(asset.recipe))));const shade=asset.geometry.parts.find(p=>p.id==='shade');assert.equal(shade.doubleSided,true);assert.ok(shade.vertices.every(v=>Math.hypot(v[0]-.5,v[1]-.5)>=asset.recipe.parameters.shadeTopRadius*.99),'shade is an open shell without cap centres');assert.equal(shade.collision.length,0);assert.ok(asset.geometry.light.position[2]<asset.recipe.parameters.shadeBottom);
  assert.throws(()=>lampVolume({...asset.recipe,parameters:{...asset.recipe.parameters,shadeBottom:2}}),/dimensions/);
 });
 test('mounted light follows host surface, raised ground, floor and object movement without scene mutation',()=>{
  const table=readVolume('table'),assets=[table,asset];
  const scene={levels:[{id:'upper',index:1}],objects:[{id:'desk',x:10,y:20,levelId:'upper',parts:table.recipe.sourceLayout.S},{id:'lamp',hostId:'desk',x:10,y:20,levelId:'upper',parts:[{tile:'tian_detail_lamp',dx:0,dy:0}]}]},original=structuredClone(scene),props={carpentry_01_32:{IsTable:'',Surface:'34'},raised:{solidfloor:'',TianGroundHeight:'8'}},plan={squares:[{x:10,y:20,z:1,tiles:['raised']}]},metrics={cellSize:1,storeyHeight:3};
- const meshes=sceneFurnitureVolumes(scene,plan,props,assets,metrics).filter(m=>m.objectId==='lamp');assert.equal(meshes.length,4);assert.equal(Math.min(...meshes.flatMap(p=>p.vertices.map(v=>v[2]))),3+.25+34/32);assert.equal(meshes[0].light.position[0],10.5);assert.deepEqual(scene,original);
+ const meshes=sceneFurnitureVolumes(scene,plan,props,assets,metrics).filter(m=>m.objectId==='lamp');assert.equal(meshes.length,asset.geometry.parts.length);assert.equal(Math.min(...meshes.flatMap(p=>p.vertices.map(v=>v[2]))),3+.25+34/32);assert.equal(meshes[0].light.position[0],10.5);assert.deepEqual(scene,original);
  scene.objects[1].hostId='missing';assert.equal(sceneFurnitureVolumes(scene,plan,props,assets,metrics).filter(m=>m.objectId==='lamp').length,0);
  scene.objects=original.objects.map(o=>({...o,x:o.x+2}));const moved=sceneFurnitureVolumes(scene,{squares:[]},props,assets,metrics).filter(m=>m.objectId==='lamp');assert.equal(moved[0].light.position[0],12.5);
 });

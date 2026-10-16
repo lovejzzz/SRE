@@ -1,4 +1,6 @@
 import {finishFurnitureEdges} from './furniture-edge-finish.js';
+import {counterDetail,kitchenSinkDetail} from './kitchen-detail-volume.js';
+import {toiletDetail,pedestalBasinDetail,showerDetail} from './bathroom-detail-volume.js';
 import {appendSlabPolygon} from './scene-slab-volumes.js';import {convexSolid} from './convex-solid.js';
 // Editable source objects retain plumbing/storage behavior; this generates their solid form.
 export function wetFurnitureVolume(recipe){
@@ -9,7 +11,12 @@ export function wetFurnitureVolume(recipe){
  const ellipse=(id,mat,cx,cy,rx,ry,z,Z)=>prism(id,mat,Array.from({length:20},(_,i)=>{const a=i*Math.PI/10;return [cx+rx*Math.cos(a),cy+ry*Math.sin(a)];}),z,Z);
  const rim=(id,mat,cx,cy,rx,ry,thickness,z,Z)=>{if(thickness>=Math.min(rx,ry))throw Error('Invalid basin rim');for(let i=0;i<20;i++){const a=i*Math.PI/10,b=(i+1)*Math.PI/10,p=(r,s,t)=>[cx+r*Math.cos(t),cy+s*Math.sin(t)];prism(`${id}:${i}`,mat,[p(rx,ry,a),p(rx,ry,b),p(rx-thickness,ry-thickness,b),p(rx-thickness,ry-thickness,a)],z,Z);}};
  const kind=recipe.semantics.kind;
- if(kind==='counter'){
+ if(kind==='counter')return {parts:counterDetail(recipe)};
+ if(kind==='kitchen-sink')return {parts:kitchenSinkDetail(recipe)};
+ if(kind==='toilet')return {parts:toiletDetail(recipe)};
+ if(kind==='sink')return {parts:pedestalBasinDetail(recipe)};
+ if(kind==='shower')return {parts:showerDetail(recipe)};
+ if(false){
   box('kick','dark',.07,.06,0,w-.14,d-.12,.12);box('carcass','timber',.015,0,.12,w-.03,d-.04,h-.17);
   box('worktop','stone',0,0,h-.05,w,d,.05);
   for(let i=0;i<2;i++){const W=(w-.055)/2;box(`door:${i}`,'enamel',.02+i*(W+.015),d-.04,.15,W,.025,h-.23);box(`pull:${i}`,'steel',.09+i*(W+.015),d-.015,h-.22,W-.14,.025,.018);}

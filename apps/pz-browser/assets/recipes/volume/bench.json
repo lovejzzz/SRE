@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "tian-volume-park-bench",
-  "version": 2,
+  "version": 3,
   "generator": "src/frame-furniture-volume.js",
   "sourceKind": "procedural",
   "status": "prototype",
@@ -17,14 +17,15 @@
       "color": 7358758,
       "roughness": 0.65,
       "texture": {
-        "kind": "wood",
-        "size": 128,
-        "seed": 17,
+        "kind": "walnut",
+        "size": 512,
+        "seed": 31,
         "repeatMetres": [
-          1.2,
-          0.35
+          0.6,
+          0.3
         ]
-      }
+      },
+      "bumpScale": 0.25
     },
     "steel": {
       "color": 3621436,
@@ -102,6 +103,7 @@
   },
   "sourceFiles": [
     "src/material-relief.js",
-    "src/volume-material-texture.js"
+    "src/volume-material-texture.js",
+    "src/detail-geometry.js"
   ]
 }

@@ -49,6 +49,9 @@ export function createRoomBounceStudy({scene,renderer,onStatus,onCompileState=()
  validateBounces(bounceCount);
  const enabled={value:0},count={value:0},coefficients={value:Array.from({length:MAX*9},()=>new THREE.Vector3())},bounds={value:Array.from({length:MAX},()=>new THREE.Vector4())},positions={value:Array.from({length:MAX},()=>new THREE.Vector3())},heights={value:Array.from({length:MAX},()=>new THREE.Vector2())};
  const dynamic={value:Array.from({length:MAX*9},()=>new THREE.Vector3())},dynamicEnabled={value:1};
+ // Local (interior) eye adaptation: scales outgoing radiance of fragments inside a
+ // captured room only. Exposure, not added light; 1 = off. See interior-exposure.js.
+ const interiorGain={value:1};
  const field={count,coefficients,bounds,positions,heights};
  const depth={value:null},visibilityReady={value:0};let visibilityTarget=null,visibilityStale=true,visibilityKey=null;
  let generation=0,closed=false,busy=false,ready=false,capturesStarted=0,capturesCompleted=0;
@@ -59,11 +62,11 @@ export function createRoomBounceStudy({scene,renderer,onStatus,onCompileState=()
 
  return {
   install(mesh){const material=mesh.material;if(material.transparent)return;const projection=createReflectionParallax();reflectionBoxes.set(material,projection);const previous=material.onBeforeCompile,key=material.customProgramCacheKey();material.onBeforeCompile=(shader,renderer)=>{previous.call(material,shader,renderer);
-   Object.assign(shader.uniforms,{tianDynamicSH:dynamic,tianDynamicEnabled:dynamicEnabled,tianProbeDepth:depth,tianProbeVisibilityReady:visibilityReady,tianBounceEnabled:enabled,tianProbeCount:count,tianProbeSH:coefficients,tianProbeBounds:bounds,tianProbeHeights:heights,tianProbePositions:positions});
+   Object.assign(shader.uniforms,{tianInteriorGain:interiorGain,tianDynamicSH:dynamic,tianDynamicEnabled:dynamicEnabled,tianProbeDepth:depth,tianProbeVisibilityReady:visibilityReady,tianBounceEnabled:enabled,tianProbeCount:count,tianProbeSH:coefficients,tianProbeBounds:bounds,tianProbeHeights:heights,tianProbePositions:positions});
    shader.vertexShader='varying vec3 vTianWorld;\n'+shader.vertexShader;
    // transformed includes morph targets and skinning; sample the posed world position.
    shader.vertexShader=shader.vertexShader.replace('#include <project_vertex>','#include <project_vertex>\nvTianWorld = (modelMatrix * vec4(transformed, 1.0)).xyz;');
-   shader.fragmentShader=(depthVisibility?probeVisibilityGLSL:'float tianVisibility(vec3 delta,int index){return 1.0;}\n')+`varying vec3 vTianWorld;\nuniform float tianBounceEnabled;\nuniform int tianProbeCount;\nuniform vec3 tianProbeSH[144];\nuniform vec3 tianDynamicSH[144];\nuniform float tianDynamicEnabled;\nuniform vec4 tianProbeBounds[16];\nuniform vec2 tianProbeHeights[16];\nuniform vec3 tianProbePositions[16];\n`+shader.fragmentShader;
+   shader.fragmentShader=(depthVisibility?probeVisibilityGLSL:'float tianVisibility(vec3 delta,int index){return 1.0;}\n')+`varying vec3 vTianWorld;\nuniform float tianInteriorGain;\nuniform float tianBounceEnabled;\nuniform int tianProbeCount;\nuniform vec3 tianProbeSH[144];\nuniform vec3 tianDynamicSH[144];\nuniform float tianDynamicEnabled;\nuniform vec4 tianProbeBounds[16];\nuniform vec2 tianProbeHeights[16];\nuniform vec3 tianProbePositions[16];\n`+shader.fragmentShader;
    // SH already supplies diffuse bounce. The cubemap contributes specular only.
    const reflectionChunk=THREE.ShaderChunk.lights_fragment_maps.replace('iblIrradiance += getIBLIrradiance( geometryNormal );','');
    shader.fragmentShader=shader.fragmentShader.replace('#include <lights_fragment_maps>',`${reflectionChunk}
@@ -107,12 +110,20 @@ export function createRoomBounceStudy({scene,renderer,onStatus,onCompileState=()
      float tianConfidence=smoothstep(0.0,0.1,tianWeight/max(tianBaseWeight,0.000001));
      irradiance += tianIndirect/max(tianWeight,0.000001)*tianConfidence*tianBounceEnabled;
     }`);
+   shader.fragmentShader=shader.fragmentShader.replace('#include <opaque_fragment>','if(tianInside)outgoingLight*=tianInteriorGain;\n#include <opaque_fragment>');
    projection.install(shader);
-  };material.customProgramCacheKey=()=> key+'|tian-room-bounce-v11-dynamic-diffuse|'+depthVisibility;material.needsUpdate=true;},
+  };material.customProgramCacheKey=()=> key+'|tian-room-bounce-v12-interior-gain|'+depthVisibility;material.needsUpdate=true;},
   invalidate({retain=false}={}){generation++;if(!retain){visibilityStale=true;ready=false;enabled.value=0;reflectionEnabled(false);}onStatus(retain?'Indirect light update pending · previous lighting retained':'Indirect study stale · Rebuild after geometry, door or lighting changes');},
   setReflectionsEnabled(on){reflectionsWanted=!!on;reflectionEnabled(enabled.value>0);},
   setDynamic(coeffs=[]){for(let i=0;i<dynamic.value.length;i++)dynamic.value[i].copy(coeffs[i]||new THREE.Vector3());},
   setEnabled(on){enabled.value=on&&ready?1:0;reflectionEnabled(on&&ready);},
+  publishedVersion(){return capturesCompleted;},
+  // Diagnostic: temporarily bypass depth visibility (1 restores the captured state).
+  debugVisibility(on){visibilityReady.value=on&&depth.value?1:0;return visibilityReady.value;},
+  setInteriorGain(value){interiorGain.value=Number.isFinite(value)&&value>0?value:1;},
+  get interiorGain(){return interiorGain.value;},
+  // Read-only diagnostics: probe positions and DC (ambient) SH term per probe.
+  diagnostics(){return {enabled:enabled.value,count:count.value,probes:Array.from({length:count.value},(_,i)=>({position:positions.value[i].toArray(),dc:coefficients.value[i*9].toArray(),bounds:bounds.value[i].toArray(),heights:heights.value[i].toArray()}))};},
   async capture(regions,meshes){
    if(regions.length>MAX)throw Error('Spatial probe budget exceeded');
    if(busy)throw Error('Probe capture already running');busy=true;capturesStarted++;const hadReady=ready,compileState=pending=>onCompileState(pending&&!hadReady);const token=++generation;const started=performance.now();const timings={compile:0,visibility:0,faces:0,readback:0,reflection:0};let captureProgramsReady=false;
@@ -143,7 +154,9 @@ export function createRoomBounceStudy({scene,renderer,onStatus,onCompileState=()
      try{
       dynamicEnabled.value=0;depth.value=nextVisibility?.texture??null;visibilityReady.value=depthVisibility?1:0;enabled.value=pass===0?0:1;scene.background=skyRadiance;renderer.setClearColor(skyRadiance,1);renderer.toneMapping=THREE.NoToneMapping;
       for(const mesh of meshes){mesh.receiveShadow=mesh.userData.originalReceiveShadow??mesh.receiveShadow;mesh.material.color.set(mesh.userData.baseColor);if(mesh.userData.roofId){mesh.material.colorWrite=true;mesh.material.depthWrite=true;}const cutaway=mesh.userData.wallCutaway||mesh.userData.furnitureCutaway;if(cutaway){mesh.material.opacity=cutaway.opacity;mesh.material.depthWrite=cutaway.depthWrite;}mesh.material.emissiveIntensity=0;mesh.material.envMapIntensity=0;}
-      const drawFace=()=>{const t=performance.now();try{return captureShadows.run(()=>captureCubeFace(renderer,scene,cube,face));}finally{timings.faces+=performance.now()-t;}};
+      // Captured radiance must be physical: interior eye adaptation is a display
+      // transform and would otherwise feed back into the next adaptation step.
+      const drawFace=()=>{const t=performance.now(),gain=interiorGain.value;interiorGain.value=1;try{return captureShadows.run(()=>captureCubeFace(renderer,scene,cube,face));}finally{interiorGain.value=gain;timings.faces+=performance.now()-t;}};
       if(previousPass)withProbeField(field,regions,previousPass,drawFace);else drawFace();
      }finally{dynamicEnabled.value=previousDynamic;for(const [mesh,receive] of receivers)mesh.receiveShadow=receive;depth.value=previousDepth;visibilityReady.value=previousVisibilityReady;enabled.value=previousEnabled;scene.background=background;renderer.setClearColor(clear,alpha);renderer.toneMapping=tone;for(const [o,v]of hidden)o.visible=v;for(const [o,intensity]of ambient)o.intensity=intensity;for(const [m,c,d,e,color,env,opacity]of materials){m.colorWrite=c;m.depthWrite=d;m.emissiveIntensity=e;m.color.copy(color);m.envMapIntensity=env;m.opacity=opacity;}}
      // Normal gameplay can render between each cube direction.

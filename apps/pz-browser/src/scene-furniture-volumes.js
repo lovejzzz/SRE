@@ -69,7 +69,9 @@ export function sceneFurnitureVolumes(scene,plan,properties,asset,{cellSize,stor
   }
   for(const [index,part] of asset.geometry.parts.entries()){
    const vertices=part.vertices.map(transform);
-   const mesh={...part,softForward:part.softSupport?vector([0,1,0]):undefined,id:`furniture:${object.id}:${part.id}`,objectId:object.id,levelId:object.levelId,vertices,recipeId:asset.recipe.id,material:asset.recipe.materials[part.materialId]};if(mesh.material?.texture)mesh.uv=furnitureUV(part,[cellSize,cellSize,storeyHeight/3],mesh.material.texture.repeatMetres);mesh.collision=part.collision.map(solid=>transformConvexSolid(solid,transform,vector));
+   // Normals take the inverse-transpose of the placement scale (vector applies it once).
+   const normals=part.normals?.map(([x,y,h])=>{const n=vector([x/(cellSize*cellSize),y/(cellSize*cellSize),h/((storeyHeight/3)**2)]),l=Math.hypot(...n)||1;return n.map(v=>v/l);});
+   const mesh={...part,...(normals?{normals}:{}),softForward:part.softSupport?vector([0,1,0]):undefined,id:`furniture:${object.id}:${part.id}`,objectId:object.id,levelId:object.levelId,vertices,recipeId:asset.recipe.id,material:asset.recipe.materials[part.materialId]};if(mesh.material?.texture)mesh.uv=furnitureUV(part,[cellSize,cellSize,storeyHeight/3],mesh.material.texture.repeatMetres);mesh.collision=part.collision.map(solid=>transformConvexSolid(solid,transform,vector));
    if(index===0&&['sink','kitchen-sink'].includes(asset.recipe.semantics.kind))mesh.fixtureUse={point:transform([asset.recipe.parameters.width/2,asset.recipe.parameters.depth,0]),forward:vector([0,1,0]),width:asset.recipe.parameters.width*cellSize,handTarget:transform([asset.recipe.parameters.width/2,asset.recipe.parameters.depth*.52,asset.recipe.parameters.height+.04])};
    if(asset.recipe.semantics.kind==='upright-piano'&&pianoPartMidi.has(part.id))mesh.pianoMidi=pianoPartMidi.get(part.id);
    if(index===0&&asset.recipe.semantics.kind==='upright-piano')mesh.pianoKeyboard={objectId:object.id,levelId:object.levelId,point:transform([.765,.60,.78]),forward:vector([0,1,0])};
@@ -81,7 +83,7 @@ export function sceneFurnitureVolumes(scene,plan,properties,asset,{cellSize,stor
     mesh.fixtureUse={kind:'toilet',point:transform([w/2,d,0]),forward:vector([0,1,0]),width:w*cellSize,seat:{point:transform([w/2,d*.58,.475]),forward:vector([0,1,0]),bounds:[[0,1,2].map(i=>Math.min(...seatPoints.map(p=>p[i]))),[0,1,2].map(i=>Math.max(...seatPoints.map(p=>p[i])))]}};
    }
    if(index===0&&asset.recipe.semantics.kind==='fridge')mesh.fridgeStorage={origin:transform([0,0,0]),axes:[[1,0,0],[0,1,0],[0,0,1]].map(vector),width:asset.recipe.parameters.width,depth:asset.recipe.parameters.depth,light:asset.recipe.parameters.interiorLight};
-   if(asset.recipe.semantics.kind==='fridge'&&/^(lower|freezer)-(seal|door|handle)$/.test(part.id))mesh.fridgeHinge=transform([asset.recipe.parameters.width-.015,asset.recipe.parameters.depth-.04,0]);
+   if(asset.recipe.semantics.kind==='fridge'&&/^(lower|freezer)-(seal|door|handle)(:.+)?$/.test(part.id))mesh.fridgeHinge=transform([asset.recipe.parameters.width-.015,asset.recipe.parameters.depth-.04,0]);
    if(asset.recipe.parameters?.kind==='television-85'&&part.id==='display')mesh.televisionScreen=[[1.8842,.1502,.088],[.008,.1502,.088],[.008,.1502,1.1539],[1.8842,.1502,1.1539]].map(transform);
    if(index===0&&asset.geometry.light)mesh.light={...asset.geometry.light,position:transform(asset.geometry.light.position),target:transform(asset.geometry.light.target),samples:asset.geometry.light.samples?.map(vector)};
    if(index===0&&asset.geometry.additionalLights)mesh.additionalLights=asset.geometry.additionalLights.map(light=>({...light,position:transform(light.position),target:transform(light.target),samples:light.samples?.map(vector)}));

@@ -5,10 +5,10 @@ from pathlib import Path
 import json, subprocess, math
 from PIL import Image, ImageDraw
 ROOT=Path(__file__).resolve().parents[1]
-script="""import fs from 'node:fs';import {studioFurnitureVolume} from './src/studio-furniture-volume.js';const paths=fs.readdirSync('assets/recipes/volume').filter(s=>s.startsWith('studio-')&&s.endsWith('.json')).sort((a,b)=>{const tail=['studio-office-chair.json','studio-storage-bed.json','studio-nightstand.json','studio-water-glass.json'];return (tail.includes(a)?100+tail.indexOf(a):0)-(tail.includes(b)?100+tail.indexOf(b):0)||a.localeCompare(b);});console.log(JSON.stringify(paths.map(p=>{const recipe=JSON.parse(fs.readFileSync('assets/recipes/volume/'+p));return {recipe,geometry:studioFurnitureVolume(recipe)};})));"""
+script="""import fs from 'node:fs';import {studioFurnitureVolume} from './src/studio-furniture-volume.js';const paths=fs.readdirSync('assets/recipes/volume').filter(s=>s.startsWith('studio-')&&s.endsWith('.json')).sort((a,b)=>{const tail=['studio-office-chair.json','studio-storage-bed.json','studio-nightstand.json','studio-water-glass.json','studio-pedal-bin.json','studio-wheelie-bin.json','studio-pendant-lamp.json'];return (tail.includes(a)?100+tail.indexOf(a):0)-(tail.includes(b)?100+tail.indexOf(b):0)||a.localeCompare(b);});console.log(JSON.stringify(paths.map(p=>{const recipe=JSON.parse(fs.readFileSync('assets/recipes/volume/'+p));return {recipe,geometry:studioFurnitureVolume(recipe)};})));"""
 assets=json.loads(subprocess.check_output(['node','--input-type=module','-e',script],cwd=ROOT,text=True))
 regions={};properties={};sprites=[]
-labels={'storage-bed':'Storage bed','nightstand':'Bedside drawers','water-glass':'Glass of water','office-chair':'Office chair','upright-piano':'Upright piano','piano-bench':'Piano bench','workstation':'MacBook workstation','media-console':'Media console','television-85':'85-inch television','floor-speaker':'Floorstanding speaker','functional-trainer':'Functional trainer','breakfast-bar':'Breakfast bar','bar-stool':'Bar stool','sectional-sofa':'L-shaped sofa'}
+labels={'storage-bed':'Storage bed','nightstand':'Bedside drawers','water-glass':'Glass of water','office-chair':'Office chair','upright-piano':'Upright piano','piano-bench':'Piano bench','workstation':'MacBook workstation','media-console':'Media console','television-85':'85-inch television','floor-speaker':'Floorstanding speaker','functional-trainer':'Functional trainer','breakfast-bar':'Breakfast bar','bar-stool':'Bar stool','sectional-sofa':'L-shaped sofa','pedal-bin':'Pedal bin','wheelie-bin':'Wheelie bin','pendant-lamp':'Pendant lamp'}
 for a in assets:
  r=a['recipe'];kind=r['parameters']['kind'];w,d=r['placement']['cells'];footprint=r['placement'].get('footprint',[[x,y] for y in range(d) for x in range(w)])
  for facing in ['S','E','N','W']:
@@ -35,6 +35,11 @@ for a in assets:
    if kind=='nightstand':props.update(container='shelves',ContainerCapacity='12',TianEmptyContainer='true',IsTable='',Surface=str(.575*32))
    if kind=='water-glass':props.pop('solidtrans');props.update(TianMount='table')
    if kind=='piano-bench':props.update(TianStorage='shelves',ContainerCapacity='8',TianEmptyContainer='true')
+   # Rubbish bins are real containers that start empty; full bags go to the outdoor bin.
+   if kind=='pedal-bin':props.update(container='bin',ContainerCapacity='10',TianEmptyContainer='true')
+   if kind=='wheelie-bin':props.update(container='bin',ContainerCapacity='50',TianEmptyContainer='true',TianOutdoorBin='true')
+   # Ceiling pendants need upper support and never block floor placement beneath them.
+   if kind=='pendant-lamp':props.pop('solidtrans');props.pop('BlocksPlacement');props.update(TianMount='ceiling',TianLight='true',TianLightHeight=str(int(1.62*32)))
    if kind=='television-85':props.pop('solidtrans');props.update(TianMount='table',TV='',signal='tv')
    properties[tile]=props
 sheet=Image.new('RGBA',(1280,math.ceil(len(sprites)/4)*256))

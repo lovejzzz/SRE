@@ -1,8 +1,8 @@
 import test from 'node:test';import assert from 'node:assert/strict';import * as THREE from 'three';
 import {showerPartVisible} from '../src/shower-presentation.js';import {createShowerEffect} from '../src/shower-effect.js';
 test('bathing hides outer clothes while retaining imported body and restores source visibility',()=>{
- for(const part of ['shirt','trousers']){assert.equal(showerPartVisible(part,true,true),false);assert.equal(showerPartVisible(part,true,false),true);}
- for(const part of ['body','hair',undefined])assert.equal(showerPartVisible(part,true,true),true);
+ for(const part of ['shirt','trousers','shoes']){assert.equal(showerPartVisible(part,true,true),false);assert.equal(showerPartVisible(part,true,false),true);}
+ for(const part of ['body','hair','underwear','eyes',undefined])assert.equal(showerPartVisible(part,true,true),true);
  assert.equal(showerPartVisible('body',false,true),false);
 });
 test('water droplets follow actual active fixture and stop/dispose together with streams',()=>{

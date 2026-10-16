@@ -10,5 +10,5 @@ test('material UVs stay attached through rotation and relocation with physical r
  const part=asset.geometry.parts[0],uv=furnitureUV(part,[1,1,1]),twice=furnitureUV(part,[2,2,2]);assert.ok(uv.every((v,i)=>Math.abs(v*2-twice[i])<1e-9));
 });
 test('identical material recipes reuse two GPU maps and dispose them once',()=>{
- const cache=createVolumeMaterialCache(),a=cache.maps(asset.recipe.materials.timber),b=cache.maps(structuredClone(asset.recipe.materials.timber));assert.equal(a.map,b.map);assert.equal(a.roughnessMap,b.roughnessMap);assert.equal(a.map.userData.tianPackedRoughness,true);let disposed=0;for(const t of Object.values(a))t.addEventListener('dispose',()=>disposed++);cache.dispose();cache.dispose();assert.equal(disposed,1);
+ const cache=createVolumeMaterialCache(),a=cache.maps(asset.recipe.materials.timber),b=cache.maps(structuredClone(asset.recipe.materials.timber));assert.equal(a.map,b.map);assert.equal(a.roughnessMap,b.roughnessMap);assert.equal(a.map.userData.tianPackedRoughness,true);let disposed=0;for(const t of Object.values(a))t.addEventListener('dispose',()=>disposed++);cache.dispose();cache.dispose();assert.equal(disposed,Object.keys(a).length,'each shared map (colour+packed roughness, relief) disposed exactly once');
 });

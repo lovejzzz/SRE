@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "tian-volume-oven",
-  "version": 8,
+  "version": 9,
   "generator": "src/domestic-furniture-volume.js",
   "sourceKind": "procedural",
   "status": "prototype",
@@ -15,15 +15,16 @@
       "color": 5784888,
       "roughness": 0.7,
       "texture": {
-        "kind": "wood",
-        "size": 128,
-        "seed": 17,
+        "kind": "walnut",
+        "size": 512,
+        "seed": 31,
         "repeatMetres": [
-          1.2,
-          0.35
+          0.6,
+          0.3
         ]
       },
-      "edgeRadius": 0.003
+      "edgeRadius": 0.003,
+      "bumpScale": 0.25
     },
     "linen": {
       "color": 13946556,
@@ -32,7 +33,22 @@
         "sheen": 0.35,
         "roughness": 0.85,
         "specular": 0.35
-      }
+      },
+      "texture": {
+        "kind": "fabric",
+        "weave": "linen",
+        "size": 512,
+        "threads": [
+          64,
+          64
+        ],
+        "seed": 47,
+        "repeatMetres": [
+          0.1,
+          0.1
+        ]
+      },
+      "bumpScale": 0.5
     },
     "cloth": {
       "color": 8030594,
@@ -41,11 +57,41 @@
         "sheen": 0.35,
         "roughness": 0.85,
         "specular": 0.35
-      }
+      },
+      "texture": {
+        "kind": "fabric",
+        "weave": "linen",
+        "size": 512,
+        "threads": [
+          40,
+          40
+        ],
+        "seed": 41,
+        "repeatMetres": [
+          0.12,
+          0.12
+        ]
+      },
+      "bumpScale": 0.6
     },
     "accent": {
       "color": 10122840,
-      "roughness": 0.9
+      "roughness": 0.9,
+      "texture": {
+        "kind": "fabric",
+        "weave": "basket",
+        "size": 512,
+        "threads": [
+          40,
+          40
+        ],
+        "seed": 43,
+        "repeatMetres": [
+          0.12,
+          0.12
+        ]
+      },
+      "bumpScale": 0.5
     },
     "enamel": {
       "color": 10002074,
@@ -80,12 +126,41 @@
     },
     "dark": {
       "color": 2107172,
-      "roughness": 0.65
+      "roughness": 0.65,
+      "texture": {
+        "kind": "paint",
+        "size": 512,
+        "seed": 67,
+        "repeatMetres": [
+          0.6,
+          0.6
+        ]
+      },
+      "bumpScale": 0.15
     },
     "glass": {
       "color": 1581865,
       "roughness": 0.18,
       "metalness": 0.25
+    },
+    "cast-iron": {
+      "color": 1907739,
+      "roughness": 0.7,
+      "metalness": 0.4,
+      "texture": {
+        "kind": "cast-iron",
+        "size": 256,
+        "seed": 89,
+        "repeatMetres": [
+          0.2,
+          0.2
+        ]
+      },
+      "bumpScale": 0.5
+    },
+    "black-glass": {
+      "color": 723982,
+      "roughness": 0.08
     }
   },
   "migration": {
@@ -167,6 +242,8 @@
     "node_modules/three/examples/jsm/math/ConvexHull.js",
     "src/furniture-edge-finish.js",
     "src/material-relief.js",
-    "src/volume-material-texture.js"
+    "src/volume-material-texture.js",
+    "src/detail-geometry.js",
+    "src/kitchen-detail-volume.js"
   ]
 }

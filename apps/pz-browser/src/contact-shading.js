@@ -4,21 +4,67 @@ import {RenderPass} from '../node_modules/three/examples/jsm/postprocessing/Rend
 import {GTAOPass} from '../node_modules/three/examples/jsm/postprocessing/GTAOPass.js';
 import {OutputPass} from '../node_modules/three/examples/jsm/postprocessing/OutputPass.js';
 // Screen-space contact layer, not GI. Keep it outside radiance captures and use
-// one final tone/color conversion. It also attenuates direct light approximately.
+// one final tone/color conversion.
 export function withContactVisibility(scene,renderer,draw){
  const hidden=[],auto=renderer.shadowMap.autoUpdate,needs=renderer.shadowMap.needsUpdate;
  scene.traverse(o=>{if(!o.visible||!o.isMesh)return;const materials=Array.isArray(o.material)?o.material:[o.material];if(materials.some(m=>m.opacity<.98||m.depthWrite===false)){hidden.push(o);o.visible=false;}});
  renderer.shadowMap.autoUpdate=false;renderer.shadowMap.needsUpdate=false;
  try{return draw();}finally{for(const o of hidden)o.visible=true;renderer.shadowMap.autoUpdate=auto;renderer.shadowMap.needsUpdate=needs;}
 }
-export function createContactShading(renderer,scene,camera){
+export const CONTACT_MODES=['indirect','legacy','off'];
+// Indirect mode: occlusion multiplies only indirect diffuse and environment
+// specular inside the material, as ambient occlusion should. Lamp, sun and
+// television direct light keep their own shadow maps instead of being darkened
+// a second time by a post-process blend. Legacy blends over the final image.
+export const SCREEN_OCCLUSION_GLSL=`
+ if(tianScreenOcclusionEnabled>0.5){
+  float tianAO=mix(1.0,texelFetch(tianScreenOcclusion,ivec2(gl_FragCoord.xy),0).r,tianScreenOcclusionStrength);
+  reflectedLight.indirectDiffuse*=tianAO;
+  #if defined( USE_ENVMAP ) && defined( STANDARD )
+   reflectedLight.indirectSpecular*=computeSpecularOcclusion(saturate(dot(geometryNormal,geometryViewDir)),tianAO,material.roughness);
+  #endif
+ }`;
+export function installScreenOcclusion(material,uniforms){
+ if(!material||material.transparent||material.userData.tianScreenOcclusion)return false;
+ if(!(material.isMeshStandardMaterial||material.isMeshLambertMaterial||material.isMeshPhongMaterial))return false;
+ material.userData.tianScreenOcclusion=true;
+ const previous=material.onBeforeCompile,key=material.customProgramCacheKey();
+ material.onBeforeCompile=(shader,renderer)=>{previous.call(material,shader,renderer);
+  Object.assign(shader.uniforms,{tianScreenOcclusion:uniforms.map,tianScreenOcclusionEnabled:uniforms.enabled,tianScreenOcclusionStrength:uniforms.strength});
+  shader.fragmentShader='uniform sampler2D tianScreenOcclusion;\nuniform float tianScreenOcclusionEnabled;\nuniform float tianScreenOcclusionStrength;\n'+shader.fragmentShader.replace('#include <aomap_fragment>','#include <aomap_fragment>\n'+SCREEN_OCCLUSION_GLSL);
+ };
+ material.customProgramCacheKey=()=>key+'|tian-screen-occlusion-v1';material.needsUpdate=true;return true;
+}
+export function createContactShading(renderer,scene,camera,{mode='indirect',radius=.5,thickness=1,scale=2,distanceExponent=2,strength=1,legacyBlend=.35}={}){
+ if(!CONTACT_MODES.includes(mode))throw Error('Unknown contact shading mode');
  const target=new THREE.WebGLRenderTarget(1,1,{type:THREE.HalfFloatType,samples:2});
- const composer=new EffectComposer(renderer,target),base=new RenderPass(scene,camera),ao=new GTAOPass(scene,camera,1,1,undefined,{radius:.35,thickness:.15,samples:8,distanceFallOff:1,screenSpaceRadius:false},{samples:8,radius:4}),output=new OutputPass();
- ao.blendIntensity=.35;const render=ao.render.bind(ao);ao.render=(...args)=>withContactVisibility(scene,renderer,()=>render(...args));
- composer.addPass(base);composer.addPass(ao);composer.addPass(output);
- let enabled=true;
- return {setEnabled(value){enabled=!!value;},resize(w,h){composer.setSize(w,h);},render(){
-  const auto=renderer.info.autoReset;renderer.info.autoReset=false;renderer.info.reset();
-  try{if(enabled)composer.render();else renderer.render(scene,camera);}finally{renderer.info.autoReset=auto;}
- },dispose(){base.dispose();ao.dispose();output.dispose();composer.dispose();}};
+ const composer=new EffectComposer(renderer,target),base=new RenderPass(scene,camera),ao=new GTAOPass(scene,camera,1,1,undefined,{radius,thickness,samples:8,distanceFallOff:1,screenSpaceRadius:false},{samples:8,radius:4}),output=new OutputPass();
+ const render=ao.render.bind(ao);ao.render=(...args)=>withContactVisibility(scene,renderer,()=>render(...args));
+ // A white 1×1 texture keeps the sampler valid whenever occlusion is not bound.
+ const white=new THREE.DataTexture(new Uint8Array([255,255,255,255]),1,1);white.needsUpdate=true;
+ const uniforms={map:{value:white},enabled:{value:0},strength:{value:strength}};
+ // Legacy reproduces the pre-505 blend exactly for comparisons. Indirect uses a
+ // stronger near-field falloff (browser-reviewed505): it no longer darkens direct light.
+ const legacy={radius:.35,thickness:.15,scale:1,distanceExponent:1};let current=null,indirect={radius,thickness,scale,distanceExponent};
+ const setMode=value=>{
+  if(!CONTACT_MODES.includes(value))throw Error('Unknown contact shading mode');
+  if(value===current)return;current=value;
+  composer.passes.length=0;
+  if(value==='indirect'){ao.output=GTAOPass.OUTPUT.Off;ao.needsSwap=false;ao.updateGtaoMaterial(indirect);composer.addPass(ao);composer.addPass(base);composer.addPass(output);}
+  else if(value==='legacy'){ao.output=GTAOPass.OUTPUT.Default;ao.needsSwap=true;ao.blendIntensity=legacyBlend;ao.updateGtaoMaterial(legacy);composer.addPass(base);composer.addPass(ao);composer.addPass(output);}
+ };
+ setMode(mode);
+ return {uniforms,pass:ao,install:material=>installScreenOcclusion(material,uniforms),
+  get mode(){return current;},setMode,
+  setEnabled(value){setMode(value?'indirect':'off');},
+  setParameters({strength:s=uniforms.strength.value,...gtao}={}){indirect={...indirect,...gtao};uniforms.strength.value=s;if(current==='indirect')ao.updateGtaoMaterial(indirect);},
+  resize(w,h){composer.setSize(w,h);},
+  render(){
+   const auto=renderer.info.autoReset;renderer.info.autoReset=false;renderer.info.reset();
+   try{
+    if(current==='off')renderer.render(scene,camera);
+    else{if(current==='indirect'){uniforms.map.value=ao.pdRenderTarget.texture;uniforms.enabled.value=1;}composer.render();}
+   }finally{uniforms.enabled.value=0;uniforms.map.value=white;renderer.info.autoReset=auto;}
+  },
+  dispose(){base.dispose();ao.dispose();output.dispose();composer.dispose();target.dispose();white.dispose();}};
 }

@@ -12,7 +12,8 @@
     "assets:imports:check": "python3 tools/test_imported_assets.py && python3 tests/test_importers.py && python3 tools/check_imported_assets.py && node tools/build_imported_catalog.mjs --check",
     "assets:imports:catalog": "node tools/build_imported_catalog.mjs",
     "assets:rebuild:verify": "npm run assets:build && npm run assets:volume:build && npm run assets:test && npm run assets:check",
-    "assets:volume:build": "node tools/build_volume_assets.mjs"
+    "assets:volume:build": "node tools/build_volume_assets.mjs",
+    "character:build": "\"${TIAN_ASSET_PYTHON:-python3}\" tools/build_resident_hd.py"
   },
   "dependencies": {
     "assimpjs": "^0.0.10",

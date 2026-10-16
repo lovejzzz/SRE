@@ -139,7 +139,12 @@
         "assets/recipes/volume/studio-storage-bed.json",
         "assets/recipes/volume/studio-nightstand.json",
         "assets/recipes/volume/studio-water-glass.json",
-        "src/furniture-edge-finish.js"
+        "src/furniture-edge-finish.js",
+        "src/detail-geometry.js",
+        "src/kitchen-detail-volume.js",
+        "assets/recipes/volume/studio-pedal-bin.json",
+        "assets/recipes/volume/studio-wheelie-bin.json",
+        "assets/recipes/volume/studio-pendant-lamp.json"
       ]
     }
   ]

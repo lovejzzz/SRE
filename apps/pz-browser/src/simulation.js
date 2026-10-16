@@ -1,4 +1,6 @@
 import {carriedCareItems,planTowelDrying,completeTowelDrying} from './household-care.js';
+import {planBrushTeeth,completeBrushTeeth,BRUSH_SECONDS,useToiletPaper,planBandageWash,completeBandageWash,advanceHygiene,validateDailyCare} from './daily-care.js';
+import {isRubbishBin,isOutdoorBin,rubbishStack,planDiscard,completeDiscard,planBagging,completeBagging} from './rubbish.js';
 import {planToilet,completeToilet,validateToilets,TOILET_SECONDS,FLUSH_SECONDS} from './toileting.js';
 import {nearbyDanger} from './nearby-danger.js';
 import {advanceFoodAge,storedContainerKind} from './food-storage.js';
@@ -86,13 +88,40 @@ export class Simulation{
  useToilet(object,kind){
   const plan=planToilet(this.world,this.state,object,kind);if(!plan.ok){this.log(plan.reason);return false;}
   const name=kind==='useToilet'?'Use toilet':'Flush toilet';
-  if(!this.startAction(name,kind==='useToilet'?TOILET_SECONDS:FLUSH_SECONDS,()=>{const result=completeToilet(this.world,this.state,object,kind);this.log(result.ok?(kind==='useToilet'?'Toilet used — flush and wash your hands':'Toilet flushed'):result.reason);},{target:object.id}))return false;
+  if(!this.startAction(name,kind==='useToilet'?TOILET_SECONDS:FLUSH_SECONDS,()=>{const result=completeToilet(this.world,this.state,object,kind);if(!result.ok){this.log(result.reason);return;}if(kind!=='useToilet'){this.log('Toilet flushed');return;}
+   // Without toilet paper the hands take the brunt; a carried roll loses one use per visit.
+   const paper=useToiletPaper(this.inventory);if(!paper.used)this.state.player.handHygiene=Math.max(0,this.state.player.handHygiene-15);
+   this.log(paper.used?'Toilet used — flush and wash your hands':'Toilet used without toilet paper — flush and wash your hands');},{target:object.id}))return false;
   this.action.toilet={object,kind};return true;
  }
- rinseHands(object){
+ rinseHands(object,soapId=null){
   const plan=planHandRinse(this.world,this.state,object);if(!plan.ok){this.log(plan.reason);return false;}
-  if(!this.startAction('Rinse hands',RINSE_SECONDS,()=>this.log('Hands rinsed with water'),{target:object.id}))return false;
-  this.action.handRinse={object,litres:0};return true;
+  if(soapId&&!carriedCareItems(this.inventory,'Base.Soap2').some(i=>i.id===soapId)){this.log('Carry usable soap first');return false;}
+  if(!this.startAction(soapId?'Wash hands with soap':'Rinse hands',RINSE_SECONDS,()=>this.log(soapId?'Hands washed with soap':'Hands rinsed with water'),{target:object.id}))return false;
+  this.action.handRinse={object,litres:0,soapId,soapUsed:false};return true;
+ }
+ brushTeeth(object){
+  const plan=planBrushTeeth(this.world,this.state,this.inventory,object);if(!plan.ok){this.log(plan.reason);return false;}
+  return this.startAction('Brush teeth',BRUSH_SECONDS,()=>{const result=completeBrushTeeth(this.world,this.state,this.inventory,object);this.log(result.ok?'Teeth brushed':result.reason);},{target:object.id});
+ }
+ washBandages(object){
+  const plan=planBandageWash(this.world,this.state,this.inventory,object);if(!plan.ok){this.log(plan.reason);return false;}
+  return this.startAction('Wash bandages',plan.seconds,()=>{const result=completeBandageWash(this.world,this.state,this.inventory,object,plan.ids);this.log(result.ok?`Washed ${result.washed} bandage${result.washed===1?'':'s'} — clean again`:result.reason);},{target:object.id});
+ }
+ // Rubbish: one timed action for a whole carried stack, duration is the sum of the
+ // individual transfers it replaces; every item is re-validated on completion.
+ throwAway(obj,itemId){
+  if(!isRubbishBin(obj)){this.log('That is not a bin');return false;}
+  if(!this.world.interactions(this.state.player).some(o=>o.id===obj.id)){this.log('Move closer to the bin');return false;}
+  const inv=this.inventory,bin=this.container(obj),plan=planDiscard(inv,bin,rubbishStack(inv,inv.state.items[itemId],{outdoor:isOutdoorBin(obj)}));if(!plan.ok){this.log(plan.reason);return false;}
+  const seconds=plan.ids.reduce((t,id)=>t+transferDuration({weight:inv.actualWeight(inv.state.items[id]),sourceDirect:true,sourceCarried:true,destinationCarried:false,destinationFloor:false,destinationWeight:inv.weight(bin),destinationCapacity:inv.state.containers[bin].capacity,traits:this.state.player.traits,awkwardGloves:!!this.state.player.awkwardGloves}),0);
+  return this.startAction('Throw away rubbish',seconds,()=>{const result=completeDiscard(this.inventory,bin,plan.ids);this.log(result.ok?`Threw away ${result.moved} item${result.moved===1?'':'s'}`+(plan.left?` · ${plan.left} did not fit`:''):result.reason);},{target:obj.id});
+ }
+ tieBinBag(obj){
+  if(!isRubbishBin(obj)){this.log('That is not a bin');return false;}
+  if(!this.world.interactions(this.state.player).some(o=>o.id===obj.id)){this.log('Move closer to the bin');return false;}
+  const bin=this.container(obj),plan=planBagging(this.inventory,bin);if(!plan.ok){this.log(plan.reason);return false;}
+  return this.startAction('Tie bin bag',6+.4*plan.count,()=>{const result=completeBagging(this.inventory,bin);this.log(result.ok?`Tied ${result.moved} item${result.moved===1?'':'s'} into a bin bag`+(result.left?` · ${result.left} left in the bin`:''):result.reason);},{target:obj.id});
  }
  dryWithTowel(itemId){
   const plan=planTowelDrying(this.inventory,this.state.player,itemId);if(!plan.ok){this.log(plan.reason);return false;}
@@ -385,7 +414,7 @@ export class Simulation{
  }
  movementSpeed(input={}){const p=this.state.player;if(p.hp<=0||this.paused)return 0;let speed=input.run&&p.endurance>8?3.6:1.6;if(input.sneak)speed=.85;if(this.inventory.encumbrance()>p.capacity*.8)speed*=.7;return speed;}
  stopFastForwardForNeeds(){const p=this.state.player;if(this.speed>1&&(p.hunger>=85||p.thirst>=85)){this.speed=1;this.log(p.thirst>=85?'Time returned to normal — you need water':'Time returned to normal — you need food');return true;}return false;}
- tick(dt,input={},resolvedMotion=null){if(this.paused||this.state.player.hp<=0)return;this.stopFastForwardForNeeds();if((input.x||input.y||nearbyDanger(this.state,resolvedMotion?.spatial))&&this.speed!==1)this.speed=1;dt=Math.min(dt,.1)*this.speed;if(this.action?.rest)dt=Math.min(dt,this.action.left);const s=this.state,p=s.player;s.elapsed+=dt;const previousTime=s.time;s.time+=dt*.7;advanceReadingClock(s,previousTime,s.time);advanceBodyDrying(p,s.time-previousTime,{showering:!!this.action?.shower});advanceMedical(p,s.time-previousTime,{resting:!!this.action?.rest});advanceFoodAge(this.inventory,s.time-previousTime,{electricity:s.utilities?.electricity!==false,containerKind:id=>storedContainerKind(this.world,id)});advanceCooking(this.inventory,s.time-previousTime,{electricity:s.utilities?.electricity!==false,onEvent:message=>this.log(message),onCooked:()=>{this.speed=1;}});this.attackCooldown=Math.max(0,this.attackCooldown-dt);
+ tick(dt,input={},resolvedMotion=null){if(this.paused||this.state.player.hp<=0)return;this.stopFastForwardForNeeds();if((input.x||input.y||nearbyDanger(this.state,resolvedMotion?.spatial))&&this.speed!==1)this.speed=1;dt=Math.min(dt,.1)*this.speed;if(this.action?.rest)dt=Math.min(dt,this.action.left);const s=this.state,p=s.player;s.elapsed+=dt;const previousTime=s.time;s.time+=dt*.7;advanceReadingClock(s,previousTime,s.time);advanceBodyDrying(p,s.time-previousTime,{showering:!!this.action?.shower});advanceHygiene(p,s.time-previousTime,{showering:!!this.action?.shower});advanceMedical(p,s.time-previousTime,{resting:!!this.action?.rest});advanceFoodAge(this.inventory,s.time-previousTime,{electricity:s.utilities?.electricity!==false,containerKind:id=>storedContainerKind(this.world,id)});advanceCooking(this.inventory,s.time-previousTime,{electricity:s.utilities?.electricity!==false,onEvent:message=>this.log(message),onCooked:()=>{this.speed=1;}});this.attackCooldown=Math.max(0,this.attackCooldown-dt);
   let autoMoving=false;const traversing=!!p.windowMotion,move=!!(input.x||input.y)&&!traversing;if(move&&this.action)this.cancel();
   if(this.action){const a=this.action;
    if(a.rest){
@@ -396,7 +425,9 @@ export class Simulation{
    }else if(a.toilet){
     const result=planToilet(this.world,s,a.toilet.object,a.toilet.kind);if(!result.ok){this.cancel();this.log(result.reason);}else{a.left=Math.max(0,a.left-dt);if(a.left<=0){this.action=null;a.complete();}}
    }else if(a.handRinse){
-    const result=advanceHandRinse(this.world,s,a.handRinse.object,Math.min(dt,a.left));
+    const rinse=a.handRinse;
+    if(rinse.soapId&&!rinse.soapUsed&&Math.min(dt,a.left)>0){if(!carriedCareItems(this.inventory,'Base.Soap2').some(i=>i.id===rinse.soapId)){this.cancel();this.log('Soap is no longer available');return;}rinse.soapUsed=this.inventory.useCraftItem(rinse.soapId,1).used===1;}
+    const result=advanceHandRinse(this.world,s,rinse.object,Math.min(dt,a.left),{soap:rinse.soapUsed});
     if(!result.ok){this.cancel();this.log(result.reason);}else{a.left=Math.max(0,a.left-result.seconds);a.handRinse.litres+=result.litres;if(a.left<=1e-7){this.action=null;a.complete();}}
    }else if(a.shower){
     const shower=a.shower;
@@ -483,7 +514,7 @@ export function parseSave(text,{bounds=[7680,11008,8960,12800]}={}){const s=JSON
  }
  if(s.housePlan)validateHousePlan(s.housePlan,bounds);
  s.builds??=[];validateBuildings(s.builds);
- validateInventory(s.inventory);validateCookingState(s.inventory);validateWaterState(s);validateToilets(s);validateHygiene(s);
+ validateInventory(s.inventory);validateCookingState(s.inventory);validateWaterState(s);validateToilets(s);validateHygiene(s);validateDailyCare(s);
  validateMedical(s.player);
  validateWoodworkProgression(s.player);
  validateReadingState(s.player,s.inventory.items,s);

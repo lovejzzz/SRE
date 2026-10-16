@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "tian-volume-linen-table-lamp",
-  "version": 6,
+  "version": 8,
   "generator": "src/lamp-volume.js",
   "sourceKind": "procedural",
   "status": "prototype",
@@ -15,18 +15,43 @@
     "shadeTopRadius": 0.13,
     "segments": 24
   },
+  "light": {
+    "color": 16768164,
+    "down": {
+      "intensity": 6,
+      "angle": 0.95,
+      "penumbra": 0.7,
+      "distance": 3
+    },
+    "up": {
+      "intensity": 2,
+      "angle": 0.85,
+      "penumbra": 0.8,
+      "distance": 2.5
+    }
+  },
   "materials": {
     "brass": {
       "color": 11176277,
       "roughness": 0.36,
-      "metalness": 0.65
+      "metalness": 0.65,
+      "texture": {
+        "kind": "brushed-steel",
+        "size": 256,
+        "seed": 24,
+        "repeatMetres": [
+          0.3,
+          0.3
+        ]
+      },
+      "bumpScale": 0.12
     },
     "linen": {
       "color": 14273712,
       "roughness": 0.9,
       "fixtureEmission": {
         "color": 16764068,
-        "intensity": 0.22
+        "intensity": 0.6
       },
       "fibre": {
         "sheen": 0.35,
@@ -34,51 +59,20 @@
         "specular": 0.35
       },
       "texture": {
-        "kind": "source-patch",
-        "sourceTile": "furniture_seating_indoor_02_24",
-        "size": 128,
-        "patch": [
-          [
-            12,
-            86
-          ],
-          [
-            18,
-            9
-          ],
-          [
-            0,
-            5
-          ]
+        "kind": "fabric",
+        "weave": "linen",
+        "size": 512,
+        "threads": [
+          64,
+          64
         ],
-        "detail": {
-          "base": 0.95,
-          "strength": 0.25
-        },
+        "seed": 47,
         "repeatMetres": [
-          0.24,
-          0.18
-        ],
-        "weave": {
-          "size": 512,
-          "threads": [
-            128,
-            96
-          ],
-          "metres": [
-            0.24,
-            0.18
-          ],
-          "relief": 0.0003,
-          "irregularity": 0.2,
-          "seed": 71
-        },
-        "dyeVariation": {
-          "strength": 0.08,
-          "seed": 53
-        }
+          0.1,
+          0.1
+        ]
       },
-      "bumpScale": 0
+      "bumpScale": 0.6
     },
     "bulb": {
       "color": 16772826,
@@ -86,6 +80,15 @@
       "fixtureEmission": {
         "color": 16764068,
         "intensity": 2
+      }
+    },
+    "lining": {
+      "color": 15791080,
+      "roughness": 0.92,
+      "metalness": 0,
+      "fixtureEmission": {
+        "color": 16764068,
+        "intensity": 0.75
       }
     }
   },
@@ -117,5 +120,8 @@
         "dy": 0
       }
     ]
-  }
+  },
+  "sourceFiles": [
+    "src/detail-geometry.js"
+  ]
 }

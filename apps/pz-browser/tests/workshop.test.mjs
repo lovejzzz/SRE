@@ -1,6 +1,6 @@
 import test from 'node:test';import assert from 'node:assert/strict';
 import {WorkshopModel,validateHousePlan,workshopCatalog} from '../src/workshop-model.js';
-import {prepareHouseState} from '../src/workshop-apply.js';
+import {prepareHouseState,preservesResidentStock} from '../src/workshop-apply.js';
 import {World} from '../src/world.js';import {Simulation,newState,parseSave} from '../src/simulation.js';
 import {useFixtureCatalog} from './fixtures/catalog.mjs';const itemFixtures=useFixtureCatalog();
 const bounds=[0,0,20,20],props={floor:{solidfloor:''},'carpentry_02_58':{solidfloor:''},'carpentry_02_98':{stairsTN:''},'carpentry_02_97':{stairsMN:''},'carpentry_02_96':{stairsBN:''},wall:{WallN:''},door:{doorN:''},chair:{solid:''}},blank=()=>({version:1,name:'Test',squares:[{x:4,y:4,z:0,room:-1,tiles:['floor']}],items:[],vehicles:[]});
@@ -37,6 +37,13 @@ test('placing empty cookware does not conjure drinking water',()=>{
  assert.equal(stocked.find(i=>i.type==='Base.WaterBottle').fluid.amount,1);
 });
 
+test('re-applying the lived-in scene keeps resident stock from either entry point; a new scene is stocked fresh',()=>{
+ const scene=id=>({sceneDocument:{id}});
+ assert.equal(preservesResidentStock({housePlan:scene('a')},scene('a')),true);
+ assert.equal(preservesResidentStock({housePlan:scene('a')},scene('b')),false);
+ assert.equal(preservesResidentStock({housePlan:null},scene('a')),false);
+ assert.equal(preservesResidentStock({housePlan:scene(undefined)},scene(undefined)),false);
+});
 test('resident edits preserve depleted and partly used stock and add only newly authored supplies',()=>{
  const w=new World({playableBounds:bounds},props),p=blank(),atlas={regions:{floor:{}}};
  p.items.push({type:'Base.WaterBottle',x:4,y:4,z:0},{type:'Base.WaterBottle',x:4,y:4,z:0});

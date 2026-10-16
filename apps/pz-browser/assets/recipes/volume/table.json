@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "tian-volume-timber-table",
-  "version": 2,
+  "version": 3,
   "generator": "src/table-volume.js",
   "sourceKind": "procedural",
   "provenance": "Original parametric Tian House geometry; legacy table mapping is an approximate interpretation, not recovered PZ geometry.",
@@ -21,14 +21,15 @@
       "color": 10582365,
       "roughness": 0.65,
       "texture": {
-        "kind": "wood",
-        "size": 128,
-        "seed": 17,
+        "kind": "walnut",
+        "size": 512,
+        "seed": 31,
         "repeatMetres": [
-          1.2,
-          0.35
+          0.6,
+          0.3
         ]
-      }
+      },
+      "bumpScale": 0.25
     }
   },
   "semantics": {
@@ -77,5 +78,8 @@
         "dy": 0
       }
     ]
-  }
+  },
+  "sourceFiles": [
+    "src/detail-geometry.js"
+  ]
 }

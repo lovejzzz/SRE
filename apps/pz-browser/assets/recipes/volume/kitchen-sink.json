@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "tian-volume-kitchen-sink",
-  "version": 5,
+  "version": 6,
   "generator": "src/wet-furniture-volume.js",
   "sourceKind": "procedural",
   "status": "prototype",
@@ -15,15 +15,16 @@
       "color": 6378054,
       "roughness": 0.7,
       "texture": {
-        "kind": "wood",
-        "size": 128,
-        "seed": 17,
+        "kind": "walnut",
+        "size": 512,
+        "seed": 31,
         "repeatMetres": [
-          1.2,
-          0.35
+          0.6,
+          0.3
         ]
       },
-      "edgeRadius": 0.003
+      "edgeRadius": 0.003,
+      "bumpScale": 0.25
     },
     "enamel": {
       "color": 9475969,
@@ -43,12 +44,33 @@
     },
     "ceramic": {
       "color": 14737361,
-      "roughness": 0.24
+      "roughness": 0.24,
+      "texture": {
+        "kind": "ceramic",
+        "size": 512,
+        "seed": 61,
+        "repeatMetres": [
+          0.25,
+          0.25
+        ]
+      },
+      "bumpScale": 0.1
     },
     "stone": {
       "color": 5659993,
       "roughness": 0.55,
-      "edgeRadius": 0.002
+      "edgeRadius": 0.002,
+      "texture": {
+        "kind": "quartz",
+        "size": 1024,
+        "seed": 85,
+        "veins": 2,
+        "repeatMetres": [
+          0.8,
+          0.8
+        ]
+      },
+      "bumpScale": 0.15
     },
     "steel": {
       "color": 10987684,
@@ -67,7 +89,17 @@
     },
     "dark": {
       "color": 2238500,
-      "roughness": 0.8
+      "roughness": 0.8,
+      "texture": {
+        "kind": "paint",
+        "size": 512,
+        "seed": 67,
+        "repeatMetres": [
+          0.6,
+          0.6
+        ]
+      },
+      "bumpScale": 0.15
     }
   },
   "migration": {
@@ -141,6 +173,8 @@
   "sourceFiles": [
     "src/furniture-edge-finish.js",
     "src/material-relief.js",
-    "src/volume-material-texture.js"
+    "src/volume-material-texture.js",
+    "src/detail-geometry.js",
+    "src/kitchen-detail-volume.js"
   ]
 }

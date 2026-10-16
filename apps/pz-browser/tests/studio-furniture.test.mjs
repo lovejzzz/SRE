@@ -14,7 +14,7 @@ test('all studio recipes generate finite supported convex parts with stable iden
 
 import {installStudioAssets} from '../src/studio-assets.js';import {workshopCatalog} from '../src/workshop-model.js';import {resolveVolumeFurniture,sceneFurnitureVolumes} from '../src/scene-furniture-volumes.js';
 test('every studio direction is one editable catalogue assembly matching its volume recipe',()=>{
- const p={},a={regions:{}};installStudioAssets(p,a);const entries=workshopCatalog(p,a,{}).entries.filter(e=>e.source?.startsWith('tian_studio_'));assert.equal(entries.length,56);
+ const p={},a={regions:{}};installStudioAssets(p,a);const entries=workshopCatalog(p,a,{}).entries.filter(e=>e.source?.startsWith('tian_studio_'));assert.equal(entries.length,4*fs.readdirSync(new URL('../assets/recipes/volume/',import.meta.url)).filter(f=>f.startsWith('studio-')).length);
  for(const e of entries){const family=p[e.source].TianVariantFamily.replace('studio-',''),r=read(family),asset={recipe:r,geometry:studioFurnitureVolume(r)};assert.equal(resolveVolumeFurniture({parts:e.parts},[asset]).direction,e.facing);}
 });
 test('wall lighting on a south boundary points into the room instead of outside',()=>{

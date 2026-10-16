@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "tian-volume-low-table",
-  "version": 1,
+  "version": 2,
   "generator": "src/table-volume.js",
   "sourceKind": "procedural",
   "provenance": "Original approximate low table geometry mapped to the imported Black Low Modern table; source Surface=15 defines the 15/32m support height.",
@@ -20,7 +20,17 @@
     "timber": {
       "color": 3422518,
       "roughness": 0.78,
-      "metalness": 0
+      "metalness": 0,
+      "texture": {
+        "kind": "walnut",
+        "size": 512,
+        "seed": 31,
+        "repeatMetres": [
+          0.6,
+          0.3
+        ]
+      },
+      "bumpScale": 0.25
     }
   },
   "semantics": {
@@ -67,5 +77,8 @@
       0.1,
       0.175
     ]
-  }
+  },
+  "sourceFiles": [
+    "src/detail-geometry.js"
+  ]
 }

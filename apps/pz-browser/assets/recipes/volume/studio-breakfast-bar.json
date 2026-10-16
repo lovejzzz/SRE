@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "tian-volume-studio-breakfast-bar",
-  "version": 16,
+  "version": 17,
   "generator": "src/studio-furniture-volume.js",
   "sourceKind": "procedural",
   "status": "dimensional prototype; not visually accepted",
@@ -19,89 +19,35 @@
       "roughness": 0.65,
       "metalness": 0,
       "texture": {
-        "kind": "source-patch",
-        "sourceTile": "recreational_01_28",
-        "size": 128,
-        "patch": [
-          [
-            43,
-            60
-          ],
-          [
-            18,
-            9
-          ],
-          [
-            0,
-            33
-          ]
-        ],
-        "detail": {
-          "base": 0.95,
-          "strength": 1.0
-        },
+        "kind": "walnut",
+        "size": 512,
+        "seed": 29,
         "repeatMetres": [
-          0.32,
-          0.65
-        ],
-        "finish": {
-          "size": 256,
-          "metres": [
-            0.32,
-            0.65
-          ],
-          "relief": 0.00018,
-          "seed": 73
-        }
+          0.6,
+          0.3
+        ]
       },
-      "bumpScale": 0
+      "bumpScale": 0.25
     },
     "cloth": {
       "color": 11838349,
       "roughness": 0.92,
       "metalness": 0,
       "texture": {
-        "kind": "source-patch",
-        "sourceTile": "furniture_seating_indoor_02_24",
-        "size": 128,
-        "patch": [
-          [
-            12,
-            86
-          ],
-          [
-            18,
-            9
-          ],
-          [
-            0,
-            5
-          ]
+        "kind": "fabric",
+        "weave": "linen",
+        "size": 512,
+        "threads": [
+          40,
+          40
         ],
-        "detail": {
-          "base": 0.95,
-          "strength": 0.25
-        },
+        "seed": 41,
         "repeatMetres": [
-          0.32,
-          0.18
-        ],
-        "weave": {
-          "size": 512,
-          "threads": [
-            128,
-            72
-          ],
-          "metres": [
-            0.32,
-            0.18
-          ],
-          "relief": 0.00065,
-          "irregularity": 0.35,
-          "seed": 41
-        }
+          0.12,
+          0.12
+        ]
       },
-      "bumpScale": 0,
+      "bumpScale": 0.6,
       "fibre": {
         "sheen": 0.35,
         "roughness": 0.85,
@@ -113,47 +59,20 @@
       "roughness": 0.92,
       "metalness": 0,
       "texture": {
-        "kind": "source-patch",
-        "sourceTile": "furniture_seating_indoor_02_24",
-        "size": 128,
-        "patch": [
-          [
-            12,
-            86
-          ],
-          [
-            18,
-            9
-          ],
-          [
-            0,
-            5
-          ]
+        "kind": "fabric",
+        "weave": "boucle",
+        "size": 512,
+        "threads": [
+          48,
+          48
         ],
-        "detail": {
-          "base": 0.95,
-          "strength": 0.25
-        },
+        "seed": 45,
         "repeatMetres": [
-          0.32,
-          0.18
-        ],
-        "weave": {
-          "size": 512,
-          "threads": [
-            128,
-            72
-          ],
-          "metres": [
-            0.32,
-            0.18
-          ],
-          "relief": 0.00065,
-          "irregularity": 0.35,
-          "seed": 41
-        }
+          0.12,
+          0.12
+        ]
       },
-      "bumpScale": 0,
+      "bumpScale": 0.6,
       "fibre": {
         "sheen": 0.35,
         "roughness": 0.85,
@@ -178,12 +97,32 @@
     "dark": {
       "color": 1514267,
       "roughness": 0.65,
-      "metalness": 0
+      "metalness": 0,
+      "texture": {
+        "kind": "paint",
+        "size": 512,
+        "seed": 67,
+        "repeatMetres": [
+          0.6,
+          0.6
+        ]
+      },
+      "bumpScale": 0.15
     },
     "rubber": {
       "color": 2369574,
       "roughness": 0.92,
-      "metalness": 0
+      "metalness": 0,
+      "texture": {
+        "kind": "plastic",
+        "size": 256,
+        "seed": 71,
+        "repeatMetres": [
+          0.12,
+          0.12
+        ]
+      },
+      "bumpScale": 0.35
     },
     "aluminium": {
       "color": 11120043,
@@ -203,7 +142,17 @@
     "ivory": {
       "color": 15065036,
       "roughness": 0.65,
-      "metalness": 0
+      "metalness": 0,
+      "texture": {
+        "kind": "ceramic",
+        "size": 512,
+        "seed": 62,
+        "repeatMetres": [
+          0.25,
+          0.25
+        ]
+      },
+      "bumpScale": 0.08
     },
     "brass": {
       "color": 11241045,
@@ -229,11 +178,12 @@
       "color": 5659993,
       "roughness": 0.66,
       "edgeRadius": 0.002,
-      "bumpScale": 0.00015,
+      "bumpScale": 0.15,
       "texture": {
-        "kind": "honed-stone",
-        "size": 256,
+        "kind": "quartz",
+        "size": 1024,
         "seed": 83,
+        "veins": 2,
         "repeatMetres": [
           0.4,
           0.4
@@ -243,7 +193,17 @@
     "edge": {
       "color": 8940370,
       "roughness": 0.65,
-      "metalness": 0
+      "metalness": 0,
+      "texture": {
+        "kind": "walnut",
+        "size": 512,
+        "seed": 35,
+        "repeatMetres": [
+          0.6,
+          0.3
+        ]
+      },
+      "bumpScale": 0.25
     }
   },
   "semantics": {
@@ -371,6 +331,7 @@
     "node_modules/three/examples/jsm/math/ConvexHull.js",
     "src/wood-finish.js",
     "src/material-relief.js",
-    "src/volume-material-texture.js"
+    "src/volume-material-texture.js",
+    "src/detail-geometry.js"
   ]
 }

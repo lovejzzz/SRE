@@ -17,11 +17,17 @@ commit([
  place('studio-storage-bed','S',0,0),place('studio-nightstand','S',2,0),place('studio-workstation','W',0,2),place('studio-office-chair','E',1,2),place('studio-upright-piano','S',5,0),place('studio-piano-bench','S',5,1),
  place('studio-functional-trainer','W',0,4),place('studio-media-console','N',3,5),place('studio-floor-speaker','N',2,5),place('studio-floor-speaker','N',6,5),place('studio-sectional-sofa','S',3,2),
  place('fridge','S',7,0),place('counter','S',9,0),place('kitchen-sink','N',9,2),place('oven','S',8,0),place('studio-breakfast-bar','S',7,2),place('studio-bar-stool','N',7,3),place('studio-bar-stool','N',8,3),
- place('shower','S',7,6),place('sink','S',9,6),place('toilet','N',9,7),place('floor-lamp','S',3,0),place('snake-plant','S',9,4)
+ place('shower','S',7,6),place('sink','S',9,6),place('toilet','N',8,7),place('floor-lamp','S',3,0),place('snake-plant','S',9,4),
+ // Rubbish routine: pedal bin at the end of the sink run, wheelie bin on the entrance court.
+ place('studio-pedal-bin','W',9,3),place('studio-wheelie-bin','W',13,4)
 ]);
+// Pendants over the peninsula once the roof provides ceiling support.
+const pendants=()=>[place('studio-pendant-lamp','S',7,2),place('studio-pendant-lamp','S',8,2)];
 commit([{type:'objects.nudge',ids:model.scene.objects.filter(o=>o.assetId.includes('tian_studio_bar_stool')).map(o=>o.id),dx:0,dy:-.45}]);
 commit([{type:'objects.nudge',ids:model.scene.objects.filter(o=>o.assetId==='tile:fixtures_bathroom_01_32').map(o=>o.id),dx:.05,dy:.05}]);
 commit([{type:'objects.nudge',ids:model.scene.objects.filter(o=>o.assetId==='tile:fixtures_sinks_01_12').map(o=>o.id),dx:0,dy:.07}]);
+// Toilet on the back wall, no longer facing the basin across a 40 cm gap; shifted 45 cm east to leave a ~67 cm walkway to the shower entry.
+commit([{type:'objects.nudge',ids:model.scene.objects.filter(o=>o.assetId==='tile:fixtures_bathroom_01_3').map(o=>o.id),dx:.45,dy:-.07}]);
 commit([place('studio-television-85','N',4,5),place('lamp','S',0,3),place('detail-kitchen','S',9,0),place('wall-sconce','N',5,0),place('wall-sconce','N',8,0),place('wall-sconce','N',8,8),place('wall-sconce','N',3,6),place('wall-sconce','N',6,6),...[1,3,4].map(x=>place('detail-curtain','N',x,0)),place('detail-curtain','W',0,2)]);
 // Physical centres, not nominal sprite/grid widths. Preserve table supports.
 const idFor=family=>model.scene.objects.find(o=>o.parts.some(p=>props[p.tile]?.TianVariantFamily===family))?.id;
@@ -37,7 +43,11 @@ commit([
 commit([place('lamp','S',2,0)]);
 commit([{type:'objects.nudge',ids:[model.scene.objects.find(o=>o.x===X+2&&o.y===Y&&o.parts.some(p=>p.tile==='tian_detail_lamp')).id],dx:-.18,dy:-.16,relativeToHost:true},place('studio-water-glass','S',2,0),...['Base.Tshirt_ArmyGreen','Base.Tshirt_CamoGreen','Base.Tshirt_OliveDrab'].map(type=>({type:'place',assetId:'item:'+type,x:X,y:Y,z:0,storeInContainer:true}))]);
 commit([[0,0,10,6],[7,6,10,8]].map(([x0,y0,x1,y1],i)=>({type:'roofVolume.add',roof:{id:'hearth-roof-'+i,name:'Hearth low-pitch roof',levelId:'level:0',elevationUnit:'storeys',vertices:[[X+x0,Y+y0],[X+x1,Y+y0],[X+x1,Y+y1],[X+x0,Y+y1]],profile:{axis:'Y',knots:[[X+x0,1.04],[X+x1,1.07]]},baseElevation:1,surfaceTile:'roofs_01_22',closureTile:'tian_masonry_ivory_1'}})));
-const supplies=read('tools/hearth-supplies.json').map(item=>item.x===X+9&&item.y===Y?{...item,x:X+7}:item.x===X+9&&item.y===Y+1?{...item,y:Y}:item);commit(supplies.flatMap(({type,count,x,y,z})=>Array.from({length:count},()=>({type:'place',assetId:'item:'+type,x,y,z,storeInContainer:true}))));
+const supplies=read('tools/hearth-supplies.json').map(item=>item.x===X+9&&item.y===Y?{...item,x:X+7}:item.x===X+9&&item.y===Y+1?{...item,y:Y}:item);const stock=list=>list.flatMap(({type,count,x,y,z})=>Array.from({length:count},()=>({type:'place',assetId:'item:'+type,x,y,z,storeInContainer:true})));
+// Bathroom care items go into the mirror cabinet, which is placed with the details below.
+const inBathroom=item=>item.y>=Y+6;commit(stock(supplies.filter(item=>!inBathroom(item))));
 commit(read('tools/hearth-yard.json'));
+commit(pendants());
 commit([place('detail-art','W',0,3),place('detail-art','N',6,0),place('detail-tea','S',8,2),place('detail-bath-mirror','S',9,6),place('detail-bath-towel','E',7,7)]);
+commit(stock(supplies.filter(inBathroom)));
 const out=process.argv[2]?pathToFileURL(path.resolve(process.argv[2])+'/'):new URL('../../../docs/project-zomboid/evidence/363-studio-supplies/rebuilt/',import.meta.url);fs.mkdirSync(out,{recursive:true});fs.writeFileSync(new URL('house.json',out),JSON.stringify(model.export(),null,2));fs.writeFileSync(new URL('commands.json',out),JSON.stringify(receipts,null,2));console.log(JSON.stringify({name:model.plan.name,revision:model.revision,rooms:model.scene.rooms.length,objects:model.scene.objects.length}));

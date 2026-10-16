@@ -10,7 +10,7 @@ import {installOriginalAssets} from './original-assets.js';
 import showcaseHouse from './showcase-house.js';
 import {MainMenu} from './main-menu.js';
 import {readPreferences} from './preferences.js';
-import {prepareHouseState} from './workshop-apply.js';
+import {prepareHouseState,preservesResidentStock} from './workshop-apply.js';
 import {interactionTarget,interactionLabel} from './interaction-target.js';
 import {waterSource,planWater} from './water.js';
 import {RESIDENCE} from './residence.js';
@@ -184,7 +184,7 @@ async function openWorkshop({resumePaused}={}){
   onApply:async (plan,{preview=false,resident=false}={})=>{
    if(resident&&sim.state.housePlan?.sceneDocument&&JSON.stringify(sim.state.housePlan.sceneDocument)===JSON.stringify(plan.sceneDocument))return sim;
    if(preview){if(!await save())throw Error('The original game could not be saved; walkthrough was not started');const session=new WorkshopWalkthrough(sim,plan,RESIDENCE.bounds,renderer.atlas,character.data);session.returnPaused=paused;session.returnToMenu=!!mainMenu?.active;session.originalVisibility=renderer.visibility;session.originalZoom=renderer.zoom;walkthrough=session;world=session.world;sim=session.sim;sim.paused=true;renderer.world=world;renderer.visibility=new Visibility(world);Object.assign(window.pz,{world,sim});return;}
-   applyingWorkshop=true;try{const state=prepareHouseState(sim,plan,RESIDENCE.bounds,renderer.atlas,{preserveStock:!!(resident&&plan.sceneDocument?.id&&plan.sceneDocument.id===sim.state.housePlan?.sceneDocument?.id)});await gameSaves.replace(SAVE,JSON.stringify(state),sim.serialize());sim=new Simulation(world,state,character.data);sim.paused=true;window.pz.sim=sim;renderer.visibility.reset?.();applied=true;toast('Your new house is ready');return sim;}finally{applyingWorkshop=false;}},
+   applyingWorkshop=true;try{const state=prepareHouseState(sim,plan,RESIDENCE.bounds,renderer.atlas,{preserveStock:preservesResidentStock(sim.state,plan)});await gameSaves.replace(SAVE,JSON.stringify(state),sim.serialize());sim=new Simulation(world,state,character.data);sim.paused=true;window.pz.sim=sim;renderer.visibility.reset?.();applied=true;toast('Your new house is ready');return sim;}finally{applyingWorkshop=false;}},
   onClose:()=>{keys.clear();if(walkthrough){mainMenu?.close();showWalkthroughBar();sim.paused=false;updateUI(performance.now());$('#game').focus();return;}if(mainMenu?.active){if(applied)startGame();else{sim.paused=true;mainMenu.element.querySelector('[aria-label=Workshop]').focus();}}else{sim.paused=paused;$('#game').focus();}}});await workshop.open();}
  catch(e){workshop?.close();sim.paused=paused;toast('Workshop could not open: '+e.message);console.error(e);}
 }

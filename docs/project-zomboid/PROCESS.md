@@ -6293,3 +6293,476 @@ deployment allowlist rejecting the canonical losslessWebP atlas and compressedJS
 catalog. Extended it narrowly toWebP and.json.gz; inspected the gzip catalogue and found
 no local absolute path strings. Include canonical assets deliveries and preserve shared
 private-assets for the development checkout; Pages main remains unchanged.
+
+## 505 — Claude handoff takeover and baseline
+
+Claude Opus 5.5 took over from HANDOFF-2026-10-15.md. Repository clean on codex/pz-browser
+(c2c1205); existing server on8883 left running. Claude's built-in browser had an empty save
+store for this origin, so the exact handoff export (sha256 6a842ce1…25af, copied unchanged
+into ignored test-results/ for serving) was imported through the public file input used by
+Settings → Import resident save. Start Game restored Hearth Studio, Day18 13:03, Health100,
+Hunger30.0, Thirst47.8, Endurance100 at the kitchen sink; immediately paused (clock unchanged).
+The user's original browser save was not touched. Baseline daylight kitchen and wide captures
+are in evidence505 (1024×768 CSS pane, DPR2, game camera default zoom and one step out).
+
+Baseline observations against Static Hour (CORRECTED later in505, see below): the first
+reading wrongly assumed no AO/environment term. The live game view already ran GTAO (35%
+post-blend), the automatic 3-pass room-bounce probes that replace hemisphere fill indoors, and
+box-projected local reflections. Visible flatness, plain fridge/oven boxes and weak upholstery
+seams remain real observations. No code, asset or save changes in505. Lunch (canned beans) remains unopened; three-day audit
+still open at Day18 13:03.
+
+## 505b — Indirect-only ambient occlusion; lighting diagnosis
+
+User asked for AO, less even indoor hemisphere fill and specular environment response, with
+fixed-camera day/night before/after. Inspection found all three already present (above), so
+the batch corrected and measured them instead of duplicating them.
+
+Change: contact-shading.js now defaults to `indirect` mode. GTAO renders before the scene pass;
+every opaque Standard/Lambert/Phong volume/character/fridge-content material samples the
+denoised AO buffer (texelFetch at gl_FragCoord) after `aomap_fragment` and multiplies ONLY
+indirect diffuse (probe bounce or outdoor hemisphere) and environment specular via Three's
+computeSpecularOcclusion. Direct sun/lamp/TV light keeps its own shadow maps instead of being
+darkened again by a whole-image blend. Transparent/faded surfaces are skipped; the AO uniform
+is enabled only during the main pass, so radiance captures never see it. `legacy` reproduces
+the pre-505 blend exactly for comparisons; `off` is the old toggle. Budget reserves one
+screen-occlusion sampler (8/16 used with shared atlas). Diagnostic window.pz.volumeView exposes
+camera yaw/pitch/radius, contact modes and the GTAO pass; it does not touch scene or save.
+
+Raw AO buffer at old settings (radius.35 thickness.15) was almost uniformly white
+(ao-buffer-weak.jpg). Reviewed settings radius.5, thickness1, scale2, distanceExponent2
+give legible contact at sofa/cabinet bases, wall-floor joints and sink recess (ao-buffer-tuned).
+
+Fixed-camera comparisons (1024×768 CSS, DPR2, resident paused Day18 13:04; one game minute
+elapsed during a reload restart, recorded honestly): day kitchen legacy→indirect mean luma
+77.76→76.98; day wide 82.97→82.37; night (Moonlight study) wide 46.6→45.16. Diff images:
+green=darker at TV base, sofa, wall bases, toilet, cabinet plinths; red=brighter on faded
+cut-away walls/fridge which the old blend wrongly darkened from objects behind them. Effect is
+correct but SUBTLE: AO alone does not change the overall flat impression.
+
+Reflections off/on at night (night-kitchen-reflections-*.jpg): sink and hob go black without
+them, wood/stone barely change. Specular response exists; glossy-material roughness, not a
+missing environment, limits it.
+
+Root cause found for the even look: light inventory at night = hemisphere .45 (outdoor only
+once bounce ready), moon .8, five wall sconces intensity14.8 with ~87° half-angle cones and
+6m range at 1.63m, four bathroom/kitchen fixtures at9, two lamp pairs at6/2. Near-
+hemispherical sconce cones evenly wash walls and floor; there are no distinct lamp pools.
+Next correction is a fixture-light recipe batch (narrower/up-down wash, shorter range,
+practical-lamp pools, lamp-off comparison), through canonical asset recipes, not a global
+dimming filter.
+
+Cost: alternating 6 rounds×15 synchronous renders (gl.finish, 2048×1536 buffer, pane possibly
+backgrounded): indirect p50 25.3/p90 47ms, legacy 24.2/42, AO off 14.2/25.1. No regression vs
+legacy; AO itself costs ~10ms here and remains part of the open performance gap.
+Full suite 1036/1036 passed (one new AO test). No asset rebuild, save edit or deployment.
+
+## 505c — Recipe-authored lamp pools (lamps on/off, day/night)
+
+Wall lights previously emitted one forward spot with a 1.52 rad (≈87°) half-angle and 6 m range
+from every sconce, evenly washing the whole room. wall-light-volume.js now reads an authored
+`light.beam` {aim [out,vertical], angle, penumbra, distance, origin}; lamp-volume.js reads
+`light.down/up` lobes. Defaults keep the old behaviour for unreviewed recipes. Values: sconce
+down-and-out wash 16 / 1.0 rad / pen .85 / 4.5 m (tune1 at 12 / .78 / 3.5 m was too dark mid-room,
+kept as tune1-day-on-B-too-dark.jpg); kitchen directional task 18 / .6 / 3.5 m; mirror strip
+26 / .95 / 3 m; table lamp down 6/.95/3 m, up 2/.85/2.5 m; floor lamp down 6/.85/3.5 m. Shadow
+budget unchanged (15 fixtures). Fixed cameras K (kitchen) and B (wide) in evidence505/lamps:
+before day/night on/off, after day/night on. Lamps-off frames are unaffected by beam shape.
+
+Observed: real wall scallops and floor pools under sconces, lamp pools by bed/desk, a task
+beam on the hob, patio pools at night. Remaining: (1) with lamps off at 13:04 the interior is
+almost black: windows + 3-pass bounce deliver very little daylight indoors — daylight
+transport is a real open defect, not addressed here; (2) the breakfast bar/kitchen centre has
+no fixture (needs pendants over the peninsula); (3) cone edges can read as hard diagonals.
+
+## 505d — Room-wide model detail batch (user: "models look cheap, work on everything")
+
+New shared toolkit src/detail-geometry.js: roundedBox (true fillets, spherical corners),
+lathe (turned/elliptical surfaces, crease-split normals), rod, barHandle on standoffs, knob,
+profileExtrude + roundedProfile (worktop nosings without notching butt joints), extrudeZ
+(curtain pleats), sphere, rotatePart. Every part carries exact per-vertex normals;
+scene-furniture-volumes transforms them with the inverse-transpose of the placement scale
+and volume-render-geometry uses them. Parts without collision are marked `nonblocking`.
+
+Rebuilt families: kitchen (kitchen-detail-volume.js) — fridge with rounded shell/doors,
+gaskets, kick grille, glass shelves on the existing contents heights, crisper drawers, door
+bins that swing with the doors, bar handles; gas range with cast-iron grates, turned burner
+caps, knobs, fascia/clock, framed black-glass oven window, drawer; shaker base units with
+drawer, 3 mm reveals, bar pulls, worktop nosing; sink with hollow cabinet, rimmed basin,
+strainer, gooseneck mixer. Bathroom (bathroom-detail-volume.js) — turned elliptical WC pan
+with open glazed bowl, water, seat ring, raised cover, cistern + dual flush; pedestal basin
+with real bowl, overflow, drain, monobloc tap; framed shower with shoes, thermostatic bar
+mixer, riser/slider, head and drain. Interior details: turned cups/teapot/bowl, looped
+handles, spherical produce, separate knife (blade/bolster/riveted handle) + board groove,
+pump soap, filleted mirror cabinet, towel rail, moulded art frame, pleated curtain panels on
+a rod with finials and rings. Lamps (turned base, socket, bulb, open double-sided shade,
+finial — fittings do not shadow their own emitters), plants (turned pot with rolled rim,
+hollow collision ring, thick tapered twisting leaves). All studio, domestic, wall-light,
+frame-furniture and table boxes/rods now use true fillets/smooth rods.
+
+Real failures found and fixed (not test-weakened): worktop overhang broke peninsula/sink top
+alignment → fronts recessed instead; sink and pot box proxies filled their open cavities →
+rim-block collision rings; fridge swing pattern widened for multi-part handles/bins; toilet
+cover renamed so seat-height contact reads the real seat. Structural tests that hard-coded old
+part counts/triangle totals now compare against the delivered geometry. Asset staging needed
+the new modules in the studio raster recipe sourceFiles (same failure class as 502).
+
+Verification: 1036/1036 JS tests, 74/74 SRE Python tests, canonical asset regenerate + volume
+build + freshness check all pass. Scene now 217k triangles / 439 meshes (geometry, before
+shadow passes). Browser close-ups in evidence505/models; comparison-models-lamps.jpg.
+Resident remained paused at Day18 13:04 throughout (one game minute elapsed on an earlier
+restart, logged in 505b); user's own browser save untouched. Diagnostic window.pz.volumeView
+(camera, contact modes) and window.pz.volumeViewTarget (camera target) are view-only.
+
+Not yet done / not accepted: sofa and bed still read as plain upholstered blocks (need seams,
+tufting, cushion crown, bed linen detail); TV/console/speakers/piano/trainer only received
+fillets; doors, windows and walls are untouched; no material/texture work in this batch; no
+fresh performance run after the triangle increase; no user visual acceptance yet.
+
+## 505e — Dark daylight interior: diagnosis and interior eye adaptation
+
+Symptom: lamps off at Day18 13:05, interior floor/sofa rendered pure black (0,0,0) while the
+lawn was (94,92,43). Measured the published probe field (new read-only bounce.diagnostics()):
+daylight-only SH band-0 luminance 0.006–0.049 per probe (log-average key 0.0156) versus
+0.06–0.43 with lamps on (key 0.123). Controlled captures ruled out suspected blockers: window
+glass at realistic transmission (opacity .3→.1) changed the field ≈+10%; making the four
+curtain panels translucent changed nothing; bypassing depth visibility and turning AO off
+changed nothing. The room is 66 m² lit by four small north/west windows, no direct sun at
+13:00: a 1–3% daylight factor is physically right. The defect is display: one fixed exposure
+tuned for lamp-lit rooms renders that daylight interior as black.
+
+Fix: src/interior-exposure.js derives an interior gain from the PUBLISHED probe field
+(key = log-average band-0 luminance; gain = clamp((0.12/key)^0.95, 0.6, 10)), eased over
+0.9 s. room-bounce-study multiplies outgoing radiance only for fragments inside a captured
+room (`tianInside`), so the sunlit exterior keeps base exposure .95 instead of blowing out.
+It changes only when indirect lighting is recaptured (lamp switch, 10-minute bucket, edits),
+never per frame, so the camera cannot pump it. Inspector toggle "Interior exposure
+adaptation" restores fixed exposure for controlled comparisons. No light energy, extra lamps
+or ambient fill were added; GI capture is unchanged.
+
+Bug found and fixed during verification: the gain uniform was also active inside probe
+captures, so each capture multiplied measured radiance by the current gain and the next
+adaptation step fed back on it (probe luminance jumped 0.015→0.3–4.3, gain oscillated
+6.9↔0.6; FAILED-feedback-inflated-capture.jpg). Capture now forces gain 1 per cube face;
+regression test added. Earlier glass/curtain readings taken during the feedback were
+discarded and repeated.
+
+Results (evidence505/daylight, B camera): day lamps off gain 6.5–6.9 — walls, kitchen units,
+bed, desk and bathroom readable, sun patch by the piano; floor at the room centre stays dim
+(it sees almost no sky), which is physically plausible. Day lamps on gain 0.98 (reviewed look
+unchanged). Night lamps off: key 0.004, gain capped at 10, room stays dark with moonlit
+patches. Night lamps on gain 1.18 with lamp pools intact. 1040 JS tests pass.
+
+Limits: gain is per-house interior, not per-room local adaptation; a dark corner inside a
+bright room is not lifted. Bar/kitchen centre still lacks a ceiling fixture. No browser
+performance run after this change (one extra uniform multiply per interior fragment).
+
+## 505f — Second model pass: living room, bedroom, doors and windows
+
+Studio families: round tapered legs with glides replace square bar legs (nightstand, desk,
+bench, stools); TV gains a deeper rear chassis, port panel and flat blade feet (the `display`
+part and its hard-coded screen corners are unchanged); floor speakers get real drivers
+(frame, rolled surround/cone, dust cap), a dome tweeter, a flared bass port and spikes;
+office chair casters are wheels on forks (still five `caster:` parts); workstation keyboard
+gets key rows, monitor a rear housing, mouse a shaped shell; bar stools a raised back on
+posts; upright piano a fallboard, key slip, toe blocks, shaped pedals with pedal box and
+castors; nightstand pull on standoffs. Bed (domestic, inherited by the storage bed): seven
+channel-tufted upholstered headboard pads on the timber frame (visual only). Cushions: a
+render-only crown (centre keeps authored height). A first attempt crowned the convex hull
+itself and raised resolution: the collision solid went from merged planes to hundreds,
+test file time rose to 103–127 s and bounds broke — reverted; collision stays the original
+undeformed envelope. Doors: applied panel mouldings on both faces, lever handles on rosettes,
+three hinge knuckles; windows: glazing-bar cross both sides and sills. All opening details are
+collision-free parts in the leaf's own frame, so door sweeps and reach checks are unchanged.
+
+Verification: winding/normal consistency checked numerically for all new studio parts
+(0 inverted of ~39k triangles), 1040/1040 JS tests, asset regenerate + freshness check pass,
+browser close-ups in evidence505/models (tv-console, desk, piano-bench, sofa, bed headboard,
+door, window). The sink "E · Use water" prompt absence seen earlier was a refresh-timing
+artefact of pausing immediately; it is present after a normal start.
+
+## 505g — Living audit resumed: Day18 lunch
+
+Continued the same resident (imported handoff save, Claude built-in browser profile) through
+the public UI with the clock running. Inventory → Open can (can opener carried) completed;
+"Canned Beans (Open) · Fresh" appeared; Eat (all remaining) took Hunger 30.1→6.1 at 13:09.
+Drank the 750 mL bottle: Thirst 48.1→36.8 at 13:11. Paused at Day18 13:11, Health 100,
+Endurance 100; progress saved locally in this browser profile (House options → Export save
+will produce a file; not downloaded here because a download needs the user's approval).
+The user's own browser still holds the handoff state at 13:03.
+
+Observed household gaps (add to evidence503 list, not fixed here): the resident carries
+13 empty Tin Cans and 6 dirty bandages — no waste bin/recycling routine exists, so rubbish
+accumulates in pockets; the emptied bean can joined them. Timed actions only progress
+while the 3D view renders, so a backgrounded tab stalls eating/drinking (expected, but it
+makes unattended play impossible). The 72 h audit (target Day20 07:21) remains open.
+
+## 505h — Kitchen waste bin and rubbish routine
+
+Problem (505g): the resident carried 13 empty tin cans because the home had no bin. Added a
+real rubbish routine using imported item types, nothing deleted:
+
+- Models (studio pipeline, recipe + compressed delivery + catalogue sprite + semantics):
+  `studio-pedal-bin` (brushed filleted body, plastic base, liner folded over the rim, hinged
+  lid that lifts on storage inspection, pedal) and `studio-wheelie-bin` (tapered moulded body,
+  ribbed lid on a rear hinge, handle, axle and wheels). Tiles `container=bin`, capacity 10 /
+  50, `TianEmptyContainer`; the wheelie bin also `TianOutdoorBin`. Appended at the end of the
+  studio catalogue order so existing atlas regions do not move.
+- Logic (src/rubbish.js + Simulation.throwAway/tieBinBag): "Throw away" moves a whole carried
+  stack of genuine rubbish (Junk / empty-can tags; fill state part of stack identity — a full
+  bottle never joins the empties; tools, food and washable dirty bandages are never offered)
+  as ONE timed action whose duration is the sum of the transfers it replaces, re-validating
+  each item at completion and refusing to overfill. "Tie bin bag" uses a carried empty
+  `Base.Garbagebag` or one use from a carried `Base.Garbagebag_box`, moving the bin contents
+  into the bag. A tied full bag is rubbish only for an outdoor bin. Reach/bin checks enforced.
+- Default builder places the pedal bin at the end of the sink run and the wheelie bin on the
+  entrance court, and stocks a box of bin bags in the prep counter (scratch build verified,
+  53 objects). Live house: committed through Build commands (rev 1 place, rev 2 swap bin ↔
+  plant so the bin faces the entry corridor), applied with Use as my home (stock migrated,
+  resident moved to spawn as documented).
+- Door names: the nearby-door list said "Door / Door"; src/door-names.js now derives
+  "Entrance door" / "Bathroom door" from the rooms either side of the host wall.
+
+Browser verification with the real resident (Day18 13:14→15:01): threw away 13 cans (bin
+2.6/10); tie refused with "Carry a bin bag or a box of bin bags" when none carried; fetched
+the box from the counter; tied the bag (box 20→19 uses, bin empty, bag holds 13 cans);
+carried it out and threw it into the wheelie bin (bag with 13 cans inside the outdoor bin).
+1047/1047 JS tests (6 rubbish + door-name tests), asset regenerate/freshness pass.
+
+Incident (kept, not hidden): the figure standing at the entry all session is a zombie. Going
+outside, the resident was attacked (Health 100→28, seven scratches). Fled, returned, closed
+the "Door" — which was actually the bathroom door (both were named "Door"), so the zombie
+followed inside. Killed it bare-handed (no weapon carried; the bat is in the breakfast-bar
+storage), disinfected two wounds with the remaining wipes, bandaged six with the carried dirty
+bandages to stop bleeding 7→0 quickly (infection risk accepted), and the seventh with a clean
+bandage from the counter. Resident paused Day18 15:01, Health 28, bleeding 0, Hunger 9,
+Thirst 41. A zombie corpse lies just inside the entry; corpse disposal is not implemented.
+This led directly to the door-naming fix. Earlier timed actions were also cancelled by
+walking, as designed.
+
+Open: no corpse handling; dirty bandages should be replaced with clean ones and washed;
+bin contents are listed but not modelled inside the bins; outdoor bins are never emptied
+(no collection simulated); the 72 h audit continues from Day18 15:01 in this browser profile.
+
+## 505i — Pendant lamps over the breakfast bar
+
+The peninsula was the remaining dark zone after the 505c beam change. Added `studio-pendant-
+lamp` (studio pipeline: recipe, compressed delivery, catalogue sprite, semantics): brass
+canopy, cord, cord grip, spun enamel dome shade (open, double-sided) with brass lip, socket and
+emissive bulb; shade rim at 1.62 m (≈0.7 m over a 0.925 m worktop), no collision parts so it
+never blocks walking or seating. Recipe-authored downward spot: 8 / 0.75 rad / pen .6 / 3.2 m,
+warm 0xffd9a8. Down-only on purpose: fixture budget was 13 of 15 (3 lamps × 2 lobes, 5 sconces,
+2 directional), two pendants bring it to exactly 15 — no up-glow lobe, documented limit.
+
+Real support gap fixed: ceiling fixtures required a solid floor tile on the storey above, so a
+house with a profiled roof (Hearth Studio) could not hang anything even though the roof renders
+interior ceiling surfaces. src/roof-ceiling.js now also accepts a roof slope covering the cell
+centre whose lowest elevation is at the next storey (not a roof far above or below); wired into
+the workshop placement rule. Tests cover inside/outside footprint and wrong-storey roofs.
+
+Default builder adds two pendants over the bar after the roof (scratch build: 55 objects).
+Live house: Build commands rev 3 placed both over the peninsula, applied with Use as my home;
+the rig accepted them (20 spot lights incl. TV/fridge, no budget error). Night lamps on: two
+distinct warm pools on the worktop and tea tray, bar and stools now readable (night-bar-close,
+night-lampson-K vs before-night-lampson-K); lamps off: pendants go dark with the rest and the
+room stays dark. 1049/1049 JS tests, asset regenerate + freshness pass.
+
+Limits: hang height is fixed in the recipe (not per-room ceiling height); no shade glow/up-light;
+light distribution authored, not IES. Daytime (game clock, lamps on, gain 0.97): the bar now
+sits in its own warm pools instead of the dark band seen in 505c (day-lampson-K vs
+before-day-lampson-K). Resident still paused Day18 15:01; view restored to game clock, lamps on.
+
+## 505j — Three days lived as the resident; household essentials
+
+User (2026-10-16): live in the house like a real person for three days, notice what daily life
+needs, add it. Lived Day 18 15:01 → Day 21 15:44 in the built-in browser test profile with the
+key/button driver (no state edits); 35 diary notes. Full diary and table:
+`evidence505/living/LIVING-DIARY.md`.
+
+Added (src/daily-care.js + Simulation/VolumeGameSession/inventory panel):
+- Brush teeth at a washbasin (toothbrush + toothpaste carried, 0.3 L, ≈3.5 game min;
+  `teethBrushedAt`, health line "Teeth brushed N h ago").
+- Toilet paper: one use of a carried roll per visit; without one, hand hygiene −15 extra.
+- Wash hands with soap (one soap use, hands to 100 %; water-only rinse still caps at 80 %).
+- Wash dirty bandages at any sink → clean bandages, water-limited off mains.
+- Body hygiene wears off 1.5 %/game hour except while showering (it never decayed before).
+- Rubbish: burnt or rotten food is binnable; spoil state is part of the stack key;
+  toothbrush/toothpaste/toilet paper are never junk.
+- Workshop stock arrives with the first fluid its definition lists (milk carton = full of
+  CowMilk); open vessels stay empty.
+Stock (tools/hearth-supplies.json, builder): bathroom cabinet soap, toothbrush, toothpaste,
+toilet paper ×3, bath towels ×2; counter soap, dish towel, bread, peanut butter, jam, cereal,
+crackers, soup ×4, potatoes ×6; fridge milk ×2, butter, carrots ×4; breakfast bar bowls,
+plates, mugs ×2; bed drawers trousers ×2, underpants ×4, socks ×4; media console books ×2,
+crosswords ×2. Bathroom cabinet stock is committed after the details (the cabinet did not
+exist yet when supplies were committed).
+
+Bathroom re-laid: the toilet faced the basin across ~40 cm (approach band ~17 cm; nine tries
+per visit). It now stands N-facing on the back wall at (8,7), nudged (+0.45, −0.07) so a ~67 cm
+walkway still reaches the shower entry. Live house: Build commands rev 4 (stock), rev 5–7
+(move/rotate/nudge), applied with Use as my home.
+
+Bugs found and fixed: the Workshop's "Use as my home" applied without the resident flag, so
+every re-apply reset stock to the authored plan (eaten food came back, a taken cabinet set
+was duplicated). `preservesResidentStock(state, plan)` now keeps stock for any re-apply of
+the same scene. The live test save was restocked by my rebuilds before the fix; I left it
+as it is rather than editing the save.
+
+Found, not fixed (separate task): east/west PZ fixture tiles render mirrored in 3D. The
+`fixtures_bathroom_01_2` toilet (Facing W, attachedE) faces the east wall
+(`living/toilet-w-tile-faces-wall.jpg`); recipe keys match tile Facing, but the E/W branch of
+the furniture transform turns local front to the opposite side. Affects every E/W
+toilet/sink/counter/fridge; the bathroom avoids E/W.
+
+Verified in play (Day 21): toilet used first try from the new spot (paper used), flush, soap
+hand wash 100 %, teeth brushed, 13 dirty → 13 clean bandages, soap shower hygiene 100 /
+wetness 100 → towel 0, burnt chicken ×2 + tin into the pedal bin, bread + peanut butter in
+portions, milk 1000 mL carton (thirst 21.8 → 10.8), crockery, clothes, books and the cabinet
+present. 1058/1058 JS tests (daily-care suite, toilet/workshop updates), asset freshness exit 0.
+
+Still missing: corpse disposal, take-several, pot cooking/kettle, usable desk computer, trainer
+exercise, piano progress, laundry/wearing clothes, groceries over time, a bin nearer the hob.
+
+## 505k — High-detail resident body (phase 1)
+
+User (2026-10-16): replace the character with a high-poly, textured, realistic human, keeping
+the existing skeleton and animations. Audit first: the resident was the original game mesh
+(body 916 + shirt 264 + trousers 386 + hair 134 triangles, 256 px textures, Lambert, untextured
+hair, no shoes).
+
+Built `tools/build_resident_hd.py` (+ `resident_hd_stages.py`, `resident_hd_dress.py`,
+`resident_hd_texture.py`; `npm run character:build`, deterministic, no network):
+- Body: the CC0 MakeHuman base mesh and CC0 macro targets from the locally installed MPFB 2.0.17
+  extension (male, young adult, slightly muscular, 0.6 Asian / 0.4 European macro blend).
+- Repose: MakeHuman's own CC0 game-engine skin weights blend per-bone maps that put each MakeHuman
+  joint segment onto the Bip01 bind pose (torso stretch, limb segments with axial stretch, rigid
+  hands/feet/head). The weights are then remapped to Bip01 (fingers fold onto Finger0/Finger1),
+  so the existing animation sampler drives the new body through the game's own inverse bind
+  matrices (the test checks they match).
+- Clothing: shells of the body surface (same skin weights, so they move with it), subdivided,
+  offset from a Laplacian-smoothed copy of the body so anatomy reads as fabric, kept clear of the
+  real skin, with hem/neck/cuff loops relaxed into clean lines. The parts are a crew-neck T-shirt
+  with short sleeves, straight-leg jeans and briefs that stay on in the shower. The sneakers are
+  lofted superellipse sections sized per foot slice, with a flat sole, rounded toe/heel and an open
+  collar. Hair is a scalp shell with an alpha-cut hairline. Eyes are the helper spheres with their
+  own iris UVs.
+- Textures, painted per texel from a UV-space rest-position map:
+  - skin 2048² with mottling, warm cheeks/nose/ears, lips, brows of short strokes, stubble shadow,
+    and a pore bump;
+  - denim twill with outseam/inseam, waistband, belt loops, pockets, hems and wear;
+  - jersey knit with a ribbed collar and twin-needle hems;
+  - hair strands radiating from the crown;
+  - shoe sole tread, welt, lacing and eyelets;
+  - eye iris fibres and limbal ring.
+- Size: 61.5k triangles (body 26.8k); 2.8 MB binary + 14.6 KB manifest + 5 MB of textures.
+
+Runtime: `src/resident-hd-character.js` loads the asset and builds one shared Bip01 hierarchy
+with SkinnedMesh parts (MeshPhysicalMaterial: sheen cloth, clearcoat eyes, alpha-tested hair). It
+copies the sampled source pose each frame (actor facing/mirroring plus bone locals by name).
+`volume-characters` uses it for the resident once it has loaded. Zombies and the 2D sprite keep the
+imported actor, and `pz.volumeView.characters.setDetail('legacy'|'hd')` compares them. The HD body
+is synced as soon as it loads, so it appears even when the game starts paused. In the shower,
+clothes and shoes hide and the briefs stay.
+
+Verified in the browser (daylight, same cameras): standing, walking (stride and arm swing),
+sitting on the sofa (rest pose), face close-up — `evidence505/character/` hd-* vs legacy-*.
+1065/1065 JS tests (new resident-hd suite: completeness, normalised weights, bind matrices equal
+the game's, feet/hands/head on the joints, clothing encloses the body, shared skeleton and
+name-based sync, shower visibility, materials). Asset freshness exit 0. The rebuild is
+byte-identical.
+
+Limits (phase 1): height follows the game skeleton (~1.66 m; the legacy figure reached 1.8 m with
+a cartoon head). Fingers move as the skeleton's two finger bones. No facial animation or blinking.
+Shoulders of the shirt are a little full. The shower was checked by test, not walked live this
+session. Rebuilding needs MPFB installed locally (the built asset is committed-ready in
+assets/characters/resident-hd).
+
+## 505l — Sofa, bedding, lampshades and surface materials
+
+User (2026-10-16): do the low-quality furniture and materials next — sofa, bedding,
+lampshades, and the fabric, floor, grass and worktop textures. The audit found that fabrics,
+walnut, floors and grass were 128 px reprojections of tiny sprite regions (an 18×9 px patch
+upscaled for every cushion). Grass was per-pixel noise and the worktop "honed stone" was
+high-contrast speckle.
+
+New `src/procedural-surfaces.js` (seamless, deterministic, runtime-generated, cached):
+- `oak-floor`, 1024² at 1.4 m: ~14 cm boards, random staggered butt joints per row, per-board
+  tone, flat-sawn cathedral grain, along-grain pores and fibre, occasional knots, bevelled
+  joints in relief, satin roughness.
+- `lawn`, 1024² at 1.2 m: thatch and soil under thin blade strokes, dry tips, clover clusters.
+- `quartz`, 1024²: quiet fine aggregate, clouding and two faint wandering veins (no speckle).
+- `fabric`, 512² (linen/boucle/percale/basket): yarn-level weave relief, two-ply heather,
+  slubs; tinted by the material colour.
+- `walnut`, 512²: cathedral figure with open pores.
+
+Recipes switched: 37 linen/cloth materials (chunky linen/boucle upholstery, percale bedding,
+waffle duvet, linen shades and curtains), 14 walnut, 3 worktops (counter, sink, breakfast bar),
+and the two wood floors plus the yard grass in `surface-materials`. The bathroom tile and paving
+keep their source floors. The material cache and architectural validation accept the new kinds.
+
+Geometry:
+- Upholstery envelopes render at 22×44 (was 12×24) while collision keeps the coarse 12×24
+  hull. Rendered vertices are clamped inside it (after creases), so collision stays compact and
+  render ⊆ collision still holds.
+- Sectional sofa: base, back and track arms are padded envelopes with sewn piping instead of
+  rounded boxes. Feet are turned, tapered walnut with brass ferrules.
+- Bed: a quilted duvet falls over both sides and the foot (`quiltedDuvet`: channel quilting,
+  loose rumple), with a turned-down fold under seamed pillows (`pillowVolume`: lofted faces
+  closing to a seam, pinched ears, head dent). New off-white percale `bedding` material and a
+  warm stone duvet (was slate grey and unreadable in the dim bedroom).
+- Lamps: box-pleated linen shell, inner lining that glows when lit (new `lining` material),
+  rolled hems top and bottom, and a three-arm wire spider (no collision, no self-shadow). Lit
+  fabric now glows through its own weave (`bindMaterial` uses the colour map as `emissiveMap`).
+  The socket shadow flag is now set by part id, not position.
+
+Verified in the browser at the audit cameras (`evidence505/materials/` before-* vs after-*):
+real oak floorboards, piped upholstered sofa with visible weave, readable bed with pillows and
+duvet drape, the lit shade showing linen and hems, a clean quartz bar top, and mown lawn.
+1071/1071 JS tests (new procedural-surfaces suite: determinism, seamless tiling, oak
+joints/hue, quiet quartz, pillow/duvet shape, lamp parts and flags, emissive weave). Volume
+deliveries rebuilt; canonical asset build and freshness pass.
+
+Limits: the sofa throw is still the older draped sheet. Paving and bathroom tiles are unchanged.
+Fabric relief is bump, not a tangent-space normal map. Shade pleats are subtle at room distance.
+Old content-hashed deliveries remain in assets/volume, as before.
+
+## 505m — Every surface textured; world-space variation
+
+User (2026-10-16): overall the materials still look simple, each a single block of colour.
+Audit after 505l: 46 material classes (164 recipe materials) still had no texture at all —
+dark paint, rubber, stone, ceramic, metal, ivory keys, screens, wood edges, paper, books,
+terracotta, leaves, cast iron and more. Even textured ones lacked large-scale variation.
+
+- **World-space variation on every volume surface** (`src/surface-variation.js`, installed by
+  `createVolumeSurfaceMaterial`). Albedo is modulated by three octaves of 3-D noise (±10 %,
+  broad/mid/fine) and roughness by ±28 % (uneven sheen). It is continuous across meshes, needs
+  no UVs and does not tile. Metals vary less; glass, transparent and lamp-emissive materials opt
+  out (`variation:false` per material). Shader symbols carry a unique `tsv` prefix: the first
+  attempt reused `vTianWorld`/`tianP` from the bounce/parallax patches and blanked every surface
+  (caught live, regression-tested).
+- **New material-class textures** (`procedural-surfaces.js`):
+  - `ceramic`: pooled glaze, faint crazing, pinholes;
+  - `paint`: orange-peel relief and roller direction;
+  - `plastic`: mould stipple;
+  - `paper`: fibre, laid lines, cockle;
+  - `terracotta`: grog, pores, firing blush;
+  - `leaf`: midrib, parallel veins, waxy sheen;
+  - `cast-iron`: granular cast skin;
+  - `wall-paint`: 1024² matt emulsion with roller stipple, trowel undulation and coat patchiness;
+    it replaces the 256 px plaster on walls.
+
+  Assigned by class across all recipes. Metal, brass and steel get brushed metal; wood, timber
+  and edges get walnut grain; stone gets quartz; books get basket-weave cloth; cloth, linen and
+  accent get woven fabric. That is 164 materials plus the walls.
+- **Character bug** found while checking: the HD resident's left shoe was wound inside-out and
+  back-face culled (bare foot). Shoes now orient by signed volume, with a test.
+
+Verified in the browser (`evidence505/materials/pass2-*`): floorboards vary board to board,
+the basin shows glaze highlights and tone, the walls have soft paint mottling, and the lamp
+shades and woods show texture. 1074/1074 JS tests (new surface-variation suite; two tests
+updated for the wall-paint kind and the extra relief map). Volume deliveries and the canonical
+asset build regenerated; freshness passes.
+
+Limits: variation is procedural look development, not scanned PBR. There is no edge wear or
+cavity grime (no curvature data). The jeans twill can moiré at mid distance. Food props rely on
+the global variation only.

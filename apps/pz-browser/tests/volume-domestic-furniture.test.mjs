@@ -8,7 +8,7 @@ for(const name of ['sofa','bed','oven','fridge']){
   for(const [direction,parts] of Object.entries(asset.recipe.sourceLayout)){
    const object={id:name,levelId:'g',x:10,y:20,parts},scene={levels:[{id:'g',index:0}],objects:[object]},before=structuredClone(scene);
    const meshes=sceneFurnitureVolumes(scene,{squares:[]},{},asset,{cellSize:1,storeyHeight:3}),vertices=meshes.flatMap(m=>m.vertices),span=i=>Math.max(...vertices.map(v=>v[i]))-Math.min(...vertices.map(v=>v[i]));
-   assert.deepEqual(scene,before);assert.equal(resolveVolumeFurniture(object,[asset]).direction,direction);assert.equal(meshes.length,asset.geometry.parts.length);for(const [i,m] of meshes.entries())assert.equal(m.collision.length,(asset.geometry.parts[i].id.endsWith(':piping')||asset.geometry.parts[i].softSupport==='cover')?0:1,'Decorative piping and draped covers are nonblocking; underlying mattress stays solid');
+   assert.deepEqual(scene,before);assert.equal(resolveVolumeFurniture(object,[asset]).direction,direction);assert.equal(meshes.length,asset.geometry.parts.length);for(const [i,m] of meshes.entries())assert.equal(m.collision.length,(asset.geometry.parts[i].id.endsWith(':piping')||asset.geometry.parts[i].softSupport==='cover'||asset.geometry.parts[i].nonblocking===true)?0:1,'Decorative piping and draped covers are nonblocking; underlying mattress stays solid');
    // Appliance front handles extend beyond the cabinet depth but remain within the tile.
    const expected=asset.recipe.parameters[['E','W'].includes(direction)?'depth':'width'];assert.ok(span(0)>=expected-1e-8&&span(0)<expected+.06);
    const centerX=(Math.min(...vertices.map(v=>v[0]))+Math.max(...vertices.map(v=>v[0])))/2;

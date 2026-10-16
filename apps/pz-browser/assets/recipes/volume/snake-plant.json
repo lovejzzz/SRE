@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "tian-volume-snake-plant",
-  "version": 1,
+  "version": 2,
   "generator": "src/plant-volume.js",
   "sourceKind": "procedural",
   "status": "prototype",
@@ -15,19 +15,59 @@
   "materials": {
     "terracotta": {
       "color": 10182723,
-      "roughness": 0.85
+      "roughness": 0.85,
+      "texture": {
+        "kind": "terracotta",
+        "size": 512,
+        "seed": 79,
+        "repeatMetres": [
+          0.25,
+          0.25
+        ]
+      },
+      "bumpScale": 0.5
     },
     "soil": {
       "color": 3484448,
-      "roughness": 1
+      "roughness": 1,
+      "texture": {
+        "kind": "terracotta",
+        "size": 512,
+        "seed": 80,
+        "repeatMetres": [
+          0.15,
+          0.15
+        ]
+      },
+      "bumpScale": 0.8
     },
     "leaf": {
       "color": 4020279,
-      "roughness": 0.6
+      "roughness": 0.6,
+      "texture": {
+        "kind": "leaf",
+        "size": 512,
+        "seed": 83,
+        "repeatMetres": [
+          0.4,
+          0.06
+        ]
+      },
+      "bumpScale": 0.3
     },
     "leaf-light": {
       "color": 6978628,
-      "roughness": 0.7
+      "roughness": 0.7,
+      "texture": {
+        "kind": "leaf",
+        "size": 512,
+        "seed": 84,
+        "repeatMetres": [
+          0.4,
+          0.06
+        ]
+      },
+      "bumpScale": 0.3
     }
   },
   "placement": {
@@ -64,5 +104,8 @@
         "dy": 0
       }
     ]
-  }
+  },
+  "sourceFiles": [
+    "src/detail-geometry.js"
+  ]
 }

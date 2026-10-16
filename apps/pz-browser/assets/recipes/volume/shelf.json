@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "tian-volume-shelf",
-  "version": 2,
+  "version": 3,
   "generator": "src/frame-furniture-volume.js",
   "sourceKind": "procedural",
   "status": "prototype",
@@ -89,6 +89,7 @@
   },
   "sourceFiles": [
     "src/material-relief.js",
-    "src/volume-material-texture.js"
+    "src/volume-material-texture.js",
+    "src/detail-geometry.js"
   ]
 }

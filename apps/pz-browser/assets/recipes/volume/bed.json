@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "tian-volume-bed",
-  "version": 14,
+  "version": 15,
   "generator": "src/domestic-furniture-volume.js",
   "sourceKind": "procedural",
   "status": "prototype",
@@ -58,51 +58,20 @@
       "color": 12498077,
       "roughness": 0.93,
       "texture": {
-        "kind": "source-patch",
-        "sourceTile": "furniture_seating_indoor_02_24",
-        "size": 128,
-        "patch": [
-          [
-            12,
-            86
-          ],
-          [
-            18,
-            9
-          ],
-          [
-            0,
-            5
-          ]
+        "kind": "fabric",
+        "weave": "percale",
+        "size": 512,
+        "threads": [
+          96,
+          96
         ],
-        "detail": {
-          "base": 0.95,
-          "strength": 0.25
-        },
+        "seed": 41,
         "repeatMetres": [
-          0.32,
-          0.18
-        ],
-        "weave": {
-          "size": 512,
-          "threads": [
-            128,
-            72
-          ],
-          "metres": [
-            0.32,
-            0.18
-          ],
-          "relief": 0.00065,
-          "irregularity": 0.35,
-          "seed": 41
-        },
-        "dyeVariation": {
-          "strength": 0.28,
-          "seed": 53
-        }
+          0.06,
+          0.06
+        ]
       },
-      "bumpScale": 0,
+      "bumpScale": 0.6,
       "fibre": {
         "sheen": 0.35,
         "roughness": 0.85,
@@ -110,54 +79,23 @@
       }
     },
     "cloth": {
-      "color": 6649450,
+      "color": 11840668,
       "roughness": 0.95,
       "texture": {
-        "kind": "source-patch",
-        "sourceTile": "furniture_seating_indoor_02_24",
-        "size": 128,
-        "patch": [
-          [
-            12,
-            86
-          ],
-          [
-            18,
-            9
-          ],
-          [
-            0,
-            5
-          ]
+        "kind": "fabric",
+        "weave": "basket",
+        "size": 512,
+        "threads": [
+          40,
+          40
         ],
-        "detail": {
-          "base": 0.95,
-          "strength": 0.25
-        },
+        "seed": 43,
         "repeatMetres": [
-          0.32,
-          0.18
-        ],
-        "weave": {
-          "size": 512,
-          "threads": [
-            128,
-            72
-          ],
-          "metres": [
-            0.32,
-            0.18
-          ],
-          "relief": 0.00065,
-          "irregularity": 0.35,
-          "seed": 41
-        },
-        "dyeVariation": {
-          "strength": 0.28,
-          "seed": 61
-        }
+          0.12,
+          0.12
+        ]
       },
-      "bumpScale": 0,
+      "bumpScale": 0.6,
       "fibre": {
         "sheen": 0.35,
         "roughness": 0.85,
@@ -166,27 +104,97 @@
     },
     "accent": {
       "color": 9727311,
-      "roughness": 0.9
+      "roughness": 0.9,
+      "texture": {
+        "kind": "fabric",
+        "weave": "basket",
+        "size": 512,
+        "threads": [
+          40,
+          40
+        ],
+        "seed": 43,
+        "repeatMetres": [
+          0.12,
+          0.12
+        ]
+      },
+      "bumpScale": 0.5
     },
     "enamel": {
       "color": 10002074,
       "roughness": 0.4,
       "metalness": 0.25,
-      "edgeRadius": 0.002
+      "edgeRadius": 0.002,
+      "texture": {
+        "kind": "paint",
+        "size": 512,
+        "seed": 68,
+        "repeatMetres": [
+          0.6,
+          0.6
+        ]
+      },
+      "bumpScale": 0.12
     },
     "steel": {
       "color": 10198944,
       "roughness": 0.28,
-      "metalness": 0.8
+      "metalness": 0.8,
+      "texture": {
+        "kind": "brushed-steel",
+        "size": 256,
+        "seed": 25,
+        "repeatMetres": [
+          0.4,
+          0.4
+        ]
+      },
+      "bumpScale": 0.12
     },
     "dark": {
       "color": 2107172,
-      "roughness": 0.65
+      "roughness": 0.65,
+      "texture": {
+        "kind": "paint",
+        "size": 512,
+        "seed": 67,
+        "repeatMetres": [
+          0.6,
+          0.6
+        ]
+      },
+      "bumpScale": 0.15
     },
     "glass": {
       "color": 1581865,
       "roughness": 0.18,
       "metalness": 0.25
+    },
+    "bedding": {
+      "color": 14538699,
+      "roughness": 0.9,
+      "metalness": 0,
+      "texture": {
+        "kind": "fabric",
+        "weave": "percale",
+        "size": 512,
+        "threads": [
+          96,
+          96
+        ],
+        "seed": 49,
+        "repeatMetres": [
+          0.06,
+          0.06
+        ]
+      },
+      "bumpScale": 0.4,
+      "fibre": {
+        "sheen": 0.35,
+        "roughness": 0.85,
+        "specular": 0.35
+      }
     }
   },
   "migration": {
@@ -351,6 +359,7 @@
     "node_modules/three/examples/jsm/math/ConvexHull.js",
     "src/wood-finish.js",
     "src/material-relief.js",
-    "src/furniture-edge-finish.js"
+    "src/furniture-edge-finish.js",
+    "src/detail-geometry.js"
   ]
 }

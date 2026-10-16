@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "tian-volume-directional-wall-light",
-  "version": 1,
+  "version": 3,
   "generator": "src/wall-light-volume.js",
   "sourceKind": "procedural",
   "status": "prototype",
@@ -13,13 +13,33 @@
   },
   "light": {
     "color": 16766624,
-    "intensity": 18
+    "intensity": 18,
+    "beam": {
+      "aim": [
+        0.6,
+        -1
+      ],
+      "angle": 0.6,
+      "penumbra": 0.6,
+      "distance": 3.5,
+      "origin": "bottom"
+    }
   },
   "materials": {
     "metal": {
       "color": 4608075,
       "roughness": 0.42,
-      "metalness": 0.55
+      "metalness": 0.55,
+      "texture": {
+        "kind": "brushed-steel",
+        "size": 256,
+        "seed": 23,
+        "repeatMetres": [
+          0.4,
+          0.4
+        ]
+      },
+      "bumpScale": 0.12
     },
     "diffuser": {
       "color": 15327947,
@@ -83,5 +103,8 @@
         "dy": 0
       }
     ]
-  }
+  },
+  "sourceFiles": [
+    "src/detail-geometry.js"
+  ]
 }

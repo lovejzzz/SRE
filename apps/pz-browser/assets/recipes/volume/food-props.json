@@ -15,7 +15,17 @@
     "label": {
       "color": 14538950,
       "roughness": 0.78,
-      "metalness": 0
+      "metalness": 0,
+      "texture": {
+        "kind": "paper",
+        "size": 512,
+        "seed": 76,
+        "repeatMetres": [
+          0.1,
+          0.1
+        ]
+      },
+      "bumpScale": 0.15
     },
     "blue": {
       "color": 3429746,
@@ -40,7 +50,17 @@
     "leaf": {
       "color": 5268019,
       "roughness": 0.86,
-      "metalness": 0
+      "metalness": 0,
+      "texture": {
+        "kind": "leaf",
+        "size": 512,
+        "seed": 83,
+        "repeatMetres": [
+          0.4,
+          0.06
+        ]
+      },
+      "bumpScale": 0.3
     },
     "cheese": {
       "color": 14068834,
@@ -50,12 +70,32 @@
     "paper": {
       "color": 13682346,
       "roughness": 0.9,
-      "metalness": 0
+      "metalness": 0,
+      "texture": {
+        "kind": "paper",
+        "size": 512,
+        "seed": 73,
+        "repeatMetres": [
+          0.2,
+          0.2
+        ]
+      },
+      "bumpScale": 0.2
     },
     "tray": {
       "color": 7039073,
       "roughness": 0.81,
-      "metalness": 0
+      "metalness": 0,
+      "texture": {
+        "kind": "paint",
+        "size": 512,
+        "seed": 69,
+        "repeatMetres": [
+          0.4,
+          0.4
+        ]
+      },
+      "bumpScale": 0.15
     },
     "chicken": {
       "color": 12816254,
@@ -65,7 +105,17 @@
     "bone": {
       "color": 13287845,
       "roughness": 0.8,
-      "metalness": 0
+      "metalness": 0,
+      "texture": {
+        "kind": "ceramic",
+        "size": 512,
+        "seed": 63,
+        "repeatMetres": [
+          0.15,
+          0.15
+        ]
+      },
+      "bumpScale": 0.1
     }
   },
   "migration": {},

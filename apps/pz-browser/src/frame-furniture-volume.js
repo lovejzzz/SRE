@@ -1,12 +1,14 @@
 import {appendSlabPolygon} from './scene-slab-volumes.js';
 import {convexSolid} from './convex-solid.js';
+import {roundedBox} from './detail-geometry.js';
 // Reusable open-frame furniture: individual parts preserve the spaces between them.
 export function frameFurnitureVolume(recipe){
  const {width:w,depth:d,height:h,member:m}=recipe.parameters,parts=[];
  if(![w,d,h,m].every(v=>Number.isFinite(v)&&v>0)||m*4>=Math.min(w,d,h))throw Error('Invalid frame dimensions');
  const box=(id,materialId,x,y,z,W,D,H)=>{
   if(![W,D,H].every(v=>Number.isFinite(v)&&v>0))throw Error('Invalid furniture part');
-  const mesh={id,role:'furniture',materialId,vertices:[],indices:[],collision:[]};appendSlabPolygon(mesh,[[x,y],[x+W,y],[x+W,y+D],[x,y+D]],z,z+H);mesh.collision=[convexSolid(mesh)];parts.push(mesh);
+  // Members carry a small true fillet so slats, rails and legs catch light on their edges.
+  parts.push(roundedBox(id,materialId,[x,y,z],[W,D,H],Math.min(.006,Math.min(W,D,H)*.3)));
  };
  if(recipe.semantics.kind==='chair'){
   const {seatHeight:seat,seatThickness:t,backSlats:n}=recipe.parameters;

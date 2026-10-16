@@ -4,22 +4,19 @@ import {upholsteryTrim,drapedTextile} from './textile-detail-volume.js';
 import {upholsteryVolume} from './upholstery-volume.js';
 import {appendSlabPolygon} from './scene-slab-volumes.js';
 import {convexSolid} from './convex-solid.js';
+import {roundedBox,rod as smoothRod,lathe,knob,sphere,rotatePart} from './detail-geometry.js';
 // Original dimensional models. These are not reconstructed PZ meshes or final source textures.
 export function studioFurnitureVolume(recipe){
  const parts=[],kind=recipe.parameters.kind;
  const prism=(id,materialId,polygon,z,h,collision=true)=>{if(!(h>0)||!Number.isFinite(z))throw Error('Invalid studio height');const m={id,role:'furniture',materialId,vertices:[],indices:[],collision:[]};appendSlabPolygon(m,polygon,z,z+h);m.collision=collision?[convexSolid(m)]:[];parts.push(m);};
- const box=(id,mat,x,y,z,w,d,h,c=.0,collision=true)=>{if(![x,y,z,w,d,h,c].every(Number.isFinite)||Math.min(w,d,h)<=0||c<0)throw Error('Invalid studio part');c=Math.min(c,Math.min(w,d)*.24);const p=c?[[x+c,y],[x+w-c,y],[x+w,y+c],[x+w,y+d-c],[x+w-c,y+d],[x+c,y+d],[x,y+d-c],[x,y+c]]:[[x,y],[x+w,y],[x+w,y+d],[x,y+d]];if(!c){prism(id,mat,p,z,h,collision);return;}
-  // Bevel the top and bottom as well as plan corners; keep authored extents/IDs.
-  const b=Math.min(c,h*.22),k=c+(Math.SQRT2-2)*b;
-  const inset=[[x+b+k,y+b],[x+w-b-k,y+b],[x+w-b,y+b+k],[x+w-b,y+d-b-k],[x+w-b-k,y+d-b],[x+b+k,y+d-b],[x+b,y+d-b-k],[x+b,y+b+k]];
-  const vertices=[...inset.map(q=>[...q,z]),...p.map(q=>[...q,z+b]),...p.map(q=>[...q,z+h-b]),...inset.map(q=>[...q,z+h])],indices=[],n=p.length;
-  for(let i=1;i<n-1;i++)indices.push(0,i+1,i,3*n,3*n+i,3*n+i+1);
-  for(let r=0;r<3;r++)for(let i=0;i<n;i++){const j=(i+1)%n,a=r*n+i,B=r*n+j,C=(r+1)*n+j,D=(r+1)*n+i;indices.push(a,B,C,a,C,D);}
-  const m={id,role:'furniture',materialId:mat,vertices,indices,collision:[],smoothNormals:['cloth','linen'].includes(mat)};m.collision=collision?[convexSolid(m)]:[];parts.push(m);
+ // Edge radius c is a true fillet with exact normals (was an octagonal chamfer).
+ const box=(id,mat,x,y,z,w,d,h,c=.0,collision=true)=>{if(![x,y,z,w,d,h,c].every(Number.isFinite)||Math.min(w,d,h)<=0||c<0)throw Error('Invalid studio part');if(!c){prism(id,mat,[[x,y],[x+w,y],[x+w,y+d],[x,y+d]],z,h,collision);return;}
+  const r=Math.min(c,Math.min(w,d)*.24,h*.45),m=roundedBox(id,mat,[x,y,z],[w,d,h],r,{collision});if(['cloth','linen'].includes(mat))m.smoothNormals=true;parts.push(m);
  };
- const cushion=(id,x,y,z,w,d,h)=>{const p={id,creaseDepth:recipe.parameters.creaseDepth??0,origin:[x,y,z],size:[w,d,h]};parts.push(upholsteryVolume(p),upholsteryTrim({...p,id:id+':piping'}));};
- const rod=(id,mat,a,b,r)=>{const d=b.map((v,i)=>v-a[i]),len=Math.hypot(...d);if(len<1e-8||r<=0)throw Error('Invalid studio rod');const n=d.map(v=>v/len),cross=(a,b)=>[a[1]*b[2]-a[2]*b[1],a[2]*b[0]-a[0]*b[2],a[0]*b[1]-a[1]*b[0]];let u=cross(n,Math.abs(n[2])<.9?[0,0,1]:[0,1,0]);u=u.map(v=>v/Math.hypot(...u));const v=cross(n,u),vertices=[];for(const p of [a,b])for(let i=0;i<12;i++){const t=i*Math.PI/6;vertices.push(p.map((s,j)=>s+r*(u[j]*Math.cos(t)+v[j]*Math.sin(t))));}const indices=[];for(let i=1;i<11;i++){indices.push(0,i+1,i,12,12+i,12+i+1);}for(let i=0;i<12;i++){const j=(i+1)%12;indices.push(i,j,12+j,i,12+j,12+i);}const m={id,role:'furniture',materialId:mat,vertices,indices,collision:[]};m.collision=[convexSolid(m)];parts.push(m);};
- const legs=(id,x,y,w,d,z,h)=>{for(const [i,X]of [x+.06,x+w-.1].entries())for(const [j,Y]of [y+.06,y+d-.1].entries())box(`${id}:${i}:${j}`,'metal',X,Y,z,.04,.04,h,.005);};
+ const cushion=(id,x,y,z,w,d,h,fine=true)=>{const p={id,creaseDepth:recipe.parameters.creaseDepth??0,origin:[x,y,z],size:[w,d,h],fine};parts.push(upholsteryVolume(p),upholsteryTrim({...p,id:id+':piping'}));};
+ const rod=(id,mat,a,b,r)=>{if(r<=0||Math.hypot(...b.map((v,i)=>v-a[i]))<1e-8)throw Error('Invalid studio rod');parts.push(smoothRod(id,mat,a,b,r,{segments:r>.02?20:12}));};
+ // Tapered round legs with a small foot glide, instead of square bar stock.
+ const legs=(id,x,y,w,d,z,h)=>{for(const [i,X]of [x+.06,x+w-.1].entries())for(const [j,Y]of [y+.06,y+d-.1].entries()){const cx=X+.02,cy=Y+.02;parts.push(lathe(`${id}:${i}:${j}`,'metal',[cx,cy],[[.014,z],[.016,z+.006],[.0175,z+h*.35],[.02,z+h-.004],[.018,z+h]],{segments:16}));}};
  if(kind==='storage-bed'){
   const bed=domesticFurnitureVolume({materials:{...recipe.materials,timber:recipe.materials.walnut,accent:recipe.materials.linen},parameters:{width:1.8,depth:1.95,height:1.05,creaseDepth:.008},semantics:{kind:'bed'}});
   for(const part of bed.parts.filter(p=>p.id!=='frame')){part.materialId=part.materialId==='timber'?'walnut':part.materialId==='accent'?'linen':part.materialId;parts.push(part);}
@@ -33,7 +30,7 @@ export function studioFurnitureVolume(recipe){
    box('drawer-'+i+'-back','walnut',.82,y+.025,.205,.025,.40,.15,.004);
    box('drawer-'+i+'-front','walnut',1.72,y-.015,.17,.055,.48,.22,.008);
    rod('drawer-'+i+'-handle','brass',[1.79,y+.12,.29],[1.79,y+.32,.29],.008);
-   for(let c=0;c<3;c++){const from=parts.length;cushion('folded-clothes:'+i+':'+c,1.15,y+.06,.205+c*.047,.42,.32,.045);for(const part of parts.slice(from)){part.materialId=c%2?'linen':'cloth';part.clothingSlot=i*3+c;delete part.softSupport;part.collision=[];}}
+   for(let c=0;c<3;c++){const from=parts.length;cushion('folded-clothes:'+i+':'+c,1.15,y+.06,.205+c*.047,.42,.32,.045,false);for(const part of parts.slice(from)){part.materialId=c%2?'linen':'cloth';part.clothingSlot=i*3+c;delete part.softSupport;part.collision=[];}}
    for(const part of parts.slice(start))part.drawerSlide=[.52,0,0];
   }
  }else if(kind==='nightstand'){
@@ -47,7 +44,7 @@ export function studioFurnitureVolume(recipe){
   for(const x of [.15,.83])box('drawer-side:'+x,'walnut',x,.22,.215,.02,.55,.24,.003);
   box('drawer-back','walnut',.17,.22,.215,.66,.02,.24,.003);
   box('drawer-front','walnut',.12,.79,.18,.76,.035,.33,.009);
-  rod('drawer-handle','brass',[.38,.84,.36],[.62,.84,.36],.008);
+  rod('drawer-handle','brass',[.4,.85,.36],[.6,.85,.36],.0065);for(const x of [.4,.6])rod('drawer-handle-post:'+x,'brass',[x,.825,.36],[x,.85,.36],.005);
   for(const part of parts.slice(start))part.drawerSlide=[0,.38,0];
  }else if(kind==='water-glass'){
   const n=32,profile=[[0,0],[.038,0],[.043,.115],[.039,.115],[.034,.008],[0,.008]],vertices=[],indices=[];
@@ -62,7 +59,11 @@ export function studioFurnitureVolume(recipe){
   const whiteW=1.36/52;for(let i=0;i<52;i++)box('white-key:'+i,'ivory',.085+i*whiteW,.39,.765,whiteW-.001,.21,.014,.0004);
   // A0, B0, then C major groups. Black keys are separate raised geometry.
   let whiteIndex=0;for(const key of pianoKeys){if(!key.black){whiteIndex++;continue;}box('black-key:'+(whiteIndex-1),'rubber',.085+whiteIndex*whiteW-.007,.39,.779,.014,.13,.018,.001);}
-  for(let i=0;i<3;i++)box('pedal:'+i,'brass',.65+i*.08,.42,.055,.045,.17,.015,.006);
+  for(let i=0;i<3;i++){box('pedal:'+i,'brass',.65+i*.08,.42,.055,.04,.16,.012,.006);box('pedal-tip:'+i,'brass',.65+i*.08,.56,.05,.04,.03,.02,.008);}
+  box('pedal-box','walnut',.58,.37,.03,.38,.06,.05,.008);
+  box('key-slip','walnut',.06,.6,.7,1.41,.02,.075,.004);box('fallboard','walnut',.08,.37,.86,1.37,.022,.15,.006);
+  for(const x of [.02,1.45])box('toe-block:'+x,'walnut',x,.52,0,.06,.12,.08,.01);
+  for(const x of [.12,1.36])parts.push(lathe('castor:'+x,'brass',[x,.2],[[.018,0],[.02,.01],[.016,.02],[.012,.1],[0,.1]],{segments:14,collision:false}));
   box('music-rest','walnut',.4,.39,.88,.73,.025,.21,.008);box('rest-ledge','walnut',.39,.39,.865,.75,.07,.015,.004);
  }else if(kind==='piano-bench'){
   legs('leg',.05,.05,.9,.38,0,.40);
@@ -74,7 +75,7 @@ export function studioFurnitureVolume(recipe){
   for(const x of [.18,.78])rod('hinge:'+x,'brass',[x,.015,.46],[x+.05,.015,.46],.009);
  }else if(kind==='office-chair'){
   rod('gas-lift','aluminium',[.5,.5,.12],[.5,.5,.43],.035);
-  for(let i=0;i<5;i++){const t=i*Math.PI*2/5,a=[.5,.5,.14],b=[.5+.30*Math.cos(t),.5+.30*Math.sin(t),.09];rod('base-spoke:'+i,'metal',a,b,.023);rod('caster:'+i,'rubber',[b[0]-.025,b[1],.045],[b[0]+.025,b[1],.045],.043);}
+  for(let i=0;i<5;i++){const t=i*Math.PI*2/5,a=[.5,.5,.14],b=[.5+.30*Math.cos(t),.5+.30*Math.sin(t),.09];rod('base-spoke:'+i,'metal',a,b,.023);const tx=-Math.sin(t),ty=Math.cos(t);rod('caster:'+i,'rubber',[b[0]-tx*.022,b[1]-ty*.022,.03],[b[0]+tx*.022,b[1]+ty*.022,.03],.03);rod('caster-fork:'+i,'metal',[b[0],b[1],.09],[b[0],b[1],.05],.009);}
   cushion('seat',.23,.25,.43,.54,.52,.075);
   box('back-spine','metal',.47,.23,.48,.06,.04,.48,.01);
   cushion('back-pad',.24,.21,.55,.52,.09,.50);
@@ -83,14 +84,15 @@ export function studioFurnitureVolume(recipe){
  }else if(kind==='workstation'){
   legs('leg',0,0,1.8,.75,0,.72);box('desk-top','walnut',0,0,.72,1.8,.75,.045,.022);
   box('monitor-base','metal',.9,.18,.765,.32,.22,.018,.025);rod('monitor-post','metal',[1.06,.25,.78],[1.06,.25,1.02],.018);
-  box('monitor-body','dark',.72,.23,.97,.68,.035,.40,.008);box('monitor-screen','screen',.734,.265,.984,.652,.003,.369,.001);
+  box('monitor-body','dark',.72,.23,.97,.68,.035,.40,.008);box('monitor-housing','dark',.8,.205,1.0,.52,.03,.32,.03,false);box('monitor-screen','screen',.734,.265,.984,.652,.003,.369,.001);
   box('macbook-base','aluminium',.13,.38,.765,.355,.25,.013,.009);box('keyboard-inset','dark',.15,.395,.779,.31,.115,.001,.001);
   for(let row=0;row<4;row++)for(let col=0;col<12;col++)box(`laptop-key:${row}:${col}`,'metal',.154+col*.025,.399+row*.027,.78,.021,.022,.002,.001,false);
   box('trackpad','metal',.25,.53,.779,.12,.075,.001,.003,false);
   // Slightly tilted display, rather than a second vertical box touching the laptop.
   const start=parts.length;box('laptop-lid','aluminium',.13,.365,.778,.355,.009,.235,.003);box('laptop-screen','screen',.141,.374,.79,.333,.002,.21,.001);
-  for(const m of parts.slice(start)){for(const v of m.vertices)v[1]-=(v[2]-.778)*.22;m.collision=[convexSolid(m)];}
-  box('external-keyboard','ivory',.77,.48,.765,.44,.14,.018,.008);box('mouse-mat','cloth',1.3,.46,.766,.28,.24,.002,.015,false);box('mouse','ivory',1.4,.52,.768,.06,.11,.025,.018);
+  for(const m of parts.slice(start)){for(const v of m.vertices)v[1]-=(v[2]-.778)*.22;// Rounded parts keep their small box proxy; flat prisms are re-derived.
+   if(m.normals)m.normals=m.normals.map(([x,y,z])=>{const n=[x,y,z+.22*y],l=Math.hypot(...n);return n.map(t=>t/l);});else m.collision=[convexSolid(m)];}
+  box('external-keyboard','ivory',.77,.48,.765,.44,.14,.014,.006);for(let row=0;row<5;row++)for(let col=0;col<(row===4?6:15);col++){const w=row===4&&col===2?.135:.024;box(`ext-key:${row}:${col}`,'metal',.785+col*.0275+(row===4&&col>2?.11:0),.488+row*.026,.779,w,.021,.006,.002,false);}box('mouse-mat','cloth',1.3,.46,.766,.28,.24,.002,.015,false);parts.push(sphere('mouse','ivory',[1.43,.575,.768],.03,{scale:[1,1.8],rings:6,collision:false}));
   box('cable-tray','metal',.3,.12,.64,1.2,.14,.04,.01);rod('monitor-cable','rubber',[1.08,.23,.98],[1.08,.23,.68],.003);
  }else if(kind==='media-console'){
   legs('leg',0,0,2.2,.45,0,.14);box('carcass','walnut',0,0,.12,2.2,.45,.32,.012);box('top','walnut',-.015,-.01,.44,2.23,.47,.035,.012);
@@ -98,12 +100,23 @@ export function studioFurnitureVolume(recipe){
  }else if(kind==='television-85'){
   // Manufacturer outer dimensions; stand is our separate approximate original design.
   box('bezel','dark',0,.12,.08,1.8922,.0272,1.0819,.004);box('display','screen',.008,.1472,.088,1.8762,.002,1.0659,.001);
-  for(const x of [.28,1.61]){rod('stand:'+x,'metal',[x,.13,.14],[x,.32,.015],.012);rod('rear-stand:'+x,'metal',[x,.13,.14],[x,0,.015],.012);}
+  box('rear-chassis','dark',.18,.06,.2,1.53,.065,.62,.03,false);box('rear-port-panel','metal',1.2,.055,.32,.4,.006,.16,.004,false);
+  for(const x of [.28,1.61]){const start=parts.length;box('stand:'+x,'metal',x-.012,0,0,.024,.34,.018,.008);box('stand-riser:'+x,'metal',x-.012,.12,.012,.024,.035,.14,.008);for(const m of parts.slice(start))m.collision=m.collision||[];}
   box('status-led','ivory',.945,.149,.082,.003,.001,.002,0,false);
  }else if(kind==='floor-speaker'){
   box('plinth','dark',0,0,0,.3,.34,.035,.012);box('cabinet','walnut',.02,.02,.035,.26,.3,.965,.014);
-  for(const [i,z,r]of [[0,.27,.087],[1,.53,.087],[2,.81,.03]]){rod('driver-rim:'+i,'metal',[.15,.322,z],[.15,.334,z],r);rod('driver-cone:'+i,'rubber',[.15,.334,z],[.15,.34,z],r*.84);rod('driver-dome:'+i,'dark',[.15,.34,z],[.15,.35,z],r*.3);}
-  rod('bass-port','dark',[.15,.322,.1],[.15,.334,.1],.023);
+  // Lathe profiles are authored along +z then rotated to face +y (the front baffle at y=.32).
+    const driver=(i,z,r,tweeter)=>{const y0=.32,base=[.15,y0];
+   const frame=lathe('driver-rim:'+i,'metal',[.15,z],[[r,y0],[r,y0+.006],[r*.94,y0+.008],[r*.92,y0+.004]],{segments:40,capBottom:false,capTop:false,collision:false});
+   const cone=tweeter?lathe('driver-cone:'+i,'metal',[.15,z],[[r*.9,y0+.004],[r*.7,y0+.006],[r*.45,y0+.012],[r*.2,y0+.016],[0,y0+.017]],{segments:32,capBottom:false,capTop:false,collision:false})
+    :lathe('driver-cone:'+i,'rubber',[.15,z],[[r*.92,y0+.004],[r*.86,y0+.012],[r*.8,y0+.006],[r*.55,y0-.012],[r*.32,y0-.02],[r*.3,y0-.02]],{segments:40,capBottom:false,capTop:false,collision:false});
+   const cap=lathe('driver-dome:'+i,'dark',[.15,z],[[r*.31,y0-.02],[r*.25,y0-.008],[r*.12,y0-.002],[0,y0]],{segments:24,capBottom:false,capTop:false,collision:false});
+   for(const m of [frame,cone,cap]){m.vertices=m.vertices.map(([x,yy,zz])=>[x,zz,yy]);m.normals=m.normals.map(([x,yy,zz])=>[x,zz,yy]);for(let k=0;k<m.indices.length;k+=3){const t=m.indices[k+1];m.indices[k+1]=m.indices[k+2];m.indices[k+2]=t;}parts.push(m);}
+  };
+  // lathe axis is z; swap (y,z) so the axis points along +y at height z.
+  for(const [i,z,r]of [[0,.27,.087],[1,.53,.087],[2,.81,.03]])driver(i,z,r,i===2);
+  {const port=lathe('bass-port','dark',[.15,.1],[[.03,.326],[.024,.32],[.023,.27],[0,.27]],{segments:28,capBottom:false,capTop:false,collision:false});port.vertices=port.vertices.map(([x,yy,zz])=>[x,zz,yy]);port.normals=port.normals.map(([x,yy,zz])=>[x,zz,yy]);for(let k=0;k<port.indices.length;k+=3){const t=port.indices[k+1];port.indices[k+1]=port.indices[k+2];port.indices[k+2]=t;}parts.push(port);}
+  for(const [x,y]of [[.04,.04],[.26,.04],[.04,.3],[.26,.3]])parts.push(lathe(`spike:${x}:${y}`,'metal',[x,y],[[0,-.0001],[.004,.004],[.012,.012],[.012,.018],[0,.018]],{segments:12,collision:false}));
  }else if(kind==='functional-trainer'){
   // An open cable machine: do not replace the working space with one solid collision box.
   for(const x of [.05,1.65]){
@@ -131,15 +144,63 @@ box('rear-brace','metal',.08,.05,.08,1.67,.06,.06,.01);
  }else if(kind==='bar-stool'){
   legs('leg',.02,.02,.44,.44,0,.63);cushion('seat',0,0,.63,.48,.48,.055);
   for(const [a,b]of [[[.08,.08,.25],[.4,.08,.25]],[[.08,.4,.25],[.4,.4,.25]],[[.08,.08,.25],[.08,.4,.25]],[[.4,.08,.25],[.4,.4,.25]]])rod('footrest:'+parts.length,'metal',a,b,.012);
-  box('back','walnut',.015,0,.68,.45,.045,.22,.01);
+  box('back','walnut',.015,0,.78,.45,.04,.12,.015);for(const x of [.06,.39])rod('back-post:'+x,'metal',[x+.02,.02,.68],[x+.02,.02,.8],.011);
  }else if(kind==='sectional-sofa'){
-  for(const [i,x,y]of [[0,.1,.1],[1,2.65,.1],[2,.1,1.75],[3,.85,1.75],[4,2.65,.82]])box('foot:'+i,'walnut',x,y,0,.07,.07,.14,.01);
-  box('main-frame','cloth',0,0,.12,2.8,.95,.24,.06);box('chaise-frame','cloth',0,.7,.12,1,1.2,.24,.06);
-  box('back','cloth',0,0,.3,2.8,.18,.55,.06);for(const x of [0,2.64])box('arm:'+x,'cloth',x,.15,.29,.16,.79,.33,.045);
+  // Turned, tapered walnut feet with a brass ferrule.
+  for(const [i,x,y]of [[0,.1,.1],[1,2.65,.1],[2,.1,1.75],[3,.85,1.75],[4,2.65,.82]]){const cx=x+.035,cy=y+.035;parts.push(lathe('foot:'+i,'walnut',[cx,cy],[[.016,0],[.018,.012],[.021,.05],[.027,.125],[.03,.14],[0,.14]],{segments:20}));parts.push(lathe('foot-ferrule:'+i,'brass',[cx,cy],[[.0165,0],[.0175,.012],[.0175,.014],[0,.014]],{segments:20,collision:false}));}
+  // Upholstered base, back and track arms: padded envelopes with sewn piping, not boxes.
+  const shell=(id,origin,size,exponent,trim=true)=>{const p={id,materialId:'cloth',origin,size,exponent,creaseDepth:0};const m=upholsteryVolume(p);delete m.softSupport;parts.push(m);if(trim)parts.push(upholsteryTrim({...p,id:id+':piping'}));};
+  shell('main-frame',[0,0,.12],[2.8,.95,.24],.32,false);shell('chaise-frame',[0,.7,.12],[1,1.2,.24],.32,false);
+  shell('back',[0,0,.3],[2.8,.18,.56],.38);for(const x of [0,2.64])shell('arm:'+x,[x,.15,.29],[.16,.79,.34],.42);
   cushion('chaise-seat',.16,.2,.36,.82,1.65,.16);
   for(let i=0;i<2;i++)cushion('seat:'+i,1.0+i*.82,.2,.36,.8,.71,.16);
   for(let i=0;i<3;i++){cushion('back-cushion:'+i,.18+i*.82,.17,.52,.79,.16,.35);}
   parts.push({...drapedTextile({id:'throw',x:.24,y:1.12,z:.55,width:.6,flatLength:.66,drop:.24,radius:.09}),softSupport:'overlay'});
+ }else if(kind==='pedal-bin'){
+  // Kitchen pedal bin: brushed shell, plastic base, liner folded over the rim,
+  // shallow open cavity under a hinged lid that lifts when the bin is inspected.
+  const x=.34,y=.33,W=.32,D=.34,H=.6;
+  parts.push(roundedBox('base-ring','dark',[x-.006,y-.006,0],[W+.012,D+.012,.035],.012));
+  parts.push(roundedBox('body','steel',[x,y,.03],[W,D,H-.09],.035));
+  for(const [i,[X,Y,WW,DD]]of [[x,y,W,.012],[x,y+D-.012,W,.012],[x,y,.012,D],[x+W-.012,y,.012,D]].entries())parts.push(roundedBox('rim-wall:'+i,'steel',[X,Y,H-.075],[WW,DD,.065],.005));
+  parts.push(roundedBox('liner','liner',[x+.012,y+.012,H-.07],[W-.024,D-.024,.004],.002,{collision:false}));
+  parts.push(roundedBox('liner-fold','liner',[x-.003,y-.003,H-.028],[W+.006,D+.006,.018],.006,{collision:false}));
+  const start=parts.length;
+  parts.push(roundedBox('lid','steel',[x-.004,y-.004,H-.012],[W+.008,D+.008,.022],.011));
+  parts.push(roundedBox('lid-crown','steel',[x+.03,y+.03,H+.006],[W-.06,D-.06,.008],.004,{collision:false}));
+  for(const part of parts.slice(start))part.lidHinge={point:[.5,y-.004,H-.012],axis:[1,0,0],angle:1.25};
+  parts.push(roundedBox('hinge-cover','dark',[x+W/2-.07,y-.02,H-.03],[.14,.022,.03],.008,{collision:false}));
+  parts.push(roundedBox('pedal','dark',[x+W/2-.06,y+D-.004,.012],[.12,.07,.022],.009,{collision:false}));
+ }else if(kind==='wheelie-bin'){
+  // Outdoor wheelie bin: tapered moulded body, ribbed lid on a rear hinge,
+  // handle bar, axle and two wheels; full bin bags are carried out to it.
+  const x=.21,y=.13,W=.58,D=.74,H=1.0,body=roundedBox('body','green-plastic',[x,y,.06],[W,D,H-.1],.04);
+  // Taper: the moulding narrows toward the base so bins nest, as real ones do.
+  const cx=x+W/2,cy=y+D/2;body.vertices=body.vertices.map(([vx,vy,vz])=>{const k=.86+.14*Math.min(1,Math.max(0,(vz-.06)/(H-.1)));return [cx+(vx-cx)*k,cy+(vy-cy)*k,vz];});parts.push(body);
+  parts.push(roundedBox('top-rim','green-plastic',[x-.012,y-.012,H-.06],[W+.024,D+.024,.03],.01));
+  const start=parts.length;
+  parts.push(roundedBox('lid','green-plastic',[x-.02,y-.03,H-.03],[W+.04,D+.05,.035],.014));
+  for(let i=0;i<4;i++)parts.push(roundedBox('lid-rib:'+i,'green-plastic',[x+.06,y+.08+i*(D-.16)/3,H+.004],[W-.12,.02,.008],.004,{collision:false}));
+  parts.push(roundedBox('lid-lip','green-plastic',[x+W/2-.12,y+D+.01,H-.045],[.24,.025,.02],.008,{collision:false}));
+  for(const part of parts.slice(start))part.lidHinge={point:[.5,y-.03,H-.03],axis:[1,0,0],angle:1.6};
+  rod('handle','dark',[x+.02,y-.06,H-.06],[x+W-.02,y-.06,H-.06],.016);
+  for(const X of [x+.02,x+W-.02])rod('handle-arm:'+X,'dark',[X,y-.06,H-.06],[X,y+.02,H-.09],.014);
+  rod('axle','metal',[x-.03,y+.02,.11],[x+W+.03,y+.02,.11],.012);
+  for(const [i,X]of [[0,x-.05],[1,x+W+.005]]){const wheel=smoothRod('wheel:'+i,'rubber',[X,y+.02,.11],[X+.045,y+.02,.11],.11,{segments:24});parts.push(wheel);parts.push(smoothRod('hub:'+i,'dark',[X-.002,y+.02,.11],[X+.047,y+.02,.11],.04,{segments:16,collision:false}));}
+ }else if(kind==='pendant-lamp'){
+  // Ceiling pendant over a counter: brass canopy at the ceiling, braided cord,
+  // spun enamel dome shade (open, double-sided), socket and bulb. Hangs so the
+  // shade rim sits ~0.7 m above a 0.925 m worktop, out of head height over the bar.
+  const cx=.5,cy=.4,ceiling=recipe.parameters.ceiling??2.95,rim=recipe.parameters.rimHeight??1.62,R=.17;
+  parts.push(lathe('canopy','brass',[cx,cy],[[.055,ceiling-.035],[.06,ceiling-.025],[.06,ceiling-.006],[0,ceiling-.006]],{segments:28,collision:false}));
+  parts.push(smoothRod('cord','cord',[cx,cy,ceiling-.035],[cx,cy,rim+.23],.0035,{segments:8,collision:false}));
+  parts.push(lathe('cord-grip','brass',[cx,cy],[[.012,rim+.215],[.014,rim+.23],[.008,rim+.27],[0,rim+.275]],{segments:16,collision:false}));
+  const shade=lathe('shade','enamel',[cx,cy],[[R,rim],[R*.995,rim+.006],[R*.93,rim+.05],[R*.74,rim+.12],[R*.42,rim+.185],[R*.14,rim+.215],[.03,rim+.22]],{segments:48,capBottom:false,capTop:false,collision:false});shade.doubleSided=true;parts.push(shade);
+  parts.push(lathe('shade-lip','brass',[cx,cy],[[R+.004,rim-.004],[R+.006,rim+.004],[R*.995,rim+.008],[R*.985,rim]],{segments:48,capBottom:false,capTop:false,collision:false}));
+  const socket=lathe('socket','brass',[cx,cy],[[.018,rim+.13],[.02,rim+.14],[.02,rim+.2],[0,rim+.21]],{segments:16,collision:false});socket.castShadow=false;parts.push(socket);
+  const bulb=sphere('bulb','bulb',[cx,cy,rim+.1],.035,{collision:false});bulb.castShadow=false;parts.push(bulb);
+  const l=recipe.light||{};
+  return {parts,light:{type:'spot',position:[cx,cy,rim-.01],target:[cx,cy,0],color:l.color??0xffd9a8,intensity:l.intensity??8,distance:l.distance??3.2,angle:l.angle??.75,penumbra:l.penumbra??.6,decay:2,samples:[[-R*.4,0,0],[R*.4,0,0]]}};
  }else throw Error('Unknown studio furniture family');
  for(const p of parts)if(!recipe.materials[p.materialId])throw Error('Missing studio material '+p.materialId);
  return {parts};

@@ -23,6 +23,18 @@ export function prepareHouseState(sim,plan,bounds,atlas,{preserveStock=false}={}
  if(!preserveStock)for(const item of Object.values(inv.state.items))if(item.workshopPlaced&&(inv.state.containers[item.container]?.ground||item.workshopOrigin===item.container)&&!inv.state.containers[item.id]?.items.length)inv.remove(item.id);
  const stockKey=item=>JSON.stringify([item.type,item.x,item.y,item.z,item.storageTile||null]);
  const previousStock=new Map();if(preserveStock)for(const item of previousItems){const key=stockKey(item);previousStock.set(key,(previousStock.get(key)||0)+1);}
- for(const item of plan.items){const key=stockKey(item),oldCount=previousStock.get(key)||0;if(oldCount){previousStock.set(key,oldCount-1);continue;}const props=item.storageTile?sim.world.props(item.storageTile):null,id=props?`world:${item.x},${item.y},${item.z}:${item.storageTile}`:`ground:${item.x},${item.y},${item.z}`,c=inv.container(id,props?.CustomName||'Ground',props?Number(props.ContainerCapacity)||50:10000);if(!props)c.ground={x:item.x,y:item.y,z:item.z};const created=inv.create(item.type,id,{workshopPlaced:true,workshopOrigin:id,...(props?{}:{groundOffset:{x:.5,y:.5,z:0}})});if(created.fluid&&created.type==='Base.WaterBottle')created.fluid.amount=created.fluid.capacity;}
+ for(const item of plan.items){const key=stockKey(item),oldCount=previousStock.get(key)||0;if(oldCount){previousStock.set(key,oldCount-1);continue;}const props=item.storageTile?sim.world.props(item.storageTile):null,id=props?`world:${item.x},${item.y},${item.z}:${item.storageTile}`:`ground:${item.x},${item.y},${item.z}`,c=inv.container(id,props?.CustomName||'Ground',props?Number(props.ContainerCapacity)||50:10000);if(!props)c.ground={x:item.x,y:item.y,z:item.z};const created=inv.create(item.type,id,{workshopPlaced:true,workshopOrigin:id,...(props?{}:{groundOffset:{x:.5,y:.5,z:0}})});const preset=presetFluid(created.type)??(created.type==='Base.WaterBottle'?'Water':null);if(created.fluid&&preset){created.fluid.type=preset;created.fluid.amount=created.fluid.capacity;}}
  return next;
 }
+// Sealed goods arrive with the first fluid their definition lists (a carton of
+// milk is milk, a stocked water bottle is water); open vessels (mugs, kettles,
+// pots) have no listed fluid and arrive empty.
+export function presetFluid(type){
+ const fluid=definition(type).components?.find(c=>c.header==='component FluidContainer'),list=fluid?.children?.find(c=>c.header==='Fluids');
+ const first=list?.values?.map(v=>/^fluid\s*=\s*([A-Za-z]+)/.exec(v)?.[1]).find(Boolean);return first||null;
+}
+// Re-applying the house the save already lives in (same scene) keeps the
+// resident's stock: what they ate, used or moved is not restocked from the plan,
+// whether the edit came from "Live here" or the Workshop's "Use as my home".
+// A different scene is a move to a new house and is stocked fresh.
+export function preservesResidentStock(state,plan){const id=plan?.sceneDocument?.id;return !!id&&id===state?.housePlan?.sceneDocument?.id;}

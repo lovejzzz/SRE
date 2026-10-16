@@ -39,7 +39,8 @@ export function createVolumeFixtureLights(scene,{shadowBudget=12}={}){
    }
   },
   setSoftShadows(value){soft=Boolean(value);for(const light of lights)light.shadow.radius=soft?6:2.5;},
-  bindMaterial(material,{color,intensity}){material.emissive.set(color);material.emissiveIntensity=enabled?intensity:0;materials.push({material,intensity});},
+  // Lit fabric glows through its own weave: the colour map modulates the emission.
+  bindMaterial(material,{color,intensity}){material.emissive.set(color);if(material.map&&!material.emissiveMap){material.emissiveMap=material.map;material.needsUpdate=true;}material.emissiveIntensity=enabled?intensity:0;materials.push({material,intensity});},
   setEnabled(value){enabled=Boolean(value);for(const light of lights){light.intensity=enabled?light.userData.onIntensity:0;light.shadow.autoUpdate=enabled;if(enabled)light.shadow.needsUpdate=true;}for(const {material,intensity} of materials)material.emissiveIntensity=enabled?intensity:0;},
   dispose:clear
  };
