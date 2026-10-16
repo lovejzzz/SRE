@@ -6766,3 +6766,48 @@ asset build regenerated; freshness passes.
 Limits: variation is procedural look development, not scanned PBR. There is no edge wear or
 cavity grime (no curvature data). The jeans twill can moiré at mid distance. Food props rely on
 the global variation only.
+
+## 505n — Commit and performance pass
+
+Committed the 505 work as b860d45 on codex/pz-browser (284 files). The 130 stale
+content-hashed volume deliveries left by intermediate rebuilds were removed, and only the
+deliveries referenced by build-report were added. The east/west orientation fix stays on its
+own branch (`claude/musing-jepsen-b5184e`) pending the user's decision.
+
+Measured in the visible Browser pane. A hidden pane throttles animation frames to about
+1 fps, so readings from a hidden pane are invalid.
+- Start Game to playable: 9.0 s; JS heap 413 MB.
+- After 505m: 415k scene triangles, 409k of them shadow casting. Per frame: 3.56 M triangles,
+  2045 draws; CPU p50/p95 16.5/39 ms (render-measure tool).
+- Diagnosis by toggling: AO and the HD character barely matter, and pixel ratio makes no
+  difference (not fragment-bound). Turning lamps off dropped CPU to 6.9/20 ms and draws to 710:
+  the cost was the fixture spot shadow maps, re-rendered every frame (`autoUpdate`).
+
+Changes:
+- Shadow level of detail. Dense upholstery envelopes no longer cast; their coarse 12×24 hull
+  casts through a depth-only proxy (`shadowProxy`, colour and depth writes off, identity tags
+  only, excluded from material patching). Piping, pillows and the quilted duvet don't cast
+  (the mattress and cushions do). On the HD resident only the body and shoes cast; clothes and
+  hair follow the silhouette within millimetres. Shadow-casting triangles 409k → 250k.
+- Shadow scheduling (`volume-fixture-lights`). Fixture shadow maps never auto-update. They
+  refresh on rebuild, lamp switch-on and animated fridge doors, drawers and lids
+  (`invalidateShadows`). They also refresh when a character whose pose actually changed is
+  inside a light's cone and range (`spotTouches`), plus one frame after it leaves. These
+  character refreshes are budgeted at two lights per frame, least recently refreshed first.
+
+Result (settled, same view):
+- Paused/static: 581–706 draws (was 1975–2045), frame cadence p50/p95 16.7/23 ms (steady 60 fps).
+- Running with the resident idle or walking, by a direct frame timer: p50 ≈ 18 ms, p95 31–39 ms.
+  That is about the pre-takeover baseline (497: 16.7/25–33 ms). The remaining cost is two
+  full-scene passes per frame (main and AO depth/normal) at ~8 ms CPU submission each, not
+  shadows. The panel's measure tool forces an extra flush per frame, so while running it
+  reads about 31 ms; it is only meaningful for paused views.
+
+Tests: new shadow-scheduling suite (cone test, static rooms skip work, budgeted round-robin,
+invalidation, lamps off). The fixture-light test now encodes the scheduled contract.
+Diagnostics: `pz.volumeView.sceneStats()` (triangles and shadow triangles per object) and
+`pz.volumeView.renderer`.
+
+Not done: halving the per-frame CPU cost needs fewer draw calls (static batching across
+objects or a merged static scene) and an AO pass that reuses the main depth; both are larger
+refactors.

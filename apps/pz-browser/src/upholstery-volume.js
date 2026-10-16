@@ -53,5 +53,8 @@ export function upholsteryVolume({id,materialId='cloth',origin,size,exponent=.45
  // the visible surface never extends beyond what collision represents.
  if(fine||creaseDepth){const solid=mesh.collision[0];for(const v of vertices)for(let pass=0;pass<12;pass++){let moved=false;for(const plane of solid.planes){const d=v.reduce((s,x,k)=>s+(x-solid.origin[k])*plane.normal[k],0);if(d>plane.distance+1e-12){for(let k=0;k<3;k++)v[k]-=(d-plane.distance)*plane.normal[k];moved=true;}}if(!moved)break;}}
 
+ // Shadow LOD: the dense render envelope stays out of every shadow pass; the coarse
+ // 12x24 hull (what collision uses) casts instead.
+ if(fine){mesh.castShadow=false;mesh.shadowProxy={vertices:coarse.vertices.map(p=>[...p]),indices:[...coarse.indices]};}
  if(/^(mattress|seat|chaise-seat|padded-seat)/.test(id)&&size[2]<Math.min(size[0],size[1])*.6)mesh.softSupport='seat';return mesh;
 }

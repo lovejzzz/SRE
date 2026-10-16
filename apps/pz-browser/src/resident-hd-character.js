@@ -63,7 +63,7 @@ export function createResidentHDActor(hd,{install=()=>{}}={}){
  for(const {part,maps,meshes} of hd.parts){
   const material=residentHDMaterial(part.material||{},maps);install(material);materials.push(material);
   for(const {mesh,geometry} of meshes){
-   const skinned=new THREE.SkinnedMesh(geometry,material);skinned.frustumCulled=false;skinned.castShadow=part.name!=='eyes';skinned.receiveShadow=true;
+   const skinned=new THREE.SkinnedMesh(geometry,material);skinned.frustumCulled=false;skinned.castShadow=['body','shoes'].includes(part.name); // clothes and hair follow the body silhouette within millimetresskinned.receiveShadow=true;
    skinned.userData.characterPart=part.name;skinned.name='resident-hd:'+part.name;
    skinned.bind(new THREE.Skeleton(mesh.skinBones.map(b=>bones.get(b)),mesh.skinBones.map(b=>new THREE.Matrix4().fromArray(inverse[b]))),new THREE.Matrix4());
    model.add(skinned);

@@ -58,5 +58,13 @@ export function createVolumeCharacters(scene,source,onMeasure=()=>{},{installMat
   }
   for(const [id,entry]of instances)entry.root.visible=live.has(id);
  }
- return {sync,hdReady,get detail(){return detail;},get detailError(){return hdError?.message||null;},setDetail(mode){if(!['hd','legacy'].includes(mode))throw Error('Unknown character detail');detail=mode;if(mode==='hd'&&!hdAsset&&!hdError)loadDetail().then(a=>{hdAsset=a;},e=>{hdError=e;});},focusPoints(){const root=instances.get('player')?.root;if(!root?.visible)return null;return ['Bip01_Head','Bip01_Pelvis','Bip01_L_Foot','Bip01_R_Foot'].map(name=>root.getObjectByName(name)).filter(Boolean).map(bone=>bone.getWorldPosition(new THREE.Vector3()).toArray());},hide(){held.hide();for(const e of instances.values())e.root.visible=false;},dispose(){held.dispose();hdAsset?.dispose();for(const e of instances.values()){scene.remove(e.root);for(const m of e.materials.values())m.dispose();e.model.traverse(n=>{if(n.isSkinnedMesh)n.skeleton.dispose();});}instances.clear();}};
+ // Bounding spheres of visible characters (feet at root): moving shadow casters.
+ // Only characters whose pose changed since the last frame count: a paused or
+ // idle-frozen resident does not keep re-rendering the shadow maps around it.
+ const POSE_BONES=['Bip01_Pelvis','Bip01_Head','Bip01_L_Hand','Bip01_R_Hand','Bip01_L_Foot','Bip01_R_Foot'];
+ const casterSpheres=()=>{const moving=[];for(const e of instances.values()){if(!e.root.visible)continue;e.poseBones??=POSE_BONES.map(n=>e.root.getObjectByName(n)).filter(Boolean);
+  const sig=[e.root.position.x,e.root.position.y,e.root.position.z,e.root.quaternion.z,e.root.quaternion.w,...e.poseBones.flatMap(b=>[b.quaternion.x,b.quaternion.y,b.quaternion.z,b.position.x,b.position.y])].map(v=>v.toFixed(4)).join(',');
+  if(sig!==e.lastPoseSignature)moving.push({center:[e.root.position.x,e.root.position.y,e.root.position.z+.9],radius:1.15});e.lastPoseSignature=sig;}
+  return moving;};
+ return {sync,hdReady,casterSpheres,get detail(){return detail;},get detailError(){return hdError?.message||null;},setDetail(mode){if(!['hd','legacy'].includes(mode))throw Error('Unknown character detail');detail=mode;if(mode==='hd'&&!hdAsset&&!hdError)loadDetail().then(a=>{hdAsset=a;},e=>{hdError=e;});},focusPoints(){const root=instances.get('player')?.root;if(!root?.visible)return null;return ['Bip01_Head','Bip01_Pelvis','Bip01_L_Foot','Bip01_R_Foot'].map(name=>root.getObjectByName(name)).filter(Boolean).map(bone=>bone.getWorldPosition(new THREE.Vector3()).toArray());},hide(){held.hide();for(const e of instances.values())e.root.visible=false;},dispose(){held.dispose();hdAsset?.dispose();for(const e of instances.values()){scene.remove(e.root);for(const m of e.materials.values())m.dispose();e.model.traverse(n=>{if(n.isSkinnedMesh)n.skeleton.dispose();});}instances.clear();}};
 }

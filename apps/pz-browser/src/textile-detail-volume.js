@@ -10,7 +10,7 @@ export function upholsteryTrim({id,materialId='cloth',origin,size,exponent=.45})
   for(let j=0;j<M;j++){const angle=j*2*Math.PI/M,p=[...centers[i]];p[thin]+=radius*Math.sin(angle);p[axes[0]]+=radius*Math.cos(angle)*b/length;p[axes[1]]-=radius*Math.cos(angle)*a/length;vertices.push(p);}
  }
  for(let i=0;i<N;i++)for(let j=0;j<M;j++){const a=i*M+j,b=((i+1)%N)*M+j,c=((i+1)%N)*M+(j+1)%M,d=i*M+(j+1)%M;indices.push(a,b,c,a,c,d);}
- return {id,role:'furniture',materialId,vertices,indices,collision:[],smoothNormals:true,doubleSided:true};
+ return {id,role:'furniture',materialId,vertices,indices,collision:[],smoothNormals:true,doubleSided:true,castShadow:false};
 }
 export function drapedTextile({id,materialId='linen',x,y,z,width,flatLength,drop,radius=.07}){
  if(![x,y,z,width,flatLength,drop,radius].every(Number.isFinite)||Math.min(width,flatLength,drop,radius)<=0||drop>=z)throw Error('Invalid draped textile');
@@ -43,7 +43,7 @@ export function pillowVolume({id,materialId='linen',origin,size,dent=.25,seed=1}
  }
  const stride=N+1,face=(M+1)*stride;
  for(let f=0;f<2;f++)for(let j=0;j<M;j++)for(let i=0;i<N;i++){const a=f*face+j*stride+i,b=a+1,c=a+stride+1,d=a+stride;if(f===0)indices.push(a,b,c,a,c,d);else indices.push(a,c,b,a,d,c);}
- return {id,role:'furniture',materialId,vertices,indices,collision:[],nonblocking:true,smoothNormals:true,doubleSided:true};
+ return {id,role:'furniture',materialId,vertices,indices,collision:[],nonblocking:true,smoothNormals:true,doubleSided:true,castShadow:false};
 }
 
 // Quilted duvet lying on a mattress and falling over both sides and the foot:
@@ -67,5 +67,5 @@ export function quiltedDuvet({id,materialId='cloth',x,y,z,width,length,sideDrop,
  }
  const stride=N+1;
  for(let j=0;j<M;j++)for(let i=0;i<N;i++){const a=j*stride+i,b=a+1,c=a+stride+1,d=a+stride;indices.push(a,b,c,a,c,d);}
- return {id,role:'furniture',materialId,vertices,indices,collision:[],smoothNormals:true,doubleSided:true};
+ return {id,role:'furniture',materialId,vertices,indices,collision:[],smoothNormals:true,doubleSided:true,castShadow:false};
 }
