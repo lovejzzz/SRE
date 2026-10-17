@@ -4,6 +4,7 @@ import {validateRoofVolumes} from './scene-roof-volumes.js';
 import {validateViews} from './scene-views.js';
 import {validateCalibration} from './scene-calibration.js';
 import {validateReferences} from './scene-references.js';
+import {validateExterior} from './scene-exterior.js';
 import {validateHousePlan,FLOOR_MIN,FLOOR_MAX} from './workshop-model.js';
 
 const clone=value=>structuredClone(value);
@@ -33,7 +34,7 @@ export function validateSceneDocument(scene){
  requireValue(scene?.schemaVersion===2&&idValid(scene.id)&&Number.isSafeInteger(scene.revision)&&scene.revision>=0,'Invalid scene document');
  requireValue(Array.isArray(scene.bounds)&&scene.bounds.length===4&&scene.bounds.every(Number.isInteger)&&scene.bounds[0]<scene.bounds[2]&&scene.bounds[1]<scene.bounds[3],'Invalid scene bounds');
  requireValue(scene.units?.kind==='source-grid'&&(scene.units.metresPerCell===null||Number.isFinite(scene.units.metresPerCell)&&scene.units.metresPerCell>0),'Invalid scene scale');
- validatePhysicalDimensions(scene.physicalDimensions);validateCalibration(scene.units);validateViews(scene.views);
+ validatePhysicalDimensions(scene.physicalDimensions);validateCalibration(scene.units);validateViews(scene.views);validateExterior(scene.exterior);
  if(scene.units.metresPerCell!==null)requireValue(typeof scene.units.evidence==='string'&&scene.units.evidence.trim().length>0,'A calibrated scale requires evidence');
  requireValue(Array.isArray(scene.levels)&&scene.levels.length<=FLOOR_MAX-FLOOR_MIN+1,'Invalid scene levels');
  const ids=new Set(),levels=new Set();

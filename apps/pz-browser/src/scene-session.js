@@ -8,6 +8,7 @@ import {chamferRoom,reshapePolygonRoom} from './scene-polygon-rooms.js';
 import {captureWallMountHosts,followWallMounts,rehostWallFixture,flipWallFixtureSide} from './scene-wall-mounts.js';
 import {editIndependentWalls} from './scene-walls.js';
 import {editViews} from './scene-views.js';
+import {editExterior} from './scene-exterior.js';
 import {captureSceneLocks,assertCapturedLocks,setEntityLocks} from './scene-locks.js';
 import {calibrateScene} from './scene-calibration.js';
 import {editReferences} from './scene-references.js';
@@ -29,6 +30,7 @@ function reduceSceneOperation(scene,operation,{catalog=[],properties={}}={}){
   case 'roofVolume.add':case 'roofVolume.update':case 'roofVolume.remove':return editRoofVolume(scene,operation);
   case 'walls.draw':case 'walls.move':case 'walls.remove':return editIndependentWalls(scene,operation);
   case 'view.save':case 'view.remove':return editViews(scene,operation);
+  case 'exterior.set':case 'exterior.reset':case 'exterior.tree.add':case 'exterior.tree.remove':case 'exterior.climber.set':return editExterior(scene,operation);
   case 'scene.calibrate':case 'scene.clearCalibration':return calibrateScene(scene,operation);
   case 'reference.add':case 'reference.update':case 'reference.remove':case 'reference.annotate':case 'reference.unannotate':return editReferences(scene,operation);
   case 'roof.set':case 'roof.remove':return editRoomRoof(scene,operation);

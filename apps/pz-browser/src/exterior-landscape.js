@@ -5,6 +5,7 @@ import {installSurfaceVariation} from './surface-variation.js';
 import {trellisSpan} from './exterior-architecture.js';
 import {installLeafTranslucency,installLeafWind} from './foliage-shading.js';
 import {installGroundVariation} from './facade-weathering.js';
+import {resolveExterior} from './scene-exterior.js';
 import {scannedTextureSet,loadScannedModel} from './scanned-assets.js';
 import {leafTexture,clusterCard,leafGeometry,leafTextures,leafQuaternion,growClimber} from './vegetation-leaves.js';
 import {buildExteriorProps} from './exterior-props.js';
@@ -308,13 +309,15 @@ export function createExteriorLandscape(scene,{quality=1,scanned=typeof document
  const track=(...items)=>{disposables.push(...items);return items[0];};
  let generation=0;const animated=[];
  function clear(){generation++;for(const a of animated.splice(0))a.dispose();for(const c of [...root.children])root.remove(c);for(const d of disposables.splice(0))d.dispose();built=false;}
- function rebuild(squares,{facades=[],doors=[]}={}){
-  clear();if(!squares?.length)return;
+ // exterior: the house's saved exterior design (scene.exterior via resolveExterior);
+ // omitted means the automatic defaults, i.e. how houses rendered before it existed.
+ function rebuild(squares,{facades=[],doors=[],exterior=null}={}){
+  clear();if(!squares?.length)return;const X=exterior||resolveExterior(null);
   const plot=plotLayout(squares),[x0,y0,x1,y1]=plot.bounds,[cx,cy]=plot.centre,r=rng(97);
   const trackGroup=g=>{g.traverse(o=>{if(o.geometry)track(o.geometry);for(const mt of [].concat(o.material||[])){track(mt);if(mt.map)track(mt.map);}});for(const d of g.userData.disposables||[])track(d);return g;};
   // 0. Surroundings: lane, drive, gate, poles, cottages, worn path; and what to keep clear of.
   const paving=squares.filter(q=>q.z===0&&/exterior|paving|stone/.test(q.tiles?.[0]||'')).map(q=>[q.x,q.y]);
-  const context=trackGroup(buildExteriorContext({plot,terrainHeight,doors,paving}));root.add(context);const blocked=context.userData.blocked;
+  const context=trackGroup(buildExteriorContext({plot,terrainHeight,doors,paving}));if(X.surroundings.enabled)root.add(context);const blocked=context.userData.blocked;
   const aoSpots=[]; // ground contact occlusion under trees, shrubs and the hedge
   // 1. Meadow to the horizon (plot surfaces sit above it).
   const lawnTex=track(dataTexture((()=>{const p=lawnPixels({size:1024,seed:23});const d=new Uint8Array(p.color.length);d.set(p.color);return {width:p.width,height:p.height,data:d};})(),true,true));
@@ -356,11 +359,13 @@ export function createExteriorLandscape(scene,{quality=1,scanned=typeof document
   const barkMat=track(installSurfaceVariation(new THREE.MeshStandardMaterial({vertexColors:true,...barkMaps,roughness:scanned?1:.95,color:scanned?0xffffff:0xffffff}),{tone:.2,roughness:.1,scale:3}));if(scanned)barkMat.vertexColors=false;
   const spots=plot.lawn.filter(([x,y])=>plot.distBuilt(x,y)>=5&&x>x0+1&&y>y0+1&&x<x1-2&&y<y1-2);
   const chosen=[];for(const pick of [[x0,y0],[x1,y0],[x0,y1],[x1,y1]]){const best=spots.filter(s=>chosen.every(c=>Math.hypot(c[0]-s[0],c[1]-s[1])>8)).sort((a,b)=>Math.hypot(a[0]-pick[0],a[1]-pick[1])-Math.hypot(b[0]-pick[0],b[1]-pick[1]))[0];if(best)chosen.push(best);}
+  if(X.gardenTrees.mode==='none')chosen.length=0;
+  else if(X.gardenTrees.mode==='listed')chosen.splice(0,chosen.length,...X.gardenTrees.trees.map(t=>[t.x-.5,t.y-.5,t.height,t.seed]));
   const card=track(new THREE.PlaneGeometry(1,1));
   // Cards face outward from the crown (normal ≈ radial + jitter): the canopy then
   // shades like one soft volume — lit crown top, darker underside — not loose paper.
   const Z=new THREE.Vector3(0,0,1),outward=(radial,jitter)=>{const n=radial.clone().normalize().add(new THREE.Vector3(r()-.5,r()-.5,r()-.5).multiplyScalar(jitter)).normalize();return new THREE.Quaternion().setFromUnitVectors(Z,n).multiply(new THREE.Quaternion().setFromAxisAngle(Z,r()*Math.PI*2));};
-  chosen.forEach(([x,y],k)=>{const t=gardenTree(31+k*17,6.5+r()*2.5);track(t.wood);const wood=new THREE.Mesh(t.wood,barkMat);wood.position.set(x+.5,y+.5,0);wood.castShadow=true;wood.receiveShadow=true;wood.name='garden-tree';root.add(wood);
+  chosen.forEach(([x,y,th,ts],k)=>{const autoH=6.5+r()*2.5,t=gardenTree(ts??31+k*17,th??autoH);track(t.wood);const wood=new THREE.Mesh(t.wood,barkMat);wood.position.set(x+.5,y+.5,0);wood.castShadow=true;wood.receiveShadow=true;wood.name='garden-tree';root.add(wood);
    const leaves=new THREE.InstancedMesh(card,leafMat,t.leaves.length),m=new THREE.Matrix4(),c=new THREE.Color();
    const centre=t.leaves.reduce((a,L)=>a.add(L.p),new THREE.Vector3()).multiplyScalar(1/t.leaves.length),reach=Math.max(...t.leaves.map(L=>L.p.distanceTo(centre)));
    t.leaves.forEach((L,i)=>{const radial=L.p.clone().sub(centre),depth=radial.length()/reach;radial.z+=.25*reach;m.compose(L.p.clone().add(new THREE.Vector3(x+.5,y+.5,0)),outward(radial,.9),new THREE.Vector3(L.s,L.s,L.s));leaves.setMatrixAt(i,m);
@@ -378,13 +383,14 @@ export function createExteriorLandscape(scene,{quality=1,scanned=typeof document
   for(let y=y0;y<y1;y++){if(!gapAt(x0,y))runs.push([x0-.45,y+.5,1]);if(!gapAt(x1-1,y))runs.push([x1+.45,y+.5,1]);}
   // Corner blocks close the L where two runs meet (otherwise a bare end face shows).
   for(const [x,y,gx,gy] of [[x0-.45,y0-.45,x0,y0],[x1+.45,y0-.45,x1-1,y0],[x0-.45,y1+.45,x0,y1-1],[x1+.45,y1+.45,x1-1,y1-1]])if(!gapAt(gx,gy))runs.push([x,y,0,true]);
+  if(!X.hedge.enabled)runs.length=0;const hk=X.hedge.height/1.05;
   const coreGeo=track(new THREE.BoxGeometry(1,.62,1.05));coreGeo.translate(0,0,.525);{const cu=coreGeo.attributes.uv;for(let i=0;i<cu.count;i++)cu.setXY(i,cu.getX(i)*2.2,cu.getY(i)*2.2);}
   const cores=new THREE.InstancedMesh(coreGeo,hedgeCore,runs.length),m=new THREE.Matrix4();
-  runs.forEach(([x,y,side,corner],i)=>{m.compose(new THREE.Vector3(x,y,0),new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(0,0,1),side?Math.PI/2:0),new THREE.Vector3(corner?.62:1,1,1));cores.setMatrixAt(i,m);});
+  runs.forEach(([x,y,side,corner],i)=>{m.compose(new THREE.Vector3(x,y,0),new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(0,0,1),side?Math.PI/2:0),new THREE.Vector3(corner?.62:1,1,hk));cores.setMatrixAt(i,m);});
   cores.castShadow=true;cores.receiveShadow=true;cores.name='hedge';root.add(cores);
   const perRun=Math.round(72*quality),cards=new THREE.InstancedMesh(card,hedgeMat,runs.length*perRun),c=new THREE.Color();let ci=0;
   for(const [x,y,side] of runs)for(let k=0;k<perRun;k++){const along=r()-.5,face=r()<.5?-1:1,top=r()<.42;
-   const lx=along*1.05,ly=top?(r()-.5)*.62:face*(.31+.04*r()),lz=top?1.02+.05*r():.08+r()*.95,px=side?x+ly:x+lx,py=side?y+lx:y+ly;
+   const lx=along*1.05,ly=top?(r()-.5)*.62:face*(.31+.04*r()),lz=(top?1.02+.05*r():.08+r()*.95)*hk,px=side?x+ly:x+lx,py=side?y+lx:y+ly;
    const nx=top?0:(side?face:0),ny=top?0:(side?0:face);m.compose(new THREE.Vector3(px,py,lz),outward(new THREE.Vector3(nx,ny,top?1:.15),.8),new THREE.Vector3(.32,.32,.32));cards.setMatrixAt(ci,m);cards.setColorAt(ci++,c.setHSL(.24+.03*r(),.45,.2+.1*r()));}
   cards.castShadow=false;cards.receiveShadow=true;cards.name='hedge-leaves';root.add(cards);
   // 5. Grass blades over the lawn (mown, 5–11 cm).
@@ -399,7 +405,8 @@ export function createExteriorLandscape(scene,{quality=1,scanned=typeof document
   blades.castShadow=false;blades.receiveShadow=true;blades.userData.indirectCaptureExclude=true;blades.name='grass-blades';for(const ch of chunkInstances(blades,8,45))root.add(ch);blades.dispose?.();
   // 6. Planted border inside the hedge: mulch bed with steel edging, shrubs and
   //    perennial clumps, skipping the path gaps and the house surroundings.
-  const bedCells=plot.lawn.filter(([x,y])=>(x===x0||y===y0||x===x1-1||y===y1-1)&&!gapAt(x,y)&&plot.distBuilt(x,y)>2.5);
+  const bedCells=X.borders.enabled?plot.lawn.filter(([x,y])=>(x===x0||y===y0||x===x1-1||y===y1-1)&&!gapAt(x,y)&&plot.distBuilt(x,y)>2.5):[];
+  const planting=X.borders.planting;
   const mulchTex=track(dataTexture(mulchPixels(256,19),true,true));
   const mulchMaps=scanned?(()=>{const t=scannedTextureSet('wood_chips');for(const x of [t.map,t.normalMap])x.repeat.set(1/1.6/2,1/1.5/2);return t;})():{map:mulchTex};
   const bedMat=track(installSurfaceVariation(foliage({...mulchMaps,roughness:scanned?1:.95,color:scanned?0xffffff:0xb8aca0,polygonOffset:true,polygonOffsetFactor:-2,polygonOffsetUnits:-2}),{tone:.25,roughness:.1,scale:1}));
@@ -412,7 +419,7 @@ export function createExteriorLandscape(scene,{quality=1,scanned=typeof document
    m.compose(new THREE.Vector3(x+.5+ix*.45,y+.5+iy*.45,0),new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(0,0,1),rot),new THREE.Vector3(1,1,1));edging.setMatrixAt(i,m);});
   beds.receiveShadow=true;beds.name='border-beds';edging.receiveShadow=true;edging.castShadow=true;edging.name='bed-edging';root.add(beds,edging);
   // Shrubs: leaf-card shells (box/hebe-like domes) every other bed cell.
-  const shrubAt=bedCells.filter((_,i)=>i%2===0),shrubCards=Math.round(420*quality),shrubs=new THREE.InstancedMesh(card,hedgeMat,shrubAt.length*shrubCards);let si=0;
+  const shrubAt=planting==='meadow'?[]:planting==='box'?bedCells:bedCells.filter((_,i)=>i%2===0),shrubCards=Math.round(420*quality),shrubs=new THREE.InstancedMesh(card,hedgeMat,shrubAt.length*shrubCards);let si=0;
   const shrubCoreGeo=track((()=>{let g=new THREE.IcosahedronGeometry(1,3);g.deleteAttribute('normal');g=mergeVertices(g);const p=g.attributes.position,q=rng(77);const ph=[q()*6,q()*6,q()*6];for(let i=0;i<p.count;i++){const x=p.getX(i),y=p.getY(i),z=p.getZ(i),f=1+.07*Math.sin(x*5+ph[0])*Math.sin(y*6+ph[1])+.05*Math.sin(z*7+ph[2]);p.setXYZ(i,x*f,y*f,z*f);}g.computeVertexNormals();return g;})()),shrubCores=new THREE.InstancedMesh(shrubCoreGeo,track(foliage({map:coreTex,color:0x6f7a64,roughness:.95,specularIntensity:.05})),shrubAt.length);let sc=0;
   for(const [x,y] of shrubAt){const R=.32+.2*r(),cx=x+.3+.4*r(),cy=y+.3+.4*r(),hz=R*(.75+.25*r());m.compose(new THREE.Vector3(cx,cy,hz),new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(0,0,1),r()*6.3),new THREE.Vector3(R*.95,R*.95,hz*.95));shrubCores.setMatrixAt(sc++,m);
    for(let k=0;k<shrubCards;k++){const z=r()*1.1-.15,a=r()*Math.PI*2,rr=Math.sqrt(Math.max(0,1-z*z)),n=new THREE.Vector3(rr*Math.cos(a),rr*Math.sin(a),z);
@@ -421,9 +428,9 @@ export function createExteriorLandscape(scene,{quality=1,scanned=typeof document
   shrubs.castShadow=true;shrubs.receiveShadow=true;shrubs.name='shrubs';root.add(shrubs);
   // Perennials between the shrubs, in drifts of one kind.
   const clump=track(crossGeometry(3));let drift=0;
-  for(const kind of ['lavender','daisy','rudbeckia']){
+  for(const kind of ['lavender','daisy','rudbeckia']){if(planting==='box'||planting==='lavender'&&kind!=='lavender'||planting==='meadow'&&kind==='lavender'){drift++;continue;}
    const fpx=flowerPixels(kind,256,7+drift),tex=track(dataTexture(fpx)),fnm=track(normalFromCutout(fpx)),mat=track(swayMaterial(installLeafTranslucency(foliage({vertexColors:true,map:tex,normalMap:fnm,alphaTest:.45,side:THREE.DoubleSide,roughness:.8}),.45),uniforms,.06));
-   const cells=bedCells.filter((_,i)=>i%2===1&&Math.floor(i/6)%3===drift),per=3,mesh=new THREE.InstancedMesh(clump,mat,Math.max(1,cells.length*per));let fi=0;
+   const cells=bedCells.filter((_,i)=>planting==='mixed'?i%2===1&&Math.floor(i/6)%3===drift:planting==='meadow'?i%2===drift-1:i%2===1),per=3,mesh=new THREE.InstancedMesh(clump,mat,Math.max(1,cells.length*per));let fi=0;
    for(const [x,y] of cells)for(let k=0;k<per;k++){const h=(kind==='lavender'?.45:.6)*(.8+.4*r());m.compose(new THREE.Vector3(x+.2+.6*r(),y+.2+.6*r(),.01),new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(0,0,1),r()*Math.PI),new THREE.Vector3(h*1.1,h*1.1,h));mesh.setMatrixAt(fi++,m);}
    mesh.count=fi;mesh.castShadow=true;mesh.receiveShadow=true;mesh.name='perennials-'+kind;root.add(mesh);drift++;}
   // 7. Rough meadow tufts outside the hedge (unmown, 35–75 cm), thinning with distance.
@@ -444,7 +451,8 @@ export function createExteriorLandscape(scene,{quality=1,scanned=typeof document
   //    individual curved ivy leaves on petioles at the nodes (alternate, facing out
   //    and up to the light, larger and darker on old wood, small and fresh at tips).
   let climberLeaves=0;
-  const climbSpans=facades.map(f=>[f,trellisSpan(f)]).filter(([,sp])=>sp);
+  const climbOn=f=>X.climbers.mode==='auto'||X.climbers.mode==='listed'&&f.wallIds.some(id=>X.climbers.walls.includes(id));
+  const climbSpans=facades.filter(climbOn).map(f=>[f,trellisSpan(f)]).filter(([,sp])=>sp);
   if(climbSpans.length){
    const vinePos=[],vineIdx=[],vineCol=[],vineUv=[],leafList=[];let seedK=0;
    for(const [f,sp] of climbSpans){const T=f.thickness/2,t=new THREE.Vector3(f.t[0],f.t[1],0),out=new THREE.Vector3(f.out[0],f.out[1],0),up=new THREE.Vector3(0,0,1);
@@ -472,7 +480,7 @@ export function createExteriorLandscape(scene,{quality=1,scanned=typeof document
   //     borders, a few large shrubs near the plot corners, ferns and weeds at the
   //     foot of the house, dandelions in the lawn margins, and a hose reel by the
   //     first long blank wall. Loaded asynchronously; a later rebuild drops them.
-  if(scanned){const gen=generation,placements=new Map(),add=(id,x,y,z,yaw,s=1,tilt=null)=>{if(!placements.has(id))placements.set(id,[]);placements.get(id).push({x,y,z,yaw,s,tilt});};
+  if(scanned&&X.scannedPlants.enabled){const gen=generation,placements=new Map(),add=(id,x,y,z,yaw,s=1,tilt=null)=>{if(!placements.has(id))placements.set(id,[]);placements.get(id).push({x,y,z,yaw,s,tilt});};
    bedCells.forEach(([x,y],i)=>{const [ix,iy]=inward(x,y);if(i%3===1)add('shrub_04',x+.5-ix*.05,y+.5-iy*.05,.01,r()*6.3,.85+.3*r());if(i%5===3)add('shrub_03',x+.3+.4*r(),y+.3+.4*r(),.01,r()*6.3,.9+.4*r());
     for(let k=0;k<(i%2?1:0);k++)add('periwinkle_plant',x+.5+ix*.32+(r()-.5)*.6*(iy?1:0),y+.5+iy*.32+(r()-.5)*.6*(ix?1:0),.01,r()*6.3,.8+.4*r());});
    for(const [cxn,cyn] of [[x0+1.4,y0+1.4],[x1-1.4,y1-1.4],[x0+1.4,y1-1.4]])if(plot.isLawn(Math.floor(cxn),Math.floor(cyn))&&plot.distBuilt(cxn,cyn)>3)add('shrub_02',cxn,cyn,0,r()*6.3,.9+.2*r());
@@ -489,7 +497,7 @@ export function createExteriorLandscape(scene,{quality=1,scanned=typeof document
     onChange();}).catch(e=>console.warn('Scanned plant failed to load',id,e));}
   // 11. Lived-in dressing round the house (door canopies, steps, mat, letterbox,
   //     number, tap, bicycle, washing line, wheelbarrow, spade, watering can).
-  root.add(trackGroup(buildExteriorProps({plot,facades,doors,hoseReel:!scanned})));
+  if(X.props.enabled)root.add(trackGroup(buildExteriorProps({plot,facades,doors,hoseReel:!scanned})));
   // 12. Weeds in the paving joints and wildflowers through the meadow.
   const weedMat=track(swayMaterial(installLeafTranslucency(foliage({vertexColors:true,map:tuftTex,normalMap:tuftNm,alphaTest:.4,side:THREE.DoubleSide,roughness:.9}),.4),uniforms,.05));
   const weedList=context.userData.weeds,weeds=new THREE.InstancedMesh(clump,weedMat,Math.max(1,weedList.length));
@@ -512,7 +520,11 @@ export function createExteriorLandscape(scene,{quality=1,scanned=typeof document
   aoMat.onBeforeCompile=sh=>{sh.fragmentShader=sh.fragmentShader.replace('#include <color_fragment>','#include <color_fragment>\n #ifdef USE_INSTANCING_COLOR\n diffuseColor.a*=vColor.r;diffuseColor.rgb=vec3(0.0);\n #endif');};aoMat.customProgramCacheKey=()=>'tian-ground-ao-v1';
   ao.renderOrder=1;ao.name='ground-contact';ao.userData.indirectCaptureExclude=true;root.add(ao);
   // 14. Life: a small flock wheeling overhead and leaves drifting down from the crowns.
-  animated.push(createBirds(root,[cx,cy]),createFallingLeaves(root,chosen.map(([tx,ty])=>[tx+.5,ty+.5]),track(leafTextures(clusterCard('dry',{size:64,leaves:1,leafScale:[.9,.9],seed:5,sourceSize:64})).map)));
+  if(X.life.enabled)animated.push(createBirds(root,[cx,cy]),createFallingLeaves(root,chosen.map(([tx,ty])=>[tx+.5,ty+.5]),track(leafTextures(clusterCard('dry',{size:64,leaves:1,leafScale:[.9,.9],seed:5,sourceSize:64})).map)));
+  // Sections switched off in the house's exterior design (built for their side
+  // effects on placement, then dropped so they cost nothing to draw).
+  const off=[[!X.meadow.enabled,/^(meadow-tufts|wildflowers)$/],[!X.treeLine.enabled,/^(tree-line|conifers)/],[!X.hills.enabled,/^hills$/],[!X.lawn.blades,/^grass-blades$/],[!X.hedge.enabled,/^hedge/],[!X.borders.enabled,/^(border-beds|bed-edging|shrub-cores|shrubs|perennials-)/]];
+  for(const ch of [...root.children])if(off.some(([on,re])=>on&&re.test(ch.name)))root.remove(ch);
   built=true;
   return {climberLeaves,trees:chosen.length,hedgeRuns:runs.length,blades:bi,lawnCells:plot.lawn.length,bedCells:bedCells.length,tufts:ti};
  }

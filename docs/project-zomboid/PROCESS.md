@@ -7175,3 +7175,38 @@ Cost: the night view with every lamp shadow measures about 8.5M triangles across
 and a daytime view about 2.7–3.5M. Tests: 1123/1123 (new `exterior-life` suite: props
 placement, context blocking, chunked instancing and cut-out normals, weather determinism). The
 asset check passes.
+
+## 505w — The Workshop can design (and replicate) the exterior
+
+The user asked whether the Workshop had been upgraded too, so that others can replicate
+the house. It had not. Every exterior feature was generated automatically from the plan:
+copies looked the same, but nothing was saved, editable or choosable.
+
+- **`scene.exterior`** (optional, version 1; `src/scene-exterior.js`):
+  - Covers sections, hedge height, border planting, garden trees (auto, listed or none),
+    climbers (auto, listed walls or none), scanned plants, props, life, envelope details
+    and weathering.
+  - Validated with the scene document and exported/imported with it. Absent means
+    automatic, so old saves are unchanged.
+  - Reference: `docs/project-zomboid/EXTERIOR-DESIGN.md`.
+- **Build commands**: `exterior.set`, `exterior.reset`, `exterior.tree.add`,
+  `exterior.tree.remove` and `exterior.climber.set`, dispatched in `scene-session.js`. The
+  Workshop, build requests and undo all use the same path.
+- **Workshop → View → Exterior & garden**: a panel with every setting, a tree list, a
+  climber wall list (computed exterior walls) and Reset to automatic. It saves through the
+  command gateway like the roof panel.
+- **Rendering follows the design**:
+  - The landscape takes `exterior` in `rebuild`: hedge and its height, planting, listed
+    trees at exact positions with their height and seed, climber walls, and the
+    scanned-plant, props and life switches. Disabled sections are dropped.
+  - `sceneExteriorDetails` reads the envelope switches and the trellis follows the
+    climbers.
+  - Weathering strength scales the facade shader.
+  - The panel rebuilds the landscape whenever the design changes.
+- **Verified in the browser** (test profile):
+  - Opened the panel, switched the hedge off and set lavender borders, then saved.
+  - The Workshop's 3D preview showed no hedge and lavender-only borders.
+  - Reset to automatic, which leaves the test house as it was.
+- Tests: new `scene-exterior` suite. It covers defaults for old saves; a set, tree,
+  climber, export and import round trip; rejection of invalid values; the landscape
+  following the design; and envelope switches. Full suite 1128/1128.

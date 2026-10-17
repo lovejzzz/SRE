@@ -1,6 +1,7 @@
 import {wallVolume} from './wall-volume.js';
 import {roomContainsPoint} from './room-footprint.js';
 import {architecturalSurfaceUV} from './architectural-materials.js';
+import {resolveExterior} from './scene-exterior.js';
 // Exterior envelope detail derived from the authored walls and roofs (render-only,
 // no collision; navigation stays owned by the structural walls):
 // - parapet upstand in the wall's own finish hiding the low-pitch roof skin,
@@ -56,6 +57,8 @@ const STAINLESS={color:0xc4c8ca,metalness:1,roughness:.3},BUTT={color:0x2b3a2c,r
 // Climbing-plant support on a blank run: tensioned stainless wires on eye bolts.
 export function trellisSpan(run){const w=Math.min(3.2,run.length-1.2);if(w<2.4)return null;const mid=run.length/2;return {u0:mid-w/2,u1:mid+w/2,z0:run.base+.45,z1:Math.min(run.top-.35,run.base+2.65)};}
 export function sceneExteriorDetails(scene,walls,roofs,{cellSize}){
+ // The house's saved exterior design decides which envelope details exist.
+ const X=resolveExterior(scene),env=X.envelope;
  const D=EXTERIOR_DETAIL,out=[],openings=new Map(scene.openings.map(o=>[o.id,o])),corners=[],doorPoints=[];
  const inRoom=(levelId,p)=>scene.rooms.some(r=>r.levelId===levelId&&roomContainsPoint(r,p[0]/cellSize,p[1]/cellSize));
  const roofBoxes=roofs.filter(r=>r.role==='roof').map(r=>{const xs=r.vertices.map(v=>v[0]),ys=r.vertices.map(v=>v[1]),zs=r.vertices.map(v=>v[2]);return {roofId:r.roofId,box:[Math.min(...xs),Math.min(...ys),Math.max(...xs),Math.max(...ys)],top:Math.max(...zs)};});
@@ -73,9 +76,9 @@ export function sceneExteriorDetails(scene,walls,roofs,{cellSize}){
   // Plinth: proud band, wrapping the corner by the wall half-thickness.
   const runs=door?[[-ext-D.plinthDepth,opening[0]],[opening[2],L+ext+D.plinthDepth]]:[[-ext-D.plinthDepth,L+ext+D.plinthDepth]];
   const plinth=runs.filter(([u,v])=>v-u>.02).map(([u,v])=>slab(frame,u,v,face,face+s*D.plinthDepth,wall.base,wall.base+D.plinthHeight));
-  if(plinth.length)out.push(textured(merge(wall.id+':plinth',plinth,{...tag,role:'plinth'}),PLINTH));
+  if(env.plinth&&plinth.length)out.push(textured(merge(wall.id+':plinth',plinth,{...tag,role:'plinth'}),PLINTH));
   // Window sill below an exterior window: pressed blade with drip and end upstands.
-  if(opening&&kind==='window'&&opening[1]>.05){
+  if(env.sills&&opening&&kind==='window'&&opening[1]>.05){
    const [u,z,v]=opening,zz=wall.base+z,sill=[slab(frame,u-.03,v+.03,face-s*.02,face+s*D.sillProjection,zz-D.sillThickness,zz),slab(frame,u-.03,v+.03,face+s*(D.sillProjection-.004),face+s*D.sillProjection,zz-D.sillThickness-.022,zz-D.sillThickness)];
    for(const e of [u-.03,v+.018])sill.push(slab(frame,e,e+.012,face,face+s*D.sillProjection*.8,zz,zz+.025));
    out.push(merge(wall.id+':sill',sill,{...tag,role:'sill',material:ANODISED}));
@@ -86,10 +89,10 @@ export function sceneExteriorDetails(scene,walls,roofs,{cellSize}){
    const z1=Math.max(top,roof.top)+D.parapetRise-.12,o=D.copingOverhang,c=D.copingThickness;
    const axisNudge=Math.abs(t[0])>Math.abs(t[1])?.0012:0; // overlapping corners never z-fight
    const parapet=wallVolume({id:wall.id+':parapet',a:[a[0]-t[0]*ext,a[1]-t[1]*ext],b:[b[0]+t[0]*ext,b[1]+t[1]*ext],base:top,height:z1-top,thickness:T});
-   out.push({...parapet,id:wall.id+':parapet',role:'parapet',roofId:roof.roofId,levelId:wall.levelId,materialId:wall.materialId,hostEndpoints:[a,b],collision:[]});
+   if(env.parapet)out.push({...parapet,id:wall.id+':parapet',role:'parapet',roofId:roof.roofId,levelId:wall.levelId,materialId:wall.materialId,hostEndpoints:[a,b],collision:[]});
    const zc=z1+axisNudge,coping=[slab(frame,-ext-o,L+ext+o,-T/2-o,T/2+o,zc,zc+c)];
    for(const side of [-1,1])coping.push(slab(frame,-ext-o,L+ext+o,side*(T/2+o),side*(T/2+o-.006),zc-D.drip,zc));
-   out.push(merge(wall.id+':coping',coping,{role:'coping',roofId:roof.roofId,levelId:wall.levelId,castShadow:true,material:ANODISED}));
+   if(env.parapet)out.push(merge(wall.id+':coping',coping,{role:'coping',roofId:roof.roofId,levelId:wall.levelId,castShadow:true,material:ANODISED}));
    for(const [end,u] of [[a,-1],[b,1]])corners.push({point:end,along:t.map(v=>v*u),out:n.map(v=>v*s),wall,top:z1});
   }
  }
@@ -107,12 +110,13 @@ export function sceneExteriorDetails(scene,walls,roofs,{cellSize}){
   const h=c.top-.26,hw=.11,box=(cx,cy,z0,z1,w,d)=>wallVolume({id:'h',a:[cx-c.along[0]*w,cy-c.along[1]*w],b:[cx+c.along[0]*w,cy+c.along[1]*w],base:z0,height:z1-z0,thickness:d});
   parts.push(box(x,y,h,h+.2,hw,.15),box(x-c.out[0]*(o-T/2)/2,y-c.out[1]*(o-T/2)/2,h+.12,h+.16,.045,o-T/2+.02));
   for(let z=base+.6;z<h-.3;z+=1.1)parts.push(tube([x,y,z],[x,y,z+.035],D.pipeRadius+.008),box(x-c.out[0]*(o-T/2)/2,y-c.out[1]*(o-T/2)/2,z+.008,z+.027,.012,o-T/2));
-  out.push(merge(c.wall.id+':downpipe:'+i,parts,{hostWallId:c.wall.id,levelId:c.wall.levelId,role:'downpipe',castShadow:true,material:ANODISED}));
+  if(env.downpipes)out.push(merge(c.wall.id+':downpipe:'+i,parts,{hostWallId:c.wall.id,levelId:c.wall.levelId,role:'downpipe',castShadow:true,material:ANODISED}));
   // Water butt beside the first downpipe, clear of the shoe.
-  if(i===0){const bx=x-c.along[0]*.5+c.out[0]*(.33-D.pipeOffset),by=y-c.along[1]*.5+c.out[1]*(.33-D.pipeOffset),b0=base+.02;
+  if(i===0&&env.waterButt){const bx=x-c.along[0]*.5+c.out[0]*(.33-D.pipeOffset),by=y-c.along[1]*.5+c.out[1]*(.33-D.pipeOffset),b0=base+.02;
    out.push(merge(c.wall.id+':water-butt',[tube([bx,by,b0],[bx,by,b0+.92],.29,24),tube([bx,by,b0+.92],[bx,by,b0+.96],.305,24),tube([bx,by,b0+.3],[bx,by,b0+.86],.296,24),tube([bx+c.out[0]*.29,by+c.out[1]*.29,b0+.16],[bx+c.out[0]*.35,by+c.out[1]*.35,b0+.16],.016,10)],{hostWallId:c.wall.id,levelId:c.wall.levelId,role:'water-butt',castShadow:true,material:BUTT}));}
  }
  for(const run of exteriorFacadeRuns(scene,walls,{cellSize})){const span=trellisSpan(run);if(!span)continue;
+  if(X.climbers.mode==='none'||X.climbers.mode==='listed'&&!run.wallIds.some(id=>X.climbers.walls.includes(id)))continue;
   const f=run.thickness/2,pt=(u,d,z)=>[run.a[0]+run.t[0]*u+run.out[0]*(f+d),run.a[1]+run.t[1]*u+run.out[1]*(f+d),z],parts=[];
   for(let z=span.z0;z<=span.z1+1e-6;z+=.35){parts.push(tube(pt(span.u0,.05,z),pt(span.u1,.05,z),.0028,8));for(const u of [span.u0,span.u1])parts.push(tube(pt(u,0,z),pt(u,.058,z),.006,8));}
   for(let u=span.u0+.6;u<span.u1-.3;u+=.8)parts.push(tube(pt(u,.05,span.z0),pt(u,.05,span.z1),.0022,8));

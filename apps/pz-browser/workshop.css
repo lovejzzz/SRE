@@ -102,3 +102,13 @@
 /* Keep the open appliance visible while inspecting its real inventory. */
 .volume-inventory-dialog.volume-storage-inspection{max-height:44dvh;margin:auto 16px 16px auto;width:min(480px,calc(100vw - 32px));box-shadow:0 8px 36px #0008}
 .volume-inventory-dialog.volume-storage-inspection::backdrop{background:#0002}
+
+/* Exterior and garden panel */
+.exterior-dialog{max-height:min(88vh,860px);overflow:auto}
+.exterior-dialog fieldset{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:6px 16px;align-items:center;margin:0 0 12px}
+.exterior-dialog fieldset label{display:flex;gap:8px;align-items:center;line-height:1.3}
+.exterior-dialog fieldset label input[type=number]{width:5.5em}
+.exterior-dialog fieldset label input[type=range]{flex:1}
+.exterior-dialog fieldset ul,.exterior-dialog fieldset p,.exterior-dialog fieldset > div{grid-column:1/-1;margin:0}
+.exterior-dialog fieldset ul{list-style:none;padding:0;display:grid;gap:4px}
+.exterior-dialog fieldset > div{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:4px 16px}
