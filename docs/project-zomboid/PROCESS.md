@@ -7025,3 +7025,51 @@ Tests: 1111/1111. New `facade-weathering` suite: vector uniform arrays, reserved
 Fresnel glass, ground variation, foliage injection. New cutaway test: an opaque wall stays in
 the opaque pass. Lighting and daylight tests are updated for the brighter moon. The asset
 check passes. Interior views checked after a bounce recapture: unchanged.
+
+## 505t — Vegetation rebuilt from the leaf up
+
+"Plants still look fake, especially on the walls." The cause was the technique itself: every
+plant was flat cards painted with identical ellipse leaves. The wall climber read as a topiary
+blob glued to the render, with no stems, no wall between leaves, no veins, no gloss and no
+contact shadow. Evidence: `evidence505/exterior/505t-*.jpg` (`ivy-before` vs `ivy-after`).
+
+- **`vegetation-leaves.js`** (new):
+  - `leafTexture` generates one leaf per species: ovate serrated tree leaf, five-lobed ivy,
+    glossy box. Each has midrib and secondary (or palmate) veins, mottling, a paler margin,
+    a darker base, an antialiased alpha edge and a tangent-space normal map (domed blade,
+    sunken veins). Species colours are linear and written sRGB-encoded; the first cut wrote
+    them raw and every leaf came out about 5× too dark.
+  - `clusterCard` composites many such leaves into a card, with per-leaf rotation, layer
+    shading and normals rotated into card space. A wrapped variant tiles.
+  - `leafGeometry` is a curved blade mesh (V-fold along the midrib, tip curl).
+  - `growClimber` grows a vine: main stems from the root, side shoots along each trellis
+    wire, arching laterals, and alternate leaves at nodes facing out and up. Old wood carries
+    larger, darker leaves; tips are small and fresh.
+- **Ivy on blank walls**:
+  - Around 1,100 individual curved ivy leaves per wall, as instanced meshes with leaf
+    normal maps, gloss, translucency and slight wind.
+  - Stems are swept bark tubes, green on young shoots.
+  - Soft contact-shadow decals sit on the render behind each leaf. AO cannot do this for
+    cut-outs: opting the leaves into AO left square halos, so that was reverted.
+- **Garden trees**:
+  - Branches are now single smooth swept tubes along curving paths (parallel-transport
+    frames, taper), with laterals leaving along their length; there are no straight jointed
+    sticks.
+  - Bark is warmer.
+  - The crown uses clusters of real veined leaves; about 3,000 cards per tree make a full,
+    lower crown.
+- **Hedge**: clusters of privet-sized box leaves with normal maps, and a tiling dense-leaf
+  core; low gloss.
+- **Box balls**: lumpy cores in a darker "inner depth" tone under about 420 leaf-cluster
+  cards each.
+- **Tree line**: crowns built mostly from about 240 leaf-cluster cards per tree, so cards
+  make the silhouette; a smaller core sits deep inside.
+- **Leaf litter**: clusters of dried, browned real leaves.
+- **Lawn blades**: darkened to sit in the sward (they read as pale hairs before).
+- **Robustness**: a sanitise pass before bloom replaces NaN/Inf pixels. One transient NaN
+  had been smeared over the whole frame by the bloom blur, blanking it. Unlit decal materials
+  are kept out of the shadow-atlas and AO hooks (the atlas hook threw on a basic material).
+
+Cost: the frame stays at about 3.45M triangles across all passes. Tests: 1115/1115 (new
+`vegetation-leaves` suite: species outlines and colour encoding, unit normals, ivy lobes,
+tiling clusters, blade mesh and orientation, climber growth). The asset check passes.

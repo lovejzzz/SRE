@@ -27,14 +27,18 @@ void main(){
 }`
 };
 
+// One NaN/Inf pixel (a degenerate normal on a sub-pixel leaf, say) would be smeared
+// over the whole frame by the bloom blur; replace such pixels and clamp extremes.
+export const SanitizeShader={uniforms:{tDiffuse:{value:null}},vertexShader:GradeShader.vertexShader,
+ fragmentShader:'uniform sampler2D tDiffuse;varying vec2 vUv;void main(){vec4 c=texture2D(tDiffuse,vUv);if(any(isnan(c))||any(isinf(c)))c=vec4(0.0,0.0,0.0,1.0);gl_FragColor=vec4(min(c.rgb,vec3(256.0)),c.a);}'};
 export function createCinematicGrade(width=1,height=1,options={}){
  const o={...GRADE_DEFAULTS,...options};
- const grade=new ShaderPass(GradeShader);
+ const grade=new ShaderPass(GradeShader),sanitize=new ShaderPass(SanitizeShader);
  Object.assign(grade.uniforms.contrast,{value:o.contrast});grade.uniforms.saturation.value=o.saturation;grade.uniforms.split.value=o.split;grade.uniforms.vignette.value=o.vignette;grade.uniforms.grain.value=o.grain;grade.uniforms.whiteBalance.value.set(...o.whiteBalance);
  const bloom=new UnrealBloomPass(new THREE.Vector2(width,height),o.bloom,o.bloomRadius,o.bloomThreshold);
- return {grade,bloom,
+ return {grade,bloom,sanitize,
   resize(w,h){bloom.setSize(w,h);grade.uniforms.aspect.value=w/Math.max(1,h);},
   tick(dt){grade.uniforms.time.value+=dt;},
   set(values={}){for(const [k,v] of Object.entries(values)){if(k==='bloom')bloom.strength=v;else if(k==='whiteBalance')grade.uniforms.whiteBalance.value.set(...v);else if(grade.uniforms[k])grade.uniforms[k].value=v;}},
-  dispose(){grade.dispose?.();bloom.dispose();}};
+  dispose(){grade.dispose?.();sanitize.dispose?.();bloom.dispose();}};
 }

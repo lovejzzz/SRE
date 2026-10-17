@@ -21,3 +21,5 @@ test('glass opacity follows Fresnel; ground variation adds dry and lush patches'
  assert.ok(g.envMapIntensity>1&&g.roughness<=.06);assert.match(s.fragmentShader,/diffuseColor\.a=mix\(tgfAlpha\.x,tgfAlpha\.y,tgfF\)/);assert.doesNotMatch(s.fragmentShader,RESERVED);
  const t=compile(installGroundVariation(new THREE.MeshStandardMaterial()));assert.match(t.fragmentShader,/tgvDry/);assert.doesNotMatch(t.fragmentShader,RESERVED);
 });
+import {SanitizeShader} from '../src/cinematic-grade.js';
+test('a NaN/Inf pixel is replaced before bloom so it cannot black out the frame',()=>{assert.match(SanitizeShader.fragmentShader,/any\(isnan\(c\)\)\|\|any\(isinf\(c\)\)/);assert.doesNotMatch(SanitizeShader.fragmentShader,RESERVED);});

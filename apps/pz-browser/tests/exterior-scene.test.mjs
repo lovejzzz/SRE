@@ -26,7 +26,7 @@ test('plot layout finds lawn, the built footprint and hedge gaps where a path le
 test('garden tree has a broad crown on a flared trunk; distant trees are welded (soft) and dark',()=>{
  const t=gardenTree(31,7);t.wood.computeBoundingBox();const b=t.wood.boundingBox;
  assert.ok(b.max.x-b.min.x>4&&b.max.y-b.min.y>4,'crown spread');assert.ok(b.max.z>5.5&&b.max.z<9);assert.ok(t.leaves.length>500);
- const col=t.wood.attributes.color.array;assert.ok(Math.max(...col)<.1,'linear bark albedo stays dark');
+ const col=t.wood.attributes.color.array;assert.ok(Math.max(...col)<.15,'linear bark albedo stays dark');
  const d=distantTreeGeometry(false,4);assert.ok(d.index.count/3<1000,'cheap enough for hundreds of instances');assert.ok(d.attributes.position.count<d.index.count/2,'shared vertices give smooth normals');
  const leaf=leafCardPixels(64,3,{leaves:20,length:[.08,.05]});let opaque=0;for(let i=3;i<leaf.data.length;i+=4)opaque+=leaf.data[i]>0;assert.ok(opaque>64*64*.2&&opaque<64*64*.95,'cut-out leaves');
 });

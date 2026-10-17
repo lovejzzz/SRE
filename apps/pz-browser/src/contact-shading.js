@@ -53,7 +53,7 @@ export function createContactShading(renderer,scene,camera,{mode='indirect',radi
   if(!CONTACT_MODES.includes(value))throw Error('Unknown contact shading mode');
   if(value===current)return;current=value;
   composer.passes.length=0;
-  if(value==='indirect'){ao.output=GTAOPass.OUTPUT.Off;ao.needsSwap=false;ao.updateGtaoMaterial(indirect);composer.addPass(ao);composer.addPass(base);composer.addPass(cine.bloom);composer.addPass(cine.grade);composer.addPass(output);}
+  if(value==='indirect'){ao.output=GTAOPass.OUTPUT.Off;ao.needsSwap=false;ao.updateGtaoMaterial(indirect);composer.addPass(ao);composer.addPass(base);composer.addPass(cine.sanitize);composer.addPass(cine.bloom);composer.addPass(cine.grade);composer.addPass(output);}
   else if(value==='legacy'){ao.output=GTAOPass.OUTPUT.Default;ao.needsSwap=true;ao.blendIntensity=legacyBlend;ao.updateGtaoMaterial(legacy);composer.addPass(base);composer.addPass(ao);composer.addPass(output);}
  };
  setMode(mode);
