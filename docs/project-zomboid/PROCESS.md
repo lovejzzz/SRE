@@ -7112,3 +7112,66 @@ SHA-256 for every file is in `source-manifest.json`.
 
 Tests: new `scanned-assets` suite (provenance, delivery hashes, runtime lists, size budget,
 roof recipe). Full suite 1123/1123 on the combined working tree. The asset check passes.
+
+## 505v — A lived-in place: surroundings, weather, light, life and LOD
+
+"Do it all" on the gap list after 505t, which named six areas: lived-in details, surroundings,
+lighting, vegetation, life and weather, and LOD. Evidence: `evidence505/exterior/505v-*.jpg`.
+Before/after pairs: `step-before`/`step-after` and `hills-before`/`wide`.
+
+- **Lived-in props** (`exterior-props.js`, new). Built from merged meshes per material.
+  - At every exterior door: a dark steel canopy on tie rods, a concrete step, a coir mat, a
+    letterbox and a number plaque.
+  - Around the plot: a wall tap with hose reel, a bicycle leaning on a facade, a washing line
+    with draped cloth, a wheelbarrow, a spade and a watering can.
+  - Doors build in a mirrored frame (t = out rotated clockwise). Mirroring reverses the
+    triangle winding, so the step and canopy showed their insides as phantom upstands. `oriented`
+    now restores the winding whenever the basis determinant is negative.
+  - Wall-hung props stay out of GTAO, which blackened them against the shaded render.
+- **Surroundings** (`exterior-context.js`, new).
+  - A terrain-following lane on the gate side, with kerbs and an asphalt texture.
+  - A gravel drive and an open five-bar gate on posts.
+  - Timber poles every 38 m carrying three sagging wires, with a drop wire to the house.
+  - Four neighbouring cottages (gabled, with chimney, windows and hedge).
+  - Worn-path decals and weeds in the paving joints.
+  - `blocked(x, y)` keeps tufts, trees and wildflowers off the lane, drive and cottages.
+- **Lighting**.
+  - Ground bounce: sunlit lawn green lifts the undersides of outdoor surfaces in
+    `room-bounce-study`.
+  - Screen-space sun shafts, as a pass between the NaN sanitiser and bloom.
+  - Contact-AO decals under trees and props, and soft decals under the tree line, stand in for
+    far-shadow AO.
+- **Vegetation**.
+  - Tree-line variety: five species and size variants, with retries around blocked ground.
+  - One gust-front field drives grass, tufts and leaves together (`leafFront`).
+  - About 1,400 wildflowers and joint weeds.
+  - Instanced vegetation is chunked (blades 8 m / 45 m, tufts and flowers 20 m / 160 m) for
+    frustum and distance culling.
+  - Scanned plants are decimated to `SCAN_BUDGET` with `SimplifyModifier`, after merging
+    vertices; without it the renderer reached about 13M triangles.
+- **Weather and life** (`atmosphere-effects.js`, new).
+  - Deterministic daily weather (`weatherFor`): clear, overcast, or afternoon rain.
+  - Cloud shadows drift across every lit material.
+  - Rain falls as 3,500 streaks; the streaks dim with daylight, where they were white at night.
+  - Wetness soaks and dries over time: it darkens and glosses up-facing surfaces and pools
+    puddles on hard ground.
+  - Heavy cover greys and hazes the sky, dims the sun and hides the stars.
+  - A forced weather mode (`weather.set`) now applies immediately; it used to wait for the
+    next clock tick.
+  - Birds circle overhead and leaves fall from the garden trees.
+- **Distant hills**. The ring of hills 0.4–1 km out now draws pre-lit in aerial perspective:
+  woodland blue-green and paler pasture, lifted toward the haze and dimmed with daylight. Under
+  full lighting the bright dome had washed them to a grey band, and at night they glowed.
+- **Character**. The resident's body atlas has transparent lower corners (PZ masks the legs
+  under clothing). Drawn opaque, they showed as a dark patch on the back of the trousers.
+  Character materials now alpha-test their textures (`characters.js`).
+
+Scanned-asset hookups in `exterior-landscape.js` and `workshop-volume-panel.js` (scanned
+ground, bark and mulch; section 10 plant instancing; the `onChange` hook and generation guard;
+`installLandscapeMaterials`) are the 505u session's work. They are committed here because both
+files carry hunks from both sessions.
+
+Cost: the night view with every lamp shadow measures about 8.5M triangles across all passes,
+and a daytime view about 2.7–3.5M. Tests: 1123/1123 (new `exterior-life` suite: props
+placement, context blocking, chunked instancing and cut-out normals, weather determinism). The
+asset check passes.

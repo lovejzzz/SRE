@@ -35,9 +35,10 @@ export function installLeafWind(material,time,amplitude=.05){
  #endif
  float leafPhase=leafRoot.x*.37+leafRoot.y*.53;
  float leafHeight=clamp(leafRoot.z/5.0,0.15,1.0);
- vec3 leafGust=vec3(sin(leafWindTime*1.1+leafPhase),cos(leafWindTime*.83+leafPhase*1.7),0.0)*(.6+.4*sin(leafWindTime*.21+leafPhase*.1));
+ float leafFront=.35+1.1*smoothstep(-.2,1.0,.55*sin(dot(leafRoot.xy,vec2(.09,.035))-leafWindTime*1.25)+.45*sin(dot(leafRoot.xy,vec2(.021,.03))-leafWindTime*.47));
+ vec3 leafGust=(vec3(sin(leafWindTime*1.1+leafPhase),cos(leafWindTime*.83+leafPhase*1.7),0.0)*.6+vec3(.8,.3,0.0)*leafFront)*leafFront;
  transformed+=leafGust*${amplitude.toFixed(4)}*leafHeight*6.0;
  transformed+=normal*sin(leafWindTime*7.3+leafPhase*4.1+position.x*9.0)*${(amplitude*.6).toFixed(4)};`);
  };
- material.customProgramCacheKey=()=>key+'|leaf-wind-v1-'+amplitude;return material;
+ material.customProgramCacheKey=()=>key+'|leaf-wind-v2-'+amplitude;return material;
 }

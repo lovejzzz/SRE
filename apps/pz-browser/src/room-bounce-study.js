@@ -7,6 +7,7 @@ import {prepareRenderPrograms,prepareCapturePrograms} from './prepare-render-pro
 import {roomReflectionIndex} from './room-reflection-selection.js';
 import * as THREE from 'three';
 import {SKY_SH} from './exterior-sky.js';
+import {ATMOSPHERE} from './atmosphere-effects.js';
 import {LightProbeGenerator} from '../node_modules/three/examples/jsm/lights/LightProbeGenerator.js';
 import {sweepSolidBox} from './convex-solid.js';
 import {roomCells} from './room-footprint.js';
@@ -63,11 +64,11 @@ export function createRoomBounceStudy({scene,renderer,onStatus,onCompileState=()
 
  return {
   install(mesh){const material=mesh.material;if(material.transparent)return;const projection=createReflectionParallax();reflectionBoxes.set(material,projection);const previous=material.onBeforeCompile,key=material.customProgramCacheKey();material.onBeforeCompile=(shader,renderer)=>{previous.call(material,shader,renderer);
-   Object.assign(shader.uniforms,{tianInteriorGain:interiorGain,tianDynamicSH:dynamic,tianDynamicEnabled:dynamicEnabled,tianProbeDepth:depth,tianProbeVisibilityReady:visibilityReady,tianBounceEnabled:enabled,tianProbeCount:count,tianProbeSH:coefficients,tianProbeBounds:bounds,tianProbeHeights:heights,tianProbePositions:positions,tianSkySH:SKY_SH});
+   Object.assign(shader.uniforms,{tianInteriorGain:interiorGain,tianDynamicSH:dynamic,tianDynamicEnabled:dynamicEnabled,tianProbeDepth:depth,tianProbeVisibilityReady:visibilityReady,tianBounceEnabled:enabled,tianProbeCount:count,tianProbeSH:coefficients,tianProbeBounds:bounds,tianProbeHeights:heights,tianProbePositions:positions,tianSkySH:SKY_SH,tianGroundBounce:ATMOSPHERE.groundBounce});
    shader.vertexShader='varying vec3 vTianWorld;\n'+shader.vertexShader;
    // transformed includes morph targets and skinning; sample the posed world position.
    shader.vertexShader=shader.vertexShader.replace('#include <project_vertex>','#include <project_vertex>\nvTianWorld = (modelMatrix * vec4(transformed, 1.0)).xyz;');
-   shader.fragmentShader=(depthVisibility?probeVisibilityGLSL:'float tianVisibility(vec3 delta,int index){return 1.0;}\n')+`varying vec3 vTianWorld;\nuniform float tianInteriorGain;\nuniform float tianBounceEnabled;\nuniform int tianProbeCount;\nuniform vec3 tianProbeSH[144];\nuniform vec3 tianDynamicSH[144];\nuniform float tianDynamicEnabled;\nuniform vec4 tianProbeBounds[16];\nuniform vec2 tianProbeHeights[16];\nuniform vec3 tianProbePositions[16];\nuniform vec3 tianSkySH[9];\nuniform float tianSkyEnv;\n`+shader.fragmentShader;
+   shader.fragmentShader=(depthVisibility?probeVisibilityGLSL:'float tianVisibility(vec3 delta,int index){return 1.0;}\n')+`varying vec3 vTianWorld;\nuniform float tianInteriorGain;\nuniform float tianBounceEnabled;\nuniform int tianProbeCount;\nuniform vec3 tianProbeSH[144];\nuniform vec3 tianDynamicSH[144];\nuniform float tianDynamicEnabled;\nuniform vec4 tianProbeBounds[16];\nuniform vec2 tianProbeHeights[16];\nuniform vec3 tianProbePositions[16];\nuniform vec3 tianSkySH[9];\nuniform float tianSkyEnv;\nuniform vec3 tianGroundBounce;\n`+shader.fragmentShader;
    // SH already supplies diffuse bounce. The cubemap contributes specular only.
    const reflectionChunk=THREE.ShaderChunk.lights_fragment_maps.replace('iblIrradiance += getIBLIrradiance( geometryNormal );','');
    // Materials without their own room capture inherit the scene's sky environment.
@@ -126,10 +127,12 @@ export function createRoomBounceStudy({scene,renderer,onStatus,onCompileState=()
       else radiance *= 0.0;
      #endif
      if(tianSkyEnv<0.5) irradiance += max( vec3( 0.0 ), shGetIrradianceAt( tianN, tianSkySH ) );
+     // Sunlit ground bounces light back up onto walls, soffits and undersides.
+     irradiance += tianGroundBounce*(0.5-0.5*tianN.z);
     }`);
    shader.fragmentShader=shader.fragmentShader.replace('#include <opaque_fragment>','if(tianInside)outgoingLight*=tianInteriorGain;\n#include <opaque_fragment>');
    projection.install(shader);
-  };material.customProgramCacheKey=()=> key+'|tian-room-bounce-v15-sky-live|'+depthVisibility;material.needsUpdate=true;},
+  };material.customProgramCacheKey=()=> key+'|tian-room-bounce-v16-ground-bounce|'+depthVisibility;material.needsUpdate=true;},
   invalidate({retain=false}={}){generation++;if(!retain){visibilityStale=true;ready=false;enabled.value=0;reflectionEnabled(false);}onStatus(retain?'Indirect light update pending · previous lighting retained':'Indirect study stale · Rebuild after geometry, door or lighting changes');},
   setReflectionsEnabled(on){reflectionsWanted=!!on;reflectionEnabled(enabled.value>0);},
   setDynamic(coeffs=[]){for(let i=0;i<dynamic.value.length;i++)dynamic.value[i].copy(coeffs[i]||new THREE.Vector3());},

@@ -4,13 +4,15 @@ import {RenderPass} from '../node_modules/three/examples/jsm/postprocessing/Rend
 import {GTAOPass} from '../node_modules/three/examples/jsm/postprocessing/GTAOPass.js';
 import {OutputPass} from '../node_modules/three/examples/jsm/postprocessing/OutputPass.js';
 import {createCinematicGrade} from './cinematic-grade.js';
+import {createShaftsPass} from './atmosphere-effects.js';
 // Screen-space contact layer, not GI. Keep it outside radiance captures and use
 // one final tone/color conversion.
 export function withContactVisibility(scene,renderer,draw){
  const hidden=[],auto=renderer.shadowMap.autoUpdate,needs=renderer.shadowMap.needsUpdate;
  scene.traverse(o=>{if(!o.visible||!o.isMesh)return;const materials=Array.isArray(o.material)?o.material:[o.material];// Cut-out foliage too: the occlusion pass's override material ignores alphaTest,
-  // so leaf and flower cards would occlude as solid rectangles.
-  if(materials.some(m=>m.opacity<.98||m.depthWrite===false||m.alphaTest>0)){hidden.push(o);o.visible=false;}});
+  // so leaf and flower cards would occlude as solid rectangles. Thin wall-hugging
+  // dressing (userData.noContactAO) reads as fully occluded at grazing depth.
+  if(o.userData.noContactAO||materials.some(m=>m.opacity<.98||m.depthWrite===false||m.alphaTest>0)){hidden.push(o);o.visible=false;}});
  renderer.shadowMap.autoUpdate=false;renderer.shadowMap.needsUpdate=false;
  try{return draw();}finally{for(const o of hidden)o.visible=true;renderer.shadowMap.autoUpdate=auto;renderer.shadowMap.needsUpdate=needs;}
 }
@@ -41,7 +43,7 @@ export function installScreenOcclusion(material,uniforms){
 export function createContactShading(renderer,scene,camera,{mode='indirect',radius=.5,thickness=1,scale=2,distanceExponent=2,strength=1,legacyBlend=.35}={}){
  if(!CONTACT_MODES.includes(mode))throw Error('Unknown contact shading mode');
  const target=new THREE.WebGLRenderTarget(1,1,{type:THREE.HalfFloatType,samples:2});
- const composer=new EffectComposer(renderer,target),base=new RenderPass(scene,camera),ao=new GTAOPass(scene,camera,1,1,undefined,{radius,thickness,samples:8,distanceFallOff:1,screenSpaceRadius:false},{samples:8,radius:4}),output=new OutputPass(),cine=createCinematicGrade();let lastFrame=performance.now();
+ const composer=new EffectComposer(renderer,target),base=new RenderPass(scene,camera),ao=new GTAOPass(scene,camera,1,1,undefined,{radius,thickness,samples:8,distanceFallOff:1,screenSpaceRadius:false},{samples:8,radius:4}),output=new OutputPass(),cine=createCinematicGrade(),shafts=createShaftsPass();let lastFrame=performance.now();
  const render=ao.render.bind(ao);ao.render=(...args)=>withContactVisibility(scene,renderer,()=>render(...args));
  // A white 1×1 texture keeps the sampler valid whenever occlusion is not bound.
  const white=new THREE.DataTexture(new Uint8Array([255,255,255,255]),1,1);white.needsUpdate=true;
@@ -53,7 +55,7 @@ export function createContactShading(renderer,scene,camera,{mode='indirect',radi
   if(!CONTACT_MODES.includes(value))throw Error('Unknown contact shading mode');
   if(value===current)return;current=value;
   composer.passes.length=0;
-  if(value==='indirect'){ao.output=GTAOPass.OUTPUT.Off;ao.needsSwap=false;ao.updateGtaoMaterial(indirect);composer.addPass(ao);composer.addPass(base);composer.addPass(cine.sanitize);composer.addPass(cine.bloom);composer.addPass(cine.grade);composer.addPass(output);}
+  if(value==='indirect'){ao.output=GTAOPass.OUTPUT.Off;ao.needsSwap=false;ao.updateGtaoMaterial(indirect);composer.addPass(ao);composer.addPass(base);composer.addPass(cine.sanitize);composer.addPass(shafts);composer.addPass(cine.bloom);composer.addPass(cine.grade);composer.addPass(output);}
   else if(value==='legacy'){ao.output=GTAOPass.OUTPUT.Default;ao.needsSwap=true;ao.blendIntensity=legacyBlend;ao.updateGtaoMaterial(legacy);composer.addPass(base);composer.addPass(ao);composer.addPass(output);}
  };
  setMode(mode);
@@ -61,7 +63,9 @@ export function createContactShading(renderer,scene,camera,{mode='indirect',radi
   get mode(){return current;},setMode,
   setEnabled(value){setMode(value?'indirect':'off');},
   setParameters({strength:s=uniforms.strength.value,...gtao}={}){indirect={...indirect,...gtao};uniforms.strength.value=s;if(current==='indirect')ao.updateGtaoMaterial(indirect);},
-  grade:cine,
+  grade:cine,shafts,
+  // Sun shafts: screen position of the sun and strength (0 disables).
+  setShafts(uv,strength){shafts.uniforms.sunUV.value.copy(uv);shafts.uniforms.strength.value=strength;shafts.enabled=strength>0;},
   resize(w,h){composer.setSize(w,h);cine.resize(w,h);},
   render(){
    const auto=renderer.info.autoReset;renderer.info.autoReset=false;renderer.info.reset();
@@ -70,5 +74,5 @@ export function createContactShading(renderer,scene,camera,{mode='indirect',radi
     else{if(current==='indirect'){uniforms.map.value=ao.pdRenderTarget.texture;uniforms.enabled.value=1;}const now=performance.now();cine.tick(Math.min(.1,(now-lastFrame)/1000));lastFrame=now;composer.render();}
    }finally{uniforms.enabled.value=0;uniforms.map.value=white;renderer.info.autoReset=auto;}
   },
-  dispose(){base.dispose();ao.dispose();output.dispose();cine.dispose();composer.dispose();target.dispose();white.dispose();}};
+  dispose(){base.dispose();ao.dispose();output.dispose();cine.dispose();shafts.dispose?.();composer.dispose();target.dispose();white.dispose();}};
 }

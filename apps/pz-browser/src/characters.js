@@ -49,7 +49,9 @@ export class CharacterRenderer {
     const skin=[],weights=[];for(const list of influences){list.sort((a,b)=>b[1]-a[1]);const top=list.slice(0,4);const total=top.reduce((n,v)=>n+v[1],0)||1;for(let i=0;i<4;i++){skin.push(top[i]?.[0]||0);weights.push((top[i]?.[1]||0)/total);}}
     g.setAttribute('skinIndex',new THREE.Uint16BufferAttribute(skin,4));g.setAttribute('skinWeight',new THREE.Float32BufferAttribute(weights,4));
     const colors={body:0xffffff,shirt:0x729b87,trousers:0xffffff,hair:0x45372d};
-    const material=new THREE.MeshLambertMaterial({map:texture,color:texture?0xffffff:colors[part.name],side:THREE.DoubleSide});
+    // The body skin's lower atlas corners are transparent (PZ masks the legs under clothing); drawn
+    // opaque they showed as a dark patch through the trousers, so cut them out.
+    const material=new THREE.MeshLambertMaterial({map:texture,color:texture?0xffffff:colors[part.name],side:THREE.DoubleSide,alphaTest:texture?.5:0});
     const mesh=new THREE.SkinnedMesh(g,material);mesh.frustumCulled=false;group.add(mesh);
     const skelBones=def.weights.map(w=>bones.get(w.bone));if(skelBones.some(b=>!b))throw new Error('Incomplete character bone mapping');
     group.updateMatrixWorld(true);

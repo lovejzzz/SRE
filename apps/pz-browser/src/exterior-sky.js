@@ -56,7 +56,7 @@ export function createExteriorSky(scene,renderer,{environment=typeof renderer?.g
  const sky=new Sky();sky.scale.setScalar(1800);sky.frustumCulled=false;patchZUp(sky);
  Object.assign(sky.material.uniforms.turbidity,{value:4.5});sky.material.uniforms.rayleigh.value=1.4;sky.material.uniforms.mieCoefficient.value=.004;sky.material.uniforms.mieDirectionalG.value=.82;
  sky.material.uniforms.cloudCoverage.value=.38;sky.material.uniforms.cloudDensity.value=.45;sky.material.uniforms.cloudScale.value=.00022;
- const stars=starDome();
+ const stars=starDome();let starVeil=1; // heavy cloud hides the stars
  const root=new THREE.Group();root.name='exterior-sky';root.add(sky,stars);scene.add(root);
  // Linear aerial haze from 90 m: the tree line keeps its colour, the hills recede.
  const fog=new THREE.Fog(0xbfd0de,90,1100);scene.fog=fog;
@@ -81,7 +81,7 @@ export function createExteriorSky(scene,renderer,{environment=typeof renderer?.g
    sky.material.uniforms.sunPosition.value.fromArray(toSkySpace(u)).multiplyScalar(450000);
    sky.material.uniforms.showSunDisc.value=u[2]>-.02?1:0;
    state.night=Math.min(1,Math.max(0,(-u[2]+.02)/.22));
-   stars.material.opacity=state.night*.95;sky.material.uniforms.tianNight.value=state.night;
+   stars.material.opacity=state.night*.95*starVeil;sky.material.uniforms.tianNight.value=state.night;
    fog.color.copy(horizonColor(u[2]));fog.far=1100-650*state.night;
    // Night sky: Preetham goes black below the horizon; keep a moonlit deep blue.
    // Preetham radiance is unscaled (the stock example runs at exposure .5): scale the
@@ -90,6 +90,10 @@ export function createExteriorSky(scene,renderer,{environment=typeof renderer?.g
    publishSH();
    if(!lastSun||Math.acos(Math.min(1,lastSun[0]*u[0]+lastSun[1]*u[1]+lastSun[2]*u[2]))>.035){lastSun=u;capture();}
   },
+  // Weather: cloud cover on the visible dome and in the captured environment.
+  setCover(c){sky.material.uniforms.cloudCoverage.value=c;starVeil=1-THREE.MathUtils.smoothstep(c,.5,.92);stars.material.opacity=state.night*.95*starVeil;sky.material.uniforms.cloudDensity.value=.45+.5*Math.max(0,c-.4);
+   // Heavy cover: a duller, greyer dome and thicker haze (rain cuts visibility).
+   const heavy=Math.max(0,(c-.5)/.45);sky.material.uniforms.tianSkyGain.value=SKY_DISPLAY_GAIN*(1-.45*heavy);sky.material.uniforms.turbidity.value=4.5+6*heavy;fog.far=(1100-650*state.night)*(1-.6*heavy);},
   // Keep the dome centred on the camera so it is always "at infinity"; drift clouds.
   update(camera,dt=0){root.position.copy(camera.position);clock+=dt;sky.material.uniforms.time.value=clock;},
   state:()=>({...state,environment:!!scene.environment,skySH:SKY_SH.value[0].toArray().map(v=>+v.toFixed(3))}),
