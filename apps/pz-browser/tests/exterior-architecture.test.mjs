@@ -25,3 +25,29 @@ test('internal walls and walls without a roof get no envelope detail beyond the 
  const garden=sceneExteriorDetails(scene,walls,[],{cellSize:1});assert.deepEqual([...new Set(garden.map(m=>m.role))].sort(),['plinth','sill']);
 });
 test('tube is closed and sized',()=>{const t=tube([0,0,0],[0,0,2],.05);assert.equal(t.indices.length%3,0);const r=Math.max(...t.vertices.map(v=>Math.hypot(v[0],v[1])));assert.ok(Math.abs(r-.05)<1e-9);});
+import {exteriorFacadeRuns,trellisSpan,wallExteriorSide} from '../src/exterior-architecture.js';
+import {openingVolume} from '../src/opening-volume.js';
+test('blank exterior runs merge collinear segments and carry a trellis; a water butt stands by the first downpipe',()=>{
+ const big={rooms:[{levelId:'g',rect:[0,0,8,4]}],openings:[]},segs=[];for(let x=0;x<8;x++)segs.push(wall('S'+x,[x,0],[x+1,0]));
+ segs.push(wall('E',[8,0],[8,4]),wall('N',[8,4],[0,4]),wall('W',[0,4],[0,0]));
+ const runs=exteriorFacadeRuns(big,segs,{cellSize:1}),south=runs.find(r=>r.wallIds.includes('S0'));
+ assert.equal(south.length,8);assert.equal(south.wallIds.length,8);assert.deepEqual(south.out.map(v=>Math.round(v)+0),[0,-1]);
+ const span=trellisSpan(south);assert.ok(span&&span.u1-span.u0<=3.2&&span.z1<=3-.35);assert.equal(trellisSpan({...south,length:3}),null);
+ const out=sceneExteriorDetails(big,segs,[{role:'roof',roofId:'r',vertices:[[0,0,3.1],[8,0,3.1],[8,4,3.1],[0,4,3.1]]}],{cellSize:1});
+ const trellis=out.filter(m=>m.role==='trellis');assert.ok(trellis.length>=2);for(const t of trellis)assert.deepEqual(t.collision,[]);
+ assert.equal(out.filter(m=>m.role==='water-butt').length,1);
+ assert.equal(wallExteriorSide(big,segs[0],{cellSize:1}),-1);assert.equal(wallExteriorSide(big,wall('I',[4,0],[4,4]),{cellSize:1}),0);
+});
+test('a wall that is wholly glazing still gets parapet and coping',()=>{
+ const glazed=wall('G',[0,0],[4,0],{indices:[],openingId:'win',opening:[0,0,4,3]});
+ const out=sceneExteriorDetails(scene,[glazed,...walls.slice(1)],roofs,{cellSize:1});assert.ok(out.some(m=>m.id==='G:parapet'));assert.ok(out.some(m=>m.id==='G:coping'));
+});
+test('entrance doors: flush dark leaf, grooves and a pull bar outside, mouldings and lever inside',()=>{
+ const args={id:'d',a:[0,0],b:[2,0],base:0,aperture:[.5,0,1.4,2.1],kind:'door',frameWidth:.05,frameDepth:.1,panelDepth:.035};
+ const inner=openingVolume(args),entrance=openingVolume({...args,exteriorSide:-1});
+ assert.ok(!inner.some(p=>/pull|groove/.test(p.id)));assert.equal(inner.find(p=>p.role==='leaf'&&p.id==='d:panel').material,undefined);
+ const leaf=entrance.find(p=>p.id==='d:panel');assert.ok(leaf.material.color<0x404040,'dark composite leaf');
+ const pull=entrance.filter(p=>/:pull/.test(p.id)),ys=pull.flatMap(p=>p.vertices.map(v=>v[1]));assert.ok(pull.length===3&&Math.max(...ys)<0,'pull bar on the outside (-y)');
+ assert.equal(entrance.filter(p=>/groove/.test(p.id)).length,5);
+ const mould=entrance.filter(p=>/moulding/.test(p.id)).flatMap(p=>p.vertices.map(v=>v[1]));assert.ok(Math.min(...mould)>0,'mouldings only inside (+y)');
+});

@@ -30,12 +30,38 @@ export function tube(a,b,radius,sides=12){
 }
 function textured(mesh,material){return {...mesh,material,uv:architecturalSurfaceUV(mesh,material.texture.repeatMetres)};}
 
+// Which side of a wall (sign along its left normal) is outside: 0 when both or
+// neither side is in a room (internal partition or free-standing garden wall).
+export function wallExteriorSide(scene,wall,{cellSize}){
+ if(!wall.hostEndpoints)return 0;const [a,b]=wall.hostEndpoints,L=Math.hypot(b[0]-a[0],b[1]-a[1]),n=[-(b[1]-a[1])/L,(b[0]-a[0])/L],mid=[(a[0]+b[0])/2,(a[1]+b[1])/2];
+ const inside=s=>scene.rooms.some(r=>r.levelId===wall.levelId&&roomContainsPoint(r,(mid[0]+n[0]*s*(wall.thickness/2+.05))/cellSize,(mid[1]+n[1]*s*(wall.thickness/2+.05))/cellSize));
+ const plus=inside(1),minus=inside(-1);return plus===minus?0:plus?-1:1;
+}
+// Long blank stretches of exterior wall: collinear exterior segments without
+// openings merged into runs (world metres), with the outward normal.
+export function exteriorFacadeRuns(scene,walls,{cellSize}){
+ const lines=new Map();
+ for(const w of walls){if(!w.hostEndpoints||!w.indices?.length||w.opening)continue;const side=wallExteriorSide(scene,w,{cellSize});if(!side)continue;
+  const [a,b]=w.hostEndpoints,L=Math.hypot(b[0]-a[0],b[1]-a[1]),t=[(b[0]-a[0])/L,(b[1]-a[1])/L],flip=t[0]<-1e-9||(Math.abs(t[0])<1e-9&&t[1]<0),T=flip?t.map(v=>-v):t,[p,q]=flip?[b,a]:[a,b];
+  const out=[-t[1]*side,t[0]*side],key=[T[0].toFixed(3),T[1].toFixed(3),(-T[1]*p[0]+T[0]*p[1]).toFixed(3),out[0].toFixed(2),out[1].toFixed(2),w.levelId,w.base].join('|');
+  if(!lines.has(key))lines.set(key,[]);lines.get(key).push({w,u0:p[0]*T[0]+p[1]*T[1],u1:q[0]*T[0]+q[1]*T[1],T,out});}
+ const runs=[];
+ for(const segs of lines.values()){segs.sort((x,y)=>x.u0-y.u0);let cur=null;
+  const flush=()=>{if(!cur)return;const {T,out,w}=cur.segs[0],c0=cur.segs[0],o=-T[1]*w.hostEndpoints[0][0]+T[0]*w.hostEndpoints[0][1],pt=u=>[T[0]*u-T[1]*o,T[1]*u+T[0]*o];
+   runs.push({a:pt(cur.u0),b:pt(cur.u1),length:cur.u1-cur.u0,t:T,out,thickness:w.thickness,base:w.base,top:w.base+w.height,levelId:w.levelId,wallIds:cur.segs.map(s=>s.w.id)});void c0;};
+  for(const sg of segs){if(cur&&Math.abs(sg.u0-cur.u1)<1e-6){cur.u1=sg.u1;cur.segs.push(sg);}else{flush();cur={u0:sg.u0,u1:sg.u1,segs:[sg]};}}flush();}
+ return runs;
+}
+const STAINLESS={color:0xc4c8ca,metalness:1,roughness:.3},BUTT={color:0x2b3a2c,roughness:.62,variation:{tone:.06,roughness:.2,scale:3}};
+// Climbing-plant support on a blank run: tensioned stainless wires on eye bolts.
+export function trellisSpan(run){const w=Math.min(3.2,run.length-1.2);if(w<2.4)return null;const mid=run.length/2;return {u0:mid-w/2,u1:mid+w/2,z0:run.base+.45,z1:Math.min(run.top-.35,run.base+2.65)};}
 export function sceneExteriorDetails(scene,walls,roofs,{cellSize}){
  const D=EXTERIOR_DETAIL,out=[],openings=new Map(scene.openings.map(o=>[o.id,o])),corners=[],doorPoints=[];
  const inRoom=(levelId,p)=>scene.rooms.some(r=>r.levelId===levelId&&roomContainsPoint(r,p[0]/cellSize,p[1]/cellSize));
  const roofBoxes=roofs.filter(r=>r.role==='roof').map(r=>{const xs=r.vertices.map(v=>v[0]),ys=r.vertices.map(v=>v[1]),zs=r.vertices.map(v=>v[2]);return {roofId:r.roofId,box:[Math.min(...xs),Math.min(...ys),Math.max(...xs),Math.max(...ys)],top:Math.max(...zs)};});
  for(const wall of walls){
-  if(!wall.hostEndpoints||!wall.indices?.length)continue;
+  // Walls that are wholly a glazed opening have no mesh but still carry parapet and coping.
+  if(!wall.hostEndpoints||(!wall.indices?.length&&!wall.opening))continue;
   const [a,b]=wall.hostEndpoints,L=Math.hypot(b[0]-a[0],b[1]-a[1]),t=[(b[0]-a[0])/L,(b[1]-a[1])/L],n=[-t[1],t[0]],mid=[(a[0]+b[0])/2,(a[1]+b[1])/2],T=wall.thickness;
   const probe=s=>[mid[0]+n[0]*s*(T/2+.05),mid[1]+n[1]*s*(T/2+.05)];
   const outside=[-1,1].filter(s=>!inRoom(wall.levelId,probe(s))),inside=[-1,1].filter(s=>inRoom(wall.levelId,probe(s)));
@@ -82,6 +108,14 @@ export function sceneExteriorDetails(scene,walls,roofs,{cellSize}){
   parts.push(box(x,y,h,h+.2,hw,.15),box(x-c.out[0]*(o-T/2)/2,y-c.out[1]*(o-T/2)/2,h+.12,h+.16,.045,o-T/2+.02));
   for(let z=base+.6;z<h-.3;z+=1.1)parts.push(tube([x,y,z],[x,y,z+.035],D.pipeRadius+.008),box(x-c.out[0]*(o-T/2)/2,y-c.out[1]*(o-T/2)/2,z+.008,z+.027,.012,o-T/2));
   out.push(merge(c.wall.id+':downpipe:'+i,parts,{hostWallId:c.wall.id,levelId:c.wall.levelId,role:'downpipe',castShadow:true,material:ANODISED}));
+  // Water butt beside the first downpipe, clear of the shoe.
+  if(i===0){const bx=x-c.along[0]*.5+c.out[0]*(.33-D.pipeOffset),by=y-c.along[1]*.5+c.out[1]*(.33-D.pipeOffset),b0=base+.02;
+   out.push(merge(c.wall.id+':water-butt',[tube([bx,by,b0],[bx,by,b0+.92],.29,24),tube([bx,by,b0+.92],[bx,by,b0+.96],.305,24),tube([bx,by,b0+.3],[bx,by,b0+.86],.296,24),tube([bx+c.out[0]*.29,by+c.out[1]*.29,b0+.16],[bx+c.out[0]*.35,by+c.out[1]*.35,b0+.16],.016,10)],{hostWallId:c.wall.id,levelId:c.wall.levelId,role:'water-butt',castShadow:true,material:BUTT}));}
  }
+ for(const run of exteriorFacadeRuns(scene,walls,{cellSize})){const span=trellisSpan(run);if(!span)continue;
+  const f=run.thickness/2,pt=(u,d,z)=>[run.a[0]+run.t[0]*u+run.out[0]*(f+d),run.a[1]+run.t[1]*u+run.out[1]*(f+d),z],parts=[];
+  for(let z=span.z0;z<=span.z1+1e-6;z+=.35){parts.push(tube(pt(span.u0,.05,z),pt(span.u1,.05,z),.0028,8));for(const u of [span.u0,span.u1])parts.push(tube(pt(u,0,z),pt(u,.058,z),.006,8));}
+  for(let u=span.u0+.6;u<span.u1-.3;u+=.8)parts.push(tube(pt(u,.05,span.z0),pt(u,.05,span.z1),.0022,8));
+  out.push(merge(run.wallIds[Math.floor(run.wallIds.length/2)]+':trellis',parts,{hostWallId:run.wallIds[Math.floor(run.wallIds.length/2)],levelId:run.levelId,role:'trellis',castShadow:true,material:STAINLESS}));}
  return out;
 }

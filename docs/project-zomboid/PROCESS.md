@@ -6933,3 +6933,40 @@ Open:
 - The tree line is still smooth blobs up close.
 - Blank long walls; the generic door leaf.
 - Lawn blades cover only the area around the house.
+
+## 505r — Closing the exterior open items
+
+The 505q open items are fixed, plus everything else spotted while checking them. Evidence:
+`evidence505/exterior/505r-*.jpg` (live screenshots).
+
+- **Tree line**:
+  - Every distant tree now carries crown cards. Deciduous trees get 90 leaf-cluster cards on
+    the crown surface; conifers get drooping needle sprays (new `needlePixels`) on each layer
+    rim.
+  - Silhouettes are leafy rather than smooth blobs: about 37k cards in all, unlit by shadows.
+- **Blank walls**:
+  - `exteriorFacadeRuns` merges collinear exterior segments without openings.
+  - Runs of 4 m or more get a stainless wire trellis on eye bolts (render-only, fades with its
+    wall).
+  - The landscape grows a climber on it: nine woody stems fanning from the root, with leaf
+    clusters along them, fuller with height and ragged at the edges.
+  - A water butt (lid, band, tap) stands by the first downpipe.
+- **Entrance door**:
+  - `openingVolume` takes `exteriorSide`. The panel passes `wallExteriorSide`, so doors in
+    exterior walls become flush anthracite composite leaves.
+  - Five routed horizontal grooves and a 1.1 m stainless pull bar sit on the outside face; the
+    mouldings and lever stay on the room side. Interior doors are unchanged.
+- **Lawn**: grass blades now cover the whole lawn, full density near the house and 55%
+  beyond 8 m.
+- **Also fixed while checking**:
+  - Parapet and coping were missing over walls that are entirely glazing (no wall mesh), which
+    exposed the roof gravel edge.
+  - Hedge corners now have corner blocks, so no bare end face shows.
+  - Plant cards had a pale cast: foliage specular is down to 0.07, card normals lean up less,
+    and clump bases are vertex-shaded darker.
+- **Dev note**: canvas captures (`__ext.shot`) can show a stale frame for close views while
+  the pane is hidden. Final evidence uses live screenshots.
+
+Tests: 1107/1107 (new: facade runs, trellis and water butt, glazed-wall parapet, entrance
+door hardware sides, tree-line cards, climber placement, whole-lawn blades). The asset check
+passes.

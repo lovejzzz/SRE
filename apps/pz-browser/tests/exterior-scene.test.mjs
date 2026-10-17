@@ -56,3 +56,14 @@ test('the contact-occlusion pass hides cut-out foliage, whose override material 
  const scene=new THREE.Scene(),leaf=new THREE.Mesh(new THREE.PlaneGeometry(),new THREE.MeshStandardMaterial({alphaTest:.4})),wall=new THREE.Mesh(new THREE.BoxGeometry(),new THREE.MeshStandardMaterial());scene.add(leaf,wall);
  withContactVisibility(scene,{shadowMap:{}},()=>{assert.equal(leaf.visible,false);assert.equal(wall.visible,true);});assert.equal(leaf.visible,true);
 });
+import {needlePixels} from '../src/exterior-landscape.js';
+test('tree line carries crown cards; climbers grow on long blank facades only; lawn blades cover the whole lawn',()=>{
+ const d=distantTreeGeometry(false,4),c=distantTreeGeometry(true,3);assert.ok(d.userData.cards.length>=80&&c.userData.cards.length>=30);
+ for(const k of c.userData.cards)assert.ok(k.n[2]<0,'conifer sprays droop');
+ const nd=needlePixels(64,2);let a=0;for(let i=3;i<nd.data.length;i+=4)a+=nd.data[i]>0;assert.ok(a>100&&a<64*64*.6);
+ const scene=new THREE.Scene(),l=createExteriorLandscape(scene,{quality:.3}),facade={a:[7,5],b:[13,5],length:6,t:[1,0],out:[0,-1],thickness:.2,base:0,top:3,levelId:'g',wallIds:['w']};
+ const r=l.rebuild(squares,{facades:[facade]});assert.ok(r.climberLeaves>50);
+ const leaves=l.root.children.find(o=>o.name==='climber-leaves'),m=new THREE.Matrix4(),p=new THREE.Vector3();for(let i=0;i<leaves.count;i++){leaves.getMatrixAt(i,m);p.setFromMatrixPosition(m);assert.ok(p.y<5-.1+.01&&p.y>4.6,'on the outer face');}
+ assert.equal(l.rebuild(squares,{facades:[{...facade,length:3,b:[10,5]}]}).climberLeaves,0);
+ const lawn=plotLayout(squares).lawn.length;assert.ok(r.blades>lawn*100*.3*.5,'blades beyond 8 m too');l.dispose();
+});
