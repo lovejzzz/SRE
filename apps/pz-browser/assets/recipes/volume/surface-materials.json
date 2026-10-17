@@ -44,6 +44,11 @@
       "material": {
         "color": 16777215,
         "roughness": 0.95,
+        "fibre": {
+          "sheen": 0,
+          "roughness": 0.75,
+          "specular": 0.22
+        },
         "texture": {
           "kind": "lawn",
           "size": 1024,

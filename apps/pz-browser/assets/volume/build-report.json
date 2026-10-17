@@ -793,7 +793,7 @@
       "name": "surface-materials",
       "id": "tian-volume-surface-materials",
       "hashes": {
-        "assets/recipes/volume/surface-materials.json": "a0f31a6911cb0b4b1745c0ec170718a6c47844140799c3dd4458c5be8d28b394",
+        "assets/recipes/volume/surface-materials.json": "0048581ae037dc22934ca9efb3e9e6ef6c1ff825721ccfbc1ca64488d7d9dae2",
         "src/architectural-materials.js": "278664c489ac27e2526b905b1d7fdc57e55827f9c317a56ae4fea37c9e817cb8",
         "private-assets/Tiles2x.floor-3.png": "42ad366cea534c90a605a15ad238e1e1ff1aca7f85ea1053ebb65235e9c98c9b",
         "private-assets/atlas.json": "6c27e946b78bf10b7c94975bbb89e48930646b506ad2e6df8e7398901ee3ca88",
@@ -812,10 +812,10 @@
         "src/scene-slab-volumes.js": "fe0cf3f8f5df8a7b087dbd6e2820c3e93930ef25b68bb3002cbfeffaa6d77911",
         "src/convex-solid.js": "4b6a982e341fb7b01229087a25f2055a7a9b969a484d684e56c687e270ee7c8c"
       },
-      "delivery": "surface-materials.d750c6844f82ad02b7e1af4fe6c17935cf6fff80572a45d2cefcc0a20e41f6bb.json.gz",
-      "sourceBytes": 3301,
-      "deliveryBytes": 1248,
-      "deliverySHA256": "d750c6844f82ad02b7e1af4fe6c17935cf6fff80572a45d2cefcc0a20e41f6bb",
+      "delivery": "surface-materials.ffef7fafa410cc657e4d4a8c2c46e6477bb3baf1dd0165134d1c086241c75313.json.gz",
+      "sourceBytes": 3354,
+      "deliveryBytes": 1277,
+      "deliverySHA256": "ffef7fafa410cc657e4d4a8c2c46e6477bb3baf1dd0165134d1c086241c75313",
       "parts": 0,
       "status": "prototype; visual acceptance pending"
     },

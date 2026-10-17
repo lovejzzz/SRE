@@ -7,7 +7,9 @@ import {OutputPass} from '../node_modules/three/examples/jsm/postprocessing/Outp
 // one final tone/color conversion.
 export function withContactVisibility(scene,renderer,draw){
  const hidden=[],auto=renderer.shadowMap.autoUpdate,needs=renderer.shadowMap.needsUpdate;
- scene.traverse(o=>{if(!o.visible||!o.isMesh)return;const materials=Array.isArray(o.material)?o.material:[o.material];if(materials.some(m=>m.opacity<.98||m.depthWrite===false)){hidden.push(o);o.visible=false;}});
+ scene.traverse(o=>{if(!o.visible||!o.isMesh)return;const materials=Array.isArray(o.material)?o.material:[o.material];// Cut-out foliage too: the occlusion pass's override material ignores alphaTest,
+  // so leaf and flower cards would occlude as solid rectangles.
+  if(materials.some(m=>m.opacity<.98||m.depthWrite===false||m.alphaTest>0)){hidden.push(o);o.visible=false;}});
  renderer.shadowMap.autoUpdate=false;renderer.shadowMap.needsUpdate=false;
  try{return draw();}finally{for(const o of hidden)o.visible=true;renderer.shadowMap.autoUpdate=auto;renderer.shadowMap.needsUpdate=needs;}
 }

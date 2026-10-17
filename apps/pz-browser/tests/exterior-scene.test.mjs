@@ -42,3 +42,17 @@ test('gravel ballast: seamless, mostly stones with dark interstices, albedo kind
  assert.ok(dark>128*128*.05&&dark<128*128*.45,'membrane shows between stones: '+dark);assert.ok(ALBEDO_SURFACES.has('gravel'));
  assert.deepEqual(gravelPixels({size:64,stones:8}).color,gravelPixels({size:64,stones:8}).color);assert.throws(()=>gravelPixels({stones:2}),/gravel/);
 });
+import {tuftPixels,flowerPixels,mulchPixels,barkPixels,crossGeometry} from '../src/exterior-landscape.js';
+import {withContactVisibility} from '../src/contact-shading.js';
+test('planting textures: cut-out tufts and flowers grow upward on cards; mulch is opaque; bark tiles',()=>{
+ const alphaRows=p=>{const n=p.width,top=[...Array(n*n/4).keys()].filter(i=>p.data[i*4+3]).length,bottom=[...Array(n*n/4).keys()].filter(i=>p.data[(n*n*3/4+i)*4+3]).length;return [top,bottom];};
+ for(const p of [tuftPixels(64,1),flowerPixels('daisy',64,2)]){const [top,bottom]=alphaRows(p);assert.ok(bottom>top,'rows are written top-down: dense base at the image bottom');}
+ assert.throws(()=>flowerPixels('rose'),/Unknown flower/);
+ const g=crossGeometry(3),uv=g.attributes.uv,pos=g.attributes.position;for(let i=0;i<uv.count;i++)assert.equal(uv.getY(i),1-pos.getZ(i),'v is flipped so the image bottom sits on the ground');
+ const m=mulchPixels(64,1);for(let i=3;i<m.data.length;i+=4)assert.equal(m.data[i],255);
+ const b=barkPixels(64,3);assert.equal(b.relief.length,b.data.length);const col=x=>b.data[(10*64+x)*4];assert.ok(Math.abs(col(0)-col(63))<60,'wraps around the trunk');
+});
+test('the contact-occlusion pass hides cut-out foliage, whose override material would ignore alphaTest',()=>{
+ const scene=new THREE.Scene(),leaf=new THREE.Mesh(new THREE.PlaneGeometry(),new THREE.MeshStandardMaterial({alphaTest:.4})),wall=new THREE.Mesh(new THREE.BoxGeometry(),new THREE.MeshStandardMaterial());scene.add(leaf,wall);
+ withContactVisibility(scene,{shadowMap:{}},()=>{assert.equal(leaf.visible,false);assert.equal(wall.visible,true);});assert.equal(leaf.visible,true);
+});

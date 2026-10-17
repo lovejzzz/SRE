@@ -40,14 +40,37 @@ export function leafCardPixels(size=128,seed=5,{leaves=14,length=[.16,.12]}={}){
 
 function dataTexture({width,height,data},color=true,repeat=false){const t=new THREE.DataTexture(data,width,height,THREE.RGBAFormat);t.colorSpace=color?THREE.SRGBColorSpace:THREE.NoColorSpace;t.magFilter=THREE.LinearFilter;t.minFilter=THREE.LinearMipmapLinearFilter;t.generateMipmaps=true;t.anisotropy=8;if(repeat)t.wrapS=t.wrapT=THREE.RepeatWrapping;t.needsUpdate=true;return t;}
 
-// Tapered branch cylinder from a to b (radii ra, rb), appended to arrays.
-function branch(pos,idx,col,a,b,ra,rb,seg,color){
+// Tapered branch cylinder from a to b (radii ra, rb), appended to arrays. UVs wrap
+// once around (seam vertices duplicated) and run along the length in metres/0.7,
+// continuing from vStart so bark furrows flow from the trunk into the limbs.
+function branch(pos,idx,col,a,b,ra,rb,seg,color,uv=null,vStart=0){
  const d=new THREE.Vector3().subVectors(b,a),len=d.length();d.normalize();
  const ref=Math.abs(d.z)<.9?new THREE.Vector3(0,0,1):new THREE.Vector3(1,0,0),u=new THREE.Vector3().crossVectors(d,ref).normalize(),v=new THREE.Vector3().crossVectors(d,u);
- const base=pos.length/3;
- for(const [p,r] of [[a,ra],[b,rb]])for(let i=0;i<seg;i++){const t=i/seg*Math.PI*2,q=p.clone().addScaledVector(u,Math.cos(t)*r).addScaledVector(v,Math.sin(t)*r);pos.push(q.x,q.y,q.z);col.push(...color);}
- for(let i=0;i<seg;i++){const j=(i+1)%seg;idx.push(base+i,base+j,base+seg+j,base+i,base+seg+j,base+seg+i);}
+ const base=pos.length/3,ring=seg+1;
+ for(const [p,r,vv] of [[a,ra,vStart],[b,rb,vStart+len/.7]])for(let i=0;i<=seg;i++){const t=i/seg*Math.PI*2,q=p.clone().addScaledVector(u,Math.cos(t)*r).addScaledVector(v,Math.sin(t)*r);pos.push(q.x,q.y,q.z);col.push(...color);uv?.push(Math.max(1,Math.round(r*Math.PI*2/.55))*i/seg,vv);}
+ for(let i=0;i<seg;i++){const j=i+1;idx.push(base+i,base+j,base+ring+j,base+i,base+ring+j,base+ring+i);}
  return len;
+}
+// Periodic value noise on a w×h lattice (tiles seamlessly), smoothstep-interpolated.
+function lattice(w,h,seed){const r=rng(seed),g=Array.from({length:w*h},r);return (u,v)=>{const x=((u%1)+1)%1*w,y=((v%1)+1)%1*h,i=Math.floor(x),j=Math.floor(y),fx=x-i,fy=y-j,sx=fx*fx*(3-2*fx),sy=fy*fy*(3-2*fy),at=(a,b)=>g[((b%h+h)%h)*w+((a%w+w)%w)];
+ return (at(i,j)*(1-sx)+at(i+1,j)*sx)*(1-sy)+(at(i,j+1)*(1-sx)+at(i+1,j+1)*sx)*sy;};}
+// Bark (mature deciduous trunk): irregular vertical plates separated by wandering
+// dark furrows, plates broken by occasional cross-cracks, grey-brown with lichen-pale
+// ridges. Furrow position meanders with low-frequency noise so nothing reads as a
+// repeating pattern. Returns albedo (times the vertex colour) and relief.
+export function barkPixels(size=256,seed=13){
+ const color=new Uint8Array(size*size*4),relief=new Uint8Array(size*size*4),cols=7;
+ const meander=lattice(cols,3,seed),width=lattice(cols,5,seed+1),crack=lattice(cols*2,9,seed+2),fine=lattice(72,14,seed+3),tone=lattice(4,6,seed+4);
+ for(let y=0;y<size;y++)for(let x=0;x<size;x++){const u=(x+.5)/size,v=(y+.5)/size;
+  const cu=(u+.09*(meander(u,v)-.5)+.02*(fine(u,v)-.5))*cols,f=cu-Math.floor(cu),w=.18+.22*width(u,v);
+  const edge=Math.min(f,1-f),furrow=Math.min(1,edge/w),plate=Math.pow(furrow,.7);
+  // Plates break across where a per-column noise peaks: short horizontal furrows.
+  const col=Math.floor(cu)/cols,cr=crack(col+.03,v),cut=cr>.72?1-.5*Math.min(1,(cr-.72)/.05)*Math.max(0,1-Math.abs(((v*9)%1)-.5)/.08):1;
+  const h=plate*cut*(.82+.36*fine(u,v)),lichen=Math.max(0,Math.min(1,(tone(u*3+.3,v*2)-.6)*4))*Math.max(0,h-.6)*2.5;
+  const t=.32+.68*h,base=[.48+.12*lichen*.4,.42+.2*lichen*.4,.36+.16*lichen*.4],k=.85+.3*tone(u,v),i=(y*size+x)*4;
+  color.set(base.map(c=>Math.min(255,Math.round(255*c*t*k))).concat(255),i);
+  const q=Math.round(255*Math.min(1,h));relief.set([q,q,q,255],i);}
+ return {width:size,height:size,data:color,relief};
 }
 
 // Garden tree: leaning trunk, 5–6 scaffold limbs spreading out of the trunk, each
@@ -55,23 +78,26 @@ function branch(pos,idx,col,a,b,ra,rb,seg,color){
 // down to twigs; leaf-card clusters at twig ends fill a broad, open crown.
 // Bark colours are linear (a dark grey-brown that reads correctly in sunlight).
 export function gardenTree(seed,height=7){
- const r=rng(seed),pos=[],idx=[],col=[],leaves=[],k=height/7;
- const bark=[.045,.036,.027],up=new THREE.Vector3(0,0,1);
+ const r=rng(seed),pos=[],idx=[],col=[],uvs=[],leaves=[],k=height/7;
+ const bark=[.075,.06,.048],up=new THREE.Vector3(0,0,1);
  const turn=(dir,angle)=>{const axis=new THREE.Vector3(r()-.5,r()-.5,r()-.5).cross(dir).normalize();return dir.clone().applyAxisAngle(axis,angle);};
- const grow=(a,dir,len,radius,depth)=>{
-  const b=a.clone().addScaledVector(dir,len);branch(pos,idx,col,a,b,radius,radius*.72,depth>2?7:5,bark.map(c=>c*(.8+.4*r())));
+ const grow=(a,dir,len,radius,depth,v0=0)=>{
+  const b=a.clone().addScaledVector(dir,len);branch(pos,idx,col,a,b,radius,radius*.72,depth>2?8:5,bark.map(c=>c*(.8+.4*r())),uvs,v0);const v1=v0+len/.7;
   if(depth===0){for(let j=0;j<11;j++){const p=b.clone().add(new THREE.Vector3((r()-.5)*1.05,(r()-.5)*1.05,(r()-.35)*.7).multiplyScalar(k));leaves.push({p,rot:r()*Math.PI*2,tilt:(r()-.5)*1.3,s:(.42+.3*r())*k});}return;}
-  for(let j=0;j<2;j++){const nd=turn(dir,.38+.35*r()).addScaledVector(up,.18).normalize();grow(b,nd,len*(.7+.12*r()),radius*.7,depth-1);}
+  for(let j=0;j<2;j++){const nd=turn(dir,.38+.35*r()).addScaledVector(up,.18).normalize();grow(b,nd,len*(.7+.12*r()),radius*.7,depth-1,v1);}
  };
  const lean=new THREE.Vector3((r()-.5)*.12,(r()-.5)*.12,1).normalize(),trunkTop=lean.clone().multiplyScalar(height*.36);
- branch(pos,idx,col,new THREE.Vector3(0,0,-.1),trunkTop,.17*k,.13*k,10,bark);
- // Root flare: a short wide collar so the trunk meets the ground convincingly.
- branch(pos,idx,col,new THREE.Vector3(0,0,-.1),new THREE.Vector3(0,0,.35*k),.27*k,.17*k,10,bark);
+  // Trunk: one continuous tube whose radius flares exponentially into five buttress
+ // roots at the ground, so it meets the lawn like a grown tree, not a cone on a pole.
+ {const seg=20,rings=14,base=pos.length/3,rep=Math.max(1,Math.round(.2*k*Math.PI*2/.55));
+  for(let j=0;j<=rings;j++){const f=j/rings,z=-.1+(trunkTop.z+.1)*f*f,c=lean.clone().multiplyScalar(z/lean.z),flare=Math.exp(-(z+.1)/(.32*k));
+   for(let i=0;i<=seg;i++){const a=i/seg*Math.PI*2,rad=(.13+.04*(1-f))*k*(1+1.1*flare*(1+.35*Math.cos(5*a+seed)));pos.push(c.x+Math.cos(a)*rad,c.y+Math.sin(a)*rad,z);col.push(...bark);uvs.push(rep*i/seg,z/.7);}}
+  for(let j=0;j<rings;j++)for(let i=0;i<seg;i++){const a=base+j*(seg+1)+i,b=a+seg+1;idx.push(a,a+1,b+1,a,b+1,b);}}
  const scaffolds=5+Math.floor(r()*2);
  for(let j=0;j<scaffolds;j++){const yaw=j/scaffolds*Math.PI*2+r()*.6,tilt=.6+.45*r(),start=trunkTop.clone().addScaledVector(lean,-r()*height*.08);
   const dir=new THREE.Vector3(Math.cos(yaw)*Math.sin(tilt),Math.sin(yaw)*Math.sin(tilt),Math.cos(tilt));
-  grow(start,dir,height*(.2+.06*r()),.085*k,4);}
- const g=new THREE.BufferGeometry();g.setAttribute('position',new THREE.Float32BufferAttribute(pos,3));g.setAttribute('color',new THREE.Float32BufferAttribute(col,3));g.setIndex(idx);g.computeVertexNormals();
+  grow(start,dir,height*(.2+.06*r()),.085*k,4,height*.3/.7);}
+ const g=new THREE.BufferGeometry();g.setAttribute('position',new THREE.Float32BufferAttribute(pos,3));g.setAttribute('color',new THREE.Float32BufferAttribute(col,3));g.setAttribute('uv',new THREE.Float32BufferAttribute(uvs,2));g.setIndex(idx);g.computeVertexNormals();
  return {wood:g,leaves};
 }
 
@@ -94,6 +120,51 @@ export function distantTreeGeometry(conifer,seed=1){
  const g=new THREE.BufferGeometry();g.setAttribute('position',new THREE.Float32BufferAttribute(pos,3));g.setAttribute('color',new THREE.Float32BufferAttribute(col,3));g.setIndex(idx);g.computeVertexNormals();return g;
 }
 
+// Rough meadow tuft: ~55 tapering blades fanning out of a narrow base and arching
+// over, so the clump has a rounded, ragged silhouette; a few dry seed stems.
+export function tuftPixels(size=128,seed=7){
+ const r=rng(seed),px=new Uint8Array(size*size*4);
+ const paint=(x,y,rad,col)=>{for(let j=Math.floor((y-rad)*size);j<=Math.ceil((y+rad)*size);j++)for(let i=Math.floor((x-rad)*size);i<=Math.ceil((x+rad)*size);i++){if(i<0||j<0||i>=size||j>=size)continue;const u=(i+.5)/size-x,v=(j+.5)/size-y;if(u*u+v*v<=rad*rad)px.set([...col.map(c=>Math.round(255*Math.min(1,c))),255],(j*size+i)*4);}};
+ for(let k=0;k<58;k++){const bx=.5+(r()-.5)*.22,ang=(r()-.5)*1.5,len=.45+.5*r()*(1-Math.abs(ang)*.35),w=.007+.006*r(),tone=.7+.5*r(),dry=r()<.3;
+  for(let t=0;t<=1;t+=.5/size/len){const bend=ang*(.35+.9*t),x=bx+Math.sin(bend)*len*t*.55,y=.995-Math.cos(bend*.7)*len*t,f=t;
+   const g=(.2+.16*f)*tone,col=dry?[g*1.25,g*1.15,g*.55]:[g*.8,g*1.2,g*.42];paint(x,y,Math.max(.0015,w*(1-f*.9)),col);}}
+ for(let k=0;k<4;k++){const bx=.5+(r()-.5)*.2,lean=(r()-.5)*.4,top=.08+.12*r();for(let t=0;t<=1;t+=1/size){const x=bx+lean*(1-t)*.3,y=top+(1-top)*t;paint(x,y,.0025,[.45,.42,.26]);}
+  for(let j=0;j<8;j++)paint(bx+lean*.3+(r()-.5)*.02,top+j*.01,.005,[.62,.55,.34]);}
+ return {width:size,height:size,data:px};
+}
+// Perennial clump card: a fan of narrow leaves (grey-green for lavender) under
+// 30 flowering stems of one kind (lavender spikes, white daisies, rudbeckia); cut-out.
+export function flowerPixels(kind,size=128,seed=3){
+ const r=rng(seed),px=new Uint8Array(size*size*4);
+ const paint=(x,y,rad,col)=>{for(let j=Math.floor((y-rad)*size);j<=Math.ceil((y+rad)*size);j++)for(let i=Math.floor((x-rad)*size);i<=Math.ceil((x+rad)*size);i++){if(i<0||j<0||i>=size||j>=size)continue;const u=(i+.5)/size-x,v=(j+.5)/size-y;if(u*u+v*v<=rad*rad)px.set([...col.map(c=>Math.round(255*Math.min(1,c))),255],(j*size+i)*4);}};
+ const flower={lavender:[.47,.4,.78],daisy:[.97,.96,.92],rudbeckia:[.98,.7,.1]}[kind];if(!flower)throw Error('Unknown flower');
+ const leaf=kind==='lavender'?[.36,.45,.33]:[.17,.33,.12],step=.5/size;
+ for(let k=0;k<70;k++){const bx=.5+(r()-.5)*.35,ang=(r()-.5)*2.2,len=.22+.3*r(),w=(kind==='lavender'?.006:.014)+.008*r(),tone=.7+.5*r();
+  for(let t=0;t<=1;t+=step/len){const bend=ang*(.3+.8*t),x=bx+Math.sin(bend)*len*t*.6,y=.995-Math.cos(bend*.8)*len*t;paint(x,y,Math.max(.002,w*Math.sin(Math.PI*Math.min(1,t*1.1+.08))),leaf.map(c=>c*tone*(.8+.35*t)));}}
+ for(let k=0;k<30;k++){const bx=.5+(r()-.5)*.3,top=.06+.32*r(),lean=(r()-.5)*.55,g=.2+.08*r();let fx=bx,fy=top;
+  for(let t=0;t<=1;t+=step){const x=bx+lean*(1-t)*(1-t)*.6,y=top+(.98-top)*t;if(t===0){fx=x;fy=y;}paint(x,y,.003,[g*.65,g*1.25,g*.5]);}
+  if(kind==='lavender'){for(let j=0;j<11;j++)paint(fx+(r()-.5)*.01,fy+j*.011,.009-.0004*j,flower.map(c=>c*(.75+.35*r())));}
+  else{const R=kind==='daisy'?.03:.034;for(let j=0;j<14;j++){const a=j/14*Math.PI*2;paint(fx+Math.cos(a)*R*.62,fy+Math.sin(a)*R*.42,R*.42,flower.map(c=>c*(.9+.15*r())));}paint(fx,fy,R*.38,kind==='daisy'?[.95,.72,.12]:[.22,.12,.05]);}}
+ return {width:size,height:size,data:px};
+}
+// Shredded-bark mulch: overlapping elongated chips, warm dark browns.
+export function mulchPixels(size=256,seed=19){
+ const r=rng(seed),px=new Uint8Array(size*size*4);for(let i=0;i<size*size;i++)px.set([38,28,20,255],i*4);
+ for(let k=0;k<size*size/14;k++){const cx=r(),cy=r(),a=r()*Math.PI,len=.012+.02*r(),wid=len*(.25+.2*r()),t=.6+.8*r(),col=[.24*t,.16*t,.1*t];
+  for(let y=Math.floor((cy-len)*size);y<=Math.ceil((cy+len)*size);y++)for(let x=Math.floor((cx-len)*size);x<=Math.ceil((cx+len)*size);x++){const u=(x+.5)/size-cx,v=(y+.5)/size-cy,p=u*Math.cos(a)+v*Math.sin(a),q=-u*Math.sin(a)+v*Math.cos(a);if((p/len)**2+(q/wid)**2>1)continue;const X=(x%size+size)%size,Y=(y%size+size)%size;px.set([...col.map(c=>Math.round(255*c)),255],(Y*size+X)*4);}}
+ return {width:size,height:size,data:px};
+}
+// n vertical cards crossed about z, base at the origin, 1×1 (v flipped: the pixel
+// generators write rows top-down); normals lean up so
+// clumps shade softly like a volume rather than as flat planes.
+export function crossGeometry(n=3){
+ const pos=[],nrm=[],uv=[],idx=[];
+ for(let k=0;k<n;k++){const a=k/n*Math.PI,c=Math.cos(a),s=Math.sin(a),o=pos.length/3;
+  for(const [u,v] of [[0,0],[1,0],[1,1],[0,1]]){pos.push((u-.5)*c,(u-.5)*s,v);const nx=-s*.4,ny=c*.4;nrm.push(nx,ny,.92);uv.push(u,1-v);}
+  idx.push(o,o+1,o+2,o,o+2,o+3);}
+ const g=new THREE.BufferGeometry();g.setAttribute('position',new THREE.Float32BufferAttribute(pos,3));g.setAttribute('normal',new THREE.Float32BufferAttribute(nrm,3));g.setAttribute('uv',new THREE.Float32BufferAttribute(uv,2));g.setIndex(idx);return g;
+}
+
 // One grass blade: 3 segments, tapering, curving forward; z up, base at origin.
 function bladeGeometry(){
  const pos=[],idx=[],n=3;
@@ -105,6 +176,9 @@ function bladeGeometry(){
  return g;
 }
 
+// Vegetation: dielectric but with a low specular level (waxy-to-matt leaves, not
+// glossy paint), otherwise grazing sky reflection washes foliage out to pale grey.
+const foliage=params=>new THREE.MeshPhysicalMaterial({specularIntensity:.22,...params});
 function swayMaterial(base,uniforms,amount){
  base.onBeforeCompile=shader=>{shader.uniforms.tianWind=uniforms.time;
   shader.vertexShader=shader.vertexShader.replace('#include <common>','#include <common>\nuniform float tianWind;').replace('#include <begin_vertex>',`#include <begin_vertex>
@@ -129,7 +203,7 @@ export function createExteriorLandscape(scene,{quality=1}={}){
   // 1. Meadow to the horizon (plot surfaces sit above it).
   const lawnTex=track(dataTexture((()=>{const p=lawnPixels({size:1024,seed:23});const d=new Uint8Array(p.color.length);d.set(p.color);return {width:p.width,height:p.height,data:d};})(),true,true));
   const groundGeo=track(new THREE.PlaneGeometry(1600,1600,1,1));const uv=groundGeo.attributes.uv;for(let i=0;i<uv.count;i++)uv.setXY(i,uv.getX(i)*1600/1.3,uv.getY(i)*1600/1.3);
-  const groundMat=track(installSurfaceVariation(new THREE.MeshStandardMaterial({map:lawnTex,roughness:.97,color:0xd8e0c8}),{tone:.22,roughness:.1,scale:.25}));
+  const groundMat=track(installSurfaceVariation(foliage({map:lawnTex,roughness:.97,color:0xd6d6a8}),{tone:.34,roughness:.1,scale:.09}));
   const ground=new THREE.Mesh(groundGeo,groundMat);ground.position.set(cx,cy,-.03);ground.receiveShadow=true;ground.name='meadow';root.add(ground);
   // 2. Distant tree line: two species, ring 55–260 m, clumped, never inside the plot.
   for(const conifer of [false,true]){
@@ -142,8 +216,9 @@ export function createExteriorLandscape(scene,{quality=1}={}){
   }
   // 3. Garden trees on lawn far from the house, with dappled leaf shadows.
   const leafTex=track(dataTexture(leafCardPixels(256,11,{leaves:46,length:[.075,.05]})));
-  const leafMat=track(new THREE.MeshStandardMaterial({map:leafTex,alphaTest:.45,side:THREE.DoubleSide,roughness:.75,color:0xffffff}));
-  const barkMat=track(installSurfaceVariation(new THREE.MeshStandardMaterial({vertexColors:true,roughness:.95}),{tone:.25,roughness:.1,scale:3}));
+  const leafMat=track(foliage({map:leafTex,alphaTest:.45,side:THREE.DoubleSide,roughness:.75,color:0xffffff}));
+  const barkPx=barkPixels(256,13),barkTex=track(dataTexture(barkPx,true,true)),barkBump=track(dataTexture({width:barkPx.width,height:barkPx.height,data:barkPx.relief},false,true));
+  const barkMat=track(installSurfaceVariation(new THREE.MeshStandardMaterial({vertexColors:true,map:barkTex,bumpMap:barkBump,bumpScale:4,roughness:.95}),{tone:.2,roughness:.1,scale:3}));
   const spots=plot.lawn.filter(([x,y])=>plot.distBuilt(x,y)>=5&&x>x0+1&&y>y0+1&&x<x1-2&&y<y1-2);
   const chosen=[];for(const pick of [[x0,y0],[x1,y0],[x0,y1],[x1,y1]]){const best=spots.filter(s=>chosen.every(c=>Math.hypot(c[0]-s[0],c[1]-s[1])>8)).sort((a,b)=>Math.hypot(a[0]-pick[0],a[1]-pick[1])-Math.hypot(b[0]-pick[0],b[1]-pick[1]))[0];if(best)chosen.push(best);}
   const card=track(new THREE.PlaneGeometry(1,1));
@@ -159,12 +234,14 @@ export function createExteriorLandscape(scene,{quality=1}={}){
    leaves.castShadow=true;leaves.receiveShadow=true;leaves.name='garden-tree-leaves';root.add(leaves);});
   // 4. Boundary hedge just outside the plot, open where a path leaves.
   const hedgeTex=track(dataTexture(leafCardPixels(256,29,{leaves:44,length:[.08,.05]})));
-  const hedgeMat=track(new THREE.MeshStandardMaterial({map:hedgeTex,alphaTest:.4,side:THREE.DoubleSide,roughness:.8}));
-  const hedgeCore=track(installSurfaceVariation(new THREE.MeshStandardMaterial({color:0x24331a,roughness:1}),{tone:.3,roughness:.1,scale:2}));
+  const hedgeMat=track(foliage({map:hedgeTex,alphaTest:.4,side:THREE.DoubleSide,roughness:.8}));
+  // Core reads as foliage depth, not a painted box: an opaque leaf mat over dark gaps.
+  const coreTex=track(dataTexture((()=>{const p=leafCardPixels(256,53,{leaves:90,length:[.05,.04]});for(let i=0;i<p.data.length;i+=4)if(!p.data[i+3])p.data.set([10,16,8,255],i);return p;})(),true,true));
+  const hedgeCore=track(installSurfaceVariation(foliage({map:coreTex,color:0xc8d4b8,roughness:1}),{tone:.3,roughness:.1,scale:2}));
   const runs=[];const gapAt=(x,y)=>plot.gaps.some(([gx,gy])=>Math.abs(gx-x)<=1&&Math.abs(gy-y)<=1);
   for(let x=x0;x<x1;x++){if(!gapAt(x,y0))runs.push([x+.5,y0-.45,0]);if(!gapAt(x,y1-1))runs.push([x+.5,y1+.45,0]);}
   for(let y=y0;y<y1;y++){if(!gapAt(x0,y))runs.push([x0-.45,y+.5,1]);if(!gapAt(x1-1,y))runs.push([x1+.45,y+.5,1]);}
-  const coreGeo=track(new THREE.BoxGeometry(1.02,.62,1.05));coreGeo.translate(0,0,.525);
+  const coreGeo=track(new THREE.BoxGeometry(1.02,.62,1.05));coreGeo.translate(0,0,.525);{const cu=coreGeo.attributes.uv;for(let i=0;i<cu.count;i++)cu.setXY(i,cu.getX(i)*2.2,cu.getY(i)*2.2);}
   const cores=new THREE.InstancedMesh(coreGeo,hedgeCore,runs.length),m=new THREE.Matrix4();
   runs.forEach(([x,y,side],i)=>{m.compose(new THREE.Vector3(x,y,0),new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(0,0,1),side?Math.PI/2:0),new THREE.Vector3(1,1,.95+.1*r()));cores.setMatrixAt(i,m);});
   cores.castShadow=true;cores.receiveShadow=true;cores.name='hedge';root.add(cores);
@@ -174,14 +251,50 @@ export function createExteriorLandscape(scene,{quality=1}={}){
    const nx=top?0:(side?face:0),ny=top?0:(side?0:face);m.compose(new THREE.Vector3(px,py,lz),outward(new THREE.Vector3(nx,ny,top?1:.15),.8),new THREE.Vector3(.32,.32,.32));cards.setMatrixAt(ci,m);cards.setColorAt(ci++,c.setHSL(.24+.03*r(),.45,.2+.1*r()));}
   cards.castShadow=false;cards.receiveShadow=true;cards.name='hedge-leaves';root.add(cards);
   // 5. Grass blades on lawn cells near the house (mown, 5–11 cm).
-  const near=plot.lawn.filter(([x,y])=>plot.distBuilt(x,y)<=7);
+  // Density fades from 4 m to 8 m so the sward has no visible edge on the lawn.
+  const near=plot.lawn.map(([x,y])=>[x,y,plot.distBuilt(x,y)]).filter(([,,d])=>d<=8);
   const perCell=Math.round(110*quality),bladeGeo=track(bladeGeometry());
-  const bladeMat=track(swayMaterial(new THREE.MeshStandardMaterial({color:0xffffff,vertexColors:true,roughness:1,envMapIntensity:.6,side:THREE.DoubleSide}),uniforms,.04));
+  const bladeMat=track(swayMaterial(foliage({color:0xffffff,vertexColors:true,roughness:1,envMapIntensity:.6,side:THREE.DoubleSide}),uniforms,.04));
   const blades=new THREE.InstancedMesh(bladeGeo,bladeMat,near.length*perCell);let bi=0;
-  for(const [x,y] of near)for(let k=0;k<perCell;k++){const h=.05+.06*r();m.compose(new THREE.Vector3(x+r(),y+r(),0),new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(0,0,1),r()*6.3),new THREE.Vector3(1,1,h));blades.setMatrixAt(bi,m);blades.setColorAt(bi++,c.setHSL(.22+.06*r(),.48+.15*r(),.2+.12*r()));}
+  for(const [x,y,d] of near)for(let k=0;k<perCell;k++){const keep=Math.min(1,Math.max(0,(8-d)/4));if(r()>keep){r();r();r();continue;}const h=.05+.06*r();m.compose(new THREE.Vector3(x+r(),y+r(),0),new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(0,0,1),r()*6.3),new THREE.Vector3(1,1,h));blades.setMatrixAt(bi,m);blades.setColorAt(bi++,c.setHSL(.22+.06*r(),.48+.15*r(),.17+.1*r()));}
+  blades.count=bi;
   blades.castShadow=false;blades.receiveShadow=true;blades.userData.indirectCaptureExclude=true;blades.name='grass-blades';root.add(blades);
+  // 6. Planted border inside the hedge: mulch bed with steel edging, shrubs and
+  //    perennial clumps, skipping the path gaps and the house surroundings.
+  const bedCells=plot.lawn.filter(([x,y])=>(x===x0||y===y0||x===x1-1||y===y1-1)&&!gapAt(x,y)&&plot.distBuilt(x,y)>2.5);
+  const mulchTex=track(dataTexture(mulchPixels(256,19),true,true));
+  const bedMat=track(installSurfaceVariation(foliage({map:mulchTex,roughness:.95,color:0xb8aca0,polygonOffset:true,polygonOffsetFactor:-2,polygonOffsetUnits:-2}),{tone:.25,roughness:.1,scale:1}));
+  const bedGeo=track(new THREE.PlaneGeometry(1,.95));const buv=bedGeo.attributes.uv;for(let i=0;i<buv.count;i++)buv.setXY(i,buv.getX(i)*1.6,buv.getY(i)*1.5);
+  const beds=new THREE.InstancedMesh(bedGeo,bedMat,bedCells.length),edgeGeo=track(new THREE.BoxGeometry(1,.012,.05));edgeGeo.translate(0,0,.012);
+  const edging=new THREE.InstancedMesh(edgeGeo,track(new THREE.MeshStandardMaterial({color:0x3a3430,metalness:.6,roughness:.55})),bedCells.length);
+  const inward=(x,y)=>x===x0?[1,0]:x===x1-1?[-1,0]:y===y0?[0,1]:[0,-1];
+  bedCells.forEach(([x,y],i)=>{const [ix,iy]=inward(x,y),rot=ix?Math.PI/2:0;
+   m.compose(new THREE.Vector3(x+.5-ix*.025,y+.5-iy*.025,.012),new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(0,0,1),rot),new THREE.Vector3(1,1,1));beds.setMatrixAt(i,m);
+   m.compose(new THREE.Vector3(x+.5+ix*.45,y+.5+iy*.45,0),new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(0,0,1),rot),new THREE.Vector3(1,1,1));edging.setMatrixAt(i,m);});
+  beds.receiveShadow=true;beds.name='border-beds';edging.receiveShadow=true;edging.castShadow=true;edging.name='bed-edging';root.add(beds,edging);
+  // Shrubs: leaf-card shells (box/hebe-like domes) every other bed cell.
+  const shrubAt=bedCells.filter((_,i)=>i%2===0),shrubCards=Math.round(120*quality),shrubs=new THREE.InstancedMesh(card,hedgeMat,shrubAt.length*shrubCards);let si=0;
+  const shrubCoreGeo=track(new THREE.IcosahedronGeometry(1,2)),shrubCores=new THREE.InstancedMesh(shrubCoreGeo,hedgeCore,shrubAt.length);let sc=0;
+  for(const [x,y] of shrubAt){const R=.32+.2*r(),cx=x+.3+.4*r(),cy=y+.3+.4*r(),hz=R*(.75+.25*r());m.compose(new THREE.Vector3(cx,cy,hz),new THREE.Quaternion(),new THREE.Vector3(R*.86,R*.86,hz*.86));shrubCores.setMatrixAt(sc++,m);
+   for(let k=0;k<shrubCards;k++){const z=r()*1.1-.15,a=r()*Math.PI*2,rr=Math.sqrt(Math.max(0,1-z*z)),n=new THREE.Vector3(rr*Math.cos(a),rr*Math.sin(a),z);
+    m.compose(new THREE.Vector3(cx+n.x*R,cy+n.y*R,Math.max(.05,hz+n.z*hz)),outward(n,.7),new THREE.Vector3(.24,.24,.24));shrubs.setMatrixAt(si,m);shrubs.setColorAt(si++,c.setHSL(.22+.06*r(),.45,.16+.14*(z+1)/2+.05*r()));}}
+  shrubCores.castShadow=true;shrubCores.receiveShadow=true;shrubCores.name='shrub-cores';root.add(shrubCores);
+  shrubs.castShadow=true;shrubs.receiveShadow=true;shrubs.name='shrubs';root.add(shrubs);
+  // Perennials between the shrubs, in drifts of one kind.
+  const clump=track(crossGeometry(3));let drift=0;
+  for(const kind of ['lavender','daisy','rudbeckia']){
+   const tex=track(dataTexture(flowerPixels(kind,256,7+drift))),mat=track(swayMaterial(foliage({map:tex,alphaTest:.45,side:THREE.DoubleSide,roughness:.8}),uniforms,.06));
+   const cells=bedCells.filter((_,i)=>i%2===1&&Math.floor(i/6)%3===drift),per=3,mesh=new THREE.InstancedMesh(clump,mat,Math.max(1,cells.length*per));let fi=0;
+   for(const [x,y] of cells)for(let k=0;k<per;k++){const h=(kind==='lavender'?.45:.6)*(.8+.4*r());m.compose(new THREE.Vector3(x+.2+.6*r(),y+.2+.6*r(),.01),new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(0,0,1),r()*Math.PI),new THREE.Vector3(h*1.1,h*1.1,h));mesh.setMatrixAt(fi++,m);}
+   mesh.count=fi;mesh.castShadow=true;mesh.receiveShadow=true;mesh.name='perennials-'+kind;root.add(mesh);drift++;}
+  // 7. Rough meadow tufts outside the hedge (unmown, 35–75 cm), thinning with distance.
+  const tuftTex=track(dataTexture(tuftPixels(256,41))),tuftMat=track(swayMaterial(foliage({map:tuftTex,alphaTest:.4,side:THREE.DoubleSide,roughness:.9}),uniforms,.08));
+  const tuftN=Math.round(6500*quality),tufts=new THREE.InstancedMesh(clump,tuftMat,tuftN);let ti=0;
+  for(let i=0;i<tuftN*3&&ti<tuftN;i++){const px=x0-40+r()*(x1-x0+80),py=y0-40+r()*(y1-y0+80),d=Math.max(x0-px,px-x1,y0-py,py-y1);if(d<1.4||r()>Math.exp(-d/22))continue;
+   const h=.35+.4*r();m.compose(new THREE.Vector3(px,py,-.03),new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(0,0,1),r()*Math.PI),new THREE.Vector3(h*1.5,h*1.5,h));tufts.setMatrixAt(ti,m);tufts.setColorAt(ti++,c.setHSL(.16+.07*r(),.3+.2*r(),.6+.25*r()));}
+  tufts.count=ti;tufts.castShadow=false;tufts.receiveShadow=true;tufts.userData.indirectCaptureExclude=true;tufts.name='meadow-tufts';root.add(tufts);
   built=true;
-  return {trees:chosen.length,hedgeRuns:runs.length,blades:bi,lawnCells:plot.lawn.length};
+  return {trees:chosen.length,hedgeRuns:runs.length,blades:bi,lawnCells:plot.lawn.length,bedCells:bedCells.length,tufts:ti};
  }
  return {root,rebuild,update(dt){uniforms.time.value+=dt;},stats:()=>({built,children:root.children.map(c=>[c.name,c.isInstancedMesh?c.count:1])}),dispose(){clear();scene.remove(root);}};
 }

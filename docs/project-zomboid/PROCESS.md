@@ -6891,3 +6891,45 @@ Open:
 - Sunlit white walls sit near the top of the AgX curve.
 - The tree line is instanced but has no billboard LOD.
 - The 18:00 sunset is abrupt: the artistic cycle sets at exactly 18:00.
+
+## 505q — Exterior review pass: shaded walls, garden planting, vegetation shading
+
+Reviewed the exterior from a set of fixed views and fixed what looked wrong. Evidence:
+`evidence505/exterior/505q-*.jpg`. The shots were captured from the canvas after the
+composer draws, so they also work while the browser pane is hidden (dev helper
+`test-results/exterior-view.js`, `__ext.shot`).
+
+- **Walls in shade looked olive-khaki and turned black with the bounce study off.**
+  - Cause: once the bounce study assigns a room reflection capture to a wall, its outer face
+    used that interior capture as if it were sky (the compile-time `TIAN_SKY_ENV` flag was
+    stale).
+  - Fix: a live per-draw `tianSkyEnv` uniform. Outdoor fragments of materials with their own
+    capture drop that radiance and take the sky irradiance as order-2 SH instead (`SKY_SH`,
+    computed by `exterior-sky.js` from a 16 px cube of the sky alone).
+  - Bounce cache key is now v15. Interiors are unchanged (checked with the bounce recaptured).
+- **Planted borders** inside the hedge:
+  - Shredded-bark mulch beds with steel edging.
+  - Clipped box balls: a leaf-mat core plus about 120 outward-facing cards.
+  - Drifts of lavender, daisy and rudbeckia (new procedural cards).
+- **Rough meadow** beyond the hedge: about 6,500 swaying tufts with seed heads, thinning with
+  distance. The meadow ground is now olive with broad patches.
+- **Garden trees**:
+  - A continuous trunk that flares into five buttress roots.
+  - Procedural furrowed-plate bark: albedo plus bump, meandering furrows, lichen on ridges.
+- **Hedge core** is a dense opaque leaf texture instead of a flat box colour.
+- **Vegetation shading**:
+  - Foliage, grass, the lawn surface (recipe `fibre.specular` 0.22) and mulch use a low
+    specular level; grazing sky reflection had washed them out to pale grey.
+  - The ambient-occlusion pass now skips alpha-tested meshes. Its override material ignored
+    the cut-outs, so every leaf and flower card occluded as a dark rectangle.
+- **Bugs found on the way**:
+  - Card UVs: pixel generators write rows top-down, so plants rendered upside down. The v
+    coordinate is now flipped; tested.
+  - Lawn blades fade out from 4 m to 8 m, so the sward has no visible edge.
+
+Tests: 1103/1103. Volume deliveries were regenerated and the asset check passes.
+
+Open:
+- The tree line is still smooth blobs up close.
+- Blank long walls; the generic door leaf.
+- Lawn blades cover only the area around the house.

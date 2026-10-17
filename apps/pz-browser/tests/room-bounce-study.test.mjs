@@ -69,3 +69,11 @@ test('transport pass count is bounded and switching quality invalidates only whe
  assert.equal(study.stats().bounceCount,4);study.dispose();
  assert.throws(()=>createRoomBounceStudy({scene:new THREE.Scene(),renderer:{},onStatus(){},bounceCount:9}),/2–4/);
 });
+
+test('outdoor faces: sky IBL when the material uses the scene sky, sky SH (not the room capture) once a room capture is assigned',()=>{
+ const study=createRoomBounceStudy({scene:new THREE.Scene(),renderer:{},onStatus(){}}),material=new THREE.MeshStandardMaterial();
+ study.install({material});const shader={uniforms:{},vertexShader:THREE.ShaderLib.standard.vertexShader,fragmentShader:THREE.ShaderLib.standard.fragmentShader};material.onBeforeCompile(shader);
+ assert.equal(shader.uniforms.tianSkyEnv.value,1);material.envMap=new THREE.Texture();assert.equal(shader.uniforms.tianSkyEnv.value,0,'decided live, after first compile');
+ assert.equal(shader.uniforms.tianSkySH.value.length,9);assert.match(shader.fragmentShader,/shGetIrradianceAt\( tianN, tianSkySH \)/);assert.match(shader.fragmentShader,/else radiance \*= 0\.0;/);
+ material.envMap.dispose();material.dispose();study.dispose();
+});

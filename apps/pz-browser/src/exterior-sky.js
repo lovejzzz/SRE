@@ -1,10 +1,16 @@
 import * as THREE from 'three';
 import {Sky} from '../node_modules/three/examples/jsm/objects/Sky.js';
+import {LightProbeGenerator} from '../node_modules/three/examples/jsm/lights/LightProbeGenerator.js';
 // Physical sky (Preetham scattering + drifting clouds) for the Z-up house world,
 // a star dome at night, horizon-matched aerial fog, and an image-based environment
 // captured from the same sky so outdoor surfaces reflect and are lit by it.
 // Interiors keep their room-probe lighting: the bounce study removes sky IBL from
 // fragments inside rooms. Artistic daylight cycle, not an ephemeris.
+
+// Sky irradiance as order-2 SH, shared by every material's outdoor fragments. The
+// house walls carry their own room reflection capture (envMap), so they cannot use
+// scene.environment; without this their outer faces saw only the room capture.
+export const SKY_SH={value:Array.from({length:9},()=>new THREE.Vector3())};
 
 // World is Z-up; the Sky shader is Y-up. World (x,y,z) -> sky (x,z,-y).
 export const toSkySpace=([x,y,z])=>[x,z,-y];
@@ -54,9 +60,14 @@ export function createExteriorSky(scene,renderer,{environment=typeof renderer?.g
  const envScene=new THREE.Scene(),envSky=new Sky();envSky.scale.setScalar(1800);patchZUp(envSky);envSky.material.uniforms=sky.material.uniforms;envScene.add(envSky);
  const pmrem=environment?new THREE.PMREMGenerator(renderer):null;let envTarget=null,lastSun=null,clock=0;
  const state={sun:[0,0,1],night:0};
+ const cubeTarget=environment?new THREE.WebGLCubeRenderTarget(16,{type:THREE.HalfFloatType}):null,cubeCamera=environment?new THREE.CubeCamera(.1,2000,cubeTarget):null;
+ let sh=null,shGeneration=0;
+ const publishSH=()=>{const k=scene.environmentIntensity;for(let i=0;i<9;i++)SKY_SH.value[i].copy(sh?sh.coefficients[i]:new THREE.Vector3()).multiplyScalar(k);};
  function capture(){
   if(!environment)return;
   const next=pmrem.fromScene(envScene,0,.1,2000);envTarget?.dispose();envTarget=next;scene.environment=envTarget.texture;
+  cubeCamera.update(renderer,envScene);const generation=++shGeneration;
+  LightProbeGenerator.fromCubeRenderTarget(renderer,cubeTarget).then(probe=>{if(generation!==shGeneration)return;sh=probe.sh;publishSH();}).catch(()=>{});
  }
  return {
   root,
@@ -71,11 +82,12 @@ export function createExteriorSky(scene,renderer,{environment=typeof renderer?.g
    // Preetham radiance is unscaled (the stock example runs at exposure .5): scale the
    // captured sky to sit beside the 3.2 sun; night keeps a faint moonlit fill.
    scene.environmentIntensity=.06+.29*(1-state.night);
+   publishSH();
    if(!lastSun||Math.acos(Math.min(1,lastSun[0]*u[0]+lastSun[1]*u[1]+lastSun[2]*u[2]))>.035){lastSun=u;capture();}
   },
   // Keep the dome centred on the camera so it is always "at infinity"; drift clouds.
   update(camera,dt=0){root.position.copy(camera.position);clock+=dt;sky.material.uniforms.time.value=clock;},
-  state:()=>({...state,environment:!!scene.environment}),
-  dispose(){scene.remove(root);scene.fog=null;scene.environment=null;envTarget?.dispose();pmrem?.dispose();sky.geometry.dispose();sky.material.dispose();stars.geometry.dispose();stars.material.dispose();}
+  state:()=>({...state,environment:!!scene.environment,skySH:SKY_SH.value[0].toArray().map(v=>+v.toFixed(3))}),
+  dispose(){scene.remove(root);scene.fog=null;scene.environment=null;envTarget?.dispose();pmrem?.dispose();cubeTarget?.dispose();shGeneration++;for(const v of SKY_SH.value)v.set(0,0,0);sky.geometry.dispose();sky.material.dispose();stars.geometry.dispose();stars.material.dispose();}
  };
 }
