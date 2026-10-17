@@ -11,7 +11,7 @@
     "knownLimits": [
       "Reviewed identity mappings, original approximate procedural appearance; not lossless source art",
       "Plaster uses authored periodic tonal, roughness and shallow bump detail; not measured surface capture. No grass blades or visual acceptance.",
-      "Graphite sheet roof is an original approximate finish, not reconstruction of source roofs_01_22 pixels; seams use projected scale",
+      "Gravel-ballast flat roof (behind a parapet) is an original procedural finish, not reconstruction of source roofs_01_22 pixels",
       "Wood, bathroom flooring, grass and exterior paving reproject original PZ color pixels; resampled with source baked shading, not recovered PBR albedo. Grass remains a flat ground surface without blades. One tile repeats at the nominal one-metre grid scale."
     ]
   },
@@ -117,17 +117,23 @@
         "roofs_01_22"
       ],
       "material": {
-        "color": 4609619,
-        "metalness": 0.45,
-        "roughness": 0.48,
+        "color": 16777215,
+        "roughness": 0.85,
+        "bumpScale": 0.6,
         "texture": {
-          "kind": "roof",
-          "size": 128,
-          "seed": 13,
+          "kind": "gravel",
+          "size": 512,
+          "seed": 61,
+          "stones": 26,
           "repeatMetres": [
-            0.5,
-            2
+            0.62,
+            0.62
           ]
+        },
+        "variation": {
+          "tone": 0.16,
+          "roughness": 0.1,
+          "scale": 0.8
         }
       }
     },

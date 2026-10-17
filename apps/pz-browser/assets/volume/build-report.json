@@ -793,8 +793,8 @@
       "name": "surface-materials",
       "id": "tian-volume-surface-materials",
       "hashes": {
-        "assets/recipes/volume/surface-materials.json": "df4d6c09e999cd1dd61c255a477ef086a1c67c6ad2780121479a8b3f971296b9",
-        "src/architectural-materials.js": "ee76c10c173e928f6c7ca8a26ab1ee3aba8ca12cbb0df1f2ed3d3118a24cfea8",
+        "assets/recipes/volume/surface-materials.json": "a0f31a6911cb0b4b1745c0ec170718a6c47844140799c3dd4458c5be8d28b394",
+        "src/architectural-materials.js": "278664c489ac27e2526b905b1d7fdc57e55827f9c317a56ae4fea37c9e817cb8",
         "private-assets/Tiles2x.floor-3.png": "42ad366cea534c90a605a15ad238e1e1ff1aca7f85ea1053ebb65235e9c98c9b",
         "private-assets/atlas.json": "6c27e946b78bf10b7c94975bbb89e48930646b506ad2e6df8e7398901ee3ca88",
         "src/scene-wall-trims.js": "7882bc93799d13cd78406d6f928cd34a80ab404705a5c40eb1e15496fb4d5efc",
@@ -812,10 +812,10 @@
         "src/scene-slab-volumes.js": "fe0cf3f8f5df8a7b087dbd6e2820c3e93930ef25b68bb3002cbfeffaa6d77911",
         "src/convex-solid.js": "4b6a982e341fb7b01229087a25f2055a7a9b969a484d684e56c687e270ee7c8c"
       },
-      "delivery": "surface-materials.498773dc82b617554eb558ca442cdbcc0543ccf77742ea2450e8c993b9d89ab5.json.gz",
-      "sourceBytes": 3233,
-      "deliveryBytes": 1215,
-      "deliverySHA256": "498773dc82b617554eb558ca442cdbcc0543ccf77742ea2450e8c993b9d89ab5",
+      "delivery": "surface-materials.d750c6844f82ad02b7e1af4fe6c17935cf6fff80572a45d2cefcc0a20e41f6bb.json.gz",
+      "sourceBytes": 3301,
+      "deliveryBytes": 1248,
+      "deliverySHA256": "d750c6844f82ad02b7e1af4fe6c17935cf6fff80572a45d2cefcc0a20e41f6bb",
       "parts": 0,
       "status": "prototype; visual acceptance pending"
     },

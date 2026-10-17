@@ -69,6 +69,8 @@ export function createRoomBounceStudy({scene,renderer,onStatus,onCompileState=()
    shader.fragmentShader=(depthVisibility?probeVisibilityGLSL:'float tianVisibility(vec3 delta,int index){return 1.0;}\n')+`varying vec3 vTianWorld;\nuniform float tianInteriorGain;\nuniform float tianBounceEnabled;\nuniform int tianProbeCount;\nuniform vec3 tianProbeSH[144];\nuniform vec3 tianDynamicSH[144];\nuniform float tianDynamicEnabled;\nuniform vec4 tianProbeBounds[16];\nuniform vec2 tianProbeHeights[16];\nuniform vec3 tianProbePositions[16];\n`+shader.fragmentShader;
    // SH already supplies diffuse bounce. The cubemap contributes specular only.
    const reflectionChunk=THREE.ShaderChunk.lights_fragment_maps.replace('iblIrradiance += getIBLIrradiance( geometryNormal );','');
+   // Materials without their own room capture inherit the scene's sky environment.
+   if(!material.envMap){shader.defines??={};shader.defines.TIAN_SKY_ENV='';}
    shader.fragmentShader=shader.fragmentShader.replace('#include <lights_fragment_maps>',`${reflectionChunk}
     vec3 tianN = transformNormalByInverseViewMatrix(geometryNormal, viewMatrix);
     // Visibility bias follows geometry, not decorative normal/bump detail.
@@ -109,10 +111,18 @@ export function createRoomBounceStudy({scene,renderer,onStatus,onCompileState=()
      // Relative confidence keeps the fade independent of probe distance/count.
      float tianConfidence=smoothstep(0.0,0.1,tianWeight/max(tianBaseWeight,0.000001));
      irradiance += tianIndirect/max(tianWeight,0.000001)*tianConfidence*tianBounceEnabled;
-    }`);
+     #if defined( TIAN_SKY_ENV ) && defined( USE_ENVMAP )
+      // Sky reflections belong outdoors; rooms use their own capture/lamps.
+      radiance *= 1.0-tianBounceEnabled;
+     #endif
+    }
+    #if defined( TIAN_SKY_ENV ) && defined( USE_ENVMAP )
+     // Outdoors the sky environment supplies the diffuse fill the probes give inside.
+     if(!tianInside) iblIrradiance += getIBLIrradiance( geometryNormal );
+    #endif`);
    shader.fragmentShader=shader.fragmentShader.replace('#include <opaque_fragment>','if(tianInside)outgoingLight*=tianInteriorGain;\n#include <opaque_fragment>');
    projection.install(shader);
-  };material.customProgramCacheKey=()=> key+'|tian-room-bounce-v12-interior-gain|'+depthVisibility;material.needsUpdate=true;},
+  };material.customProgramCacheKey=()=> key+'|tian-room-bounce-v13-sky-env|'+depthVisibility;material.needsUpdate=true;},
   invalidate({retain=false}={}){generation++;if(!retain){visibilityStale=true;ready=false;enabled.value=0;reflectionEnabled(false);}onStatus(retain?'Indirect light update pending · previous lighting retained':'Indirect study stale · Rebuild after geometry, door or lighting changes');},
   setReflectionsEnabled(on){reflectionsWanted=!!on;reflectionEnabled(enabled.value>0);},
   setDynamic(coeffs=[]){for(let i=0;i<dynamic.value.length;i++)dynamic.value[i].copy(coeffs[i]||new THREE.Vector3());},

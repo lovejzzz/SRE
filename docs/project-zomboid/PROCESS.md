@@ -6839,3 +6839,55 @@ updated for the corrected turn). Volume deliveries and the canonical asset build
 freshness passes. The scratch house build succeeds (55 objects).
 Open (from the side session): the bed, sofa and shower would also overlap a wall if placed flush
 against it; they are free-standing (no attached* prop), so their offsets are unchanged.
+
+## 505p — Realistic exterior: sky, landscape, envelope detail, outdoor light
+
+The plot previously floated in a flat clear colour with nothing beyond the lawn, under a blue
+metal roof. The exterior is now a place.
+- **Sky** (`exterior-sky.js`): three's Preetham `Sky` with drifting clouds, patched for the Z-up
+  world. It adds a star dome and a moonlit deep-blue night floor, because Preetham alone goes
+  black below the horizon. Linear aerial haze runs 45–650 m. A PMREM environment is captured
+  from the sky alone and re-captured when the sun moves more than 2°. The day intensity is
+  scaled to 0.35 beside the 3.2 sun; the unscaled sky blew out all exterior colour.
+  - The bounce study (cache key v13) gives the sky irradiance to outdoor fragments only.
+  - Inside rooms, sky reflections and fill are removed and the room probes stay in charge.
+  - The hemisphere light is now a weak 0.4× fill.
+- **Landscape** (`exterior-landscape.js`, runtime and seeded, no gameplay):
+  - A 1.6 km meadow with the lawn texture and broad variation.
+  - A tree line at 55–260 m: 330 deciduous trees (welded, lumpy crowns with underside
+    occlusion) and 170 layered, drooping conifers.
+  - Four garden trees: a leaning trunk with a root flare, 5–6 scaffold limbs forking to twigs,
+    and about 880 alpha-tested leaf cards. The cards face outward from the crown, so the canopy
+    shades as one volume, and inner leaves are darker. They cast dappled shadows.
+  - A clipped boundary hedge: core plus small-leaf cards, open where the path leaves.
+  - About 53k swaying grass blades (3 segments, base-to-tip shade) on lawn within 7 m of the
+    house.
+  - Shadow, soft-filter and AO hooks are installed on the landscape too; without them the
+    shaders exceeded 16 texture units.
+- **Envelope** (`exterior-architecture.js`, render-only, derived from walls and roofs):
+  - A 0.3 m parapet in the wall finish, plus a folded anodised coping with drip lips. Both hide
+    with the roof cutaway.
+  - A proud, darker textured-render plinth, broken at door thresholds.
+  - Pressed aluminium sills for windows without authored sills.
+  - Two downpipes with hopper heads, stand-off brackets and shoes, at outer corners away from
+    doors.
+- **Roof**: the low-pitch skin is now a gravel-ballast flat roof. `gravel` is a new procedural
+  albedo kind (river stones with domed relief and dark membrane gaps); there is no longer a
+  metallic sheet.
+
+Checked in the browser:
+- Aerial, ground-level, corner close-up (downpipe, plinth, gravel over the coping), 17:15 low
+  sun with dappled tree shadow on the wall, 18:10 horizon glow, and night (stars, blue dome,
+  lit windows).
+- The resident's cutaway game view: parapets hide and the interior is unchanged.
+- Cost: about 1.1M triangles in the main pass (tree line 297k, grass 318k after LOD trims).
+
+Tests: 1100/1100. New suites: `exterior-architecture` and `exterior-scene` (sky mapping and
+night, plot layout and hedge gap, tree crowns, gravel). The lighting test now uses the weaker
+hemisphere fill, and the surface-material test expects gravel. Volume deliveries were
+regenerated and the asset check passes.
+
+Open:
+- Sunlit white walls sit near the top of the AgX curve.
+- The tree line is instanced but has no billboard LOD.
+- The 18:00 sunset is abrupt: the artistic cycle sets at exactly 18:00.

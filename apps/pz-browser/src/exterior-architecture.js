@@ -1,0 +1,87 @@
+import {wallVolume} from './wall-volume.js';
+import {roomContainsPoint} from './room-footprint.js';
+import {architecturalSurfaceUV} from './architectural-materials.js';
+// Exterior envelope detail derived from the authored walls and roofs (render-only,
+// no collision; navigation stays owned by the structural walls):
+// - parapet upstand in the wall's own finish hiding the low-pitch roof skin,
+//   capped by a folded aluminium coping with drip lips on both faces;
+// - a proud plinth band in darker textured render at the foot of every exterior
+//   face, broken at door thresholds;
+// - pressed aluminium sills (with end upstands) under every exterior window;
+// - rainwater downpipes with hopper heads, stand-off brackets and a shoe, at the
+//   two exterior corners furthest from any door.
+// Dimensions are typical residential construction, authored, not surveyed.
+export const EXTERIOR_DETAIL={parapetRise:.42,copingOverhang:.035,copingThickness:.045,drip:.035,plinthHeight:.32,plinthDepth:.014,sillProjection:.055,sillThickness:.028,pipeRadius:.04,pipeOffset:.07};
+const ANODISED={color:0x34373a,metalness:.55,roughness:.42,variation:{tone:.05,roughness:.25,scale:2}};
+const PLINTH={color:0x5e5c57,roughness:.96,bumpScale:.012,texture:{kind:'wall-paint',size:512,seed:53,repeatMetres:[.9,.9]},variation:{tone:.22,roughness:.15,scale:1.4}};
+
+function merge(id,parts,extra){const mesh={id,vertices:[],indices:[],collision:[],...extra};for(const p of parts){const o=mesh.vertices.length;mesh.vertices.push(...p.vertices);mesh.indices.push(...p.indices.map(i=>i+o));}return mesh;}
+// Box along a wall frame: u along the wall, d across (signed from the centreline), z up.
+function slab(frame,u0,u1,d0,d1,z0,z1){const {a,t,n}=frame,dm=(d0+d1)/2,p=u=>[a[0]+t[0]*u+n[0]*dm,a[1]+t[1]*u+n[1]*dm];return wallVolume({id:'x',a:p(u0),b:p(u1),base:z0,height:z1-z0,thickness:Math.abs(d1-d0)});}
+// Vertical or sloped tube between two points (closed, 12 sides).
+export function tube(a,b,radius,sides=12){
+ const d=b.map((v,i)=>v-a[i]),len=Math.hypot(...d),k=d.map(v=>v/len),ref=Math.abs(k[2])<.9?[0,0,1]:[1,0,0];
+ const cross=(x,y)=>[x[1]*y[2]-x[2]*y[1],x[2]*y[0]-x[0]*y[2],x[0]*y[1]-x[1]*y[0]],norm=v=>{const l=Math.hypot(...v);return v.map(x=>x/l);};
+ const u=norm(cross(k,ref)),v=cross(k,u),vertices=[],indices=[];
+ for(const c of [a,b])for(let i=0;i<sides;i++){const t=i/sides*Math.PI*2;vertices.push(c.map((x,j)=>x+(u[j]*Math.cos(t)+v[j]*Math.sin(t))*radius));}
+ for(let i=0;i<sides;i++){const j=(i+1)%sides;indices.push(i,j,sides+j,i,sides+j,sides+i);}
+ vertices.push(a,b);const ca=2*sides,cb=ca+1;for(let i=0;i<sides;i++){const j=(i+1)%sides;indices.push(ca,j,i,cb,sides+i,sides+j);}
+ return {vertices,indices};
+}
+function textured(mesh,material){return {...mesh,material,uv:architecturalSurfaceUV(mesh,material.texture.repeatMetres)};}
+
+export function sceneExteriorDetails(scene,walls,roofs,{cellSize}){
+ const D=EXTERIOR_DETAIL,out=[],openings=new Map(scene.openings.map(o=>[o.id,o])),corners=[],doorPoints=[];
+ const inRoom=(levelId,p)=>scene.rooms.some(r=>r.levelId===levelId&&roomContainsPoint(r,p[0]/cellSize,p[1]/cellSize));
+ const roofBoxes=roofs.filter(r=>r.role==='roof').map(r=>{const xs=r.vertices.map(v=>v[0]),ys=r.vertices.map(v=>v[1]),zs=r.vertices.map(v=>v[2]);return {roofId:r.roofId,box:[Math.min(...xs),Math.min(...ys),Math.max(...xs),Math.max(...ys)],top:Math.max(...zs)};});
+ for(const wall of walls){
+  if(!wall.hostEndpoints||!wall.indices?.length)continue;
+  const [a,b]=wall.hostEndpoints,L=Math.hypot(b[0]-a[0],b[1]-a[1]),t=[(b[0]-a[0])/L,(b[1]-a[1])/L],n=[-t[1],t[0]],mid=[(a[0]+b[0])/2,(a[1]+b[1])/2],T=wall.thickness;
+  const probe=s=>[mid[0]+n[0]*s*(T/2+.05),mid[1]+n[1]*s*(T/2+.05)];
+  const outside=[-1,1].filter(s=>!inRoom(wall.levelId,probe(s))),inside=[-1,1].filter(s=>inRoom(wall.levelId,probe(s)));
+  if(outside.length!==1||inside.length!==1)continue;
+  const s=outside[0],frame={a,t,n},face=s*T/2,top=wall.base+wall.height,ext=T/2;
+  const opening=wall.opening,kind=openings.get(wall.openingId)?.kind,door=opening&&kind!=='window'&&opening[1]<D.plinthHeight;
+  const tag={hostWallId:wall.id,levelId:wall.levelId,castShadow:true};
+  if(door)doorPoints.push([a[0]+t[0]*(opening[0]+opening[2])/2,a[1]+t[1]*(opening[0]+opening[2])/2]);
+  // Plinth: proud band, wrapping the corner by the wall half-thickness.
+  const runs=door?[[-ext-D.plinthDepth,opening[0]],[opening[2],L+ext+D.plinthDepth]]:[[-ext-D.plinthDepth,L+ext+D.plinthDepth]];
+  const plinth=runs.filter(([u,v])=>v-u>.02).map(([u,v])=>slab(frame,u,v,face,face+s*D.plinthDepth,wall.base,wall.base+D.plinthHeight));
+  if(plinth.length)out.push(textured(merge(wall.id+':plinth',plinth,{...tag,role:'plinth'}),PLINTH));
+  // Window sill below an exterior window: pressed blade with drip and end upstands.
+  if(opening&&kind==='window'&&opening[1]>.05){
+   const [u,z,v]=opening,zz=wall.base+z,sill=[slab(frame,u-.03,v+.03,face-s*.02,face+s*D.sillProjection,zz-D.sillThickness,zz),slab(frame,u-.03,v+.03,face+s*(D.sillProjection-.004),face+s*D.sillProjection,zz-D.sillThickness-.022,zz-D.sillThickness)];
+   for(const e of [u-.03,v+.018])sill.push(slab(frame,e,e+.012,face,face+s*D.sillProjection*.8,zz,zz+.025));
+   out.push(merge(wall.id+':sill',sill,{...tag,role:'sill',material:ANODISED}));
+  }
+  // Parapet and coping where a roof sits on this wall.
+  const roof=roofBoxes.find(r=>mid[0]>=r.box[0]-T&&mid[0]<=r.box[2]+T&&mid[1]>=r.box[1]-T&&mid[1]<=r.box[3]+T&&Math.abs(r.top-top)<.6);
+  if(roof){
+   const z1=Math.max(top,roof.top)+D.parapetRise-.12,o=D.copingOverhang,c=D.copingThickness;
+   const axisNudge=Math.abs(t[0])>Math.abs(t[1])?.0012:0; // overlapping corners never z-fight
+   const parapet=wallVolume({id:wall.id+':parapet',a:[a[0]-t[0]*ext,a[1]-t[1]*ext],b:[b[0]+t[0]*ext,b[1]+t[1]*ext],base:top,height:z1-top,thickness:T});
+   out.push({...parapet,id:wall.id+':parapet',role:'parapet',roofId:roof.roofId,levelId:wall.levelId,materialId:wall.materialId,hostEndpoints:[a,b],collision:[]});
+   const zc=z1+axisNudge,coping=[slab(frame,-ext-o,L+ext+o,-T/2-o,T/2+o,zc,zc+c)];
+   for(const side of [-1,1])coping.push(slab(frame,-ext-o,L+ext+o,side*(T/2+o),side*(T/2+o-.006),zc-D.drip,zc));
+   out.push(merge(wall.id+':coping',coping,{role:'coping',roofId:roof.roofId,levelId:wall.levelId,castShadow:true,material:ANODISED}));
+   for(const [end,u] of [[a,-1],[b,1]])corners.push({point:end,along:t.map(v=>v*u),out:n.map(v=>v*s),wall,top:z1});
+  }
+ }
+ // Downpipes at outer building corners (the neighbouring exterior wall faces the
+ // direction beyond this wall's end), away from doors, at most two, spread apart.
+ const same=(p,q)=>Math.hypot(p[0]-q[0],p[1]-q[1])<1e-6;
+ const outer=corners.filter(c=>corners.some(o=>o!==c&&same(o.point,c.point)&&o.out[0]*c.along[0]+o.out[1]*c.along[1]>.9));
+ const doorDistance=c=>Math.min(Infinity,...doorPoints.map(d=>Math.hypot(d[0]-c.point[0],d[1]-c.point[1])));
+ const picked=[];for(const c of outer.filter(c=>doorDistance(c)>2).sort((x,y)=>doorDistance(y)-doorDistance(x))){if(picked.length>=2)break;if(picked.some(p=>Math.hypot(p.point[0]-c.point[0],p.point[1]-c.point[1])<4))continue;picked.push(c);}
+ for(const [i,c] of picked.entries()){
+  const T=c.wall.thickness,inset=T/2+.16,o=T/2+D.pipeOffset,x=c.point[0]-c.along[0]*inset+c.out[0]*o,y=c.point[1]-c.along[1]*inset+c.out[1]*o,base=c.wall.base;
+  const parts=[tube([x,y,base+.16],[x,y,c.top-.26],D.pipeRadius)];
+  // Shoe kicking out over a gully; hopper head under the coping; brackets every ~1.1 m.
+  parts.push(tube([x,y,base+.17],[x+c.out[0]*.09,y+c.out[1]*.09,base+.05],D.pipeRadius));
+  const h=c.top-.26,hw=.11,box=(cx,cy,z0,z1,w,d)=>wallVolume({id:'h',a:[cx-c.along[0]*w,cy-c.along[1]*w],b:[cx+c.along[0]*w,cy+c.along[1]*w],base:z0,height:z1-z0,thickness:d});
+  parts.push(box(x,y,h,h+.2,hw,.15),box(x-c.out[0]*(o-T/2)/2,y-c.out[1]*(o-T/2)/2,h+.12,h+.16,.045,o-T/2+.02));
+  for(let z=base+.6;z<h-.3;z+=1.1)parts.push(tube([x,y,z],[x,y,z+.035],D.pipeRadius+.008),box(x-c.out[0]*(o-T/2)/2,y-c.out[1]*(o-T/2)/2,z+.008,z+.027,.012,o-T/2));
+  out.push(merge(c.wall.id+':downpipe:'+i,parts,{hostWallId:c.wall.id,levelId:c.wall.levelId,role:'downpipe',castShadow:true,material:ANODISED}));
+ }
+ return out;
+}

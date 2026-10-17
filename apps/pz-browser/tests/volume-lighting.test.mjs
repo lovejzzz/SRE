@@ -2,7 +2,7 @@ import test from 'node:test';import assert from 'node:assert/strict';import * as
 test('lighting fits far-world geometry, uses Z-up and changes actual light energy',()=>{
  const scene=new THREE.Scene(),renderer={shadowMap:{},setClearColor(c){this.clear=c;}},rig=createVolumeLighting(scene,renderer),bounds=new THREE.Box3(new THREE.Vector3(7990,11400,0),new THREE.Vector3(8020,11430,6));rig.fit(bounds);
  const sun=scene.children.find(o=>o.isDirectionalLight),sky=scene.children.find(o=>o.isHemisphereLight);assert.deepEqual(sun.target.position.toArray(),[8005,11415,3]);assert.equal(sky.position.z,1);assert.ok(sun.position.z>6);assert.ok(sun.castShadow&&renderer.shadowMap.enabled);
- const day=sun.intensity;rig.setMode('night');assert.ok(sun.intensity>0&&sun.intensity<day);assert.equal(sky.intensity,.45);rig.setMode('day');assert.equal(sun.intensity,day);assert.throws(()=>rig.setMode('fake'),/Unknown/);rig.dispose();assert.equal(scene.children.length,0);
+ const day=sun.intensity;rig.setMode('night');assert.ok(sun.intensity>0&&sun.intensity<day);assert.ok(Math.abs(sky.intensity-.45*.4)<1e-9,'hemisphere is a weak fill beside the sky environment');rig.setMode('day');assert.equal(sun.intensity,day);assert.throws(()=>rig.setMode('fake'),/Unknown/);rig.dispose();assert.equal(scene.children.length,0);
 });
 test('clock changes source direction and intensity without losing the fitted far-world target',()=>{
  const scene=new THREE.Scene(),renderer={shadowMap:{},setClearColor(){}},rig=createVolumeLighting(scene,renderer);

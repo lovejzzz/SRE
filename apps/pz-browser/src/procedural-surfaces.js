@@ -168,7 +168,24 @@ export function wallPaintPixels({size=1024,seed=37}={}){
  return img;
 }
 
-export const PROCEDURAL_SURFACES={'oak-floor':oakFloorPixels,lawn:lawnPixels,quartz:quartzPixels,fabric:fabricPixels,walnut:walnutPixels,ceramic:ceramicPixels,paint:paintPixels,plastic:plasticPixels,paper:paperPixels,terracotta:terracottaPixels,leaf:leafPixels,'cast-iron':castIronPixels,'wall-paint':wallPaintPixels};
+// Washed river-gravel ballast (16–32 mm) on a flat roof membrane: periodic jittered
+// pebble lattice, each stone a rounded ellipse with its own tone (grey, buff,
+// slate), a domed relief and dark interstices where the membrane shows.
+export function gravelPixels({size=512,seed=61,stones=26}={}){
+ check(size);if(!Number.isInteger(stones)||stones<6||stones>64)throw Error('Invalid gravel');
+ const img=image(size),r=rng(seed),cells=[];
+ for(let j=0;j<stones;j++)for(let i=0;i<stones;i++){const kind=r();cells.push({x:(i+.15+.7*r())/stones,y:(j+.15+.7*r())/stones,rx:(.42+.2*r())/stones,ry:(.32+.18*r())/stones,a:r()*Math.PI,
+  col:kind<.45?[.55,.54,.52]:kind<.75?[.62,.56,.47]:kind<.92?[.4,.41,.42]:[.7,.68,.64],tone:.8+.35*r()});}
+ for(let y=0;y<size;y++)for(let x=0;x<size;x++){const u=(x+.5)/size,v=(y+.5)/size,ci=Math.floor(u*stones),cj=Math.floor(v*stones);let best=null,bd=2;
+  for(let dj=-1;dj<=1;dj++)for(let di=-1;di<=1;di++){const ii=(ci+di+stones)%stones,jj=(cj+dj+stones)%stones,c=cells[jj*stones+ii];let du=u-c.x,dv=v-c.y;du-=Math.round(du);dv-=Math.round(dv);
+   const cs=Math.cos(c.a),sn=Math.sin(c.a),p=(du*cs+dv*sn)/c.rx,q=(-du*sn+dv*cs)/c.ry,d=p*p+q*q;if(d<bd){bd=d;best=c;}}
+  const grain=periodicNoise(u*size/3,v*size/3,size/3,seed+1),mottle=fbm(u,v,4,3,seed+2);
+  if(bd<1){const dome=Math.sqrt(1-bd),t=best.tone*(.82+.25*dome)*(1+.12*(grain-.5)),c=best.col.map(k=>k*t*(.95+.1*mottle));put(img,y*size+x,c,.62+.25*(grain-.5)-.1*dome,.25+.7*dome+.05*(grain-.5));}
+  else{const m=.12+.05*mottle;put(img,y*size+x,[m,m,m*1.05],.9,.05);}}
+ return img;
+}
+
+export const PROCEDURAL_SURFACES={'oak-floor':oakFloorPixels,lawn:lawnPixels,quartz:quartzPixels,fabric:fabricPixels,walnut:walnutPixels,ceramic:ceramicPixels,paint:paintPixels,plastic:plasticPixels,paper:paperPixels,terracotta:terracottaPixels,leaf:leafPixels,'cast-iron':castIronPixels,'wall-paint':wallPaintPixels,gravel:gravelPixels};
 export const isProceduralSurface=kind=>Object.hasOwn(PROCEDURAL_SURFACES,kind);
 // Albedo kinds already carry colour; tint kinds multiply the material colour.
-export const ALBEDO_SURFACES=new Set(['oak-floor','lawn']);
+export const ALBEDO_SURFACES=new Set(['oak-floor','lawn','gravel']);
