@@ -11,7 +11,7 @@
     "knownLimits": [
       "Reviewed identity mappings, original approximate procedural appearance; not lossless source art",
       "Plaster uses authored periodic tonal, roughness and shallow bump detail; not measured surface capture. No grass blades or visual acceptance.",
-      "Gravel-ballast flat roof (behind a parapet) is an original procedural finish, not reconstruction of source roofs_01_22 pixels",
+      "Flat-roof gravel ballast uses a scanned CC0 Poly Haven texture (gravel_floor_02; assets/recipes/scanned/polyhaven.json), not reconstruction of source roofs_01_22 pixels",
       "Wood, bathroom flooring, grass and exterior paving reproject original PZ color pixels; resampled with source baked shading, not recovered PBR albedo. Grass remains a flat ground surface without blades. One tile repeats at the nominal one-metre grid scale."
     ]
   },
@@ -123,22 +123,14 @@
       ],
       "material": {
         "color": 16777215,
-        "roughness": 0.85,
-        "bumpScale": 0.6,
+        "roughness": 1,
         "texture": {
-          "kind": "gravel",
-          "size": 512,
-          "seed": 61,
-          "stones": 26,
+          "kind": "scanned",
+          "id": "gravel_floor_02",
           "repeatMetres": [
-            0.62,
-            0.62
+            1.6,
+            1.6
           ]
-        },
-        "variation": {
-          "tone": 0.16,
-          "roughness": 0.1,
-          "scale": 0.8
         }
       }
     },

@@ -11,7 +11,7 @@ test('tabletop set refuses missing host, and wardrobe mapping keeps all source d
 });
 test('architectural finishes are scoped so roof and wall source choices do not repaint floors',()=>{
  const a=readVolume('surface-materials'),triangle={vertices:[[0,0,0],[1,0,0],[1,1,0]],indices:[0,1,2]};
- const roof={...triangle,role:'roof',materialId:'roofs_01_22'};assert.equal(applyArchitecturalMaterial(roof,[a]).material.texture.kind,'gravel');
+ const roof={...triangle,role:'roof',materialId:'roofs_01_22'};assert.equal(applyArchitecturalMaterial(roof,[a]).material.texture.kind,'scanned');
  const floor={...roof,role:'surface'};assert.equal(applyArchitecturalMaterial(floor,[a]),floor);
  const wall={...triangle,hostEndpoints:[[0,0],[1,0]],materialId:'tian_masonry_ivory_1'};assert.equal(applyArchitecturalMaterial(wall,[a]).material.texture.kind,'wall-paint');
 });

@@ -3,10 +3,13 @@ import {sourceTextureKey} from './source-patch-texture.js';
 import * as THREE from 'three';
 import {woodTexture,surfaceTexture} from './volume-material-texture.js';
 import {PROCEDURAL_SURFACES,isProceduralSurface} from './procedural-surfaces.js';
+import {scannedTextureSet} from './scanned-assets.js';
 export function createVolumeMaterialCache({sourceMaps=new Map()}={}){
  const cache=new Map();
  return {
   maps(material){
+   // Scanned CC0 surfaces (assets/scanned): UVs are already in metres/repeat.
+   if(material?.texture?.kind==='scanned')return scannedTextureSet(material.texture.id);
    if(['source-floor','source-patch'].includes(material?.texture?.kind)){const maps=sourceMaps.get(sourceTextureKey(material.texture));if(!maps)throw Error('Source material is not loaded');if(material.opacity<1||!maps.roughnessMap)return maps;const key='packed:'+sourceTextureKey(material.texture);if(!cache.has(key))cache.set(key,packSurfaceMaps({...maps,map:maps.map.clone(),...(maps.normalMap?{normalMap:maps.normalMap.clone()}:{}),roughnessMap:maps.roughnessMap.clone()},{opaque:true}));return cache.get(key);}
    if(!isProceduralSurface(material?.texture?.kind)&&!['wood','planks','grass','paving','plaster','roof','enamel-finish','brushed-steel','honed-stone','leather'].includes(material?.texture?.kind))return {};
    const key=JSON.stringify([material.texture,material.opacity<1]);if(cache.has(key))return cache.get(key);

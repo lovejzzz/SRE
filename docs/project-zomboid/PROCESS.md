@@ -7073,3 +7073,42 @@ contact shadow. Evidence: `evidence505/exterior/505t-*.jpg` (`ivy-before` vs `iv
 Cost: the frame stays at about 3.45M triangles across all passes. Tests: 1115/1115 (new
 `vegetation-leaves` suite: species outlines and colour encoding, unit normals, ivy lobes,
 tiling clusters, blade mesh and orientation, climber growth). The asset check passes.
+
+## 505u — Scanned CC0 assets (Poly Haven): import pipeline, gravel roof, bark, mulch, real plants
+
+With the user's approval (14 assets, about 99 MB), photographic scans were downloaded from
+Poly Haven (CC0 1.0) into `private-assets/polyhaven/`. These sources are not committed;
+SHA-256 for every file is in `source-manifest.json`.
+- **Pipeline**:
+  - `tools/build_scanned_assets.py` (`npm run assets:scanned` / `assets:scanned:check`)
+    verifies source hashes and builds `assets/scanned/`: 1K colour, 1K normal and packed
+    AO/roughness JPEGs per texture.
+  - glTF models are copied byte-for-byte, with their textures re-encoded at the size the
+    recipe records.
+  - `assets/scanned/manifest.json` records author, source page, licence, source hashes and
+    delivery hashes. The recipe is `assets/recipes/scanned/polyhaven.json`.
+  - The import is a raster/mesh conversion of scans, not a procedural reconstruction.
+- **Runtime**: `src/scanned-assets.js` provides `scannedTextureSet` and `loadScannedModel`
+  (Y-up to Z-up, recipe scale, sits on z=0).
+- **Material kind**: surface recipes can use `texture.kind:'scanned'`. The roof is now
+  `gravel_floor_02`.
+- **Varying limit**: scanned materials use colour and normal only. The extra per-map UV
+  varyings, on top of the bounce, weathering and variation world-position varyings,
+  exceeded the GPU limit ("could not pack varying"), so a material silently failed to
+  render.
+- **Landscape**:
+  - Garden-tree bark uses `bark_willow`; bed mulch uses `wood_chips`.
+  - Scanned plants are instanced: `shrub_04`/`shrub_03` and `periwinkle_plant` in the
+    borders, `shrub_02` near plot corners, `fern_02` and `weed_plant_02` at the house foot,
+    `dandelion_01` in the lawn margins, and `garden_hose_wall_mounted_01` on the first long
+    blank wall.
+  - Models arrive asynchronously; `installLandscapeMaterials` (panel) installs the shadow
+    and AO hooks on late arrivals.
+- **Dropped**:
+  - The scanned pavers: the asset is mosaic-scale and the patio keeps its large slabs.
+  - Scanned trees and grass clumps (1–4.6M polygons each).
+- **Parallel session**: it simplified the scanned instancing to a triangle budget and
+  reverted the meadow to the procedural lawn (the scan read as soil from the game camera).
+
+Tests: new `scanned-assets` suite (provenance, delivery hashes, runtime lists, size budget,
+roof recipe). Full suite 1123/1123 on the combined working tree. The asset check passes.
