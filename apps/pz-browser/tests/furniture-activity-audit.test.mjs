@@ -11,7 +11,7 @@ function chair(direction){
  return {zones,volumes};
 }
 test('chair rear allowance rotates with the rendered chair, including placement offset',()=>{
- const expected={S:[10.1,19.6],E:[10.8,20.1],N:[10.1,20.8],W:[9.6,20.1]};
+ const expected={S:[10.1,19.6],E:[9.6,20.1],N:[10.1,20.8],W:[10.8,20.1]};
  for(const facing of Object.keys(expected)){const {zones}=chair(facing);assert.equal(zones.length,1);zones[0].min.slice(0,2).forEach((v,i)=>assert.ok(Math.abs(v-expected[facing][i])<1e-8));}
 });
 test('activity audit catches an architectural blocker but excludes its own furniture and other floors',()=>{

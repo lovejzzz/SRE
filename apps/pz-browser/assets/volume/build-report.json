@@ -1213,7 +1213,7 @@
       "name": "toilet",
       "id": "tian-volume-toilet",
       "hashes": {
-        "assets/recipes/volume/toilet.json": "d4247b6bb7250e164c247d9478b4ec3eb22467ab9f302b6d6a21067b51bc8369",
+        "assets/recipes/volume/toilet.json": "b5aab1c22785ea477a6e809e85678ab00d248c846e4463c581dce866109f9110",
         "src/wet-furniture-volume.js": "076891ca382e28b18a1e8d9e3a9aa123d1b9bcc11e2566824aa1b60e7215fae6",
         "src/material-relief.js": "57c433d8e8aa260321d92d904af8e212be0fc6fbacd2afaf733835cb8d6774d1",
         "src/volume-material-texture.js": "6e4ce8ab10103d2471338de3a57551fc59d9584f1102b08133a42f55bad2499a",
@@ -1224,10 +1224,10 @@
         "src/scene-slab-volumes.js": "fe0cf3f8f5df8a7b087dbd6e2820c3e93930ef25b68bb3002cbfeffaa6d77911",
         "src/convex-solid.js": "4b6a982e341fb7b01229087a25f2055a7a9b969a484d684e56c687e270ee7c8c"
       },
-      "delivery": "toilet.c2f4a542efab718c6cf56eacac823c5e77168340ad0befafb8b8e0245d88638b.json.gz",
-      "sourceBytes": 326132,
-      "deliveryBytes": 52461,
-      "deliverySHA256": "c2f4a542efab718c6cf56eacac823c5e77168340ad0befafb8b8e0245d88638b",
+      "delivery": "toilet.1dfb17dd78ee3582d63968101dde5f82bd30a2e0996db53855ec820ac86276c0.json.gz",
+      "sourceBytes": 326133,
+      "deliveryBytes": 52463,
+      "deliverySHA256": "1dfb17dd78ee3582d63968101dde5f82bd30a2e0996db53855ec820ac86276c0",
       "parts": 10,
       "status": "prototype; visual acceptance pending"
     },

@@ -6811,3 +6811,31 @@ Diagnostics: `pz.volumeView.sceneStats()` (triangles and shadow triangles per ob
 Not done: halving the per-frame CPU cost needs fewer draw calls (static batching across
 objects or a merged static scene) and an AO pass that reuses the main depth; both are larger
 refactors.
+
+## 505o — East/west fixture orientation merged
+
+Merged the side session's fix (branch `claude/musing-jepsen-b5184e`, which had no commits; the
+work was delivered as `east-west-facing.patch`). It applied cleanly except for the generated
+`build-report.json`, so that file and the toilet delivery were regenerated here instead of
+taken from the patch.
+- `scene-furniture-volumes.js`: the E/W turns are corrected, so a recipe's local front faces
+  its tile's Facing (PZ Facing W = attachedE, front to the west). `volumeFacing()` keeps studio
+  recipes on their established pairing; their sprites were generated with the swapped turn.
+- `catalog-variants.js` `physicalFacing()` is used by `scene-rotation.js`, so one turn rotates
+  studio and PZ pieces the same way. The L-shaped studio sectional can now rotate.
+- Toilet recipe offset 0.04 → 0.104: the cistern sits flush on its wall in all four
+  orientations without a nudge. The builder nudge is now (+0.45, 0).
+- `hearth-yard.json`: bench and chair swapped so both face the low table under the corrected
+  transform (checked numerically in Node: bench E faces east from x 8005, chair W faces west
+  from x 8007).
+- Live test save (revision 8): the same swap applied with `objects.move`, and the toilet
+  re-nudged +0.064 m to stay flush. Applied with Use as my home; the resident stock was
+  preserved. Evidence: `living/live-yard-seats-after-merge.jpg`,
+  `living/live-toilet-after-merge.jpg`, plus the side session's `east-west-fixtures-fixed.jpg`,
+  `toilet-flush-back-wall.jpg`, `yard-seats-face-table.jpg`.
+
+1091/1091 JS tests (new volume-east-west-facing suite; lamp, chair-allowance and shower tests
+updated for the corrected turn). Volume deliveries and the canonical asset build regenerated;
+freshness passes. The scratch house build succeeds (55 objects).
+Open (from the side session): the bed, sofa and shower would also overlap a wall if placed flush
+against it; they are free-standing (no attached* prop), so their offsets are unchanged.

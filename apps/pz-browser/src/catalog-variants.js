@@ -1,6 +1,9 @@
 import {paneAxis} from './wall-joins.js';
 import {windowConditions} from './catalog-navigation.js';
 export function entryFacing(e,properties){const p=properties[e?.source]||{};return e?.facing||p.Facing||paneAxis(e?.source||'',properties)||['N','W'].find(a=>['Wall','DoorWall','door','Window'].some(k=>k+a in p))||null;}
+// Studio sprites (tools/make_studio_assets.py, TianRecipe 'studio') label their west-facing
+// turn 'E' and east-facing turn 'W'; saves keep those IDs. Turn maths uses the real facing.
+export function physicalFacing(e,properties){const facing=entryFacing(e,properties);return properties[e?.source]?.TianRecipe==='studio'?{E:'W',W:'E'}[facing]||facing:facing;}
 // Reviewed against the sink volume recipe and source Facing/GroupName metadata.
 const reviewedFamilies=new Map([12,13,28,29].map(n=>['fixtures_sinks_01_'+n,'white-standing-sink']));
 // Preserve every source entry. Only the browser is grouped; saves keep sprite IDs.

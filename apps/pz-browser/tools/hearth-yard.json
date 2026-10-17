@@ -310,7 +310,7 @@
   {
     "type": "place",
     "assetId": "tile:furniture_seating_outdoor_01_3",
-    "x": 8007,
+    "x": 8005,
     "y": 11407,
     "z": 0
   },
@@ -352,7 +352,7 @@
   {
     "type": "place",
     "assetId": "tile:furniture_seating_indoor_02_3",
-    "x": 8005,
+    "x": 8007,
     "y": 11407,
     "z": 0
   },

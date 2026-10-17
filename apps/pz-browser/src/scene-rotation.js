@@ -1,6 +1,6 @@
 import {objectOffset} from './scene-object-offset.js';
 import {objectClosure} from './scene-objects.js';
-import {orientationFamilies,entryFacing} from './catalog-variants.js';
+import {orientationFamilies,physicalFacing} from './catalog-variants.js';
 const facings=['N','E','S','W'];
 const turn=(x,y,n)=>{for(let i=0;i<n;i++)[x,y]=[-y,x];return {x,y};};
 export function rotateSceneObjects(scene,{ids,turns},catalog,properties){
@@ -12,10 +12,10 @@ export function rotateSceneObjects(scene,{ids,turns},catalog,properties){
  for(const o of source){
   if(o.wallMounts?.length)throw Error('Wall fixtures follow their supporting wall direction');
   if(o.hostId&&!selected.has(o.hostId))throw Error('Rotate the supporting object with its mounted items');
-  const entry=byId.get(o.assetId),facing=entryFacing(entry,properties),options=new Map();
+  const entry=byId.get(o.assetId),facing=physicalFacing(entry,properties),options=new Map();
   if(!entry)throw Error('Object is missing from the verified catalog');
   if(!facing&&o.parts.every(p=>properties[p.tile]?.TianMount==='table'))for(const n of [1,2,3])options.set(n,entry);
-  else if(facings.includes(facing))for(const e of families.get(entry.id)||[]){const target=entryFacing(e,properties),n=(facings.indexOf(target)-facings.indexOf(facing)+4)%4;if(n&&facings.includes(target))options.set(n,e);}
+  else if(facings.includes(facing))for(const e of families.get(entry.id)||[]){const target=physicalFacing(e,properties),n=(facings.indexOf(target)-facings.indexOf(facing)+4)%4;if(n&&facings.includes(target))options.set(n,e);}
   candidates.set(o.id,options);
  }
  const n=turns??[1,3,2].find(n=>source.every(o=>candidates.get(o.id).has(n)));

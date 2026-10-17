@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "tian-volume-toilet",
-  "version": 3,
+  "version": 4,
   "generator": "src/wet-furniture-volume.js",
   "sourceKind": "procedural",
   "status": "prototype",
@@ -151,7 +151,7 @@
   "placement": {
     "offset": [
       0.22499999999999998,
-      0.04
+      0.104
     ],
     "cells": [
       1,

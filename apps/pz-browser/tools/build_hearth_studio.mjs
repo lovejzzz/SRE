@@ -27,7 +27,8 @@ commit([{type:'objects.nudge',ids:model.scene.objects.filter(o=>o.assetId.includ
 commit([{type:'objects.nudge',ids:model.scene.objects.filter(o=>o.assetId==='tile:fixtures_bathroom_01_32').map(o=>o.id),dx:.05,dy:.05}]);
 commit([{type:'objects.nudge',ids:model.scene.objects.filter(o=>o.assetId==='tile:fixtures_sinks_01_12').map(o=>o.id),dx:0,dy:.07}]);
 // Toilet on the back wall, no longer facing the basin across a 40 cm gap; shifted 45 cm east to leave a ~67 cm walkway to the shower entry.
-commit([{type:'objects.nudge',ids:model.scene.objects.filter(o=>o.assetId==='tile:fixtures_bathroom_01_3').map(o=>o.id),dx:.45,dy:-.07}]);
+// The recipe now stands its cistern clear of the wall, so no wall-ward nudge.
+commit([{type:'objects.nudge',ids:model.scene.objects.filter(o=>o.assetId==='tile:fixtures_bathroom_01_3').map(o=>o.id),dx:.45,dy:0}]);
 commit([place('studio-television-85','N',4,5),place('lamp','S',0,3),place('detail-kitchen','S',9,0),place('wall-sconce','N',5,0),place('wall-sconce','N',8,0),place('wall-sconce','N',8,8),place('wall-sconce','N',3,6),place('wall-sconce','N',6,6),...[1,3,4].map(x=>place('detail-curtain','N',x,0)),place('detail-curtain','W',0,2)]);
 // Physical centres, not nominal sprite/grid widths. Preserve table supports.
 const idFor=family=>model.scene.objects.find(o=>o.parts.some(p=>props[p.tile]?.TianVariantFamily===family))?.id;

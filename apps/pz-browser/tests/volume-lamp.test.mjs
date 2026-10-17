@@ -30,7 +30,7 @@ test('asymmetric emitter samples rotate with furniture in all directions without
   directional.recipe.sourceLayout[direction]=[{tile:'fixture-'+direction,dx:0,dy:0}];
  }
  directional.geometry.light.samples=[[.08,.03,.02],[-.04,.01,-.01]];
- const expected={S:[[.16,.06,.03],[-.08,.02,-.015]],E:[[-.06,.16,.03],[-.02,-.08,-.015]],N:[[-.16,-.06,.03],[.08,-.02,-.015]],W:[[.06,-.16,.03],[.02,.08,-.015]]};
+ const expected={S:[[.16,.06,.03],[-.08,.02,-.015]],E:[[.06,-.16,.03],[.02,.08,-.015]],N:[[-.16,-.06,.03],[.08,-.02,-.015]],W:[[-.06,.16,.03],[-.02,-.08,-.015]]};
  for(const direction of Object.keys(expected)){
   const scene={levels:[{id:'upper',index:2}],objects:[{id:'fixture',x:100,y:200,levelId:'upper',parts:directional.recipe.sourceLayout[direction]}]};
   const meshes=sceneFurnitureVolumes(scene,{squares:[]},{},[directional],{cellSize:2,storeyHeight:4.5});
