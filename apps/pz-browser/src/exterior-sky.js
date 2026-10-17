@@ -10,6 +10,10 @@ import {LightProbeGenerator} from '../node_modules/three/examples/jsm/lights/Lig
 // Sky irradiance as order-2 SH, shared by every material's outdoor fragments. The
 // house walls carry their own room reflection capture (envMap), so they cannot use
 // scene.environment; without this their outer faces saw only the room capture.
+// The visible dome is shown darker than the radiance it lights the world with,
+// so after the AgX transform it reads blue rather than near-white (photographic
+// skies sit about a stop under their measured luminance next to sunlit walls).
+export const SKY_DISPLAY_GAIN=.5;
 export const SKY_SH={value:Array.from({length:9},()=>new THREE.Vector3())};
 
 // World is Z-up; the Sky shader is Y-up. World (x,y,z) -> sky (x,z,-y).
@@ -34,8 +38,8 @@ function patchZUp(sky){
  // brighter toward the horizon (airglow/light pollution), so silhouettes still read.
  const end='gl_FragColor = vec4( texColor, 1.0 );';
  if(!m.fragmentShader.includes(end))throw Error('Review the sky output hook for this Three version');
- m.fragmentShader=m.fragmentShader.replace('uniform float time;','uniform float time;\n\t\tuniform float tianNight;').replace(end,'texColor = max( texColor, tianNight * mix( vec3( 0.016, 0.024, 0.045 ), vec3( 0.0035, 0.006, 0.016 ), clamp( direction.y * 2.5, 0.0, 1.0 ) ) );\n\t\t\t'+end);
- m.uniforms.tianNight={value:0};
+ m.fragmentShader=m.fragmentShader.replace('uniform float time;','uniform float time;\n\t\tuniform float tianNight;\n\t\tuniform float tianSkyGain;').replace(end,'texColor *= tianSkyGain;\n\t\t\ttexColor = max( texColor, tianNight * mix( vec3( 0.016, 0.024, 0.045 ), vec3( 0.0035, 0.006, 0.016 ), clamp( direction.y * 2.5, 0.0, 1.0 ) ) );\n\t\t\t'+end);
+ m.uniforms.tianNight={value:0};m.uniforms.tianSkyGain={value:1};
  m.needsUpdate=true;
 }
 function starDome(count=2600,seed=7){
@@ -54,10 +58,11 @@ export function createExteriorSky(scene,renderer,{environment=typeof renderer?.g
  sky.material.uniforms.cloudCoverage.value=.38;sky.material.uniforms.cloudDensity.value=.45;sky.material.uniforms.cloudScale.value=.00022;
  const stars=starDome();
  const root=new THREE.Group();root.name='exterior-sky';root.add(sky,stars);scene.add(root);
- // Linear aerial haze beyond the plot only: rooms and the yard stay crisp.
- const fog=new THREE.Fog(0xbfd0de,45,650);scene.fog=fog;
+ // Linear aerial haze from 90 m: the tree line keeps its colour, the hills recede.
+ const fog=new THREE.Fog(0xbfd0de,90,1100);scene.fog=fog;
  // Environment capture uses its own scene so only the sky is baked into IBL.
- const envScene=new THREE.Scene(),envSky=new Sky();envSky.scale.setScalar(1800);patchZUp(envSky);envSky.material.uniforms=sky.material.uniforms;envScene.add(envSky);
+ const envScene=new THREE.Scene(),envSky=new Sky();envSky.scale.setScalar(1800);patchZUp(envSky);// Shares every sky uniform except the display gain: lighting sees full radiance.
+ envSky.material.uniforms={...sky.material.uniforms,tianSkyGain:{value:1}};sky.material.uniforms.tianSkyGain.value=SKY_DISPLAY_GAIN;envScene.add(envSky);
  const pmrem=environment?new THREE.PMREMGenerator(renderer):null;let envTarget=null,lastSun=null,clock=0;
  const state={sun:[0,0,1],night:0};
  const cubeTarget=environment?new THREE.WebGLCubeRenderTarget(16,{type:THREE.HalfFloatType}):null,cubeCamera=environment?new THREE.CubeCamera(.1,2000,cubeTarget):null;
@@ -77,11 +82,11 @@ export function createExteriorSky(scene,renderer,{environment=typeof renderer?.g
    sky.material.uniforms.showSunDisc.value=u[2]>-.02?1:0;
    state.night=Math.min(1,Math.max(0,(-u[2]+.02)/.22));
    stars.material.opacity=state.night*.95;sky.material.uniforms.tianNight.value=state.night;
-   fog.color.copy(horizonColor(u[2]));fog.far=650-300*state.night;
+   fog.color.copy(horizonColor(u[2]));fog.far=1100-650*state.night;
    // Night sky: Preetham goes black below the horizon; keep a moonlit deep blue.
    // Preetham radiance is unscaled (the stock example runs at exposure .5): scale the
    // captured sky to sit beside the 3.2 sun; night keeps a faint moonlit fill.
-   scene.environmentIntensity=.06+.29*(1-state.night);
+   scene.environmentIntensity=.16+.19*(1-state.night);
    publishSH();
    if(!lastSun||Math.acos(Math.min(1,lastSun[0]*u[0]+lastSun[1]*u[1]+lastSun[2]*u[2]))>.035){lastSun=u;capture();}
   },

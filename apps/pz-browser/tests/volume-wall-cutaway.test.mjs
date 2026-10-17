@@ -22,3 +22,9 @@ test('wall, door and mounted furniture fade together; collision and cast shadows
  for(let i=0;i<40;i++)controller.update([.5,-4,3],[.5,2,1],.05,false);
  assert.ok(meshes.every(m=>m.material.opacity===1&&m.material.depthWrite));assert.deepEqual(meshes.map(m=>m.geometry),geometry);
 });
+test('an opaque wall stays in the opaque pass unless it is fading (no ghosting)',()=>{
+ const source={walls:[{id:'w',axis:'N',x:0,y:0}],openings:[],objects:[]},m=new THREE.Mesh(new THREE.BoxGeometry(),new THREE.MeshStandardMaterial());m.userData={structureId:'w'};
+ const c=createWallCutaway(source,{cellSize:1},[m]);assert.equal(m.material.transparent,false);
+ c.update([.5,-4,3],[.5,2,1],.05,true);assert.equal(m.material.transparent,true);
+ for(let i=0;i<60;i++)c.update([.5,-4,3],[.5,2,1],.05,false);assert.equal(m.material.transparent,false);
+});

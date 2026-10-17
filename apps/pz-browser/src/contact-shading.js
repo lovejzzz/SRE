@@ -3,6 +3,7 @@ import {EffectComposer} from '../node_modules/three/examples/jsm/postprocessing/
 import {RenderPass} from '../node_modules/three/examples/jsm/postprocessing/RenderPass.js';
 import {GTAOPass} from '../node_modules/three/examples/jsm/postprocessing/GTAOPass.js';
 import {OutputPass} from '../node_modules/three/examples/jsm/postprocessing/OutputPass.js';
+import {createCinematicGrade} from './cinematic-grade.js';
 // Screen-space contact layer, not GI. Keep it outside radiance captures and use
 // one final tone/color conversion.
 export function withContactVisibility(scene,renderer,draw){
@@ -40,7 +41,7 @@ export function installScreenOcclusion(material,uniforms){
 export function createContactShading(renderer,scene,camera,{mode='indirect',radius=.5,thickness=1,scale=2,distanceExponent=2,strength=1,legacyBlend=.35}={}){
  if(!CONTACT_MODES.includes(mode))throw Error('Unknown contact shading mode');
  const target=new THREE.WebGLRenderTarget(1,1,{type:THREE.HalfFloatType,samples:2});
- const composer=new EffectComposer(renderer,target),base=new RenderPass(scene,camera),ao=new GTAOPass(scene,camera,1,1,undefined,{radius,thickness,samples:8,distanceFallOff:1,screenSpaceRadius:false},{samples:8,radius:4}),output=new OutputPass();
+ const composer=new EffectComposer(renderer,target),base=new RenderPass(scene,camera),ao=new GTAOPass(scene,camera,1,1,undefined,{radius,thickness,samples:8,distanceFallOff:1,screenSpaceRadius:false},{samples:8,radius:4}),output=new OutputPass(),cine=createCinematicGrade();let lastFrame=performance.now();
  const render=ao.render.bind(ao);ao.render=(...args)=>withContactVisibility(scene,renderer,()=>render(...args));
  // A white 1×1 texture keeps the sampler valid whenever occlusion is not bound.
  const white=new THREE.DataTexture(new Uint8Array([255,255,255,255]),1,1);white.needsUpdate=true;
@@ -52,7 +53,7 @@ export function createContactShading(renderer,scene,camera,{mode='indirect',radi
   if(!CONTACT_MODES.includes(value))throw Error('Unknown contact shading mode');
   if(value===current)return;current=value;
   composer.passes.length=0;
-  if(value==='indirect'){ao.output=GTAOPass.OUTPUT.Off;ao.needsSwap=false;ao.updateGtaoMaterial(indirect);composer.addPass(ao);composer.addPass(base);composer.addPass(output);}
+  if(value==='indirect'){ao.output=GTAOPass.OUTPUT.Off;ao.needsSwap=false;ao.updateGtaoMaterial(indirect);composer.addPass(ao);composer.addPass(base);composer.addPass(cine.bloom);composer.addPass(cine.grade);composer.addPass(output);}
   else if(value==='legacy'){ao.output=GTAOPass.OUTPUT.Default;ao.needsSwap=true;ao.blendIntensity=legacyBlend;ao.updateGtaoMaterial(legacy);composer.addPass(base);composer.addPass(ao);composer.addPass(output);}
  };
  setMode(mode);
@@ -60,13 +61,14 @@ export function createContactShading(renderer,scene,camera,{mode='indirect',radi
   get mode(){return current;},setMode,
   setEnabled(value){setMode(value?'indirect':'off');},
   setParameters({strength:s=uniforms.strength.value,...gtao}={}){indirect={...indirect,...gtao};uniforms.strength.value=s;if(current==='indirect')ao.updateGtaoMaterial(indirect);},
-  resize(w,h){composer.setSize(w,h);},
+  grade:cine,
+  resize(w,h){composer.setSize(w,h);cine.resize(w,h);},
   render(){
    const auto=renderer.info.autoReset;renderer.info.autoReset=false;renderer.info.reset();
    try{
     if(current==='off')renderer.render(scene,camera);
-    else{if(current==='indirect'){uniforms.map.value=ao.pdRenderTarget.texture;uniforms.enabled.value=1;}composer.render();}
+    else{if(current==='indirect'){uniforms.map.value=ao.pdRenderTarget.texture;uniforms.enabled.value=1;}const now=performance.now();cine.tick(Math.min(.1,(now-lastFrame)/1000));lastFrame=now;composer.render();}
    }finally{uniforms.enabled.value=0;uniforms.map.value=white;renderer.info.autoReset=auto;}
   },
-  dispose(){base.dispose();ao.dispose();output.dispose();composer.dispose();target.dispose();white.dispose();}};
+  dispose(){base.dispose();ao.dispose();output.dispose();cine.dispose();composer.dispose();target.dispose();white.dispose();}};
 }

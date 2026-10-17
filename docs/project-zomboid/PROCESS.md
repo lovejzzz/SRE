@@ -6970,3 +6970,58 @@ The 505q open items are fixed, plus everything else spotted while checking them.
 Tests: 1107/1107 (new: facade runs, trellis and water butt, glazed-wall parapet, entrance
 door hardware sides, tree-line cards, climber placement, whole-lawn blades). The asset check
 passes.
+
+## 505s — Toward a TLOU2-grade exterior: image, weathering, foliage, ground, glass
+
+Asked to judge the exterior against The Last of Us Part II. It was far off: walls ghosted the
+interior through, everything was factory-clean, the sky was white, and the ground and horizon
+were flat. This pass works on the cues that sell a photographic image. Evidence:
+`evidence505/exterior/505s-*.jpg`, including `505s-before-ghosting.jpg`.
+
+- **Wall ghosting (bug)**:
+  - The wall and furniture fade systems left materials permanently in the transparent pass.
+  - A recompile then stalled the frame loop on a fade tail (opacity ≈ 0.98, depth writes off),
+    so interior objects drew over walls.
+  - Fix: transparency only while actually fading, depth kept until 30% faded, the last 2%
+    snaps, and the loop resumes when a material compile finishes.
+- **Camera image** (`cinematic-grade.js`, in the composer before AgX):
+  - Warm daylight white balance, log-space filmic contrast, saturation 1.1, cool-shadow /
+    warm-highlight split tone, vignette and luminance-weighted grain.
+  - Bloom limited to genuine highlights (threshold 25 in scene-linear).
+- **Exposure**:
+  - The exterior is now exposed for sunlight (0.72; a shaded white render reads light grey).
+    Rooms keep their brightness via a compensating interior gain.
+  - Seen from the garden in daylight, interiors drop about 55% (smoothed), so windows read as
+    dark glass. The roof-cutaway game view is unaffected.
+- **Sky**:
+  - The visible dome is shown at 0.5 of the radiance it lights with, so it reads blue.
+  - Night environment fill is 0.16, and moonlight is 1.2 (was 0.5) so a moonlit garden stays
+    readable.
+  - Aerial haze now runs 90–1100 m.
+- **Weathering** (`facade-weathering.js`, outdoor fragments only, tested by room boxes):
+  - Rain run-off streaks hang from the coping, each to its own length.
+  - Splash-back soil and algae band at the foot of walls; broad uneven weathering.
+  - Grime and damp where paving meets walls.
+  - Roughness follows the dirt.
+- **Ground and horizon**:
+  - Lawn and meadow get dry/yellow and lush patches.
+  - The meadow is olive and rolls (±3 m swells beyond a 12 m apron), and tree line and tufts
+    follow the terrain.
+  - Forested hills ring the plot at 380–1100 m.
+  - About 16k meadow tufts thin with distance; leaf litter lies under the garden trees.
+- **Foliage**:
+  - Back-lit leaf translucency (wrapped transmission on the key light) on tree, hedge, flower
+    and tuft cards.
+  - Leaf wind: gust sway rising with height, plus flutter.
+  - Denser canopies (17 cards per twig) and hedge tops without a 1 m grid.
+  - Tree-line crowns are darker with more cards; conifers are dark with needle sprays at the
+    silhouette, in matt materials.
+- **Glass**:
+  - Opacity follows Fresnel (clear face-on, mirror at grazing angles).
+  - Panes reflect a per-build PMREM panorama of the garden taken from the plot centre with
+    the house hidden, not just the sky.
+
+Tests: 1111/1111. New `facade-weathering` suite: vector uniform arrays, reserved-word guard,
+Fresnel glass, ground variation, foliage injection. New cutaway test: an opaque wall stays in
+the opaque pass. Lighting and daylight tests are updated for the brighter moon. The asset
+check passes. Interior views checked after a bounce recapture: unchanged.

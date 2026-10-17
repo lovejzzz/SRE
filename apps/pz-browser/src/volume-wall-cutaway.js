@@ -18,8 +18,8 @@ export function createWallCutaway(source,metrics,meshes){
   const u=mesh.userData,id=u.hostWallId||openings.get(u.openingId)||mounts.get(u.objectId)||u.structureId;
   const edge=walls.get(id);if(!edge||u.roofId)continue;
   const material=mesh.material;
-  u.wallCutaway={opacity:material.opacity,depthWrite:material.depthWrite,amount:0};
-  material.transparent=true;material.needsUpdate=true;members.push({mesh,edge});
+  u.wallCutaway={opacity:material.opacity,depthWrite:material.depthWrite,transparent:material.transparent,amount:0};
+  members.push({mesh,edge});
  }
  return {
   update(camera,focus,dt,enabled){
@@ -27,9 +27,14 @@ export function createWallCutaway(source,metrics,meshes){
    for(const {mesh,edge}of members){
     const state=mesh.userData.wallCutaway,wanted=enabled?wallFadeAmount(...edge,camera,focus):0;
     state.amount+=(wanted-state.amount)*blend;
-    if(Math.abs(wanted-state.amount)<.002)state.amount=wanted;else changing=true;
+    if(Math.abs(wanted-state.amount)<.02)state.amount=wanted;else changing=true;
     mesh.material.opacity=state.opacity*(1-.97*state.amount);
-    mesh.material.depthWrite=state.depthWrite&&state.amount<.002;
+    // Keep writing depth until the fade is substantial, so interior objects in the
+    // transparent pass cannot draw over a wall that is (almost) back to opaque.
+    mesh.material.depthWrite=state.depthWrite&&state.amount<.3;
+    // Blend only while actually fading: an opaque wall left in the transparent
+    // pass is sorted after the interior and lets it ghost through (505s).
+    const translucent=state.transparent||state.amount>=.002;if(mesh.material.transparent!==translucent){mesh.material.transparent=translucent;mesh.material.needsUpdate=true;}
    }
    return changing;
   }

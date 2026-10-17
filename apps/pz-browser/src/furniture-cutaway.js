@@ -14,7 +14,7 @@ export function createFurnitureCutaway(meshes){
   for(const mesh of members){const positions=mesh.geometry.attributes.position;for(let i=0;i<positions.count;i++){point.fromBufferAttribute(positions,i).applyMatrix4(mesh.matrixWorld);if(point.z>bounds.min.z+1.2)upper.expandByPoint(point);}}
   const size=bounds.getSize(new THREE.Vector3()),top=upper.getSize(new THREE.Vector3());
   if(top.x*top.y<size.x*size.y*.3)continue;
-  for(const mesh of members){mesh.userData.furnitureCutaway={opacity:mesh.material.opacity,depthWrite:mesh.material.depthWrite,amount:0};mesh.material.transparent=true;mesh.material.needsUpdate=true;}
+  for(const mesh of members){mesh.userData.furnitureCutaway={opacity:mesh.material.opacity,depthWrite:mesh.material.depthWrite,amount:0};}
   entries.push(members);
  }
  return {update(camera,focus,dt,enabled=true){
@@ -23,7 +23,7 @@ export function createFurnitureCutaway(meshes){
   for(const members of entries){
    for(const mesh of members)mesh.updateWorldMatrix(true,false);
    const blocked=enabled&&points.some(point=>{aim.fromArray(point).sub(origin);ray.set(origin,aim.clone().normalize());ray.near=.05;ray.far=Math.max(.05,aim.length()-.25);return ray.intersectObjects(members,false).length>0;}),wanted=blocked?1:0;
-   for(const mesh of members){const state=mesh.userData.furnitureCutaway;state.amount+=(wanted-state.amount)*blend;if(Math.abs(wanted-state.amount)<.002)state.amount=wanted;else changing=true;mesh.material.opacity=state.opacity*(1-.92*state.amount);mesh.material.depthWrite=state.depthWrite&&state.amount<.002;}
+   for(const mesh of members){const state=mesh.userData.furnitureCutaway;state.amount+=(wanted-state.amount)*blend;if(Math.abs(wanted-state.amount)<.02)state.amount=wanted;else changing=true;mesh.material.opacity=state.opacity*(1-.92*state.amount);mesh.material.depthWrite=state.depthWrite&&state.amount<.3;const fade=state.amount>=.002;if(mesh.material.transparent!==fade){mesh.material.transparent=fade;mesh.material.needsUpdate=true;}}
   }
   return changing;
  }};

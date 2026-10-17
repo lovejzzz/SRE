@@ -1,12 +1,16 @@
 import * as THREE from 'three';
 import {daylightCycle} from './daylight-cycle.js';
 import {createExteriorSky,skySunVector} from './exterior-sky.js';
+export const EXTERIOR_EXPOSURE=.72,INTERIOR_EXPOSURE_COMPENSATION=.95/EXTERIOR_EXPOSURE;
 
 // Temporary environment study. Local fixture lights will be compiled from scene
 // objects; this rig never invents interior lamps or mutates the saved time of day.
 export function createVolumeLighting(scene,renderer){
  renderer.shadowMap.enabled=true;renderer.shadowMap.type=THREE.PCFShadowMap;
- renderer.toneMapping=THREE.AgXToneMapping;renderer.toneMappingExposure=.95;
+ // Camera exposure is set for the sunlit exterior (a shaded white render reads light
+ // grey, not paper white); rooms keep their established brightness through
+ // INTERIOR_EXPOSURE_COMPENSATION applied with the interior gain.
+ renderer.toneMapping=THREE.AgXToneMapping;renderer.toneMappingExposure=EXTERIOR_EXPOSURE;
  const sky=new THREE.HemisphereLight(0xc5d6e1,0x3b3026,.65);sky.position.set(0,0,1);
  const sun=new THREE.DirectionalLight(0xffe5bd,3.2);sun.castShadow=true;sun.shadow.mapSize.set(2048,2048);sun.shadow.normalBias=.015;sun.shadow.bias=-.00005;
  scene.add(sky,sun,sun.target);
@@ -28,7 +32,7 @@ export function createVolumeLighting(scene,renderer){
   setMode(mode){
    if(!['day','night'].includes(mode))throw Error('Unknown lighting study');
    const night=mode==='night';sky.color.set(night?0x7999c1:0xc5d6e1);sky.groundColor.set(night?0x202b31:0x3b3026);sky.intensity=(night?.45:.65)*HEMI_WITH_SKY;exterior.setSun(night?[-.55,-.7,-.45]:[-.55,-.7,1]);
-   sun.color.set(night?0xa8c1e7:0xffe5bd);sun.intensity=night?.8:3.2;
+   sun.color.set(night?0xa8c1e7:0xffe5bd);sun.intensity=night?1.4:3.2;
    renderer.setClearColor(night?0x0d171e:0x18251f);
    direction.set(-.55,-.7,1).normalize();positionSource();
   },

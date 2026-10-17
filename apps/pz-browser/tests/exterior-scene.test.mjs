@@ -13,7 +13,7 @@ test('sky: Z-up world maps to the Y-up sky shader, sun rises east-ish at 6:00, s
 test('sky without a WebGL renderer still drives stars, fog and night fill (no environment capture)',()=>{
  const scene=new THREE.Scene(),sky=createExteriorSky(scene,{});
  sky.setSun(skySunVector(720));assert.equal(sky.state().night,0);assert.ok(scene.fog&&scene.environmentIntensity>.3);
- sky.setSun(skySunVector(0));assert.equal(sky.state().night,1);assert.ok(scene.environmentIntensity<.1);
+ sky.setSun(skySunVector(0));assert.equal(sky.state().night,1);assert.ok(scene.environmentIntensity<.2&&scene.environmentIntensity>.1,"moonlit fill");
  const stars=sky.root.children.find(o=>o.isPoints);assert.ok(stars.material.opacity>.9&&stars.userData.indirectCaptureExclude);
  const dome=sky.root.children.find(o=>o.isMesh);assert.equal(dome.material.uniforms.tianNight.value,1);assert.match(dome.material.fragmentShader,/tianSkyD\.z, -tianSkyD\.y/);
  sky.dispose();assert.equal(scene.fog,null);assert.equal(scene.children.length,0);

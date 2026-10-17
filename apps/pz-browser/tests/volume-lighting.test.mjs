@@ -9,7 +9,7 @@ test('clock changes source direction and intensity without losing the fitted far
  rig.fit(new THREE.Box3(new THREE.Vector3(7990,11400,0),new THREE.Vector3(8020,11430,6)));
  const sun=scene.children.find(o=>o.isDirectionalLight);rig.setTime(420);const morning=sun.position.clone();rig.setTime(1020);
  assert.ok(sun.position.x>morning.x);assert.deepEqual(sun.target.position.toArray(),[8005,11415,3]);
- rig.setTime(0);assert.equal(sun.intensity,.5);rig.setMode('day');assert.equal(sun.intensity,3.2);rig.dispose();
+ rig.setTime(0);assert.equal(sun.intensity,1.2);rig.setMode('day');assert.equal(sun.intensity,3.2);rig.dispose();
 });
 
 test('sun softness stays in world units across lot sizes and can be compared with narrow shadows',()=>{
