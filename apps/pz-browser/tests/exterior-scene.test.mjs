@@ -67,3 +67,8 @@ test('tree line carries crown cards; climbers grow on long blank facades only; l
  assert.equal(l.rebuild(squares,{facades:[{...facade,length:3,b:[10,5]}]}).climberLeaves,0);
  const lawn=plotLayout(squares).lawn.length;assert.ok(r.blades>lawn*100*.3*.5,'blades beyond 8 m too');l.dispose();
 });
+import {bleedCutout} from '../src/exterior-landscape.js';
+test('cut-out textures bleed colour into transparent texels (no dark mip fringes on small cut-outs)',()=>{
+ const p=tuftPixels(64,4),alpha=[];for(let i=3;i<p.data.length;i+=4)alpha.push(p.data[i]);bleedCutout(p.data,64,64);
+ for(let i=0;i<p.data.length;i+=4){assert.equal(p.data[i+3],alpha[i/4],'alpha untouched');assert.ok(p.data[i]+p.data[i+1]+p.data[i+2]>=10,'no black texels');}
+});

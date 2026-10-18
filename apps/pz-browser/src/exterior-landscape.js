@@ -48,7 +48,23 @@ export function leafCardPixels(size=128,seed=5,{leaves=14,length=[.16,.12]}={}){
  return {width:size,height:size,data:px};
 }
 
-function dataTexture({width,height,data},color=true,repeat=false){const t=new THREE.DataTexture(data,width,height,THREE.RGBAFormat);t.colorSpace=color?THREE.SRGBColorSpace:THREE.NoColorSpace;t.magFilter=THREE.LinearFilter;t.minFilter=THREE.LinearMipmapLinearFilter;t.generateMipmaps=true;t.anisotropy=8;if(repeat)t.wrapS=t.wrapT=THREE.RepeatWrapping;t.needsUpdate=true;return t;}
+// Cut-out textures: transparent texels were left black, so mipmaps averaged black
+// into the edges and small or distant cut-outs (paving weeds, tufts) rendered as dark
+// specks. Bleed the nearest opaque colour outward (alpha stays 0).
+export function bleedCutout(data,width,height,passes=8){
+ let any=false;for(let i=3;i<data.length;i+=4)if(data[i]===0){any=true;break;}if(!any)return data;
+ const filled=new Uint8Array(width*height);for(let i=0;i<width*height;i++)filled[i]=data[i*4+3]>0?1:0;
+ for(let p=0;p<passes;p++){const next=filled.slice();
+  for(let y=0;y<height;y++)for(let x=0;x<width;x++){const i=y*width+x;if(filled[i])continue;let r=0,g=0,b=0,n=0;
+   for(const [dx,dy] of [[1,0],[-1,0],[0,1],[0,-1]]){const xx=x+dx,yy=y+dy;if(xx<0||yy<0||xx>=width||yy>=height)continue;const j=yy*width+xx;if(!filled[j])continue;r+=data[j*4];g+=data[j*4+1];b+=data[j*4+2];n++;}
+   if(n){data[i*4]=r/n;data[i*4+1]=g/n;data[i*4+2]=b/n;next[i]=1;}}
+  filled.set(next);}
+ // Anything still unreached takes the mean opaque colour.
+ let r=0,g=0,b=0,n=0;for(let i=0;i<width*height;i++)if(data[i*4+3]){r+=data[i*4];g+=data[i*4+1];b+=data[i*4+2];n++;}
+ if(n)for(let i=0;i<width*height;i++)if(!filled[i]){data[i*4]=r/n;data[i*4+1]=g/n;data[i*4+2]=b/n;}
+ return data;
+}
+function dataTexture({width,height,data},color=true,repeat=false){if(color)bleedCutout(data,width,height);const t=new THREE.DataTexture(data,width,height,THREE.RGBAFormat);t.colorSpace=color?THREE.SRGBColorSpace:THREE.NoColorSpace;t.magFilter=THREE.LinearFilter;t.minFilter=THREE.LinearMipmapLinearFilter;t.generateMipmaps=true;t.anisotropy=8;if(repeat)t.wrapS=t.wrapT=THREE.RepeatWrapping;t.needsUpdate=true;return t;}
 
 // Tapered branch cylinder from a to b (radii ra, rb), appended to arrays. UVs wrap
 // once around (seam vertices duplicated) and run along the length in metres/0.7,
@@ -484,8 +500,11 @@ export function createExteriorLandscape(scene,{quality=1,scanned=typeof document
    bedCells.forEach(([x,y],i)=>{const [ix,iy]=inward(x,y);if(i%3===1)add('shrub_04',x+.5-ix*.05,y+.5-iy*.05,.01,r()*6.3,.85+.3*r());if(i%5===3)add('shrub_03',x+.3+.4*r(),y+.3+.4*r(),.01,r()*6.3,.9+.4*r());
     for(let k=0;k<(i%2?1:0);k++)add('periwinkle_plant',x+.5+ix*.32+(r()-.5)*.6*(iy?1:0),y+.5+iy*.32+(r()-.5)*.6*(ix?1:0),.01,r()*6.3,.8+.4*r());});
    for(const [cxn,cyn] of [[x0+1.4,y0+1.4],[x1-1.4,y1-1.4],[x0+1.4,y1-1.4]])if(plot.isLawn(Math.floor(cxn),Math.floor(cyn))&&plot.distBuilt(cxn,cyn)>3)add('shrub_02',cxn,cyn,0,r()*6.3,.9+.2*r());
-   const foot=plot.lawn.filter(([x,y])=>plot.distBuilt(x,y)<=1.01);foot.forEach(([x,y],i)=>{const n=[[1,0],[-1,0],[0,1],[0,-1]].find(([dx,dy])=>!plot.isLawn(x+dx,y+dy)&&plot.built.some(([bx,by])=>bx===x+dx&&by===y+dy));if(!n)return;const px=x+.5+n[0]*.38,py=y+.5+n[1]*.38;
-    if(i%4===0)add('fern_02',px,py,0,r()*6.3,.8+.3*r());else if(i%3===0)add('weed_plant_02',px+(r()-.5)*.5,py+(r()-.5)*.5,0,r()*6.3,.8+.5*r());});
+   const foot=plot.lawn.filter(([x,y])=>plot.distBuilt(x,y)<=1.01);foot.forEach(([x,y],i)=>{const n=[[1,0],[-1,0],[0,1],[0,-1]].find(([dx,dy])=>!plot.isLawn(x+dx,y+dy)&&plot.built.some(([bx,by])=>bx===x+dx&&by===y+dy));if(!n)return;// Stay on the lawn side of the wall: ferns (≈0.8 m across) sit near the cell
+    // centre so no frond reaches through the wall; weeds hug the wall foot with jitter
+    // only along it, never across it.
+    const along=(r()-.5)*.7,tx=-n[1]*along,ty=n[0]*along;
+    if(i%4===0)add('fern_02',x+.5+n[0]*.05+tx*.4,y+.5+n[1]*.05+ty*.4,0,r()*6.3,.8+.3*r());else if(i%3===0)add('weed_plant_02',x+.5+n[0]*.3+tx,y+.5+n[1]*.3+ty,0,r()*6.3,.8+.5*r());});
    plot.lawn.filter(([x,y])=>plot.distBuilt(x,y)>3).forEach(([x,y])=>{if(r()<.025)add('dandelion_01',x+r(),y+r(),0,r()*6.3,.8+.4*r());});
    const wall=facades.find(f=>f.length>=4);if(wall){const T=wall.thickness/2,u=Math.min(1,wall.length*.2),hx=wall.a[0]+wall.t[0]*u+wall.out[0]*T,hy=wall.a[1]+wall.t[1]*u+wall.out[1]*T;add('garden_hose_wall_mounted_01',hx,hy,wall.base+.75,Math.atan2(wall.out[1],wall.out[0]),1,'wall');}
    for(const [id,list] of placements)loadScannedModel(id).then(async model=>{if(gen!==generation)return;
