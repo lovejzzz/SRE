@@ -55,8 +55,13 @@ test('whole-room lamp batch shares shadow sampler budget without changing total 
  const lights=scene.children.filter(x=>x.isSpotLight);assert.equal(lights.length,10);assert.ok(lights.every(l=>l.castShadow));assert.equal(lights.reduce((s,l)=>s+l.intensity,0),7*asset.geometry.light.intensity);
  assert.deepEqual(lights[0].position.toArray(),asset.geometry.light.position.map((v,i)=>v+asset.geometry.light.samples[0][i]));rig.dispose();
 });
-test('over-budget floor reports an explicit limit rather than compiling invisible geometry',()=>{
- const scene=new THREE.Scene(),rig=createVolumeFixtureLights(scene,{shadowBudget:2});assert.throws(()=>rig.rebuild(Array.from({length:3},(_,i)=>({levelId:'g',objectId:String(i),light:asset.geometry.light})),'g'),/shadow budget supports 2/);assert.equal(scene.children.length,0);
+test('over-budget floor: every lamp lights, only the budget casts shadows; light mode casts none',()=>{
+ const lamps=Array.from({length:3},(_,i)=>({levelId:'g',objectId:String(i),light:asset.geometry.light}));
+ const scene=new THREE.Scene(),rig=createVolumeFixtureLights(scene,{shadowBudget:2});rig.rebuild(lamps,'g');
+ const lights=scene.children.filter(o=>o.isSpotLight);assert.equal(new Set(lights.map(l=>l.userData.objectId)).size,3,'no lamp is dropped');
+ assert.equal(new Set(lights.filter(l=>l.castShadow).map(l=>l.userData.objectId)).size,2);assert.ok(lights.filter(l=>l.castShadow).length<=2);
+ const lite=new THREE.Scene(),plain=createVolumeFixtureLights(lite,{shadowBudget:2,shadows:false});plain.rebuild(lamps,'g');
+ assert.ok(lite.children.some(o=>o.isSpotLight));assert.equal(lite.children.filter(o=>o.isSpotLight&&o.castShadow).length,0);
 });
 
 test('open shade sends bounded energy up and down with shared budget and switching',()=>{

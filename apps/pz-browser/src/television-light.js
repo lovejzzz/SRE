@@ -9,7 +9,8 @@ export function createTelevisionLight(scene,{draw,onStatus=()=>{},onSample=()=>{
  const video=document.createElement('video');video.crossOrigin='anonymous';video.playsInline=true;video.preload='none';video.volume=.35;
  const texture=new THREE.VideoTexture(video);texture.colorSpace=THREE.SRGBColorSpace;
  const sample=document.createElement('canvas');sample.width=64;sample.height=36;const ctx=sample.getContext('2d',{willReadFrequently:true});
- const lights=Array.from({length:4},()=>{const light=new THREE.SpotLight(0xffffff,0,9,Math.PI*.46,1,2);light.userData.indirectCaptureExclude=true;light.castShadow=true;light.shadow.mapSize.set(256,256);light.shadow.bias=-.00008;light.shadow.normalBias=.015;light.shadow.radius=3;scene.add(light,light.target);return light;});
+ const lights=Array.from({length:4},()=>{const light=new THREE.SpotLight(0xffffff,0,9,Math.PI*.46,1,2);light.userData.indirectCaptureExclude=true;light.castShadow=false; // every shadowed spot light adds a full shadow loop to every lit shader
+light.shadow.mapSize.set(256,256);light.shadow.bias=-.00008;light.shadow.normalBias=.015;light.shadow.radius=3;scene.add(light,light.target);return light;});
  let channel=televisionChannel;
  const screens=new Map();let hls=null,active=null,frame=null,last=0,disposed=false,playing=false;
  const listeners=new Set();const report=message=>{controller.status=message;onStatus(message);for(const listener of listeners)listener(message);};

@@ -222,6 +222,7 @@ async function startGame(){if(arriving||volumeHome)return;
    volumeHome=await openResidentHome({world,sim,renderer,bounds:RESIDENCE.bounds,onSave:save,onGameFrame:drainGameEvents,
     onComputer:(parent,onClose)=>desktop.open(onClose,{parent}),
     onWorkshop:()=>{toWorkshop=true;volumeHome?.close();},
+    onLoadProgress:text=>{$('#load-status').textContent=text;},
     settings:{get:()=>preferences,set:value=>{try{applyPreferences(storePreferences(value));}catch{applyPreferences(value);}}},
     onClose:()=>{volumeHome=null;document.body.classList.remove('volume-home-active');sim.paused=true;keys.clear();if(toWorkshop){toWorkshop=false;openWorkshop({fromResidence:true});}else mainMenu.open();}});
    mainMenu.close();document.body.classList.add('volume-home-active');volumeHome.resume();return;

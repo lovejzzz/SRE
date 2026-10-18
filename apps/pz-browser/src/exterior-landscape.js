@@ -288,6 +288,7 @@ export function fallenLeafPixels(size=128,seed=3){
 }
 // Split one big InstancedMesh into spatial chunks (cell × cell metres) so frustum
 // culling skips off-screen ground cover and distant chunks can be hidden outright.
+export const SCAN_GROUND_COVER=new Set(['periwinkle_plant','dandelion_01','weed_plant_02','fern_02']);
 export function chunkInstances(im,cell=12,maxDist=Infinity){
  const groups=new Map(),m=new THREE.Matrix4(),c=new THREE.Color(),p=new THREE.Vector3();
  for(let i=0;i<im.count;i++){im.getMatrixAt(i,m);p.setFromMatrixPosition(m);const k=Math.floor(p.x/cell)+','+Math.floor(p.y/cell);if(!groups.has(k))groups.set(k,[]);groups.get(k).push(i);}
@@ -516,7 +517,11 @@ export function createExteriorLandscape(scene,{quality=1,scanned=typeof document
      list.forEach((p,i)=>{
       // glTF models face +Y after the up-axis turn; the hose reel's back goes to the wall.
       q.setFromAxisAngle(new THREE.Vector3(0,0,1),p.tilt==='wall'?p.yaw-Math.PI/2:p.yaw);m.compose(new THREE.Vector3(p.x,p.y,p.z),q,new THREE.Vector3(p.s,p.s,p.s));mesh.setMatrixAt(i,m);});
-     mesh.castShadow=true;mesh.receiveShadow=true;mesh.name='scanned-'+id;root.add(mesh);}
+     // Ground cover (periwinkle, dandelions, weeds, ferns) is dense scan geometry in
+     // many copies: it casts no shadows (contact AO grounds it) and is drawn in
+     // distance-culled chunks like the grass. Shrubs keep shadows and a longer range.
+     const ground=SCAN_GROUND_COVER.has(id);mesh.castShadow=!ground;mesh.receiveShadow=true;mesh.name='scanned-'+id;
+     if(list.length>1){for(const ch of chunkInstances(mesh,8,ground?22:45))root.add(ch);mesh.dispose();}else root.add(mesh);}
     onChange();}).catch(e=>console.warn('Scanned plant failed to load',id,e));}
   // 11. Lived-in dressing round the house (door canopies, steps, mat, letterbox,
   //     number, tap, bicycle, washing line, wheelbarrow, spade, watering can).

@@ -6,7 +6,7 @@ import {createVolumeFixtureLights} from '../src/volume-fixture-lights.js';
 test('soft filter chains existing shader work and retains narrow PCF fallback',()=>{
  const m=new THREE.MeshStandardMaterial();m.onBeforeCompile=s=>{s.uniforms.existing={value:1};};m.customProgramCacheKey=()=> 'existing';installSoftShadowFilter(m);
  const s={fragmentShader:'#include <shadowmap_pars_fragment>',uniforms:{}};m.onBeforeCompile(s,{});
- assert.equal(s.uniforms.existing.value,1);assert.equal(s.fragmentShader,softShadowChunk);assert.match(s.fragmentShader,/vogelDiskSample\( 23, 24, phi \)/);assert.match(s.fragmentShader,/vogelDiskSample\( 4, 5, phi \)/);assert.equal(m.customProgramCacheKey(),'existing|tian-diffuser-pcf-24-receiver-v3');
+ assert.equal(s.uniforms.existing.value,1);assert.equal(s.fragmentShader,softShadowChunk);assert.match(s.fragmentShader,/vogelDiskSample\( 11, 12, phi \)/);assert.match(s.fragmentShader,/vogelDiskSample\( 4, 5, phi \)/);assert.equal(m.customProgramCacheKey(),'existing|tian-diffuser-pcf-12-receiver-v4');
 });
 test('shadow comparison setting survives rebuild without changing light energy',()=>{
  const scene=new THREE.Scene(),rig=createVolumeFixtureLights(scene),fixture={objectId:'lamp',levelId:'g',light:{position:[0,0,2],target:[0,0,0],color:0xffffff,intensity:8,distance:4,angle:1,penumbra:1,decay:2}};
@@ -15,13 +15,13 @@ test('shadow comparison setting survives rebuild without changing light energy',
 });
 
 test('both PCF kernels use receiver-plane correction before depth comparison',()=>{
- assert.equal((softShadowChunk.match(/clamp\(dot\(receiverSlope,/g)||[]).length,29);
+ assert.equal((softShadowChunk.match(/clamp\(dot\(receiverSlope,/g)||[]).length,17);
  const start=softShadowChunk.indexOf('float getShadow( sampler2DShadow');
  assert.ok(softShadowChunk.indexOf('dFdx(shadowCoord.xyz)',start)<softShadowChunk.indexOf('if ( frustumTest )',start));
  assert.match(softShadowChunk,/abs\(receiverDet\) > 1e-12/);
  assert.match(softShadowChunk,/shadowCoord.z -= receiverResidual/);
 });
-test('curved soft surfaces retain diffuse filtering without extrapolating a receiver plane',()=>{const m=new THREE.MeshPhysicalMaterial();installSoftShadowFilter(m,{curved:true});const s={fragmentShader:'#include <shadowmap_pars_fragment>',uniforms:{}};m.onBeforeCompile(s,{});assert.match(s.fragmentShader,/vogelDiskSample\( 23, 24, phi \)/);assert.doesNotMatch(s.fragmentShader,/receiverSlope|receiverResidual/);assert.match(m.customProgramCacheKey(),/curved/);});
+test('curved soft surfaces retain diffuse filtering without extrapolating a receiver plane',()=>{const m=new THREE.MeshPhysicalMaterial();installSoftShadowFilter(m,{curved:true});const s={fragmentShader:'#include <shadowmap_pars_fragment>',uniforms:{}};m.onBeforeCompile(s,{});assert.match(s.fragmentShader,/vogelDiskSample\( 11, 12, phi \)/);assert.doesNotMatch(s.fragmentShader,/receiverSlope|receiverResidual/);assert.match(m.customProgramCacheKey(),/curved/);});
 
 test('spare emitter samples are distributed within budget with stable energy and source extents',async()=>{
  const {fixtureSampleCounts}=await import('../src/volume-fixture-lights.js');
