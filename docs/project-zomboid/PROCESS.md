@@ -7260,3 +7260,60 @@ architecture and frame cost (about 3.4M triangles). All five are now addressed.
   hidden, compile hitches), the wall wash, cladding and the facade detail. Full suite
   1134/1134.
 
+
+## 506 — The site opens inside the house: one Workshop, one way back to living
+
+The user asked for the Workshop and the whole UI/UX to change into a personal portfolio
+site:
+- the page opens inside the house;
+- far fewer buttons on screen;
+- a single Workshop entry that edits this house, with one click back to living;
+- visitors play the resident;
+- the work lives on the desk computer.
+
+- **Arrival**:
+  - When the save's house has a 3D structure, `main.js` opens the 3D home straight after
+    loading. The loading screen stays up ("Opening the house…") until the home is open.
+  - The title menu remains only as the fallback for a house without a 3D structure, or a
+    3D home that fails to open.
+- **Living HUD** (`src/home-hud.js`):
+  - On screen are only the contextual "E · …" prompt, one Workshop button and, when the
+    scene loses focus, "Click to continue". First-visit movement help fades after 9 s and
+    is not shown again.
+  - The Esc menu holds:
+    - the needs and save status;
+    - Continue, View my work, Inventory, Time, Wait, Save, Export, Sound, Reduce motion;
+    - a House view section (TV, lamps, cutaways, overview).
+  - The panel's existing controls are moved into the menu, not rebuilt, so handlers and
+    state are unchanged.
+  - Developer tools (contact shading, lighting study) and the old "Main menu"/"House
+    options" are gone from living mode.
+  - Esc is handled on keydown: the site now opens without a click, and before user
+    activation Chrome will not let a dialog's cancel be prevented, so the first Esc
+    closed the house.
+  - Nested windows (inventory, the computer) keep Esc for themselves.
+- **Workshop**:
+  - The Workshop button closes the home and opens the Workshop on the lived-in house
+    (`open({fromResidence:true})`).
+  - A drafted plan that differs from the house (`sameHouse` in `src/house-compare.js`
+    compares structure, tiles, items and vehicles regardless of key order) is saved to the
+    House Library first, never dropped.
+  - "Back to living" replaces "Return" as the primary action. It saves the draft, applies
+    it to the residence (an unchanged house is not rebuilt) and reopens the home.
+  - Verified: a hedge-height edit arrived in the house in one click, with the resident at
+    the same position and clock. The edit was then reset to automatic.
+- **Portfolio**:
+  - The existing desk computer desktop (Folio University, Surge Method, Bebop Puzzle) is
+    the work.
+  - A "My work" label floats over the computer at 1.8–10 m. When the desk is out of frame
+    it is held at the screen edge with an arrow.
+  - Clicking the label, or View my work in the menu, opens the computer directly.
+- **Migration repair** (same day): iCloud had dropped files before the move to
+  `/Users/tianxing/ClaudeCodeProjects/SRE`.
+  - Rebuilt byte-identically from the local game install by regenerating into scratch,
+    verifying against the survivors and copying only the missing files: the world
+    manifest and 2 cells, 15 tree cells, 1 held model, 84 workshop vehicles.
+  - Seven volume deliveries listed in `build-report.json` were restored from git, and
+    `node_modules` was reinstalled with `npm ci`.
+- Tests: new `home-hud` suite, covering the HUD and menu, Esc ownership, first-visit
+  help, the computer marker band and edge, and `sameHouse`. Full suite 1137/1137.
