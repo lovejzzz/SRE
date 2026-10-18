@@ -54,6 +54,7 @@ import {physicalViewLevel} from './physical-view-level.js';
 import {sceneStairVolumes} from './scene-stair-volumes.js';
 import {screenMovement} from './screen-movement.js';
 import {createVolumeWalkthrough} from './volume-walkthrough.js';
+import {isTap,mountTouchStick,twoFingerView} from './touch-controls.js';
 import {sceneRoofMeshes} from './scene-roof-meshes.js';
 import {openingFrameJoins} from './opening-frame-joins.js';
 import {openingVolume} from './opening-volume.js';
@@ -147,7 +148,7 @@ if(!value)draw();},onStatus:text=>bounceStatus.textContent=text});bounceToggle.o
  const wallToggle=el('button','Walls: auto');wallToggle.setAttribute('aria-label','Automatic wall cutaway');wallToggle.setAttribute('aria-pressed','true');bar.insertBefore(wallToggle,close);wallToggle.onclick=()=>{const enabled=wallToggle.getAttribute('aria-pressed')!=='true';wallToggle.setAttribute('aria-pressed',String(enabled));wallToggle.textContent=enabled?'Walls: auto':'Walls: solid';draw();};
  const assistLabel=el('label','Door approach assist'),assist=el('input');assist.type='checkbox';assist.checked=true;assist.setAttribute('aria-label','Door approach assist');assistLabel.prepend(assist);inspector.append(assistLabel);
  const batchLabel=el('label','Batch object parts'),batchEnabled=el('input');batchEnabled.type='checkbox';batchEnabled.checked=true;batchEnabled.setAttribute('aria-label','Batch object parts');batchLabel.prepend(batchEnabled);inspector.append(batchLabel);batchEnabled.onchange=()=>build(true);
- let residentMode=resident,lastResidenceSave=0,hud=null;
+ let residentMode=resident,lastResidenceSave=0,hud=null,touchStick=null;
  let gameSession=null,gameRevision=null;const gameStatus=el('p','Temporary visitor · Game systems start when walking');gameStatus.setAttribute('aria-label','Visitor game state');dialog.insertBefore(gameStatus,canvas);
  const lifeEvents=el('p');lifeEvents.className='volume-life-events';lifeEvents.setAttribute('role','log');lifeEvents.setAttribute('aria-label','Recent life events');lifeEvents.setAttribute('aria-live','polite');lifeEvents.hidden=true;dialog.insertBefore(lifeEvents,canvas);
  let lifeEventUntil=0;
@@ -265,8 +266,17 @@ if(!value)draw();},onStatus:text=>bounceStatus.textContent=text});bounceToggle.o
  pose.onchange=()=>{const id=selected?.userData.openingId;if(!id)return;poses.set(id,Number(pose.value));build(true);};level.onchange=()=>{walk.reset();build();};rooms.onchange=()=>{walk.setRoom(rooms.value);frameArchitecture(rooms.value);};walls.onchange=()=>select(walls.value);close.onclick=async()=>{walk.reset();if(residentMode&&!await saveResidence())return;dialog.close();};edit.onclick=()=>{if(residentMode)return;const room=source.rooms.find(r=>r.id===rooms.value);if(!room)return;workshop.setLevel(source.levels.find(l=>l.id===room.levelId).index);workshop.selectedRoomId=room.id;workshop.center={x:(room.rect[0]+room.rect[2])/2,y:(room.rect[1]+room.rect[3])/2};workshop.setTool('reshape');workshop.refreshRoomSelection();workshop.updateContext();dialog.close();};
  function pointerRay(e){const r=canvas.getBoundingClientRect();ray.setFromCamera(new THREE.Vector2((e.clientX-r.left)/r.width*2-1,1-(e.clientY-r.top)/r.height*2),camera);return ray;}
  function cancelFurnitureDrag(){if(furnitureDrag){furnitureDrag.preview.reset();furnitureDrag=null;draw();}down=null;}
+ // Living mode: a short click (or tap) on the floor at the resident's level walks there.
+ function walkToPointer(e){const at=walk.getPosition();if(!at)return false;
+  const hit=pointerRay(e).intersectObjects(visiblePickMeshes(group.children)).find(h=>h.object.visible);
+  return !!hit&&Math.abs(hit.point.z-(at[2]-.9))<=.3&&walk.walkTo([hit.point.x,hit.point.y,hit.point.z]);}
+ // Fingers on the scene; two of them pinch to zoom and drag to orbit.
+ const touches=new Map();let pinch=null;
+ const releasePointer=e=>{touches.delete(e.pointerId);if(touches.size<2)pinch=null;};
  canvas.onpointerdown=e=>{
   if(busy)return;
+  touches.set(e.pointerId,{x:e.clientX,y:e.clientY});
+  if(touches.size>=2){if(!furnitureDrag&&touches.size===2){const [a,b]=[...touches.values()];pinch={a,b,yaw,pitch,radius};canvas.setPointerCapture(e.pointerId);}down=null;return;}
   down={x:e.clientX,y:e.clientY,yaw,pitch};canvas.setPointerCapture(e.pointerId);
   if(residentMode||walkthrough||walk.getPosition()||e.button!==0)return;
   const hit=pointerRay(e).intersectObjects(visiblePickMeshes(group.children))[0];
@@ -277,19 +287,23 @@ if(!value)draw();},onStatus:text=>bounceStatus.textContent=text});bounceToggle.o
   if(point)furnitureDrag={plane,fine:fineMove.checked||surfaceMove.checked,preview:createFurnitureDragPreview(group.children,assembly.allIds,{cellSize:metrics.cellSize,origin:[point.x,point.y],step:(fineMove.checked||surfaceMove.checked)?.05:1})};
  };
  canvas.onpointermove=e=>{
+  if(touches.has(e.pointerId))touches.set(e.pointerId,{x:e.clientX,y:e.clientY});
+  if(pinch){const [a,b]=[...touches.values()];({yaw,pitch,radius}=twoFingerView(pinch,a,b));draw();return;}
   if(!down)return;
   if(furnitureDrag){const point=pointerRay(e).ray.intersectPlane(furnitureDrag.plane,new THREE.Vector3());if(point){const d=furnitureDrag.preview.update([point.x,point.y]);objectFeedback.style.visibility='visible';objectFeedback.textContent=`Preview · ${d.dx}, ${d.dy} cells · Release to place · Esc to cancel`;}}
   else {yaw=down.yaw-(e.clientX-down.x)*.007;pitch=Math.max(.1,Math.min(1.45,down.pitch+(e.clientY-down.y)*.005));}
   draw();
  };
  canvas.onpointerup=e=>{
+  const wasPinch=!!pinch||touches.size>1;releasePointer(e);if(wasPinch){down=null;return;}
   if(furnitureDrag){const delta=furnitureDrag.preview.reset(),fine=furnitureDrag.fine;furnitureDrag=null;down=null;draw();if(delta.dx||delta.dy)void editFurniture({type:fine?'objects.nudge':'objects.move',...delta});else{objectFeedback.style.visibility='hidden';}return;}
+  if(residentMode&&!walkthrough&&down&&e.button===0&&isTap(down,{x:e.clientX,y:e.clientY},e.pointerType))walkToPointer(e);
   if(!residentMode&&!walkthrough&&down&&Math.hypot(e.clientX-down.x,e.clientY-down.y)<4)select(pointerRay(e).intersectObjects(visiblePickMeshes(group.children))[0]?.object.userData.structureId||'');down=null;
  };
- canvas.onpointercancel=cancelFurnitureDrag;canvas.onlostpointercapture=cancelFurnitureDrag;
+ canvas.onpointercancel=canvas.onlostpointercapture=e=>{releasePointer(e);cancelFurnitureDrag();};
  canvas.addEventListener('keydown',e=>{if(e.key==='Escape'&&furnitureDrag){e.preventDefault();e.stopPropagation();cancelFurnitureDrag();objectFeedback.style.visibility='visible';objectFeedback.textContent='Move cancelled';}});
  canvas.addEventListener('wheel',e=>{e.preventDefault();radius=Math.max(2,Math.min(200,radius*Math.exp(e.deltaY*.001)));draw();},{passive:false});const resize=new ResizeObserver(draw);resize.observe(canvas);
- dialog.addEventListener('close',()=>{closed=true;hud?.dispose();pianoPractice.dispose();fridgeDoors.dispose();fridgeContents.dispose();repaint.dispose();bounce.dispose();if(sampleFrame!==null)cancelAnimationFrame(sampleFrame);walk.dispose();television.dispose();showerEffect.dispose();characterView.dispose();resize.disconnect();for(const m of group.children){m.geometry.dispose();m.material.dispose();}shadowAtlas.dispose();landscape.dispose();wallWash.dispose();gardenEnv?.dispose();gardenPmrem.dispose();lighting.dispose();fixtures.dispose();materialCache.dispose();contactShading.dispose();renderer.dispose();dialog.remove();workshop.canvas.focus();onClose?.();});build();
+ dialog.addEventListener('close',()=>{closed=true;hud?.dispose();touchStick?.dispose();pianoPractice.dispose();fridgeDoors.dispose();fridgeContents.dispose();repaint.dispose();bounce.dispose();if(sampleFrame!==null)cancelAnimationFrame(sampleFrame);walk.dispose();television.dispose();showerEffect.dispose();characterView.dispose();resize.disconnect();for(const m of group.children){m.geometry.dispose();m.material.dispose();}shadowAtlas.dispose();landscape.dispose();wallWash.dispose();gardenEnv?.dispose();gardenPmrem.dispose();lighting.dispose();fixtures.dispose();materialCache.dispose();contactShading.dispose();renderer.dispose();dialog.remove();workshop.canvas.focus();onClose?.();});build();
  if((resident||walkthrough)&&initialProblem){dialog.close();throw initialProblem;}
  function mountResidentUI(){
   if(dialog.classList.contains('volume-home-dialog'))return;
@@ -316,9 +330,13 @@ if(!value)draw();},onStatus:text=>bounceStatus.textContent=text});bounceToggle.o
    const motion=el('label','Reduce motion '),reduce=el('input');reduce.type='checkbox';reduce.checked=!!prefs().reducedMotion;reduce.setAttribute('aria-label','Reduce motion');reduce.onchange=()=>workshop.settings.set({...prefs(),reducedMotion:reduce.checked});motion.append(reduce);
    items.append(sound,motion);}
   if(window.pz?.volumeView)window.pz.volumeView.hud=hud;
+  // Visitors without WASD: click the floor to walk; on a phone, a thumb stick and the E prompt.
+  const coarse=window.matchMedia?.('(pointer:coarse)').matches;
+  movementHelp.textContent=coarse?'Stick or tap the floor to walk · Tap E to use · Drag to look · Pinch to zoom':'WASD or click the floor to walk · Drag to orbit · Scroll to zoom';
+  touchStick=mountTouchStick({parent:dialog,canvas,onMove:v=>walk.setStick(v)});const stickShown=window.matchMedia?.('(max-width:700px) and (pointer:coarse)');
   const v=new THREE.Vector3();
   placeHud=()=>{const r=canvas.getBoundingClientRect(),d=dialog.getBoundingClientRect();hud.place(p=>{v.set(...p).project(camera);if(v.z>1){v.x=-v.x*1e3;v.y=-v.y*1e3;} // behind the camera: point the other way
-   return {x:(v.x*.5+.5)*r.width+r.left-d.left,y:(-v.y*.5+.5)*r.height+r.top-d.top,onScreen:v.z<1&&Math.abs(v.x)<.95&&Math.abs(v.y)<.92};},p=>{const q=walk.getPosition();return q?Math.hypot(q[0]-p[0],q[1]-p[1]):null;});};
+   return {x:(v.x*.5+.5)*r.width+r.left-d.left,y:(-v.y*.5+.5)*r.height+r.top-d.top,onScreen:v.z<1&&Math.abs(v.x)<.95&&Math.abs(v.y)<.92};},p=>{const q=walk.getPosition();return q?Math.hypot(q[0]-p[0],q[1]-p[1]):null;},stickShown?.matches?110:0);};
  }
  // The portfolio lives on the desk computer; the menu and the marker open it directly.
  function openWork(){if(!workshop.onOpenComputer)return;hud?.closeMenu();gameSession?.session.sim.cancel();workshop.onOpenComputer(dialog,()=>canvas.focus());}

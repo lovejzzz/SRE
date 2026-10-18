@@ -43,10 +43,11 @@ export function mountHomeHud({dialog,canvas,name,resume,pause,menuItems=[],house
  window.addEventListener('keydown',onKey,true);
  const timer=setInterval(update,400);update();
  // project(position) -> {x,y,onScreen} in dialog pixels; distance(position) -> metres from the resident.
- function place(project,distance){for(const {m,b} of pins){const d=distance(m.position),near=m.near??1.8,far=m.far??10;
+ // bottomInset keeps edge-held labels clear of on-screen controls (the touch stick).
+ function place(project,distance,bottomInset=0){for(const {m,b} of pins){const d=distance(m.position),near=m.near??1.8,far=m.far??10;
   const s=open||d===null||d<near||d>far?null:project(m.position);b.hidden=!s;b.dataset.distance=d===null?'':d.toFixed(1);if(!s)continue;
   // Out of frame: hold the label at the nearest edge with an arrow toward the object.
-  const W=dialog.clientWidth,H=dialog.clientHeight,pad=70,x=Math.max(pad,Math.min(W-pad,s.x)),y=Math.max(pad+30,Math.min(H-pad-60,s.y)),edge=!s.onScreen;
+  const W=dialog.clientWidth,H=dialog.clientHeight,pad=70,x=Math.max(pad,Math.min(W-pad,s.x)),y=Math.max(pad+30,Math.min(H-pad-60-bottomInset,s.y)),edge=!s.onScreen;
   b.classList.toggle('home-hud-marker-edge',edge);b.dataset.side=!edge?'':s.x<pad?'left':s.x>W-pad?'right':s.y<pad+30?'up':'down';
   b.style.left=x+'px';b.style.top=y+'px';b.style.opacity=String(Math.min(1,(far-d)/2.5));}}
  return {get open(){return open;},openMenu,closeMenu,toggleMenu(){open?closeMenu():openMenu();},update,place,elements:{workshop,hint,sheet,markers:pins.map(p=>p.b)},markers:pins.map(p=>p.m),dispose(){clearInterval(timer);window.removeEventListener('keydown',onKey,true);workshop.remove();hint.remove();sheet.remove();for(const p of pins)p.b.remove();dialog.classList.remove('home-hud');}};

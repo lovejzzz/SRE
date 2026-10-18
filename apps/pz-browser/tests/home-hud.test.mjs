@@ -58,6 +58,7 @@ test('desk computer marker: middle distance band, held at the screen edge when o
  hud.place(()=>on,()=>1);assert.equal(pin.hidden,true,'close enough for the E prompt');
  hud.place(()=>on,()=>6);assert.equal(pin.hidden,false);assert.equal(pin.style.left,'400px');assert.equal(pin.classList.contains('home-hud-marker-edge'),false);
  hud.place(()=>({x:-50,y:300,onScreen:false}),()=>6);assert.equal(pin.hidden,false);assert.equal(pin.style.left,'70px');assert.equal(pin.dataset.side,'left');
+ hud.place(()=>({x:-50,y:900,onScreen:false}),()=>6);assert.equal(pin.style.top,'570px');hud.place(()=>({x:-50,y:900,onScreen:false}),()=>6,110);assert.equal(pin.style.top,'460px','held above the touch stick');
  hud.openMenu();hud.place(()=>on,()=>6);assert.equal(pin.hidden,true,'menu hides world labels');hud.closeMenu();
  pin.click();assert.equal(opened,1);hud.dispose();
 });

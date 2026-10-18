@@ -148,3 +148,14 @@
 .home-hud-marker-edge[data-side=right]::after{display:inline;position:static;content:' ›';background:none;width:auto;height:auto}
 .home-hud-marker-edge[data-side=up]::before{content:'˄ '}
 .home-hud-marker-edge[data-side=down]::before{content:'˅ '}
+/* Touch (touch-controls.js): thumb stick bottom-left and the E prompt under the right thumb, phones only. */
+.touch-stick{display:none}
+@media(max-width:700px) and (pointer:coarse){
+.home-hud>.touch-stick{display:block;position:absolute;left:22px;bottom:34px;z-index:9;width:112px;height:112px;border-radius:50%;background:#18251f8c;border:1px solid #d2cda566;box-shadow:0 8px 24px #0004;backdrop-filter:blur(4px);touch-action:none;user-select:none;-webkit-user-select:none}
+.touch-stick-knob{position:absolute;left:50%;top:50%;width:48px;height:48px;margin:-24px 0 0 -24px;border-radius:50%;background:#d2cda5cc;box-shadow:0 2px 8px #0006;pointer-events:none}
+.touch-stick-active{background:#18251fb8}
+.home-hud .volume-home-actions{left:auto;right:16px;bottom:52px;transform:none;padding:6px;max-width:calc(100% - 170px)}
+.home-hud .volume-home-actions>button{min-height:48px;padding:10px 14px;font-size:15px;line-height:1.25;text-align:left}
+.home-hud>.volume-movement-help{left:150px;right:12px;text-align:right}
+.home-hud>.volume-life-events{bottom:170px}
+}
