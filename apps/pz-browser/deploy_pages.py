@@ -29,6 +29,13 @@ for name in ['style.css','portfolio.css','workshop.css','menu.css','src/bootstra
 (out/'.nojekyll').touch();vendor=out/'vendor/three';vendor.mkdir(parents=True)
 for name in ['three.module.js','three.core.js']:shutil.copy2(source/'node_modules/three/build'/name,vendor/name)
 shutil.copy2(source/'node_modules/three/LICENSE',vendor/'LICENSE')
+# The 3D home imports three.js add-ons (loaders, post-processing, utils) as
+# '../node_modules/three/examples/jsm/...'; publish them at that same path. They
+# import 'three', which the import map points at the vendored build above.
+jsm=out/'node_modules/three/examples/jsm'
+if jsm.exists():shutil.rmtree(jsm)
+shutil.copytree(source/'node_modules/three/examples/jsm',jsm)
+shutil.copy2(source/'node_modules/three/LICENSE',out/'node_modules/three/LICENSE')
 (out/'vendor/hls').mkdir(parents=True)
 shutil.copy2(source/'node_modules/hls.js/dist/hls.mjs',out/'vendor/hls/hls.mjs')
 shutil.copy2(source/'node_modules/hls.js/LICENSE',out/'vendor/hls/LICENSE')
@@ -44,6 +51,8 @@ if args.include_assets:
     asset_out=out/'private-assets'
     for file in (source/'private-assets').rglob('*'):
         if not file.is_file():continue
+        # Scanned-asset sources (Poly Haven downloads); the runtime uses assets/scanned.
+        if file.relative_to(source/'private-assets').parts[0]=='polyhaven':continue
         if file.suffix not in {'.json','.png','.wav','.webp'} and not file.name.endswith('.json.gz'):raise ValueError(f'Unexpected runtime asset: {file.name}')
         target=asset_out/file.relative_to(source/'private-assets');target.parent.mkdir(parents=True,exist_ok=True)
         if file.suffix=='.json':
