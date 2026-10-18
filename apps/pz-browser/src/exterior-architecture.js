@@ -14,6 +14,8 @@ import {resolveExterior} from './scene-exterior.js';
 // Dimensions are typical residential construction, authored, not surveyed.
 export const EXTERIOR_DETAIL={parapetRise:.42,copingOverhang:.035,copingThickness:.045,drip:.035,plinthHeight:.32,plinthDepth:.014,sillProjection:.055,sillThickness:.028,pipeRadius:.04,pipeOffset:.07};
 const ANODISED={color:0x34373a,metalness:.55,roughness:.42,variation:{tone:.05,roughness:.25,scale:2}};
+// Weathered larch boards (silvered, open grain) for the clad volume.
+const LARCH={color:0x9a8a74,roughness:.82,bumpScale:.01,texture:{kind:'walnut',size:256,seed:71,repeatMetres:[.14,1.6]},variation:{tone:.3,roughness:.2,scale:2.5}};
 const PLINTH={color:0x5e5c57,roughness:.96,bumpScale:.012,texture:{kind:'wall-paint',size:512,seed:53,repeatMetres:[.9,.9]},variation:{tone:.22,roughness:.15,scale:1.4}};
 
 function merge(id,parts,extra){const mesh={id,vertices:[],indices:[],collision:[],...extra};for(const p of parts){const o=mesh.vertices.length;mesh.vertices.push(...p.vertices);mesh.indices.push(...p.indices.map(i=>i+o));}return mesh;}
@@ -62,6 +64,13 @@ export function sceneExteriorDetails(scene,walls,roofs,{cellSize}){
  const D=EXTERIOR_DETAIL,out=[],openings=new Map(scene.openings.map(o=>[o.id,o])),corners=[],doorPoints=[];
  const inRoom=(levelId,p)=>scene.rooms.some(r=>r.levelId===levelId&&roomContainsPoint(r,p[0]/cellSize,p[1]/cellSize));
  const roofBoxes=roofs.filter(r=>r.role==='roof').map(r=>{const xs=r.vertices.map(v=>v[0]),ys=r.vertices.map(v=>v[1]),zs=r.vertices.map(v=>v[2]);return {roofId:r.roofId,box:[Math.min(...xs),Math.min(...ys),Math.max(...xs),Math.max(...ys)],top:Math.max(...zs)};});
+ // Cladding: the smallest room with exterior walls is wrapped in vertical larch
+ // boards, so the house reads as a rendered volume plus a timber one.
+ const roomOf=(levelId,p)=>scene.rooms.find(r=>r.levelId===levelId&&roomContainsPoint(r,p[0]/cellSize,p[1]/cellSize));
+ const area=r=>(r.rect[2]-r.rect[0])*(r.rect[3]-r.rect[1]),extCount=new Map();
+ for(const w of walls){if(!w.hostEndpoints)continue;const [a,b]=w.hostEndpoints,L=Math.hypot(b[0]-a[0],b[1]-a[1])||1,n=[-(b[1]-a[1])/L,(b[0]-a[0])/L],m=[(a[0]+b[0])/2,(a[1]+b[1])/2],q=s=>[m[0]+n[0]*s*(w.thickness/2+.05),m[1]+n[1]*s*(w.thickness/2+.05)];
+  const ra=roomOf(w.levelId,q(1)),rb=roomOf(w.levelId,q(-1));if(!!ra!==!!rb){const r=ra||rb;extCount.set(r,(extCount.get(r)||0)+1);}}
+ const cladRoom=env.cladding&&extCount.size>1?[...extCount.keys()].filter(r=>extCount.get(r)>=2).sort((x,y)=>area(x)-area(y))[0]:null;
  for(const wall of walls){
   // Walls that are wholly a glazed opening have no mesh but still carry parapet and coping.
   if(!wall.hostEndpoints||(!wall.indices?.length&&!wall.opening))continue;
@@ -94,6 +103,15 @@ export function sceneExteriorDetails(scene,walls,roofs,{cellSize}){
    for(const side of [-1,1])coping.push(slab(frame,-ext-o,L+ext+o,side*(T/2+o),side*(T/2+o-.006),zc-D.drip,zc));
    if(env.parapet)out.push(merge(wall.id+':coping',coping,{role:'coping',roofId:roof.roofId,levelId:wall.levelId,castShadow:true,material:ANODISED}));
    for(const [end,u] of [[a,-1],[b,1]])corners.push({point:end,along:t.map(v=>v*u),out:n.map(v=>v*s),wall,top:z1});
+  }
+  if(cladRoom&&roomOf(wall.levelId,probe(-s))===cladRoom){
+   // 120 mm boards, 12 mm gaps, on 25 mm battens; cut round openings; up under the coping.
+   const z0=wall.base+D.plinthHeight+.01,zTop=(roof&&env.parapet?Math.max(top,roof.top)+D.parapetRise-.12:top)-.005,bw=.12,gap=.012,d0=face+s*.025,d1=d0+s*.022,boards=[];
+   for(let u=-ext;u<L+ext-.02;u+=bw+gap){const u1=Math.min(L+ext,u+bw);
+    const spans=opening&&u1>opening[0]&&u<opening[2]?[[z0,wall.base+opening[1]-.005],[wall.base+opening[3]+.005,zTop]]:[[z0,zTop]];
+    for(const [za,zb] of spans)if(zb-za>.03)boards.push(slab(frame,u,u1,d0,d1,za,zb));}
+   for(const zb of [z0+.08,(z0+zTop)/2,zTop-.1])boards.push(slab(frame,-ext,L+ext,face,d0,zb,zb+.04)); // battens show at the ends
+   if(boards.length)out.push(textured(merge(wall.id+':cladding',boards,{...tag,role:'cladding'}),LARCH));
   }
  }
  // Downpipes at outer building corners (the neighbouring exterior wall faces the

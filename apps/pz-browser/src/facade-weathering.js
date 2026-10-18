@@ -19,12 +19,16 @@ export function roomBoxes(rooms,{cellSize,storeyHeight},levels=[]){
  const index=new Map(levels.map(l=>[l.id,l.index??0]));
  return rooms.slice(0,16).map(r=>{const z=(index.get(r.levelId)??0)*storeyHeight;return [r.rect[0]*cellSize,r.rect[1]*cellSize,r.rect[2]*cellSize,r.rect[3]*cellSize,z,z+storeyHeight];});
 }
-export function installFacadeWeathering(material,boxes,{wallTop=3,ground=0,...amounts}={}){
+// detail: optional {map,normalMap} of a scanned render (white_plaster_rough_02):
+// on outdoor vertical faces it adds real trowel relief and tonal variation, mapped
+// in world metres along the wall and up (no UV channel, no extra varyings).
+export function installFacadeWeathering(material,boxes,{wallTop=3,ground=0,detail=null,detailRepeat=1.2,...amounts}={}){
  const a={...WEATHERING_DEFAULTS,...amounts},previous=material.onBeforeCompile,key=material.customProgramCacheKey();
  const rects=Array.from({length:16},(_,i)=>boxes[i]?new THREE.Vector4(boxes[i][0],boxes[i][1],boxes[i][2],boxes[i][3]):new THREE.Vector4());
  const heights=Array.from({length:16},(_,i)=>boxes[i]?new THREE.Vector2(boxes[i][4],boxes[i][5]):new THREE.Vector2());
  material.onBeforeCompile=function(shader,renderer){previous.call(this,shader,renderer);
   Object.assign(shader.uniforms,{tfwRects:{value:rects},tfwHeights:{value:heights},tfwCount:{value:Math.min(16,boxes.length)},tfwAmount:{value:new THREE.Vector4(a.streak,a.splash,a.patch,a.kerb)},tfwLevels:{value:new THREE.Vector2(ground,wallTop)}});
+  if(detail){shader.defines??={};shader.defines.TFW_DETAIL='';Object.assign(shader.uniforms,{tfwDetailMap:{value:detail.map},tfwDetailNormal:{value:detail.normalMap},tfwDetailScale:{value:1/detailRepeat}});}
   shader.vertexShader=shader.vertexShader.replace('#include <common>','#include <common>\nvarying vec3 vTfwWorld;').replace('#include <project_vertex>',`#include <project_vertex>
  vec4 tfwWP=vec4(transformed,1.0);
  #ifdef USE_INSTANCING
@@ -34,9 +38,12 @@ export function installFacadeWeathering(material,boxes,{wallTop=3,ground=0,...am
   shader.fragmentShader=shader.fragmentShader.replace('#include <common>',`#include <common>
 varying vec3 vTfwWorld;uniform vec4 tfwRects[16];uniform vec2 tfwHeights[16];uniform int tfwCount;uniform vec4 tfwAmount;uniform vec2 tfwLevels;${NOISE}
 float tfwInside(vec3 p){for(int i=0;i<16;i++){if(i>=tfwCount)break;vec4 r=tfwRects[i];vec2 h=tfwHeights[i];if(p.x>r.x&&p.y>r.y&&p.x<r.z&&p.y<r.w&&p.z>=h.x&&p.z<=h.y)return 1.0;}return 0.0;}
+#ifdef TFW_DETAIL
+uniform sampler2D tfwDetailMap;uniform sampler2D tfwDetailNormal;uniform float tfwDetailScale;
+#endif
 float tfwToRoom(vec3 p){float d=1e5;for(int i=0;i<16;i++){if(i>=tfwCount)break;vec4 r=tfwRects[i];vec2 q=max(max(r.xy-p.xy,p.xy-r.zw),vec2(0.0));d=min(d,length(q));}return d;}`)
    .replace('#include <map_fragment>',`#include <map_fragment>
- float tfwRough=0.0;
+ float tfwRough=0.0;float tfwDetailOn=0.0;vec2 tfwDetailUV=vec2(0.0);vec3 tfwDetailT=vec3(1.0,0.0,0.0);
  {
   vec3 tfwP=vTfwWorld;vec3 tfwN=normalize(cross(dFdx(tfwP),dFdy(tfwP)));if(dot(tfwN,cameraPosition-tfwP)<0.0)tfwN=-tfwN;
   vec3 tfwProbe=tfwP+tfwN*0.06;
@@ -54,6 +61,12 @@ float tfwToRoom(vec3 p){float d=1e5;for(int i=0;i<16;i++){if(i>=tfwCount)break;v
     diffuseColor.rgb*=mix(vec3(1.0),vec3(.74,.73,.69),streak);
     diffuseColor.rgb*=mix(vec3(1.0),vec3(.62,.66,.52),splash);
     diffuseColor.rgb*=1.0+tfwPatch;
+    #ifdef TFW_DETAIL
+     tfwDetailOn=1.0;tfwDetailUV=vec2(along,z)*tfwDetailScale;tfwDetailT=abs(tfwN.x)>abs(tfwN.y)?vec3(0.0,1.0,0.0):vec3(1.0,0.0,0.0);
+     // Tone from the scan, normalised round its mean so the paint colour holds.
+     vec3 tfwScan=texture2D(tfwDetailMap,tfwDetailUV).rgb,tfwMean=textureLod(tfwDetailMap,vec2(.5),12.0).rgb;
+     diffuseColor.rgb*=mix(1.0,clamp(dot(tfwScan,vec3(.2126,.7152,.0722))/max(dot(tfwMean,vec3(.2126,.7152,.0722)),.05),.6,1.4),.6);
+    #endif
     tfwRough=streak*.5+splash;
    }else if(tfwN.z>0.5){
     float d=tfwToRoom(tfwP);
@@ -64,10 +77,19 @@ float tfwToRoom(vec3 p){float d=1e5;for(int i=0;i<16;i++){if(i>=tfwCount)break;v
    }
   }
  }`)
+   .replace('#include <normal_fragment_maps>',`#include <normal_fragment_maps>
+ #ifdef TFW_DETAIL
+ if(tfwDetailOn>0.5){
+  vec3 tfwNm=texture2D(tfwDetailNormal,tfwDetailUV).xyz*2.0-1.0;
+  vec3 tfwTv=normalize((viewMatrix*vec4(tfwDetailT,0.0)).xyz),tfwBv=normalize((viewMatrix*vec4(0.0,0.0,1.0,0.0)).xyz);
+  float tfwNs=1.4*(1.0-smoothstep(8.0,28.0,length(vViewPosition))); // past ~20 m the 1 mm relief only aliases into speckle
+  normal=normalize(tfwTv*tfwNm.x*tfwNs+tfwBv*tfwNm.y*tfwNs+normal*tfwNm.z);
+ }
+ #endif`)
    .replace('#include <metalnessmap_fragment>',`#include <metalnessmap_fragment>
  roughnessFactor=clamp(roughnessFactor+tfwRough*.15,0.0,1.0);`);
  };
- material.customProgramCacheKey=()=>key+'|facade-weathering-v1';material.userData.facadeWeathering=a;return material;
+ material.customProgramCacheKey=()=>key+'|facade-weathering-v3'+(detail?'-detail':'');material.userData.facadeWeathering=a;return material;
 }
 
 // Grass ground (plot lawn and meadow): no real sward is one green. Broad drier,

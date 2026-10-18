@@ -7210,3 +7210,53 @@ copies looked the same, but nothing was saved, editable or choosable.
 - Tests: new `scene-exterior` suite. It covers defaults for old saves; a set, tree,
   climber, export and import round trip; rejection of invalid values; the landscape
   following the design; and envelope switches. Full suite 1128/1128.
+
+## 505x — Closing the gaps to the TLOU2 bar
+
+505w left five gaps against the TLOU2 reference: a monotone facade in strong light, wall
+lights that do not light their wall, tree crowns that streak from above, box-like
+architecture and frame cost (about 3.4M triangles). All five are now addressed.
+
+- **Facade material** (`facade-weathering.js`, `detail` option):
+  - Outdoor faces of `wall:` meshes sample the scanned `white_plaster_rough_02` in
+    world-aligned UVs (along the wall, up).
+  - Tone is normalised by the texture's own mean (top mip), so the render keeps its
+    authored colour and only gains variation.
+  - The normal perturbs through the wall's tangent and up axes, strength 1.4. It fades
+    out between 8 and 28 m, because from the air the 1 mm relief only aliased into
+    speckle.
+  - Indoor faces are untouched (same room-box test as the weathering).
+- **Night wall wash** (`wall-light-wash.js`):
+  - A raycast finds the wall behind each outdoor fitting. On that wall goes an additive
+    warm scallop (hot spot under the fitting, cone spreading down, faint halo above).
+  - It scales with lamp state times darkness. Indoor fittings are skipped.
+  - Authored decal, not an integrated area light.
+- **Crowns from above**: garden-tree leaf clusters are crossed cards (two planes at
+  90°), so no card is ever seen edge-on as a streak.
+- **Architecture**: `envelope.cladding` wraps the smallest room that has two or more
+  exterior walls in silver larch boards. Boards are 120 mm with 12 mm gaps, on 25 mm
+  battens, cut round windows and doors, running up under the coping. The two volumes now
+  read as two materials. It can be switched off in Workshop → Exterior & garden and is
+  saved with the house.
+- **Performance** (`quality-governor.js`), three tiers:
+  - high: bloom, pixel ratio 2, full vegetation distance, 2048 shadows;
+  - medium: no bloom, 1.25, ×0.6;
+  - low: 1, ×0.35, 1024.
+  - A sample is the time from the first redraw request to the frame that served it. An
+    idle redraw costs one frame, and a machine at 400 ms per frame reads as 400 ms; a
+    plain frame interval would discard both as idle gaps.
+  - Each sample weighs at most 250 ms, so a few shader-compile hitches do not drop
+    quality. Hidden pages are not sampled.
+  - About 2.5 s of sustained slowness steps the tier down; about 10 s of headroom steps
+    it back up.
+  - `window.pz.volumeView.quality.force(tier|null)` pins a tier.
+- **Verified in the browser** (test profile):
+  - Day close-up: plaster, larch boards and ivy.
+  - Aerial: clean walls, boards on both clad faces, leafy crowns.
+  - Night: a warm scallop under each wall light.
+  - `force(0)` and `force(2)` switch bloom (off/on) and pixel ratio (1/2). No shader
+    errors across 242 programs.
+- Tests: new `tlou-gaps` suite, covering the governor (interval and latency paths, idle,
+  hidden, compile hitches), the wall wash, cladding and the facade detail. Full suite
+  1134/1134.
+

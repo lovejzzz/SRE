@@ -9,7 +9,7 @@ const el=(tag,text)=>{const e=document.createElement(tag);if(text!==undefined)e.
 const SECTION_LABELS=[['surroundings','enabled','Surroundings (lane, drive, neighbours)'],['meadow','enabled','Meadow and wildflowers beyond the hedge'],['treeLine','enabled','Woodland ring'],['hills','enabled','Horizon hills'],
  ['hedge','enabled','Boundary hedge'],['borders','enabled','Planted borders'],['lawn','blades','Grass blades on the lawn'],['scannedPlants','enabled','Scanned plants (shrubs, ferns, weeds, dandelions)'],
  ['props','enabled','Garden props (canopy, step, bicycle, washing line…)'],['life','enabled','Birds and falling leaves']];
-const ENVELOPE_LABELS=[['parapet','Parapet and coping'],['plinth','Plinth band'],['sills','Window sills'],['downpipes','Downpipes'],['waterButt','Water butt']];
+const ENVELOPE_LABELS=[['parapet','Parapet and coping'],['plinth','Plinth band'],['sills','Window sills'],['downpipes','Downpipes'],['waterButt','Water butt'],['cladding','Timber cladding on the smaller volume']];
 // Exterior walls (a room on exactly one side) — the candidates for climbers.
 export function exteriorWalls(scene){
  return scene.walls.filter(w=>{const [[ax,ay],[bx,by]]=wallEdgeEndpoints(w),mx=(ax+bx)/2,my=(ay+by)/2,L=Math.hypot(bx-ax,by-ay)||1,nx=-(by-ay)/L,ny=(bx-ax)/L;

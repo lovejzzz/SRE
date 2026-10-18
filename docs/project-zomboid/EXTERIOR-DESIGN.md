@@ -28,6 +28,7 @@ replicates a house (export/import, or a scripted build) gets the same exterior.
 | `props.enabled` | true | door canopy, step, mat, bicycle, washing line… |
 | `life.enabled` | true | birds, falling leaves |
 | `envelope.parapet` / `plinth` / `sills` / `downpipes` / `waterButt` | true | building envelope details |
+| `envelope.cladding` | true | silver larch boards (120 mm on battens, cut round openings) on the smallest room with two or more exterior walls |
 | `weathering` | 1 | facade streaks, splash-back and kerb grime strength, 0–1 |
 
 ## Build commands

@@ -29,7 +29,7 @@ export const EXTERIOR_DEFAULTS=Object.freeze({
  scannedPlants:{enabled:true},             // CC0 scanned shrubs, ferns, weeds, dandelions
  props:{enabled:true},                     // door canopy, step, mat, bicycle, washing line...
  life:{enabled:true},                      // birds, falling leaves
- envelope:{parapet:true,plinth:true,sills:true,downpipes:true,waterButt:true},
+ envelope:{parapet:true,plinth:true,sills:true,downpipes:true,waterButt:true,cladding:true}, // cladding: timber on the smallest volume
  weathering:1                              // facade streaks / splash-back strength, 0..1
 });
 const SECTIONS=Object.keys(EXTERIOR_DEFAULTS).filter(k=>!['version','weathering'].includes(k));

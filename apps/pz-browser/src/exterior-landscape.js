@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import {mergeVertices} from '../node_modules/three/examples/jsm/utils/BufferGeometryUtils.js';
+import {mergeVertices,mergeGeometries} from '../node_modules/three/examples/jsm/utils/BufferGeometryUtils.js';
 import {lawnPixels} from './procedural-surfaces.js';
 import {installSurfaceVariation} from './surface-variation.js';
 import {trellisSpan} from './exterior-architecture.js';
@@ -378,11 +378,15 @@ export function createExteriorLandscape(scene,{quality=1,scanned=typeof document
   if(X.gardenTrees.mode==='none')chosen.length=0;
   else if(X.gardenTrees.mode==='listed')chosen.splice(0,chosen.length,...X.gardenTrees.trees.map(t=>[t.x-.5,t.y-.5,t.height,t.seed]));
   const card=track(new THREE.PlaneGeometry(1,1));
+  // Crown clusters are crossed pairs (the card plus one turned 90° about its own
+  // horizontal axis): cards on the crown's flanks stand vertical and went edge-on,
+  // streaky, when the crown is seen from above; the second plane faces up there.
+  const crownCard=track((()=>{const a=new THREE.PlaneGeometry(1,1),b=new THREE.PlaneGeometry(1,1);b.rotateX(Math.PI/2);const g=mergeGeometries([a,b]);a.dispose();b.dispose();return g;})());
   // Cards face outward from the crown (normal ≈ radial + jitter): the canopy then
   // shades like one soft volume — lit crown top, darker underside — not loose paper.
   const Z=new THREE.Vector3(0,0,1),outward=(radial,jitter)=>{const n=radial.clone().normalize().add(new THREE.Vector3(r()-.5,r()-.5,r()-.5).multiplyScalar(jitter)).normalize();return new THREE.Quaternion().setFromUnitVectors(Z,n).multiply(new THREE.Quaternion().setFromAxisAngle(Z,r()*Math.PI*2));};
   chosen.forEach(([x,y,th,ts],k)=>{const autoH=6.5+r()*2.5,t=gardenTree(ts??31+k*17,th??autoH);track(t.wood);const wood=new THREE.Mesh(t.wood,barkMat);wood.position.set(x+.5,y+.5,0);wood.castShadow=true;wood.receiveShadow=true;wood.name='garden-tree';root.add(wood);
-   const leaves=new THREE.InstancedMesh(card,leafMat,t.leaves.length),m=new THREE.Matrix4(),c=new THREE.Color();
+   const leaves=new THREE.InstancedMesh(crownCard,leafMat,t.leaves.length),m=new THREE.Matrix4(),c=new THREE.Color();
    const centre=t.leaves.reduce((a,L)=>a.add(L.p),new THREE.Vector3()).multiplyScalar(1/t.leaves.length),reach=Math.max(...t.leaves.map(L=>L.p.distanceTo(centre)));
    t.leaves.forEach((L,i)=>{const radial=L.p.clone().sub(centre),depth=radial.length()/reach;radial.z+=.25*reach;m.compose(L.p.clone().add(new THREE.Vector3(x+.5,y+.5,0)),outward(radial,.9),new THREE.Vector3(L.s,L.s,L.s));leaves.setMatrixAt(i,m);
     // Inner leaves sit in the crown's own shade.
@@ -547,8 +551,10 @@ export function createExteriorLandscape(scene,{quality=1,scanned=typeof document
   built=true;
   return {climberLeaves,trees:chosen.length,hedgeRuns:runs.length,blades:bi,lawnCells:plot.lawn.length,bedCells:bedCells.length,tufts:ti};
  }
- const camPos=new THREE.Vector3();
+ const camPos=new THREE.Vector3();let detailScale=1;
  return {root,rebuild,update(dt,camera=null,day=1){uniforms.time.value+=dt;for(const a of animated)a.update(dt,day);const hills=root.getObjectByName('hills');if(hills)hills.material.color.setScalar(.04+.96*day);
    // Distance culling of chunked ground cover (frustum culling handles the rest).
-   if(camera){camera.getWorldPosition(camPos);for(const ch of root.children){const md=ch.userData.maxDist;if(!md||md===Infinity||!ch.boundingSphere)continue;ch.visible=ch.boundingSphere.center.distanceTo(camPos)-ch.boundingSphere.radius<md;}}},stats:()=>({built,children:root.children.map(c=>[c.name,c.isInstancedMesh?c.count:1])}),dispose(){clear();scene.remove(root);}};
+   if(camera){camera.getWorldPosition(camPos);for(const ch of root.children){const md=ch.userData.maxDist;if(!md||md===Infinity||!ch.boundingSphere)continue;ch.visible=ch.boundingSphere.center.distanceTo(camPos)-ch.boundingSphere.radius<md*detailScale;}}},
+  // Quality governor hook: scales every chunk's draw distance (grass, tufts, flowers).
+  setDetailScale(k){detailScale=Math.max(.2,Math.min(1,k));},stats:()=>({built,children:root.children.map(c=>[c.name,c.isInstancedMesh?c.count:1])}),dispose(){clear();scene.remove(root);}};
 }
