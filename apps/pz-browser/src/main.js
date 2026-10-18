@@ -11,6 +11,8 @@ import showcaseHouse from './showcase-house.js';
 import {MainMenu} from './main-menu.js';
 import {readPreferences,storePreferences} from './preferences.js';
 import {prepareHouseState,preservesResidentStock} from './workshop-apply.js';
+import {IndexedHouseLibrary} from './indexed-house-library.js';
+import {captureHouse} from './workshop-model.js';
 import {interactionTarget,interactionLabel} from './interaction-target.js';
 import {waterSource,planWater} from './water.js';
 import {RESIDENCE} from './residence.js';
@@ -200,6 +202,18 @@ async function endWalkthrough(destination='workshop'){
  if(destination==='workshop')await openWorkshop({resumePaused:session.returnPaused});else $('#main-menu-toggle').focus();
 }
 function applyPreferences(value){preferences=value;gameAudio.volume=value.volume;renderer.zoom=value.zoom;}
+// The portfolio house, built by tools/build_hearth_studio.mjs (assets/houses/hearth-studio).
+const DEFAULT_HOUSE=new URL('../assets/houses/hearth-studio/house.json',import.meta.url);
+async function defaultHouse(){const r=await fetch(DEFAULT_HOUSE);if(!r.ok)throw Error('Default house unavailable');return r.json();}
+// An older save whose house has no 3D structure can move into the portfolio house
+// from the fallback menu. The current house is kept in the House Library first and
+// the previous save is passed to gameSaves.replace like a Workshop move.
+async function moveIntoDefaultHouse(){if(arriving||volumeHome)return;
+ try{const plan=await defaultHouse();await new IndexedHouseLibrary(RESIDENCE.bounds,world.properties).save(captureHouse(world,sim.state,RESIDENCE.bounds));
+  const state=prepareHouseState(sim,plan,RESIDENCE.bounds,renderer.atlas,{preserveStock:preservesResidentStock(sim.state,plan)});await gameSaves.replace(SAVE,JSON.stringify(state),sim.serialize());
+  sim=new Simulation(world,state,character.data);sim.paused=true;window.pz.sim=sim;renderer.visibility.reset?.();toast('Welcome to Hearth Studio · your previous house is in the House Library');}
+ catch(e){toast('Could not move in: '+e.message);console.error(e);return;}
+ await startGame();}
 async function startGame(){if(arriving||volumeHome)return;
  if(sim.state.housePlan?.sceneDocument?.walls?.length){
   arriving=true;sim.paused=true;keys.clear();
@@ -221,7 +235,9 @@ async function start(){
  const responses=await Promise.all(['private-assets/world/manifest.json','private-assets/world/properties.json','private-assets/atlas.json','private-assets/items.json','private-assets/trees/manifest.json','private-assets/comics.json','private-assets/recipes.json'].map(async url=>{const r=await fetch(url);if(!r.ok)throw new Error('Local assets have not been imported.Follow README run the asset, Map, character and item import scripts.');return r.json();}));
  const[manifest,props,atlas,catalog,trees,comics,recipeCatalog]=responses;installOriginalAssets(props,atlas);setComicCatalog(comics);manifest.treeAdapter=trees;manifest.playableBounds=RESIDENCE.bounds;manifest.spawn=RESIDENCE.spawn;manifest.fixtures=RESIDENCE.fixtures;setItemCatalog(catalog);itemCatalog=catalog;loadCraftingCatalog(recipeCatalog);loadBuildingCatalog(recipeCatalog);world=new World(manifest,props);
  let state=newState(manifest.spawn);const saved=await gameSaves.load(SAVE);if(saved){try{state=parseSave(saved,{bounds:RESIDENCE.bounds});}catch(e){toast(`Previous save was not loaded: ${e.message}`);}}
- if(!saved)state=prepareHouseState(new Simulation(world,state),showcaseHouse,RESIDENCE.bounds,atlas);
+ // New visitors move straight into the portfolio house (Hearth Studio, 3D). The 2D
+ // Glasshouse remains the fallback if its file cannot be read.
+ if(!saved){let plan=showcaseHouse;try{plan=await defaultHouse();}catch(e){console.warn('Default house unavailable; using the Glasshouse',e);}state=prepareHouseState(new Simulation(world,state),plan,RESIDENCE.bounds,atlas);}
  gameAudio=new GameAudio();await gameAudio.load(new URL('../private-assets/reading-audio/',import.meta.url));
  document.addEventListener('pointerdown',()=>gameAudio.unlock());document.addEventListener('keydown',()=>gameAudio.unlock());
  sim=new Simulation(world,state);character=new CharacterRenderer();$('#load-status').textContent='Loading character skeletons, clothing and map cells…';
@@ -257,7 +273,7 @@ async function start(){
  $('#pause').onclick=pause;$('#close-panel').onclick=()=>setPanel(panel);document.querySelectorAll('[data-panel]').forEach(b=>b.onclick=()=>setPanel(b.dataset.panel));
  $('#import-save').onchange=async e=>{if(walkthrough){e.target.value='';toast('Return from walkthrough before importing a save');return;}const f=e.target.files[0];if(!f)return;try{if(f.size>10e6)throw new Error('Save file is too large');const imported=parseSave(await f.text(),{bounds:RESIDENCE.bounds});buildMode=null;renderer.buildPreview=null;sim.paused=true;await world.around(imported.player.x,imported.player.y);sim=new Simulation(world,imported,character.data);animationTrace=[];animationSignature='';sim.paused=true;window.pz.sim=sim;$('#death').hidden=true;save();if(mainMenu?.active){mainMenu.close();mainMenu.open();}toast('Save restored');}catch(err){toast(`Import failed: ${err.message}`);}e.target.value='';};
  $('#restart').onclick=()=>{if(walkthrough){endWalkthrough();return;}sim=new Simulation(world,newState(manifest.spawn),character.data);animationTrace=[];animationSignature='';window.pz.sim=sim;$('#death').hidden=true;world.around(sim.state.player.x,sim.state.player.y).catch(e=>toast(e.message));save();};
- mainMenu=new MainMenu({world,renderer,bounds:RESIDENCE.bounds,getState:()=>sim.state,onStart:startGame,onWorkshop:openWorkshop,onPreferences:applyPreferences,onImportSave:()=>$('#import-save').click()});sim.paused=true;updateUI(performance.now());enablePanelDrag();requestAnimationFrame(frame);
+ mainMenu=new MainMenu({world,renderer,bounds:RESIDENCE.bounds,getState:()=>sim.state,onStart:startGame,onWorkshop:openWorkshop,onMoveIn:()=>livesIn3D()?null:moveIntoDefaultHouse,onPreferences:applyPreferences,onImportSave:()=>$('#import-save').click()});sim.paused=true;updateUI(performance.now());enablePanelDrag();requestAnimationFrame(frame);
  // The site opens inside the house; the title menu is only the fallback for a house
  // without a 3D structure or a 3D home that cannot open.
  if(livesIn3D())await startGame();else mainMenu.open();$('#loading').hidden=true;
